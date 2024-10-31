@@ -80,7 +80,7 @@ export default function Home({
         </div>
         {isConnected ? (
           <h2 className="text-lg text-green-500">
-            You are connected to MongoDB!
+            You are connected to my ass!
           </h2>
         ) : (
           <h2 className="text-lg text-red-500">
