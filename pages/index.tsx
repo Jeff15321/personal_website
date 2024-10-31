@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Inter } from "next/font/google";
 import client from "@/lib/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import { useEffect, useState } from "react";
 
 type ConnectionStatus = {
   isConnected: boolean;
@@ -29,6 +30,12 @@ export const getServerSideProps: GetServerSideProps<
 export default function Home({
   isConnected,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("/api/wrong")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
@@ -80,7 +87,7 @@ export default function Home({
         </div>
         {isConnected ? (
           <h2 className="text-lg text-green-500">
-            You are connected to my ass!
+            {data.length  } ssssssssssssssssssssssssssssssssssssssssssssss
           </h2>
         ) : (
           <h2 className="text-lg text-red-500">
