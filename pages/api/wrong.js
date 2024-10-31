@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     const mongoClient = await clientPromise;
     const db = mongoClient.db('sample_mflix'); // or 'local'
     const collection = db.collection('movies'); // replace with your collection name
-    const data = await collection.find({}).limit(1).toArray();
+    const data = await collection.find({}).limit(10).toArray();
     res.status(200).json(data);
   } catch (error) {
     console.error('Error fetching data:', error);
