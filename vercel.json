@@ -2,8 +2,8 @@
   "builds": [
     { "src": "next.config.js", "use": "@vercel/next" },
     { "src": "package.json", "use": "@vercel/next" },
-    { "src": "tsconfig.json", "use": "@vercel/next" }
-
+    { "src": "tsconfig.json", "use": "@vercel/next" },
+    { "src": "src/**/*", "use": "@vercel/next" }
   ]
   }
   
