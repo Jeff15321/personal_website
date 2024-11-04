@@ -1,15 +1,9 @@
 {
-    "version": 2,
     "builds": [
       {
-        "src": "src/pages/**/*",
+        "src": "src/**/*",
         "use": "@vercel/next"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/src/pages/$1"
-      }
     ]
+    
   }
