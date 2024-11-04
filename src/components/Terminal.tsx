@@ -1,12 +1,12 @@
 import React, { useRef,useEffect, useState } from "react";
-import { validateInput, scrollToBottom } from "../utils/terminal_utils";
+import {  validateInput, scrollToBottom, formatOutput } from "../utils/terminal_utils";
 
 const Terminal: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   
   const [input, setInput] = useState("");
-  const [history, setHistory] = useState<[string, boolean][]>([]);
+  const [history, setHistory] = useState<[React.ReactNode, boolean][]>([]);
   const [historyInput, setHistoryInput] = useState<string[]>([]);
 
   const [historyInputCounter, setHistoryInputCounter] = useState(0);
@@ -19,10 +19,10 @@ const Terminal: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmedInput = input.trim();
-    const output = validateInput(trimmedInput);
+    const output = validateInput(trimmedInput, setInput);
 
     //updated history
-    setHistory((prev) => [...prev, [trimmedInput, false]]);
+    setHistory((prev) => [...prev, [<span>{trimmedInput}</span>, false]]);
     setHistory((prev) => [...prev, [output, true]]);
     setHistoryInput((prev) => [...prev, trimmedInput]);
 
@@ -59,7 +59,6 @@ const Terminal: React.FC = () => {
 
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    console.log("===============", historyInput);
     if (e.key === "ArrowUp") {
       e.preventDefault();
       setHistoryInputCounter(prev => {
@@ -89,18 +88,20 @@ const Terminal: React.FC = () => {
       });
     }
   };
+
   return (
     <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg w-full max-w-3xl text-wrap">
       <div ref={terminalRef} className="h-64 overflow-y-auto mb-4">
+        <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do!", "help", setInput)}</div>
         {history.map((cmd, index) => (
           <div key={index} className="py-1">
-            {cmd[1] ? null : <span className="text-green-400">user@terminal: </span>}
+            {cmd[1] ? null : <span className="text-green-400">JeffLu@portfolio: </span>}
             {cmd[0]}
           </div>
         ))}
         <div className="py-1">
             <form onSubmit={handleSubmit} className="flex">
-                <span className="text-green-400">user@terminal:</span>
+                <span className="text-green-400">JeffLu@portfolio: </span>
                 <input
                   ref={inputRef}
                   type="text"
