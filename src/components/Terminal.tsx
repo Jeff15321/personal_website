@@ -1,17 +1,20 @@
 import React, { useRef,useEffect, useState } from "react";
 import { validateInput, scrollToBottom, formatOutput, tab } from "../utils/terminal_utils";
-import { tab_counter } from "../utils/terminal_utils";
+import { useTabCounter } from "../contexts/TabCounterContext";
+import { useTabInput } from "../contexts/TabInputContext";
 
 const Terminal: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   
+  const { tabCounter, incrementTabCounter, resetTabCounter } = useTabCounter();
+  const { tabInput, setTabInput } = useTabInput();
+
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<[React.ReactNode, boolean][]>([]);
   const [historyInput, setHistoryInput] = useState<string[]>([]);
-
   const [historyInputCounter, setHistoryInputCounter] = useState(0);
-
+  const [first_tab_checker, setFirstTabChecker] = useState(true);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -52,7 +55,7 @@ const Terminal: React.FC = () => {
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [historyInputCounter]);
+  }, [historyInputCounter, input]);
 
   useEffect(() => {
     scrollToBottom(terminalRef);
@@ -60,6 +63,9 @@ const Terminal: React.FC = () => {
 
 
   const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key !== "Tab") {
+      setFirstTabChecker(true);
+    }
     if (e.key === "ArrowUp") {
       e.preventDefault();
       setHistoryInputCounter(prev => {
@@ -89,7 +95,14 @@ const Terminal: React.FC = () => {
       });
     } else if (e.key === "Tab") {
       e.preventDefault();
-      setInput(tab(input, tab_counter));
+      if (first_tab_checker) {
+        setTabInput(input);
+        //pass input because tabInput is not updated yet
+        setInput(tab(input, tabCounter, incrementTabCounter, resetTabCounter));
+        setFirstTabChecker(false);
+      } else {
+        setInput(tab(tabInput, tabCounter, incrementTabCounter, resetTabCounter));
+      }
     }
   };
 
@@ -116,7 +129,7 @@ const Terminal: React.FC = () => {
                 <span className="cursor"></span>
             </form>
         </div>
-      </div> 
+      </div>
     </div>
   );
 };
