@@ -1,6 +1,6 @@
 "use server";
 
-import client from "@/lib/mongodb";
+import client from "../server/db/mongodb";
 
 export async function testDatabaseConnection() {
   let isConnected = false;
