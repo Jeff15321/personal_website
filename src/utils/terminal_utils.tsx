@@ -1,5 +1,8 @@
 import React, { useRef,useEffect, useState } from "react";
 
+export const commands: string[] = ["help", "about-me", "experience", "project", "hobby"];
+export const tab_counter: number = 0;
+
 export const validateInput = (input: string, setInput: any): React.ReactNode => {
     input = input.trim();
     if (input === "") {
@@ -35,6 +38,19 @@ export const scrollToBottom = (terminalRef: React.RefObject<HTMLDivElement>): vo
 export const fillInput = (input: string): React.ReactNode => {
   return <span>{input}</span>;
 };
+
+export const tab = (input: string, tab_counter: number): string => {
+  const parts = input.split(" ");
+  const lastWord = parts[parts.length - 1];
+  const potential = commands.filter((element) => element.startsWith(lastWord));
+  if (tab_counter >= potential.length) {
+    tab_counter = 0;
+  }
+  if (potential) {
+    return parts.join(" ") + " " + potential[tab_counter];
+  }
+  return "Error: no matching command found";
+}
 
 export const formatOutput = (output: string, keyword: string, setInput: any) => {
   const parts = output.split(keyword);

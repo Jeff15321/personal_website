@@ -1,5 +1,6 @@
 import React, { useRef,useEffect, useState } from "react";
-import { validateInput, scrollToBottom, formatOutput } from "../utils/terminal_utils";
+import { validateInput, scrollToBottom, formatOutput, tab } from "../utils/terminal_utils";
+import { tab_counter } from "../utils/terminal_utils";
 
 const Terminal: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -86,6 +87,9 @@ const Terminal: React.FC = () => {
         setInput(nextCommand || "");
         return newPrev;
       });
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      setInput(tab(input, tab_counter));
     }
   };
 
