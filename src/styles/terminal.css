@@ -1,0 +1,36 @@
+.terminal {
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff; /* White text */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  width: 100%; /* Full width within parent */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust inner text container */
+.terminal > div {
+  flex: 1; /* Takes up remaining space */
+  overflow-y: auto;
+  /* margin-bottom: 16px; */
+}
+
+/* Form styling */
+.terminal form {
+  display: flex;
+  align-items: center;
+}
+
+.terminal input {
+  flex: 1; /* Full width input within flex container */
+  background: transparent;
+  border: none;
+  color: white;
+  margin-left: 8px;
+  outline: none;
+}
+
+
+
