@@ -3,7 +3,14 @@ import { validateInput, scrollToBottom, formatOutput, tab } from "../utils/termi
 import { useTabCounter } from "../contexts/TabCounterContext";
 import { useTabInput } from "../contexts/TabInputContext";
 
-const Terminal: React.FC = () => {
+interface TerminalProps {
+  height: number;
+  width: number;
+  bottom_align: number;
+  left_align: number;
+}
+
+const Terminal: React.FC<TerminalProps> = ({ height, width, bottom_align, left_align }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   
@@ -107,7 +114,9 @@ const Terminal: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg w-full max-w-3xl text-wrap">
+    <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg w-full max-w-3xl text-wrap absolute terminal"
+      style={{bottom: `${bottom_align}%`, left: `${left_align}%`}}
+    >
       <div ref={terminalRef} className="h-64 overflow-y-auto mb-4">
         <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do!", "help", setInput)}</div>
         {history.map((cmd, index) => (

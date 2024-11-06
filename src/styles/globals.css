@@ -30,3 +30,14 @@ body {
   word-wrap: break-word;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.terminal {
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
