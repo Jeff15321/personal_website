@@ -112,9 +112,9 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   };
 
   return (
-    <div className="parent-container" style={{height: `${height}%`, width: `${width}%`}}>
-      <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg w-full max-w-3xl text-wrap absolute terminal">
-        <div ref={terminalRef} className="h-64 overflow-y-auto mb-4">
+    <div ref={terminalRef} className="parent-container" style={{height: `${height}%`, width: `${width}%`}}>
+      <div className="text-wrap terminal">
+        <div className="">
           <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do!", "help", setInput)}</div>
           {history.map((cmd, index) => (
             <div key={index} className="py-1">
