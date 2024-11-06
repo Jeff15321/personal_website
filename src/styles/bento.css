@@ -4,12 +4,15 @@
     height: 100vh;
     padding: 1em;
     display: flex;
+    overflow: hidden;
     gap: 1em;
 }
 .flex-col{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-height: 100%; /* Prevents the column from expanding */
+    overflow: hidden; /* Prevents child elements from expanding beyond the container */
 }
 
 .col-left {
@@ -28,12 +31,14 @@
     flex-direction: column;
     gap: 1em;
 }
-.row{
+.flex-row{
     display: flex;
     flex: 1;
     border: 2px solid red;
     border-radius: 2em;
     gap: 1em;
+    max-height: 100%; /* Prevents the column from expanding */
+    overflow: hidden; /* Prevents child elements from expanding beyond the container */
 }
 
 

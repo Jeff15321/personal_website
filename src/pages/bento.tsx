@@ -50,8 +50,8 @@ const BentoPage: React.FC = () => {
 
   return (
     <div className='bento-container'>
-        <div className='col-left'>
-            <div className="row row1">
+        <div className='flex-col col-left'>
+            <div className="flex-row row1">
                 <div className="row-col left"></div>
                 <div className="row-col flex-col right">
                     <div className="row-col medium-long"></div>
@@ -59,14 +59,14 @@ const BentoPage: React.FC = () => {
                 </div>
             </div>
 
-            <div className="row row2">
+            <div className="flex-row row2">
                 <div className="row-col small-tall"></div>
                 <div className="row-col medium-long"></div>
             </div>
         </div>
-        <div className='col-right'>
-            <div className="row top"></div>
-            <div className="row bottom"><Terminal height={100} width={100}/></div>
+        <div className='flex-col col-right'>
+            <div className="flex-row top"></div>
+            <div className="flex-row bottom"><Terminal height={100} width={100}/></div>
         </div>
       
     </div>

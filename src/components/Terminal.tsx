@@ -130,7 +130,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
                     type="text"
                     value={input}
                     onChange={handleInputChange}
-                    className="flex-1 bg-gray-900 text-white border-none outline-none ml-2"
+                    className=""
                     />
                   <span className="cursor"></span>
               </form>
