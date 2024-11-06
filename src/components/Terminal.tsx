@@ -6,11 +6,9 @@ import { useTabInput } from "../contexts/TabInputContext";
 interface TerminalProps {
   height: number;
   width: number;
-  bottom_align: number;
-  left_align: number;
 }
 
-const Terminal: React.FC<TerminalProps> = ({ height, width, bottom_align, left_align }) => {
+const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   
@@ -114,29 +112,29 @@ const Terminal: React.FC<TerminalProps> = ({ height, width, bottom_align, left_a
   };
 
   return (
-    <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg w-full max-w-3xl text-wrap absolute terminal"
-      style={{bottom: `${bottom_align}%`, left: `${left_align}%`}}
-    >
-      <div ref={terminalRef} className="h-64 overflow-y-auto mb-4">
-        <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do!", "help", setInput)}</div>
-        {history.map((cmd, index) => (
-          <div key={index} className="py-1">
-            {cmd[1] ? null : <span className="text-green-400">JeffLu@portfolio: </span>}
-            {cmd[0]}
+    <div className="parent-container" style={{height: `${height}%`, width: `${width}%`}}>
+      <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg w-full max-w-3xl text-wrap absolute terminal">
+        <div ref={terminalRef} className="h-64 overflow-y-auto mb-4">
+          <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do!", "help", setInput)}</div>
+          {history.map((cmd, index) => (
+            <div key={index} className="py-1">
+              {cmd[1] ? null : <span className="text-green-400">JeffLu@portfolio: </span>}
+              {cmd[0]}
+            </div>
+          ))}
+          <div className="py-1">
+              <form onSubmit={handleSubmit} className="flex">
+                  <span className="text-green-400">JeffLu@portfolio: </span>
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={input}
+                    onChange={handleInputChange}
+                    className="flex-1 bg-gray-900 text-white border-none outline-none ml-2"
+                    />
+                  <span className="cursor"></span>
+              </form>
           </div>
-        ))}
-        <div className="py-1">
-            <form onSubmit={handleSubmit} className="flex">
-                <span className="text-green-400">JeffLu@portfolio: </span>
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={handleInputChange}
-                  className="flex-1 bg-gray-900 text-white border-none outline-none ml-2"
-                  />
-                <span className="cursor"></span>
-            </form>
         </div>
       </div>
     </div>

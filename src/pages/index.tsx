@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6">
       <div style={{position: "relative", width: "100%", height: "90vh"}}>
-        <Terminal height={700} width={1200} bottom_align={20} left_align={50}/>
+        <Terminal height={50} width={70}/>
         <PhotoPopUp height={500} width={500} photo_path={Image.src} bottom_align={10} left_align={60} />
       </div>
 
