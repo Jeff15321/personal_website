@@ -24,10 +24,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLDivElement>) => {
     //update input value
     setInput(e.target.innerText);
-    console.log(e.target.innerText);
   }
-
-
 
   const handleSubmit = () => {
 
@@ -35,7 +32,6 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     if (inputElement) {
       inputElement.innerText = "";
     }
-    console.log(inputElement?.innerText);
 
     const trimmedInput = input.trim();
     const output = validateInput(trimmedInput, setInput);
@@ -69,7 +65,31 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   useEffect(() => {
     const inputElement = document.getElementById("terminal-input");
     if (inputElement) {
+      // Save current cursor position
+      const selection = window.getSelection();
+      const range = selection?.getRangeAt(0);
+      let cursorPosition = 0;
+
+      if (range && inputElement) {
+        cursorPosition = range.startOffset;
+      }
+
+      // Update the input text
       inputElement.innerText = input;
+
+      // Restore cursor position after text update
+      setTimeout(() => {
+        if (inputElement && inputElement.firstChild) {
+          const textNode = inputElement.firstChild;
+          const range = document.createRange();
+          range.setStart(textNode, cursorPosition);
+          range.setEnd(textNode, cursorPosition);
+
+          const selection = window.getSelection();
+          selection?.removeAllRanges();
+          selection?.addRange(range);
+        }
+      }, 0);
     }
   }, [input]);
 
@@ -83,13 +103,34 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
 
     //updates listener and recalls handleKeyDown whenever input changes
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [historyInputCounter, input]);
 
-  useEffect(() => {
     scrollToBottom(terminalRef);
-  }, [history]); 
+    return () => window.removeEventListener("keydown", handleKeyDown);
+    
+  }, [history, input]);
 
+  //TODO: move cursor doesn't work, also, if user presses tab then presses right arrow key, undefine is returned, fix it
+  const moveCursorToEnd = () => {
+    const inputElement = document.getElementById("terminal-input");
+    if (inputElement) {
+      // Set the content only if it hasn't been updated already
+      inputElement.innerText = input;
+  
+      // Use setTimeout to give the browser a moment to update the content
+      setTimeout(() => {
+        const selection = window.getSelection();
+        const range = document.createRange();
+  
+        // Select the entire content of the input element
+        range.selectNodeContents(inputElement);
+        range.collapse(false);  // Collapse the range to the end (i.e., cursor at the end)
+  
+        // Remove any previous selection and add the new range
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+      }, 0);
+    }
+  };
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key !== "Tab") {
@@ -135,6 +176,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       }
     } else if (e.key === "Enter") {
       handleSubmit();
+      moveCursorToEnd();
     }
   };
 

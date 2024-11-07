@@ -43,11 +43,9 @@ export const tab = (input: string, tabCounter: number, incrementTabCounter: () =
   const lastWord = parts[parts.length - 1];
   const potential = commands.filter((element) => element.startsWith(lastWord));
   const current_tab_counter = tabCounter;
-  console.log(current_tab_counter);
 
   //tab_counter is responsible for cycling through the potential commands
   incrementTabCounter();
-  console.log(potential);
   if (current_tab_counter >= potential.length - 1) {
     resetTabCounter();
   }
