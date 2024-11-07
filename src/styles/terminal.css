@@ -23,12 +23,9 @@
   align-items: center;
 }
 
-.terminal input {
-  flex: 1; /* Full width input within flex container */
+.terminal span {
   background: transparent;
   border: none;
-  color: white;
-  margin-left: 8px;
   outline: none;
 }
 

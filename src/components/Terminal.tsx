@@ -9,7 +9,7 @@ interface TerminalProps {
 }
 
 const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLDivElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   
   const { tabCounter, incrementTabCounter, resetTabCounter } = useTabCounter();
@@ -20,13 +20,23 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   const [historyInput, setHistoryInput] = useState<string[]>([]);
   const [historyInputCounter, setHistoryInputCounter] = useState(0);
   const [first_tab_checker, setFirstTabChecker] = useState(true);
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLDivElement>) => {
+    //update input value
+    setInput(e.target.innerText);
+    console.log(e.target.innerText);
+  }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+
+  const handleSubmit = () => {
+
+    const inputElement = document.getElementById("terminal-input");
+    if (inputElement) {
+      inputElement.innerText = "";
+    }
+    console.log(inputElement?.innerText);
+
     const trimmedInput = input.trim();
     const output = validateInput(trimmedInput, setInput);
 
@@ -46,8 +56,8 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     setInput(""); // Clear input after submission
   };
 
-  //always focus on terminal input
   useEffect(() => {
+    //always focus on terminal input
     inputRef.current?.focus();
     const interval = setInterval(() => {
         inputRef.current?.focus();
@@ -56,8 +66,22 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const inputElement = document.getElementById("terminal-input");
+    if (inputElement) {
+      inputElement.innerText = input;
+    }
+  }, [input]);
+
   //listen for when key is pressed
   useEffect(() => {
+    //make sure input isn't in the next line
+    const inputElement = document.getElementById("terminal-input");
+    if (inputElement?.innerText.trim() === "") {
+      inputElement.innerText = "";
+    }
+
+    //updates listener and recalls handleKeyDown whenever input changes
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [historyInputCounter, input]);
@@ -71,6 +95,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     if (e.key !== "Tab") {
       setFirstTabChecker(true);
     }
+
     if (e.key === "ArrowUp") {
       e.preventDefault();
       setHistoryInputCounter(prev => {
@@ -108,6 +133,8 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       } else {
         setInput(tab(tabInput, tabCounter, incrementTabCounter, resetTabCounter));
       }
+    } else if (e.key === "Enter") {
+      handleSubmit();
     }
   };
 
@@ -123,17 +150,19 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
             </div>
           ))}
           <div className="py-1">
-              <form onSubmit={handleSubmit} className="flex">
-                  <span className="text-green-400">JeffLu@portfolio: </span>
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={input}
-                    onChange={handleInputChange}
-                    className=""
-                    />
-                  <span className="cursor"></span>
-              </form>
+            <span 
+              className="text-green-400"
+            >
+                JeffLu@portfolio:&nbsp;
+            </span>
+            <span
+              id="terminal-input"
+              ref={inputRef}
+              className="styled-textarea"
+              contentEditable
+              onInput={handleInputChange}
+              suppressContentEditableWarning={true}
+            ></span>
           </div>
         </div>
       </div>
