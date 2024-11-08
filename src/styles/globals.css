@@ -27,7 +27,6 @@ body {
 }
 
 .parent-container {
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,3 +40,19 @@ body {
   flex-wrap: wrap;
 }
 
+.unscrollable {
+  overflow: hidden; /* Disables both horizontal and vertical scrolling */
+}
+
+.background-black {
+  background-color: #1a1a1a;;
+}
+
+
+/* hide scroll bar */
+.hide-scrollbar {
+  scrollbar-width: none;  /* Hide scrollbar in Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Hide scrollbar in webkit browsers (Chrome, Safari, etc.) */
+}

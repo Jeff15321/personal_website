@@ -17,7 +17,6 @@
 
 .col-left {
     flex: 2;
-    border: 2px solid red;
     border-radius: 2em;
     display: flex;
     flex-direction: column;
@@ -25,7 +24,6 @@
 }
 .col-right{
     flex: 1;
-    border: 2px solid red;
     border-radius: 2em;
     display: flex;
     flex-direction: column;
@@ -73,5 +71,5 @@
 }
 
 .next-to-small-tall{
-    flex: 2;
+    flex: 3.5;
 }
