@@ -56,3 +56,4 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;  /* Hide scrollbar in webkit browsers (Chrome, Safari, etc.) */
 }
+

@@ -1,16 +1,25 @@
-.bento-container {
+.bento-container-and-bottom-row {
     background-color: #000;
     width: 70vw;
     height: 100vh;
     padding: 1em;
     display: flex;
-    overflow: hidden;
-    gap: 1em;
+    flex-direction: column;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.bento-container {
+    background-color: #000;
+    padding: 1em;
+    display: flex;
+    overflow: hidden;
+    gap: 1em;
+    flex: 1;
+}
+
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -26,6 +35,7 @@
     flex-direction: column;
     gap: 1em;
 }
+
 .col-right{
     flex: 1;
     border-radius: 2em;
@@ -33,7 +43,9 @@
     flex-direction: column;
     gap: 1em;
 }
+
 .flex-row{
+    border: 2px solid red;
     display: flex;
     flex: 1;
     border-radius: 2em;
@@ -42,36 +54,131 @@
     overflow: hidden; /* Prevents child elements from expanding beyond the container */
 }
 
-
-.row-col{
-    flex: 1;
+.card-border{
+    border: 2px solid red;
     border-radius: 2em;
 }
 
-.top{
-    flex: 2;
+//music
+.top-left{
+    flex: 5;
     display: flex;
     gap: 1em;
 }
 
-.bottom{
+//container of video and award
+.container-of-video-and-award{
+    flex: 2;
+}
+
+//tall picture
+.top-right{
+    /* flex: 2; */
+    flex: 0.5;
+    display: flex;
+    gap: 1em;
+}
+
+//terminal
+.bottom-right{
     flex: 1;
     display: flex;
     gap: 1em;
 }
 
+//video
 .medium-long{
     flex: 3;
 }
 
+//award
 .small-long{
     flex: 1;
 }
 
+//language logo
 .small-tall{
-    flex: 0.5;
+    flex: 1;
 }
 
+//description
 .next-to-small-tall{
-    flex: 3.5;
+    flex: 7;
 }
+
+/* .hide-card {
+    display: none;
+} */
+
+
+/* terminal shrinking animation */
+.remove-gap {
+    gap: 0;
+}
+
+/* bottom and right row and column to center terminal in index */
+.filler-bottom-row {
+    border: 2px solid red;
+    display: flex;
+    flex: 0.3;
+    border-radius: 2em;
+    max-height: 100%;
+}
+.filler-right-col {
+    border: 2px solid red;
+    display: flex;
+    border-radius: 2em;
+    max-width: 100%;
+    flex-direction: column;
+    flex: 2;
+}
+
+/* collapse animation */
+.expand-left-col {
+    animation: expandWidth 3s ease forwards;
+}
+.expand-top-row {
+    animation: expandHeight 3s ease forwards;
+}
+.collapse-bottom-row {
+    animation: shrinkHeight 3s ease forwards;
+}
+.collapse-right-col {
+    animation: shrinkWidth 3s ease forwards;
+}
+
+@keyframes shrinkWidth {
+    from {
+        flex: 1;
+    }
+    to {
+        flex: 0;
+    }
+}
+@keyframes shrinkHeight {
+    from {
+        flex: 0.3;
+    }
+    to {
+        flex: 0;
+    }
+}
+@keyframes expandWidth {
+    from {
+      flex: 0.5;
+    }
+    to {
+      flex: 2; /* Final flex value when expanded */
+    }
+  }
+  
+  @keyframes expandHeight {
+    from {
+      flex: 0.5;
+    }
+    to {
+      flex: 2; /* Final flex value when expanded */
+    }
+  }
+
+  
