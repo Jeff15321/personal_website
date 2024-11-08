@@ -27,7 +27,6 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   }
 
   const handleSubmit = () => {
-
     const inputElement = document.getElementById("terminal-input");
     if (inputElement) {
       inputElement.innerText = "";

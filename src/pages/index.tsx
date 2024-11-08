@@ -6,7 +6,6 @@ export default function Home() {
       <div style={{position: "relative", width: "100%", height: "90vh"}}>
         <Terminal height={50} width={70}/>
       </div>
-
     </main>
   );
 }

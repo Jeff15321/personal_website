@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "../styles/bento.css";
 import "../styles/terminal.css";
 import "../styles/card.css";
+import "../styles/music.css";
 
 import type { AppProps } from "next/app";
 import { TabCounterProvider } from "../contexts/TabCounterContext"; // Adjust the import path if necessary

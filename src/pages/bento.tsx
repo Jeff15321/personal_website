@@ -6,6 +6,7 @@ import PictureCard from '../components/bento_components/picture_card';
 import { useProjects } from '../contexts/Projects';
 import AwardCard from '../components/bento_components/award';
 import LanguageCard from '../components/bento_components/language';
+import Music from '../components/Music';
 
 const BentoPage: React.FC = () => {
   const { projects } = useProjects();
@@ -14,7 +15,9 @@ const BentoPage: React.FC = () => {
     <div className='bento-container'>
         <div className='flex-col col-left'>
             <div className="flex-row row1">
-                <div className="row-col left"></div>
+                <div className="row-col left">
+                  <Music height={100} width={100} image={projects["Anti_Tetris"].images["thumbnail"][0]}/>
+                </div>
                 <div className="row-col flex-col right">
                     <div className="row-col medium-long">
                       <PictureCard height={100} width={100} image={projects["Anti_Tetris"].images["image2"][0]} zoom={projects["Anti_Tetris"].images["image2"][1]}/>

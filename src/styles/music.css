@@ -1,0 +1,38 @@
+.music-container {
+    display: flex;
+    flex-direction: column; /* Stack image and buttons vertically */
+    justify-content: center; /* Center everything vertically */
+    align-items: center; /* Center everything horizontally */
+    height: 100%;
+}
+
+.music-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    height: 65%;
+    margin-top: 0.3rem; /* Adjust space between image and buttons */
+}
+
+.music-button-container {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.1rem;
+    margin-top: 0.6rem;
+    gap: 1.5rem; /* Add space between the buttons */
+    height: 20%; /* Allow the container to adjust height based on content */
+}
+
+.music-button-container img {
+    height: 4vw;
+    width: 4vw;
+}
+
+/* change button color */
+.button-orange > img {
+    filter: invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%);
+}
+

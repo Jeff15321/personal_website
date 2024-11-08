@@ -24,7 +24,7 @@ export const validateInput = (input: string, setInput: any): React.ReactNode => 
           ))}
         </div>
       );
-    };
+    }
     return <span>{input + ": command not found"}</span>;
 };
 
@@ -77,5 +77,21 @@ export const formatOutput = (output: string, keyword: string, setInput: any) => 
         </span>
       ))}
     </div>
-);
+  );
+};
+
+
+export const previousMusic = () => {
+  alert("previous music");
+  return true;
+};
+
+export const nextMusic = () => {
+  alert("next music");
+  return true;
+};
+
+export const playMusic = () => {
+  alert("play music");
+  return true;
 };

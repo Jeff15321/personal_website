@@ -48,6 +48,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         Github: "https://github.com/enxilium/cyberattacker_tetris",
       },
       images: {
+        thumbnail: ["project1/hackthehill.png", 0],
         image1: ["project1/timetablesweetie_popup.jpg", 20],
         image2: ["project1/timetablesweetie_video.mp4", 25]
       }

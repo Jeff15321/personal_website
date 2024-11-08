@@ -6,6 +6,10 @@
     display: flex;
     overflow: hidden;
     gap: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .flex-col{
     display: flex;
@@ -32,7 +36,6 @@
 .flex-row{
     display: flex;
     flex: 1;
-    border: 2px solid red;
     border-radius: 2em;
     gap: 1em;
     max-height: 100%; /* Prevents the column from expanding */
@@ -42,7 +45,6 @@
 
 .row-col{
     flex: 1;
-    border: 2px solid red;
     border-radius: 2em;
 }
 
