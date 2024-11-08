@@ -33,7 +33,7 @@ body {
   width: 100%;
   height: 100%; /* Full viewport height */
   position: relative;
-  background-color: #f0f0f0; /* Light background for visibility */
+  background-color: #000000; /* Light background for visibility */
   border-radius: 2em;
   max-height: 100%; /* Restrict height to parent's height */
   overflow-y: auto; /* Adds a scrollbar when content overflows vertically */
