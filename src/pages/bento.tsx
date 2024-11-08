@@ -16,30 +16,30 @@ const BentoPage: React.FC = () => {
         <div className='flex-col col-left'>
             <div className="flex-row row1">
                 <div className="row-col left">
-                  <Music height={100} width={100} image={projects["Anti_Tetris"].images["thumbnail"][0]}/>
+                  <Music height={100} width={100} image={projects["Time_Table_Sweetie"].images["thumbnail"][0]}/>
                 </div>
                 <div className="row-col flex-col right">
                     <div className="row-col medium-long">
-                      <PictureCard height={100} width={100} image={projects["Anti_Tetris"].images["image2"][0]} zoom={projects["Anti_Tetris"].images["image2"][1]}/>
+                      <PictureCard height={100} width={100} image={projects["Time_Table_Sweetie"].images["image2"][0]} zoom={projects["Time_Table_Sweetie"].images["image2"][1]}/>
                     </div>
                     <div className="row-col small-long">
-                      <AwardCard height={100} width={100} award={projects["Anti_Tetris"].award}/>
+                      <AwardCard height={100} width={100} award={projects["Time_Table_Sweetie"].award}/>
                     </div>
                 </div>
             </div>
 
             <div className="flex-row row2">
                 <div className="row-col small-tall">
-                  <LanguageCard height={100} width={100} language={projects["Anti_Tetris"].languages}/>
+                  <LanguageCard height={100} width={100} language={projects["Time_Table_Sweetie"].languages}/>
                 </div>
                 <div className="row-col next-to-small-tall">
-                  <DescriptionCard height={100} width={100} description={projects["Anti_Tetris"].description}/>
+                  <DescriptionCard height={100} width={100} description={projects["Time_Table_Sweetie"].description} name={projects["Time_Table_Sweetie"].name}/>
                 </div>
             </div>
         </div>
         <div className='flex-col col-right'>
             <div className="flex-row top">
-              <PictureCard height={100} width={100} image={projects["Anti_Tetris"].images["image1"][0]} zoom={projects["Anti_Tetris"].images["image1"][1]}/> 
+              <PictureCard height={100} width={100} image={projects["Time_Table_Sweetie"].images["image1"][0]} zoom={projects["Time_Table_Sweetie"].images["image1"][1]}/> 
             </div>
             <div className="flex-row bottom">
               <Terminal height={100} width={100}/>

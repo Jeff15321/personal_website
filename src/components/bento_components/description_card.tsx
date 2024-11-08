@@ -5,9 +5,10 @@ interface DescriptionCardProps {
     height: number;
     width: number;
     description: string;
+    name: string;
 }
 
-const DescriptionCard: React.FC<DescriptionCardProps> = ({height, width, description}) => { 
+const DescriptionCard: React.FC<DescriptionCardProps> = ({height, width, description, name}) => { 
     const formattedDescription = description.split("\n").map((line, index) => (
         <React.Fragment key={index}>
           {line}<br></br>
@@ -19,7 +20,7 @@ const DescriptionCard: React.FC<DescriptionCardProps> = ({height, width, descrip
         <div className="parent-container background-black hide-scrollbar" style={{height: `${height}%`, width: `${width}%`}}>
             <div className="description-container">
                 <div className="description-title">
-                    This is a title
+                    {name.split("_").join(" ")}
                 </div>
                 <div className="description-content">
                     {formattedDescription}

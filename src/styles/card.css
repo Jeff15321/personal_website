@@ -103,9 +103,15 @@
 }
 
 .description-title {
-    font-size: 1.8rem; /* Larger font size for the title */
-    color: #D3D3D3; /* Dark color for the title */
-    margin-bottom: 10px; /* Space below the title */
+    font-size: 2em; /* Even larger font size for the title */
+    color: #E0E0E0; /* Lighter color for the title for better contrast */
+    margin-bottom: 0.1em; /* More space below the title for better spacing */
+    text-shadow: 3px 3px 5px #000000; /* More pronounced shadow for a cooler effect */
+    letter-spacing: 0.1em; /* More pronounced letter spacing for a fancier look */
+    font-weight: bold; /* Bold font for added emphasis */
+    text-transform: uppercase; /* Uppercase for a more dramatic look */
+    text-align: left; /* Center the text for better alignment */
+    padding: 2px 0; /* Add padding above and below the title for more space */
 }
 
 .description-content {

@@ -39,8 +39,8 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       images: { [key: string]: [string, number] };
     };
   }>({
-    Anti_Tetris: {
-      name: "Anti_Tetris",
+    Time_Table_Sweetie: {
+      name: "Time_Table_Sweetie",
       description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
       languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
       award: ["logo/firstplace.png", "First Place", "award-gold"],
