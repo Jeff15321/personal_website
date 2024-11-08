@@ -23,7 +23,7 @@ const BentoPage: React.FC = () => {
     <div className='bento-container-and-bottom-row'>
         <div className='bento-container remove-gap'>
             <div className={`flex-col col-left hide-card ${isExpanded ? 'expand-left-col' : ''}`}>
-                <div className="flex-row row1">
+                <div className="flex-row">
                     <div className="card-border top-left hide-card">
                         <Music height={100} width={100} image={projects["Time_Table_Sweetie"].images["thumbnail"][0]}/>
                     </div>
@@ -37,14 +37,14 @@ const BentoPage: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex-row row2 hide-card">
+                <div className="flex-row hide-card">
                     <div className="card-border small-tall hide-card">
-                    <LanguageCard height={100} width={100} language={projects["Time_Table_Sweetie"].languages}/>
+                        <LanguageCard height={100} width={100} language={projects["Time_Table_Sweetie"].languages}/>
                     </div>
                     <div className="card-border next-to-small-tall hide-card">
-                    <DescriptionCard height={100} width={100} description={projects["Time_Table_Sweetie"].description} name={projects["Time_Table_Sweetie"].name}/>
+                        <DescriptionCard height={100} width={100} description={projects["Time_Table_Sweetie"].description} name={projects["Time_Table_Sweetie"].name}/>
                     </div>
-                    </div>
+                </div>
                 </div>
                 <div className='flex-col col-right remove-gap'>
                     <div className={`flex-row top-right hide-card ${isExpanded ? 'expand-top-row' : ''}`}>

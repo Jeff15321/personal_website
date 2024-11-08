@@ -28,11 +28,19 @@
     overflow: hidden; /* Prevents child elements from expanding beyond the container */
 }
 
+.flex-row{
+    border: 2px solid red;
+    display: flex;
+    flex: 1;
+    border-radius: 2em;
+    gap: 1em;
+    overflow: hidden; /* Prevents child elements from expanding beyond the container */
+}
+
 .col-left {
     flex: 2;
     border-radius: 2em;
     display: flex;
-    flex-direction: column;
     gap: 1em;
 }
 
@@ -44,16 +52,6 @@
     gap: 1em;
 }
 
-.flex-row{
-    border: 2px solid red;
-    display: flex;
-    flex: 1;
-    border-radius: 2em;
-    gap: 1em;
-    max-height: 100%; /* Prevents the column from expanding */
-    overflow: hidden; /* Prevents child elements from expanding beyond the container */
-}
-
 .card-border{
     border: 2px solid red;
     border-radius: 2em;
@@ -61,7 +59,7 @@
 
 //music
 .top-left{
-    flex: 5;
+    flex: 3;
     display: flex;
     gap: 1em;
 }
@@ -69,6 +67,9 @@
 //container of video and award
 .container-of-video-and-award{
     flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 //tall picture
@@ -181,4 +182,3 @@
     }
   }
 
-  
