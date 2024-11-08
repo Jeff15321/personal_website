@@ -1,16 +1,29 @@
-.bento-container {
-    background-color: #000;
+.bento-container-wrapper{
     width: 70vw;
     height: 100vh;
-    padding: 1em;
     display: flex;
-    overflow: hidden;
-    gap: 1em;
+    flex-direction: column;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.bento-container {
+    background-color: #000;
+    display: flex;
+    overflow: hidden;
+    gap: 1em;
+    flex: 1;
+}
+
+.card-container{
+    border-radius: 2em;
+    overflow: hidden;
+    max-height: 100%;
+    border: 2px solid red;
+}
+
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -19,8 +32,15 @@
     overflow: hidden; /* Prevents child elements from expanding beyond the container */
 }
 
+.flex-row{
+    display: flex;
+    border-radius: 2em;
+    gap: 1em;
+    max-height: 100%; /* Prevents the column from expanding */
+    overflow: hidden; /* Prevents child elements from expanding beyond the container */
+}
+
 .col-left {
-    flex: 2;
     border-radius: 2em;
     display: flex;
     flex-direction: column;
@@ -33,45 +53,122 @@
     flex-direction: column;
     gap: 1em;
 }
-.flex-row{
-    display: flex;
+
+/* bento hierarchy */
+.h-column-left-1{
+    /* flex: 2; */
+    flex: 0.2;
+}
+
+.h-column-right-1{
     flex: 1;
-    border-radius: 2em;
-    gap: 1em;
-    max-height: 100%; /* Prevents the column from expanding */
-    overflow: hidden; /* Prevents child elements from expanding beyond the container */
 }
 
-
-.row-col{
+.h-top-row-2{
     flex: 1;
-    border-radius: 2em;
 }
 
-.top{
-    flex: 2;
-    display: flex;
-    gap: 1em;
-}
-
-.bottom{
+.h-bottom-row-2{
     flex: 1;
-    display: flex;
-    gap: 1em;
 }
 
-.medium-long{
+.h-music-column-3{
+    flex: 1;
+}
+
+.h-container-of-video-and-award-3{
+    flex: 1;
+}
+
+.h-award-4{
+    flex: 1;
+}
+
+.h-video-4{
     flex: 3;
 }
 
-.small-long{
+.h-language-column-4{
     flex: 1;
 }
 
-.small-tall{
+.h-description-column-4{
+    flex: 7;
+}
+
+.h-picture-row-3{
+    /* flex: 2; */
     flex: 0.5;
 }
 
-.next-to-small-tall{
-    flex: 3.5;
+.h-terminal-row-3{
+    flex: 1;
 }
+
+
+/* bottom and right row and column to center terminal in index */
+.filler-bottom-row {
+    border: 2px solid red;
+    display: flex;
+    border-radius: 2em;
+    max-height: 100%;
+    flex: 0.25;
+}
+.filler-right-col {
+    border: 2px solid red;
+    display: flex;
+    border-radius: 2em;
+    max-width: 100%;
+    flex-direction: column;
+    flex: 0.2;
+}
+
+/* collapse animation */
+.expand-left-col {
+    animation: expandWidth 1s ease forwards;
+}
+.expand-top-row {
+    animation: expandHeight 1s ease forwards;
+}
+.collapse-bottom-row {
+    animation: shrinkHeight 1s ease forwards;
+}
+.collapse-right-col {
+    animation: shrinkWidth 1s ease forwards;
+}
+
+@keyframes shrinkWidth {
+    from {
+        flex: 0.2;
+    }
+    to {
+        flex: 0;
+    }
+}
+@keyframes shrinkHeight {
+    from {
+        flex: 0.25;
+    }
+    to {
+        flex: 0;
+    }
+}
+@keyframes expandWidth {
+    from {
+      flex: 0.2;
+    }
+    to {
+      flex: 2; /* Final flex value when expanded */
+    }
+  }
+  
+  @keyframes expandHeight {
+    from {
+      flex: 0.5;
+    }
+    to {
+      flex: 2; /* Final flex value when expanded */
+    }
+  }
+
+
