@@ -38,18 +38,18 @@ const ANIMATION_STATES: AnimationStates = {
     //left column
     "h-column-left-1": "expand-left-col",
         //top row on left column
-        "h-top-row-2": "default",
-            "h-music-column-3": "default",
-            "h-container-of-video-and-award-3": "default",
-                "h-award-4": "default",
-                "h-video-4": "default",
+        "h-top-row-2": "overflow-visible",
+            "h-music-column-3": "show-card-fourth",
+            "h-container-of-video-and-award-3": "overflow-visible",
+                "h-award-4": "show-card-first",
+                "h-video-4": "show-card-third",
     //bottom row on left column
         "h-bottom-row-2": "default",
-            "h-language-column-3": "default",
-            "h-description-column-3": "default",
+            "h-language-column-3": "show-card-second",
+            "h-description-column-3": "show-card-third",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row",
+        "h-picture-row-2": "expand-top-row show-card-second-fix-flex",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -87,7 +87,23 @@ const BentoPage: React.FC = () => {
   useEffect(() => {
     // Update current state based on animation
     setCurrentState(ANIMATION_STATES[animation] || ANIMATION_STATES.default);
-    console.log(getClassName('card-container filler-right-col', 'h-filler-right-col'));
+    
+    if (animation === 'TimeTable Sweetie') {   
+      setTimeout(() => {
+        const cardContainer = document.querySelector('.card-container');
+        if (cardContainer) {
+            cardContainer.classList.add('overflow-visible');
+        }
+      }, 1000);
+      setTimeout(() => {
+        const cardContainers = document.querySelectorAll('.show-card-second, .show-card-second-fix-flex, .show-card-third, .show-card-fourth');
+        if (cardContainers) {
+            cardContainers.forEach((element) => {
+                element.classList.add('visible');
+            });
+        }
+      }, 2000);
+    }
   }, [animation]);
 
   return (
@@ -140,7 +156,7 @@ const BentoPage: React.FC = () => {
           </div>
         </div>
 
-        <div className={getClassName('card-container flex-col col-right h-column-right-1', 'h-column-right-1')}>
+        <div className={getClassName('card-container flex-col h-column-right-1', 'h-column-right-1')}>
           <div className={getClassName('card-container flex-row h-picture-row-2', 'h-picture-row-2')}>
             <PictureCard 
               height={100} 

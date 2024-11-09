@@ -19,16 +19,18 @@
 
 .card-container{
     border-radius: 2em;
-    overflow: hidden;
     max-height: 100%;
-    border: 2px solid red;
-    display: none;
+    max-width: 100%;
+    /* border: 2px solid red; */
+    visibility: hidden;
+    position: relative;
 }
 
 .flex-col{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    max-width: 100%;
     max-height: 100%; /* Prevents the column from expanding */
     overflow: hidden; /* Prevents child elements from expanding beyond the container */
 }
@@ -37,22 +39,9 @@
     display: flex;
     border-radius: 2em;
     gap: 1em;
+    max-width: 100%;
     max-height: 100%; /* Prevents the column from expanding */
     overflow: hidden; /* Prevents child elements from expanding beyond the container */
-}
-
-.col-left {
-    border-radius: 2em;
-    display: flex;
-    gap: 1em;
-}
-
-.col-right{
-    flex: 1;
-    border-radius: 2em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
 }
 
 /* bento hierarchy */
@@ -105,8 +94,8 @@
 .h-terminal-row-2{
     flex: 1;
     display: flex;
+    visibility: visible;
 }
-
 
 /* bottom and right row and column to center terminal in index */
 .filler-bottom-row {
@@ -173,13 +162,98 @@
     }
   }
 
-.show-card-first{
-    display: flex;
+.overflow-visible{
+    overflow: visible;
 }
-.show-card-second{
-    display: flex;
+
+@keyframes containOverflow {
+    to {
+        overflow: hidden;
+    }
 }
-.show-card-third{
-    display: flex;
+
+/* Option 2: Keep animations within bounds */
+@keyframes sparkleAndFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-20deg) translate(0, 0);
+        filter: blur(10px);
+    }
+    20% {
+        opacity: 0.4;
+        transform: scale(1.1) rotate(10deg) translate(0, 0); /* Reduced scale from 1.2 */
+        filter: blur(5px);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+    40% {
+        transform: scale(0.95) rotate(-5deg) translate(0, 0);
+        filter: blur(3px);
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(1.05) rotate(5deg) translate(0, 0); /* Reduced scale from 1.1 */
+        filter: blur(2px);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+    80% {
+        transform: scale(0.98) rotate(-2deg) translate(0, 0);
+        filter: blur(1px);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0) translate(0, 0);
+        filter: blur(0);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    }
+}
+
+/* Modify the simpleAppear animation to stay within bounds */
+@keyframes simpleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Reduced from 20px */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.show-card-first {
+    visibility: visible;
+    opacity: 0; /* Start with opacity 0 during the delay */
+    animation: sparkleAndFadeIn 1s ease-out forwards;
+    animation-delay: 1s; /* Added 1 second delay */
+    transform-origin: center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity, filter, box-shadow;
+}
+
+.show-card-second-fix-flex {
+    flex: 2;
+    animation: simpleAppear 0.5s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.show-card-second {
+    animation: simpleAppear 0.5s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.show-card-third {
+    animation: simpleAppear 0.5s ease-out forwards;
+    animation-delay: 3s;
+}
+
+.show-card-fourth {
+    animation: simpleAppear 0.5s ease-out forwards;
+    animation-delay: 4s;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 0;
 }
 
