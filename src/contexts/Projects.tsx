@@ -53,18 +53,19 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project1/timetablesweetie_video.mp4", 25]
       }
     },
-    project2: {
+    PUT: {
       name: "PUT",
       description: "A personal portfolio showcasing my projects and skills.",
-      languages: ["React", "TypeScript", "CSS"],
-      award: ["portfolioLogo.png", "Best UI Design 2024", "award-gold"],
+      languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
+      award: ["logo/firstplace.png", "First Place", "award-gold"],
       links: {
         Github: "https://github.com/jeffrey-z-jiang/portfolio",
         LiveDemo: "https://portfolio.demo"
       },
       images: {
-        thumbnail: ["sidebar.png", 0],
-        image1: ["table.jpg", 2]
+        thumbnail: ["project2/hackthevalley.jpg", 0],
+        image1: ["project2/sidebar.png", 2],
+        image2: ["project2/table.jpg", 5]
       }
     }
   });
