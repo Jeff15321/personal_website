@@ -54,7 +54,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       }
     },
     project2: {
-      name: "Portfolio Website",
+      name: "PUT",
       description: "A personal portfolio showcasing my projects and skills.",
       languages: ["React", "TypeScript", "CSS"],
       award: ["portfolioLogo.png", "Best UI Design 2024", "award-gold"],
@@ -63,8 +63,8 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         LiveDemo: "https://portfolio.demo"
       },
       images: {
-        thumbnail: ["thumbnail.png", 0],
-        image1: ["project1-image.png", 2]
+        thumbnail: ["sidebar.png", 0],
+        image1: ["table.jpg", 2]
       }
     }
   });

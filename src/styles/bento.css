@@ -153,11 +153,12 @@
     }
   }
   
-  @keyframes expandHeight {
-    from {
-      flex: 0.5;
-    }
-    to {
-      flex: 2; /* Final flex value when expanded */
-    }
+@keyframes expandHeight {
+  from {
+    flex: 0.5;
   }
+  to {
+    flex: 2; /* Final flex value when expanded */
+  }
+}
+
