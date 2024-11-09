@@ -77,7 +77,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         </div>
       );
     }
-    if (input === "project") {
+    if (input === "s") {
       const output: [string, string][] = [
         ["For sure! Here's TimeTable Sweetie~", "TimeTable Sweetie"]
       ];

@@ -1,0 +1,96 @@
+
+.overflow-visible{
+    overflow: visible;
+}
+
+@keyframes sparkleAndFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Start small for a more dramatic pop */
+        filter: blur(5px); /* Strong blur for the "coming into focus" effect */
+    }
+    30% {
+        opacity: 0.4;
+        transform: scale(1.0); /* Slight scale up for a pop effect */
+        filter: blur(3px); /* Less blur as it comes into focus */
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(1.2); /* Slight scale bounce */
+        filter: blur(1px); /* Less blur as it's almost fully focused */
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Light glow effect */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Settle at the final size */
+        filter: blur(0); /* No blur */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle glow */
+    }
+}
+@keyframes simpleAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}   
+
+@keyframes shift-right {
+    from {
+        opacity: 0;
+        transform: translateX(-50vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Moves to its original position */
+    }
+}
+
+@keyframes shift-left {
+    from {
+        opacity: 0;
+        transform: translateX(50vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Moves to its original position */
+    }
+}
+.show-card-first {
+    visibility: visible;
+    opacity: 0; /* Start with opacity 0 during the delay */
+    animation: sparkleAndFadeIn 0.75s ease-out forwards;
+    animation-delay: 0.75s; /* Added 1 second delay */
+    transform-origin: center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity, filter, box-shadow;
+}
+
+.show-card-second-fix-flex {
+    flex: 2;
+    animation: simpleAppear 2s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.show-card-second {
+    animation: simpleAppear 2s ease-out forwards;
+    animation-delay: 2.0s;
+}
+
+.show-card-third {
+    animation: simpleAppear 2s ease-out forwards;
+    animation-delay: 2.5s;
+}
+
+.show-card-fourth {
+    animation: simpleAppear 2s ease-out forwards;
+    animation-delay: 3s;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 0;
+}
+
