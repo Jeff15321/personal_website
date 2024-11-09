@@ -7,7 +7,7 @@ import { useProjects } from '../contexts/Projects';
 import AwardCard from '../components/bento_components/award';
 import LanguageCard from '../components/bento_components/language';
 import Music from '../components/Music';
-
+    
 const BentoPage: React.FC = () => {
   const { projects } = useProjects();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -46,8 +46,8 @@ const BentoPage: React.FC = () => {
                 </div>
             </div>
             <div className='card-container flex-col col-right h-column-right-1'>
-                <div className={`card-container h-picture-row-3 ${isExpanded ? 'expand-top-row' : ''}`}>
-                <PictureCard height={0} width={0} image={projects["Time_Table_Sweetie"].images["image1"][0]} zoom={projects["Time_Table_Sweetie"].images["image1"][1]}/> 
+                <div className={`card-container flex-row h-picture-row-3 ${isExpanded ? 'expand-top-row' : ''}`}>
+                <PictureCard height={100} width={100} image={projects["Time_Table_Sweetie"].images["image1"][0]} zoom={projects["Time_Table_Sweetie"].images["image1"][1]}/> 
                 </div>
                 <div className="card-container h-terminal-row-3">
                 <Terminal height={100} width={100}/>

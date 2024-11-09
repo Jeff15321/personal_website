@@ -10,8 +10,8 @@ interface PictureCardProps {
 
 const PictureCard: React.FC<PictureCardProps> = ({height, width, image, zoom}) => {
     return (
-        <div className="parent-container background-black hide-scrollbar" style={{height: `${height}%`, width: `${width}%`}}>
-            <div className="picture-card">
+        <div className="parent-container hide-scrollbar" style={{height: `${height}%`, width: `${width}%`}}>
+            <div className="picture-card hide">
                 {image.includes(".mp4") ? 
                 <video 
                   style={{height: `${100 + zoom}%`}} 
