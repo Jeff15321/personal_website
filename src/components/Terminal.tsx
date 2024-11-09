@@ -1,7 +1,9 @@
 import React, { useRef,useEffect, useState } from "react";
-import { validateInput, scrollToBottom, formatOutput, tab } from "../utils/terminal_utils";
+import { scrollToBottom, formatOutput, tab } from "../utils/terminal_utils";
 import { useTabCounter } from "../contexts/TabCounterContext";
 import { useTabInput } from "../contexts/TabInputContext";
+import { commands } from "../utils/terminal_utils";
+import { useAnimation } from "../contexts/AnimateContext";
 
 interface TerminalProps {
   height: number;
@@ -14,6 +16,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   
   const { tabCounter, incrementTabCounter, resetTabCounter } = useTabCounter();
   const { tabInput, setTabInput } = useTabInput();
+  const { animation, setAnimation } = useAnimation();
 
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<[React.ReactNode, boolean][]>([]);
@@ -49,6 +52,48 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     scrollToBottom(terminalRef);
 
     setInput(""); // Clear input after submission
+  };
+
+  const validateInput = (input: string, setInput: any): React.ReactNode => {
+    input = input.trim();
+    if (input === "") {
+        return <span></span>;
+    }
+    if (input === "help") {
+      const output: [string, string][] = [
+        ["Type the red type in the terminal or mannually click it to launch the commands!", "red"], 
+        ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
+        ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
+        ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
+        ["\u00A0\u00A0\u00A0\u00A0hobby: I have some sick hobbies!", "hobby"]
+      ];
+      return (
+        <div>
+          {output.map((line, index) => (
+            <div key={index}>
+              {formatOutput(line[0], line[1], setInput)}
+            </div>
+          ))}
+        </div>
+      );
+    }
+    if (input === "project") {
+      const output: [string, string][] = [
+        ["For sure! Here's TimeTable Sweetie~", "TimeTable Sweetie"]
+      ];
+      setAnimation("TimeTable Sweetie");
+      return (
+        <div>
+          {output.map((line, index) => (
+            <div key={index}>
+              {formatOutput(line[0], line[1], setInput)}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    return <span>{input + ": command not found"}</span>;
   };
 
   useEffect(() => {

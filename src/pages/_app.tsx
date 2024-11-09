@@ -8,13 +8,16 @@ import type { AppProps } from "next/app";
 import { TabCounterProvider } from "../contexts/TabCounterContext"; // Adjust the import path if necessary
 import { TabInputProvider } from "../contexts/TabInputContext";
 import { ProjectsProvider } from "../contexts/Projects";
+import { AnimationProvider } from "../contexts/AnimateContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <TabCounterProvider>
       <TabInputProvider>
         <ProjectsProvider>
-          <Component {...pageProps} /> 
+          <AnimationProvider>
+            <Component {...pageProps} /> 
+          </AnimationProvider>
         </ProjectsProvider>
       </TabInputProvider>
     </TabCounterProvider>

@@ -89,20 +89,20 @@
     flex: 3;
 }
 
-.h-language-column-4{
+.h-language-column-3{
     flex: 1;
 }
 
-.h-description-column-4{
+.h-description-column-3{
     flex: 7;
 }
 
-.h-picture-row-3{
+.h-picture-row-2{
     /* flex: 2; */
     flex: 0.5;
 }
 
-.h-terminal-row-3{
+.h-terminal-row-2{
     flex: 1;
     display: flex;
 }
@@ -173,4 +173,13 @@
     }
   }
 
+.show-card-first{
+    display: flex;
+}
+.show-card-second{
+    display: flex;
+}
+.show-card-third{
+    display: flex;
+}
 
