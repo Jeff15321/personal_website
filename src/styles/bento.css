@@ -24,6 +24,7 @@
     border: 2px solid red;
     visibility: hidden;
     position: relative;
+    overflow: auto;
 }
 
 .flex-col{
