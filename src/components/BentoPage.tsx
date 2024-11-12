@@ -10,6 +10,7 @@ import { useAnimation } from '../contexts/AnimateContext';
 
 // Type definitions
 type AnimationState = {
+    "bento-container" : string,
     "h-column-left-1": string,
     "h-column-right-1": string,
     "h-top-row-2": string,
@@ -35,6 +36,7 @@ type AnimationStates = {
 // Animation configurations for different states
 const ANIMATION_STATES: AnimationStates = {
   'TimeTable Sweetie': {
+    "bento-container": "change-max-height",
     //left column
     "h-column-left-1": "expand-left-col",
         //top row on left column
@@ -56,6 +58,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-bottom-row": "collapse-bottom-row"
   },
   'PUT': {
+    "bento-container": "default",
     //left column
     "h-column-left-1": "expand-left-col",
         //top row on left column
@@ -77,6 +80,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-bottom-row": "collapse-bottom-row"
   },
   default: {
+    "bento-container": "default",
     "h-column-left-1": 'default',
     "h-column-right-1": 'default',
     "h-top-row-2": 'default',
@@ -132,7 +136,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   }, [animation]);
 
   return (
-    <div className="bento-container-wrapper">
+    <div className={getClassName('bento-container-wrapper', 'bento-container')}>
       <div className="bento-container">
         <div className={getClassName('card-container flex-col h-column-left-1', 'h-column-left-1')}>
           <div className={getClassName('card-container flex-row h-top-row-2', 'h-top-row-2')}>
@@ -181,7 +185,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
           </div>
         </div>
 
-        <div className={getClassName('card-container flex-col h-column-right-1', 'h-column-right-1')}>
+        <div className={getClassName('card-container-n flex-col h-column-right-1', 'h-column-right-1')}>
           <div className={getClassName('card-container flex-row h-picture-row-2', 'h-picture-row-2')}>
             <PictureCard 
               height={100} 

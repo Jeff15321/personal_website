@@ -70,22 +70,22 @@
 
 .show-card-second-fix-flex {
     flex: 2;
-    animation: simpleAppear 2s ease-out forwards;
+    animation: shift-left 2s ease-out forwards;
     animation-delay: 2s;
 }
 
 .show-card-second {
-    animation: simpleAppear 2s ease-out forwards;
+    animation: shift-left 2s ease-out forwards;
     animation-delay: 2.0s;
 }
 
 .show-card-third {
-    animation: simpleAppear 2s ease-out forwards;
+    animation: shift-left 2s ease-out forwards;
     animation-delay: 2.5s;
 }
 
 .show-card-fourth {
-    animation: simpleAppear 2s ease-out forwards;
+    animation: shift-left 2s ease-out forwards;
     animation-delay: 3s;
 }
 

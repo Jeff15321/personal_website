@@ -26,6 +26,10 @@ body {
   word-wrap: break-word;
 }
 
+.parent-container-n {
+  
+}
+
 .parent-container {
   display: flex;
   justify-content: center;
