@@ -23,7 +23,7 @@
     max-height: 100%;
     max-width: 100%;
     border: 2px solid red;
-    /* visibility: hidden; */
+    visibility: hidden;
     position: relative;
 }
 
@@ -32,7 +32,7 @@
     max-height: 100%;
     max-width: 100%;
     border: 2px solid red;
-    /* visibility: hidden; */
+    visibility: hidden;
     position: relative;
     overflow: auto;
 }
@@ -127,7 +127,6 @@
 .change-max-height {
     animation: expandBentoContainer 0.75s ease forwards;
 }
-
 .expand-left-col {
     animation: expandWidth 0.75s ease forwards;
 }
@@ -143,10 +142,10 @@
 
 @keyframes expandBentoContainer {
     from {
-        max-height: 75 vh;
+        max-height: 75vh;
     }
     to {
-        max-height: 98 vh;
+        max-height: 98vh;
     }
 }
 

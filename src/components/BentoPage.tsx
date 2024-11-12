@@ -58,7 +58,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-bottom-row": "collapse-bottom-row"
   },
   'PUT': {
-    "bento-container": "default",
+    "bento-container": "change-max-height",
     //left column
     "h-column-left-1": "expand-left-col",
         //top row on left column
@@ -136,8 +136,8 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   }, [animation]);
 
   return (
-    <div className={getClassName('bento-container-wrapper', 'bento-container')}>
-      <div className="bento-container">
+    <div className='bento-container-wrapper'>
+      <div className={ getClassName('bento-container', 'bento-container')}>
         <div className={getClassName('card-container flex-col h-column-left-1', 'h-column-left-1')}>
           <div className={getClassName('card-container flex-row h-top-row-2', 'h-top-row-2')}>
             <div className={getClassName('card-container h-music-column-3', 'h-music-column-3')}>
