@@ -12,9 +12,19 @@
 .bento-container {
     background-color: #000;
     display: flex;
-    overflow: auto;
+    max-height: 75vh;
+    max-width: 98vw;
     gap: 1em;
     flex: 1;
+}
+
+.card-container-n {
+    border-radius: 2em;
+    max-height: 100%;
+    max-width: 100%;
+    border: 2px solid red;
+    visibility: hidden;
+    position: relative;
 }
 
 .card-container{
@@ -114,6 +124,9 @@
 }
 
 /* collapse animation */
+.change-max-height {
+    animation: expandBentoContainer 0.75s ease forwards;
+}
 .expand-left-col {
     animation: expandWidth 0.75s ease forwards;
 }
@@ -125,6 +138,15 @@
 }
 .collapse-right-col {
     animation: shrinkWidth 0.75s ease forwards;
+}
+
+@keyframes expandBentoContainer {
+    from {
+        max-height: 75vh;
+    }
+    to {
+        max-height: 98vh;
+    }
 }
 
 @keyframes shrinkWidth {
