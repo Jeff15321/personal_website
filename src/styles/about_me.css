@@ -17,8 +17,9 @@
     height: 7%;
     border: 2px solid blue;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-end;
+    cursor: move;
 }
 
 .index-image-container{
