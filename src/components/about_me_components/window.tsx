@@ -5,9 +5,11 @@ interface WindowProps {
     height: number;
     x: number;
     y: number;
+    backgroundColor: string;
+    buttonColor: string;
 }
 
-export default function Window({x, y, size, height}: WindowProps) {
+export default function Window({x, y, size, height, backgroundColor, buttonColor}: WindowProps) {
     const [isVisible, setIsVisible] = React.useState(true);
     const [windowSize, setWindowSize] = React.useState(size);
     const [windowHeight, setWindowHeight] = React.useState(0);
@@ -62,11 +64,15 @@ export default function Window({x, y, size, height}: WindowProps) {
             height: `${windowSize * 17}vw`,
             width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
             top: `${50 + position.y / windowHeight * 100}vh`,
-            left: `${50 + position.x / windowWidth * 100}vw`}}>
+            left: `${50 + position.x / windowWidth * 100}vw`,
+            backgroundColor: backgroundColor}}>
             <div className="title-button-container" onMouseDown={handleMouseDown}>
-                <button className="title-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`}}>-</button>
-                <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`}}>o</button>
-                <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`}}>x</button>
+                <button className="title-button" onClick={handleClose} style={{
+                    fontSize: `${windowSize * 0.9}em`,
+                    color: buttonColor
+                    }}>-</button>
+                <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor}}>o</button>
+                <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor   }}>x</button>
             </div>
             <div className="index-image-container">
 

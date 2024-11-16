@@ -6,6 +6,6 @@ import "../styles/about_me.css";
 
 export default function Test() {
     return (
-        <Window x={0} y={10} size={1} height={1.5}/>
+        <Window x={0} y={10} size={1} height={1.5} backgroundColor={"#000000"} buttonColor={"#ffffff"}/>
     );
 }
