@@ -1,5 +1,5 @@
 import React from "react";
-import { nextMusic, playMusic, previousMusic } from "../utils/terminal_utils";
+import { useAnimation } from "../contexts/AnimateContext";
 
 interface MusicCardProps {
     height: number;
@@ -8,6 +8,26 @@ interface MusicCardProps {
 }
 
 const Music: React.FC<MusicCardProps> = ({height, width, image}) => {
+    const { animation, setAnimation } = useAnimation();
+
+    const previousMusic = () => {
+      alert("previous music");
+
+      return true;
+    };
+      
+    const nextMusic = () => {
+      setAnimation("Next_Song");
+      return true;
+    };
+      
+    const playMusic = () => {
+      alert("play music");
+
+      return true;
+    };
+
+
     return (    
         <div className={`parent-container background-black hide-scrollbar`} 
             style={{height: `${height}%`, width: `${width}%`, overflow: "hidden"}}>

@@ -8,6 +8,7 @@ import LanguageCard from '../components/bento_components/language';
 import Music from '../components/Music';
 import { useAnimation } from '../contexts/AnimateContext';
 
+
 // Type definitions
 type AnimationState = {
     "bento-container" : string,
@@ -32,7 +33,6 @@ type AnimationStates = {
   default: AnimationState;
 };
 
-
 // Animation configurations for different states
 const ANIMATION_STATES: AnimationStates = {
   'TimeTable Sweetie': {
@@ -41,17 +41,39 @@ const ANIMATION_STATES: AnimationStates = {
     "h-column-left-1": "expand-left-col",
         //top row on left column
         "h-top-row-2": "overflow-visible",
-            "h-music-column-3": "show-card-fourth",
+            "h-music-column-3": "animation show-card-fourth-right",
             "h-container-of-video-and-award-3": "overflow-visible",
-                "h-award-4": "show-card-first",
-                "h-video-4": "show-card-third",
+                "h-award-4": "animation show-card-first",
+                "h-video-4": "animation show-card-third-bottom",
     //bottom row on left column
-        "h-bottom-row-2": "default",
-            "h-language-column-3": "show-card-second",
-            "h-description-column-3": "show-card-third",
+        "h-bottom-row-2": "overflow-visible",
+            "h-language-column-3": "animation show-card-second-right",
+            "h-description-column-3": "animation show-card-third-top",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row show-card-second-fix-flex",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2",
+        "h-terminal-row-2": "default",
+    //filler
+    "h-filler-right-col": "collapse-right-col",
+    "h-filler-bottom-row": "collapse-bottom-row"
+  },
+  'Next_Song': {
+    "bento-container": "change-max-height",
+    //left column
+    "h-column-left-1": "expand-left-col",
+        //top row on left column
+        "h-top-row-2": "overflow-visible",
+            "h-music-column-3": "animation show-card-fourth-right song-shift-left",
+            "h-container-of-video-and-award-3": "overflow-visible",
+                "h-award-4": "animation show-card-first",
+                "h-video-4": "animation show-card-third-bottom",
+    //bottom row on left column
+        "h-bottom-row-2": "overflow-visible",
+            "h-language-column-3": "animation show-card-second-right",
+            "h-description-column-3": "animation show-card-third-top",
+    //right column
+    "h-column-right-1": "default",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -68,7 +90,7 @@ const ANIMATION_STATES: AnimationStates = {
                 "h-award-4": "show-card-first",
                 "h-video-4": "show-card-third",
     //bottom row on left column
-        "h-bottom-row-2": "default",
+        "h-bottom-row-2": "overflow-visible",
             "h-language-column-3": "show-card-second",
             "h-description-column-3": "show-card-third",
     //right column
@@ -113,10 +135,32 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
     return `${baseClass} ${state !== 'default' ? `${state}` : ''}`.trim();
   };
 
+  const appendAnimationValue = (animation: string) => {
+    const animationState = ANIMATION_STATES[animation];
+    console.log(animationState)
+    // if (animationState) {
+    //   Object.keys(animationState).forEach(key => {
+    //     if (animationState[key] !== 'default') {
+    //       animationState[key] = `${animationState[key]} ${animation}`;
+    //     }
+    //   });
+    // }
+  };
+
   useEffect(() => {
     // Update current state based on animation
     setCurrentState(ANIMATION_STATES[animation] || ANIMATION_STATES.default);
+
+    //make sure scroll bar is hidden
+    document.body.classList.add('no-scroll');
+        const timeoutId = setTimeout(() => {
+            document.body.classList.remove('no-scroll');
+        }, 5000);
     
+    if (animation === "Next_Song") {
+      appendAnimationValue("Next_Song");
+    }
+        
     if (animation === 'TimeTable Sweetie') {   
       setTimeout(() => {
         const cardContainer = document.querySelector('.card-container');
@@ -125,13 +169,14 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
         }
       }, 1000);
       setTimeout(() => {
-        const cardContainers = document.querySelectorAll('.show-card-second, .show-card-second-fix-flex, .show-card-third, .show-card-fourth');
+        const cardContainers = document.querySelectorAll('.animation');
         if (cardContainers) {
             cardContainers.forEach((element) => {
                 element.classList.add('visible');
             });
         }
       }, 2000);
+      return () => clearTimeout(timeoutId);
     }
   }, [animation]);
 

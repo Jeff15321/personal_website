@@ -69,6 +69,7 @@
 
 .h-bottom-row-2{
     flex: 1;
+    max-height: 47vh;
 }
 
 .h-music-column-3{

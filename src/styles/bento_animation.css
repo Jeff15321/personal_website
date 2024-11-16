@@ -1,6 +1,14 @@
+body.no-scroll {
+    overflow: hidden; /* Prevents the scrollbar from appearing */
+}
 
 .overflow-visible{
     overflow: visible;
+}
+
+.overflow-visible-bottom-row{
+    overflow: visible;
+    max-height: 30 vh;
 }
 
 @keyframes sparkleAndFadeIn {
@@ -39,7 +47,7 @@
 @keyframes shift-right {
     from {
         opacity: 0;
-        transform: translateX(-50vw); /* Starts off-screen to the right */
+        transform: translateX(-40vw); /* Starts off-screen to the right */
     }
     to {
         opacity: 1;
@@ -50,13 +58,34 @@
 @keyframes shift-left {
     from {
         opacity: 0;
-        transform: translateX(50vw); /* Starts off-screen to the right */
+        transform: translateX(40vw); /* Starts off-screen to the right */
     }
     to {
         opacity: 1;
         transform: translateX(0); /* Moves to its original position */
     }
 }
+
+@keyframes shift-bottom {
+    from {
+        opacity: 0;
+        transform: translateY(-40vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Moves to its original position */
+    }
+}
+@keyframes shift-top {
+    from {
+        opacity: 0;
+        transform: translateY(40vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Moves to its original position */
+    }
+}   
 .show-card-first {
     visibility: visible;
     opacity: 0; /* Start with opacity 0 during the delay */
@@ -68,24 +97,33 @@
     will-change: transform, opacity, filter, box-shadow;
 }
 
-.show-card-second-fix-flex {
+
+.fix-right-picture-card-flex-2 {
     flex: 2;
-    animation: shift-left 2s ease-out forwards;
-    animation-delay: 2s;
 }
 
-.show-card-second {
-    animation: shift-left 2s ease-out forwards;
+.show-card-second-left {
+    animation: shift-left 0.75s ease-out forwards;
     animation-delay: 2.0s;
 }
 
-.show-card-third {
-    animation: shift-left 2s ease-out forwards;
+.show-card-second-right {
+    animation: shift-right 0.75s ease-out forwards;
+    animation-delay: 2.0s;
+}
+
+.show-card-third-top {
+    animation: shift-top 0.75s ease-out forwards;
     animation-delay: 2.5s;
 }
 
-.show-card-fourth {
-    animation: shift-left 2s ease-out forwards;
+.show-card-third-bottom {
+    animation: shift-bottom 0.75s ease-out forwards;
+    animation-delay: 2.5s;
+}
+
+.show-card-fourth-right {
+    animation: shift-right 0.75s ease-out forwards;
     animation-delay: 3s;
 }
 

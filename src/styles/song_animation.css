@@ -1,0 +1,27 @@
+@keyframes song-shift-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+@keyframes song-shift-right {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0vw);
+    }
+}
+
+.song-shift-left {
+    animation: song-shift-left 1s ease-in-out;
+}
+
+.song-shift-right {
+    animation: song-shift-right 1s ease-in-out;
+}

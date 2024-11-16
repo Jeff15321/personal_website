@@ -54,18 +54,3 @@ export const formatOutput = (output: string, keyword: string, setInput: any) => 
   );
 };
 
-
-export const previousMusic = () => {
-  alert("previous music");
-  return true;
-};
-
-export const nextMusic = () => {
-  alert("next music");
-  return true;
-};
-
-export const playMusic = () => {
-  alert("play music");
-  return true;
-};
