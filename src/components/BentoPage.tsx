@@ -127,6 +127,7 @@ interface BentoPageProps {
 const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   const { projects } = useProjects();
   const { animation } = useAnimation();
+  const [currentProjectName, setCurrentProjectName] = useState<string>(projectName); 
   const [currentState, setCurrentState] = useState<AnimationState>(ANIMATION_STATES.default);
 
   // Get className based on element and current animation state
@@ -138,13 +139,19 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   const appendAnimationValue = (animation: string) => {
     const animationState = ANIMATION_STATES[animation];
     console.log(animationState)
-    // if (animationState) {
-    //   Object.keys(animationState).forEach(key => {
-    //     if (animationState[key] !== 'default') {
-    //       animationState[key] = `${animationState[key]} ${animation}`;
-    //     }
-    //   });
-    // }
+    const elementClasses = ["h-music-column-3"];
+    elementClasses.forEach((className) => {
+      const elements = document.querySelectorAll<HTMLElement>(`.${className}`);
+      elements.forEach((element) => {
+        // Remove the class to reset the animation if needed
+        element.style.visibility = "visible";
+        element.classList.remove("song-shift-left");
+        void element.offsetWidth; // Trigger reflow
+        // Add the new class
+        element.classList.add("song-shift-left");
+      });
+    });
+    setCurrentProjectName("PUT");
   };
 
   useEffect(() => {
@@ -189,7 +196,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
               <Music 
                 height={100} 
                 width={100} 
-                image={projects[projectName].images["thumbnail"][0]}
+                image={projects[currentProjectName].images["thumbnail"][0]}
               />
             </div>
             <div className={getClassName('card-container flex-col h-container-of-video-and-award-3', 'h-container-of-video-and-award-3')}>
@@ -197,15 +204,15 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
                 <PictureCard 
                   height={100} 
                   width={100} 
-                  image={projects[projectName].images["image2"][0]} 
-                  zoom={projects[projectName].images["image2"][1]}
+                  image={projects[currentProjectName].images["image2"][0]} 
+                  zoom={projects[currentProjectName].images["image2"][1]}
                 />
               </div>
               <div className={getClassName('card-container h-award-4', 'h-award-4')}>
                 <AwardCard 
                   height={100} 
                   width={100} 
-                  award={[projects[projectName].award[0], projects[projectName].award[1], projects[projectName].award[2]]}
+                  award={[projects[currentProjectName].award[0], projects[currentProjectName].award[1], projects[currentProjectName].award[2]]}
                 />
               </div>
             </div>
@@ -216,15 +223,15 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
               <LanguageCard 
                 height={100} 
                 width={100} 
-                language={projects[projectName].languages}
+                language={projects[currentProjectName].languages}
               />
             </div>
             <div className={getClassName('card-container h-description-column-3', 'h-description-column-3')}>
               <DescriptionCard 
                 height={100} 
                 width={100} 
-                description={projects[projectName].description} 
-                name={projects[projectName].name}
+                description={projects[currentProjectName].description} 
+                name={projects[currentProjectName].name}
               />
             </div>
           </div>
@@ -235,8 +242,8 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
             <PictureCard 
               height={100} 
               width={100} 
-              image={projects[projectName].images["image1"][0]} 
-              zoom={projects[projectName].images["image1"][1]}
+              image={projects[currentProjectName].images["image1"][0]} 
+              zoom={projects[currentProjectName].images["image1"][1]}
             />
           </div>
           <div className={getClassName('card-container h-terminal-row-2', 'h-terminal-row-2')}>

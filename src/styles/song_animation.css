@@ -1,9 +1,19 @@
 @keyframes song-shift-left {
     0% {
         transform: translateX(0);
+        visibility: visible;
+    }
+    50% {
+        transform: translateX(-100vw);
+        visibility: hidden;
+    }
+    50.1% {
+        transform: translateX(100vw);
+        visibility: hidden;
     }
     100% {
-        transform: translateX(-100vw);
+        transform: translateX(0);
+        visibility: visible;
     }
 }
 
@@ -11,17 +21,31 @@
     0% {
         opacity: 1;
         transform: translateX(0);
+        visibility: visible;
     }
     100% {
         opacity: 1;
-        transform: translateX(0vw);
+        transform: translateX(100vw);
+        visibility: hidden;
+    }
+}
+
+@keyframes song-shift-left-visible {
+    0% {
+        transform: translateX(200vw);
+        visibility: hidden;
+    }
+    100% {
+        transform: translateX(100vw);
+        visibility: visible;
     }
 }
 
 .song-shift-left {
-    animation: song-shift-left 1s ease-in-out;
+    animation: song-shift-left 1s ease-in-out forwards; /* Retain final state */
 }
 
 .song-shift-right {
-    animation: song-shift-right 1s ease-in-out;
+    animation: song-shift-right 1s ease-in-out forwards; /* Retain final state */
 }
+
