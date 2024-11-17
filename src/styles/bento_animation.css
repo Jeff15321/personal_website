@@ -14,15 +14,18 @@ body.no-scroll {
 @keyframes sparkleAndFadeIn {
     0% {
         opacity: 0;
+    }
+    50% {
+        opacity: 0;
         transform: scale(0.8); /* Start small for a more dramatic pop */
         filter: blur(5px); /* Strong blur for the "coming into focus" effect */
     }
-    30% {
+    65% {
         opacity: 0.4;
         transform: scale(1.0); /* Slight scale up for a pop effect */
         filter: blur(3px); /* Less blur as it comes into focus */
     }
-    60% {
+    80% {
         opacity: 0.8;
         transform: scale(1.2); /* Slight scale bounce */
         filter: blur(1px); /* Less blur as it's almost fully focused */
@@ -88,9 +91,8 @@ body.no-scroll {
 }   
 .show-card-first {
     visibility: visible;
-    opacity: 0; /* Start with opacity 0 during the delay */
-    animation: sparkleAndFadeIn 0.75s ease-out forwards;
-    animation-delay: 0.75s; /* Added 1 second delay */
+    /*opacity: 0;  */
+    animation: sparkleAndFadeIn 1.5s ease-out forwards;
     transform-origin: center;
     backface-visibility: hidden;
     perspective: 1000px;

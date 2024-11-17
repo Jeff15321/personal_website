@@ -19,14 +19,20 @@
 
 @keyframes song-shift-right {
     0% {
-        opacity: 1;
         transform: translateX(0);
         visibility: visible;
     }
-    100% {
-        opacity: 1;
+    50% {
         transform: translateX(100vw);
         visibility: hidden;
+    }
+    50.1% {
+        transform: translateX(-100vw);
+        visibility: hidden;
+    }
+    100% {
+        transform: translateX(0);
+        visibility: visible;
     }
 }
 
@@ -41,6 +47,7 @@
     }
 }
 
+
 .song-shift-left {
     animation: song-shift-left 1s ease-in-out forwards; /* Retain final state */
 }
@@ -48,4 +55,3 @@
 .song-shift-right {
     animation: song-shift-right 1s ease-in-out forwards; /* Retain final state */
 }
-

@@ -1,6 +1,8 @@
 import React from "react";
 
 const Error = () => {
+    const animationStyle: [string, number] = ['fadeIn', 0.5];
+
     const handleEmail = () => {
         window.location.href = "mailto:jeff.lu234@gmail.com?subject=JEFFFFFFFFFF WHAT ARE YOU DOING&body=Jeff... what the heck... I'm super disappointed in you and you better fix that project or you aren't getting the internship";
     };
@@ -18,7 +20,7 @@ const Error = () => {
             boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)',
             zIndex: 1000,
             textAlign: 'center',
-            animation: 'fadeIn 0.5s'
+            animation: `${animationStyle[0]} ${animationStyle[1]}s`
         }}>
             <h1 style={{ fontFamily: 'Comic Sans MS', color: '#dc3545', fontSize: '3em', textShadow: '2px 2px #fff' }}>
                 Heyy there!

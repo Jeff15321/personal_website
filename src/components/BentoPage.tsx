@@ -43,7 +43,7 @@ const ANIMATION_STATES: AnimationStates = {
         "h-top-row-2": "overflow-visible",
             "h-music-column-3": "animation show-card-fourth-right",
             "h-container-of-video-and-award-3": "overflow-visible",
-                "h-award-4": "animation show-card-first",
+                "h-award-4": "show-card-first",
                 "h-video-4": "animation show-card-third-bottom",
     //bottom row on left column
         "h-bottom-row-2": "overflow-visible",
@@ -52,6 +52,28 @@ const ANIMATION_STATES: AnimationStates = {
     //right column
     "h-column-right-1": "default",
         "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2",
+        "h-terminal-row-2": "default",
+    //filler
+    "h-filler-right-col": "collapse-right-col",
+    "h-filler-bottom-row": "collapse-bottom-row"
+  },
+  'Previous_Song': {
+    "bento-container": "change-max-height",
+    //left column
+    "h-column-left-1": "expand-left-col",
+        //top row on left column
+        "h-top-row-2": "overflow-visible",
+            "h-music-column-3": "animation show-card-fourth-right song-shift-right",
+            "h-container-of-video-and-award-3": "overflow-visible",
+                "h-award-4": "animation show-card-first song-shift-right",
+                "h-video-4": "animation show-card-third-bottom song-shift-right",
+    //bottom row on left column
+        "h-bottom-row-2": "overflow-visible",
+            "h-language-column-3": "animation show-card-second-right song-shift-right",
+            "h-description-column-3": "animation show-card-third-top song-shift-right",
+    //right column
+    "h-column-right-1": "default",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2 song-shift-right",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -74,28 +96,6 @@ const ANIMATION_STATES: AnimationStates = {
     //right column
     "h-column-right-1": "default",
         "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2 song-shift-left",
-        "h-terminal-row-2": "default",
-    //filler
-    "h-filler-right-col": "collapse-right-col",
-    "h-filler-bottom-row": "collapse-bottom-row"
-  },
-  'PUT': {
-    "bento-container": "change-max-height",
-    //left column
-    "h-column-left-1": "expand-left-col",
-        //top row on left column
-        "h-top-row-2": "overflow-visible",
-            "h-music-column-3": "show-card-fourth",
-            "h-container-of-video-and-award-3": "overflow-visible",
-                "h-award-4": "show-card-first",
-                "h-video-4": "show-card-third",
-    //bottom row on left column
-        "h-bottom-row-2": "overflow-visible",
-            "h-language-column-3": "show-card-second",
-            "h-description-column-3": "show-card-third",
-    //right column
-    "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row show-card-second-fix-flex",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -127,6 +127,7 @@ interface BentoPageProps {
 const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   const { projects } = useProjects();
   const { animation, setAnimation } = useAnimation();
+  const [animationCounter, setAnimationCounter] = useState<number>(0);
   const [currentProjectName, setCurrentProjectName] = useState<string>(projectName); 
   const [currentState, setCurrentState] = useState<AnimationState>(ANIMATION_STATES.default);
 
@@ -136,41 +137,84 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
     return `${baseClass} ${state !== 'default' ? `${state}` : ''}`.trim();
   };
 
-  const appendAnimationValue = (animation: string) => {
-    // const animationState = ANIMATION_STATES[animation];
-    // console.log(animationState)
-    // const elementClasses = ["h-video-4", "h-video-4"];
-    // elementClasses.forEach((className) => {
-    //   const elements = document.querySelectorAll<HTMLElement>(`.${className}`);
-    //   elements.forEach((element) => {
-    //     // Remove the class to reset the animation if needed
-    //     // element.style.visibility = "visible";
-    //     // element.classList.remove("song-shift-left");
-    //     // void element.offsetWidth; // Trigger reflow
-    //     // // Add the new class
-    //     // element.classList.add("song-shift-left");
-    //   });
-    // });
+  const Previous_Song_Animation = () => {
+    setAnimationCounter(prev => prev - 1);
+
+    const cardContainers = document.querySelectorAll('.animation');
+
+    cardContainers.forEach((element) => {
+      // Remove the class to reset the animation if needed
+      element.classList.remove('song-shift-right');
+      // Trigger reflow to reset the animation
+      void (element as HTMLElement).offsetWidth; // Cast to HTMLElement
+      // Re-add the class to restart the animation
+      element.classList.add('song-shift-right');
+    });
+
+        
     setTimeout(() => {
-      setCurrentProjectName("PUT");
+      if (animationCounter <= 0) {
+        setAnimationCounter(Object.keys(projects).length - 1);
+      } 
+
+      if (animationCounter <= 0) {
+        setCurrentProjectName(Object.keys(projects)[Object.keys(projects).length - 1]);
+      } else {
+        setCurrentProjectName(Object.keys(projects)[animationCounter - 1]);
+      }
+    }, 500);
+  };
+  // Next Song Animation
+  const Next_Song_Animation = () => {
+    setAnimationCounter(prev => prev + 1);
+
+    const cardContainers = document.querySelectorAll('.animation');
+
+    cardContainers.forEach((element) => {
+      // Remove the class to reset the animation if needed
+      element.classList.remove('song-shift-left');
+      // Trigger reflow to reset the animation
+      void (element as HTMLElement).offsetWidth; // Cast to HTMLElement
+      // Re-add the class to restart the animation
+      element.classList.add('song-shift-left');
+    });
+
+        
+    setTimeout(() => {
+      if (animationCounter < 0) {
+        setAnimationCounter(Object.keys(projects).length - 1);
+      } else if (animationCounter >= Object.keys(projects).length - 1) {
+        setAnimationCounter(0);
+      }
+
+      if (animationCounter >= Object.keys(projects).length - 1) {
+        setCurrentProjectName(Object.keys(projects)[0]);
+      } else {
+        setCurrentProjectName(Object.keys(projects)[animationCounter + 1]);
+      }
     }, 500);
   };
 
   useEffect(() => {
-    // Update current state based on animation
-    setCurrentState(ANIMATION_STATES[animation] || ANIMATION_STATES.default);
+    console.log(animationCounter)
+  }, [animationCounter]);
 
+  useEffect(() => {
+    // Update current state based on animation
+    setCurrentState(ANIMATION_STATES[animation[0]] || ANIMATION_STATES.default);
     //make sure scroll bar is hidden
     document.body.classList.add('no-scroll');
         const timeoutId = setTimeout(() => {
             document.body.classList.remove('no-scroll');
         }, 5000);
     
-    if (animation === "Next_Song") {
-      appendAnimationValue("Next_Song");
+    if (animation[0] === "Next_Song") {
+      Next_Song_Animation();
+    } else if (animation[0] === "Previous_Song") {
+      Previous_Song_Animation();
     }
         
-    if (animation === 'TimeTable Sweetie') {   
+    if (animation[0] === 'TimeTable Sweetie') {   
       setTimeout(() => {
         const cardContainer = document.querySelector('.card-container');
         if (cardContainer) {

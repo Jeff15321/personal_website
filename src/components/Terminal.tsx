@@ -81,7 +81,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       const output: [string, string][] = [
         ["For sure! Here's TimeTable Sweetie~", "TimeTable Sweetie"]
       ];
-      setAnimation("TimeTable Sweetie");
+      setAnimation(["TimeTable Sweetie", 0]);
       return (
         <div>
           {output.map((line, index) => (
