@@ -196,17 +196,10 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   };
 
   useEffect(() => {
-    console.log(animationCounter)
-  }, [animationCounter]);
-
-  useEffect(() => {
     // Update current state based on animation
     setCurrentState(ANIMATION_STATES[animation[0]] || ANIMATION_STATES.default);
     //make sure scroll bar is hidden
     document.body.classList.add('no-scroll');
-        const timeoutId = setTimeout(() => {
-            document.body.classList.remove('no-scroll');
-        }, 5000);
     
     if (animation[0] === "Next_Song") {
       Next_Song_Animation();
@@ -229,7 +222,6 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
             });
         }
       }, 2000);
-      return () => clearTimeout(timeoutId);
     }
 
   }, [animation]);
