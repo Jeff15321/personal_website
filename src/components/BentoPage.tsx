@@ -65,15 +65,15 @@ const ANIMATION_STATES: AnimationStates = {
         "h-top-row-2": "overflow-visible",
             "h-music-column-3": "animation show-card-fourth-right song-shift-left",
             "h-container-of-video-and-award-3": "overflow-visible",
-                "h-award-4": "animation show-card-first",
-                "h-video-4": "animation show-card-third-bottom",
+                "h-award-4": "animation show-card-first song-shift-left",
+                "h-video-4": "animation show-card-third-bottom song-shift-left",
     //bottom row on left column
         "h-bottom-row-2": "overflow-visible",
-            "h-language-column-3": "animation show-card-second-right",
-            "h-description-column-3": "animation show-card-third-top",
+            "h-language-column-3": "animation show-card-second-right song-shift-left",
+            "h-description-column-3": "animation show-card-third-top song-shift-left",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2 song-shift-left",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -126,7 +126,7 @@ interface BentoPageProps {
 
 const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   const { projects } = useProjects();
-  const { animation } = useAnimation();
+  const { animation, setAnimation } = useAnimation();
   const [currentProjectName, setCurrentProjectName] = useState<string>(projectName); 
   const [currentState, setCurrentState] = useState<AnimationState>(ANIMATION_STATES.default);
 
@@ -137,21 +137,23 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   };
 
   const appendAnimationValue = (animation: string) => {
-    const animationState = ANIMATION_STATES[animation];
-    console.log(animationState)
-    const elementClasses = ["h-music-column-3"];
-    elementClasses.forEach((className) => {
-      const elements = document.querySelectorAll<HTMLElement>(`.${className}`);
-      elements.forEach((element) => {
-        // Remove the class to reset the animation if needed
-        element.style.visibility = "visible";
-        element.classList.remove("song-shift-left");
-        void element.offsetWidth; // Trigger reflow
-        // Add the new class
-        element.classList.add("song-shift-left");
-      });
-    });
-    setCurrentProjectName("PUT");
+    // const animationState = ANIMATION_STATES[animation];
+    // console.log(animationState)
+    // const elementClasses = ["h-video-4", "h-video-4"];
+    // elementClasses.forEach((className) => {
+    //   const elements = document.querySelectorAll<HTMLElement>(`.${className}`);
+    //   elements.forEach((element) => {
+    //     // Remove the class to reset the animation if needed
+    //     // element.style.visibility = "visible";
+    //     // element.classList.remove("song-shift-left");
+    //     // void element.offsetWidth; // Trigger reflow
+    //     // // Add the new class
+    //     // element.classList.add("song-shift-left");
+    //   });
+    // });
+    setTimeout(() => {
+      setCurrentProjectName("PUT");
+    }, 500);
   };
 
   useEffect(() => {
@@ -185,6 +187,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
       }, 2000);
       return () => clearTimeout(timeoutId);
     }
+
   }, [animation]);
 
   return (
