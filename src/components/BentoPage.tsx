@@ -205,18 +205,12 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
         element.classList.add(projects[currentProjectName].theme[1]);
       });
     }
+    console.log(currentProjectName);
     const music_buttons = document.querySelectorAll('.music-button-container img');
-    const filterMap: { [key: string]: string } = {
-      'TimeTable Sweetie': 'invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)',
-      'Anti_Tetris': 'invert(100%) sepia(0%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(100%)',
-      'PUT': 'invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(101%)'
-    };
+    const filterMap = projects[currentProjectName].theme[2];
 
     music_buttons.forEach(button => {
-      const filter = filterMap[currentProjectName];
-      if (filter) {
-        (button as HTMLImageElement).style.filter = filter;
-      }
+        (button as HTMLImageElement).style.filter = filterMap;
     });
   }, [currentProjectName]);
 
