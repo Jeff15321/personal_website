@@ -16,7 +16,7 @@ const BentoPag: React.FC = () => {
         <div className='flex-col col-left'>
             <div className="flex-row row1">
                 <div className="row-col left">
-                  <Music height={100} width={100} image={projects["Time_Table_Sweetie"].images["thumbnail"][0]}/>
+                  <Music height={100} width={100} project={projects["Time_Table_Sweetie"]}/>
                 </div>
                 <div className="row-col flex-col right">
                     <div className="row-col medium-long">
@@ -33,7 +33,7 @@ const BentoPag: React.FC = () => {
                   <LanguageCard height={100} width={100} language={projects["Time_Table_Sweetie"].languages}/>
                 </div>
                 <div className="row-col next-to-small-tall">
-                  <DescriptionCard height={100} width={100} description={projects["Time_Table_Sweetie"].description} name={projects["Time_Table_Sweetie"].name}/>
+                  <DescriptionCard height={100} width={100} project={projects["Time_Table_Sweetie"]}/>
                 </div>
             </div>
         </div>

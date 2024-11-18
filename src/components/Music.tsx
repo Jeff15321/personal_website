@@ -1,13 +1,14 @@
 import React from "react";
 import { useAnimation } from "../contexts/AnimateContext";
+import { useProjects } from "../contexts/Projects";
 
 interface MusicCardProps {
     height: number;
     width: number;
-    image: string;
+    project: any;
 }
 
-const Music: React.FC<MusicCardProps> = ({height, width, image}) => {
+const Music: React.FC<MusicCardProps> = ({height, width, project}) => {
     const { animation, setAnimation } = useAnimation();
 
     const previousMusic = () => {
@@ -29,11 +30,11 @@ const Music: React.FC<MusicCardProps> = ({height, width, image}) => {
 
 
     return (    
-        <div className={`parent-container background-black hide-scrollbar`} 
+        <div className={`parent-container hide-scrollbar ${project.theme[0]}`} 
             style={{height: `${height}%`, width: `${width}%`, overflow: "hidden"}}>
-            <div className="music-container">
+            <div className={`music-container ${project.theme[0]}`}>
                 <div className="music-image">
-                    <img src={image} alt="Music Cover" />
+                    <img src={project.images.thumbnail[0]} alt="Music Cover" />
                 </div>
                 <div className="music-button-container button-orange">
                     <img src="/music/backward.png" alt="Music Arrow" onClick={() => previousMusic()} />

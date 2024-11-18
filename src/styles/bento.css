@@ -22,7 +22,6 @@
     border-radius: 2em;
     max-height: 100%;
     max-width: 100%;
-    border: 2px solid red;
     visibility: hidden;
     position: relative;
 }
@@ -31,7 +30,6 @@
     border-radius: 2em;
     max-height: 100%;
     max-width: 100%;
-    border: 2px solid red;
     visibility: hidden;
     position: relative;
     overflow: auto;
@@ -109,14 +107,12 @@
 
 /* bottom and right row and column to center terminal in index */
 .filler-bottom-row {
-    border: 2px solid red;
     display: flex;
     border-radius: 2em;
     max-height: 100%;
     flex: 0.25;
 }
 .filler-right-col {
-    border: 2px solid red;
     display: flex;
     border-radius: 2em;
     max-width: 100%;

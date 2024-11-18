@@ -178,8 +178,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
       // Re-add the class to restart the animation
       element.classList.add('song-shift-left');
     });
-
-        
+    
     setTimeout(() => {
       if (animationCounter < 0) {
         setAnimationCounter(Object.keys(projects).length - 1);
@@ -194,6 +193,32 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
       }
     }, 500);
   };
+
+  useEffect(() => {
+    const border_styles = ['purple-border', 'green-border', 'orange-border'];
+    const border_elements = document.querySelectorAll('.card-container');
+    if (border_elements) {
+    border_elements.forEach((element) => {
+      for (let i = 0; i < border_styles.length; i++) {
+          element.classList.remove(border_styles[i]);
+        }
+        element.classList.add(projects[currentProjectName].theme[1]);
+      });
+    }
+    const music_buttons = document.querySelectorAll('.music-button-container img');
+    const filterMap: { [key: string]: string } = {
+      'TimeTable Sweetie': 'invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)',
+      'Anti_Tetris': 'invert(100%) sepia(0%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(100%)',
+      'PUT': 'invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(101%)'
+    };
+
+    music_buttons.forEach(button => {
+      const filter = filterMap[currentProjectName];
+      if (filter) {
+        (button as HTMLImageElement).style.filter = filter;
+      }
+    });
+  }, [currentProjectName]);
 
   useEffect(() => {
     // Update current state based on animation
@@ -223,7 +248,6 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
         }
       }, 2000);
     }
-
   }, [animation]);
 
   return (
@@ -235,7 +259,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
               <Music 
                 height={100} 
                 width={100} 
-                image={projects[currentProjectName].images["thumbnail"][0]}
+                project={projects[currentProjectName]}
               />
             </div>
             <div className={getClassName('card-container flex-col h-container-of-video-and-award-3', 'h-container-of-video-and-award-3')}>
@@ -269,8 +293,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
               <DescriptionCard 
                 height={100} 
                 width={100} 
-                description={projects[currentProjectName].description} 
-                name={projects[currentProjectName].name}
+                project={projects[currentProjectName]}
               />
             </div>
           </div>

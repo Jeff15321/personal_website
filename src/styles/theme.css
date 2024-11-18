@@ -1,0 +1,24 @@
+.green-grey {
+    background-color: grey;
+}
+
+.purple-dark {
+    background-color: #1a1a1a;
+}
+
+.orange-pink {
+    background-color: #1a1a1a;
+}
+
+.green-border {
+    border: 3px solid green;
+}
+
+.purple-border {
+    border: 3px solid purple;
+}
+
+.orange-border {
+    border: 3px solid rgb(196, 77, 37);
+}
+

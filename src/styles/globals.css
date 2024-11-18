@@ -35,7 +35,6 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: #000000; /* Light background for visibility */
   border-radius: 2em;
   max-height: 100%; /* Restrict height to parent's height */
   overflow-y: auto; /* Adds a scrollbar when content overflows vertically */
@@ -45,11 +44,6 @@ body {
 .unscrollable {
   overflow: hidden; /* Disables both horizontal and vertical scrolling */
 }
-
-.background-black {
-  background-color: #1a1a1a;;
-}
-
 
 /* hide scroll bar */
 .hide-scrollbar {

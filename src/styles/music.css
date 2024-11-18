@@ -10,9 +10,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65%;
-    height: 65%;
+    width: 70%;
+    height: 100%;
     margin-top: 0.3rem; /* Adjust space between image and buttons */
+}
+
+.music-image img {
+    height: 100%; /* This makes the image fill the height of its container */
+    width: 100%; /* This makes the image fill the width of its container */
+    object-fit: contain; /* This maintains the image's aspect ratio */
 }
 
 .music-button-container {
@@ -20,8 +26,8 @@
     margin-bottom: 1rem;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.1rem;
-    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+    margin-top: 0.3rem;
     gap: 1.5rem; /* Add space between the buttons */
     height: 20%; /* Allow the container to adjust height based on content */
 }

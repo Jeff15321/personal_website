@@ -9,7 +9,7 @@ interface AwardCardProps {
 
 const AwardCard: React.FC<AwardCardProps> = ({height, width, award}) => {
     return (
-        <div className={`parent-container background-black hide-scrollbar ${award[2]}`} style={{height: `${height}%`, width: `${width}%`, justifyContent: "left"}}>
+        <div className={`parent-container hide-scrollbar ${award[2]}`} style={{height: `${height}%`, width: `${width}%`, justifyContent: "left"}}>
             <div className="award-container">
                 <img height={10} width={10} className="award-logo" src={award[0]} />
                 <div className="award-text">
