@@ -43,7 +43,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "Time_Table_Sweetie",
       description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
       languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
-      award: ["logo/firstplace.png", "First Place", "award-gold"],
+      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
       },
@@ -57,7 +57,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "PUT",
       description: "A personal portfolio showcasing my projects and skills.",
       languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
-      award: ["logo/firstplace.png", "First Place", "award-gold"],
+      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/jeffrey-z-jiang/portfolio",
         LiveDemo: "https://portfolio.demo"
@@ -67,7 +67,21 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image1: ["project2/sidebar.png", 2],
         image2: ["project2/table.jpg", 5]
       }
-    }
+    }, 
+    Anti_Tetris: {
+      name: "Anti_Tetris",
+      description: `A web-based Tetris game that integrates a cyber security theme. \nThe game features a dynamic grid that adapts to the user's skill level, providing a personalized challenge. \nAs the player progresses, the grid size increases, adding complexity to the gameplay. \nThe game also includes a scoring system that rewards correct moves and penalizes errors, teaching players about cyber security principles.`,
+      languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
+      award: ["logo/firstplace.png", "First Place", "award-gold"],
+      links: {
+        Github: "https://github.com/enxilium/cyberattacker_tetris",
+      },
+      images: {
+        thumbnail: ["logo/newhacks.png", 0],
+        image1: ["project3/coverpage.png", 0],
+        image2: ["project3/maingame.jpg", 0]
+      }
+    },
   });
 
   return (
