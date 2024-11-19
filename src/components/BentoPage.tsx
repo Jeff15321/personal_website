@@ -7,6 +7,7 @@ import AwardCard from '../components/bento_components/award';
 import LanguageCard from '../components/bento_components/language';
 import Music from '../components/Music';
 import { useAnimation } from '../contexts/AnimateContext';
+import { preserveStyles } from '../utils/terminal_utils';
 
 
 // Type definitions
@@ -276,22 +277,29 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
         }
       }, 2000);
     }
+    setTimeout(() => {
+      for (const key in currentState) {
+        preserveStyles(key);
+      } 
+    },5000);
+
+
   }, [animation]);
 
   return (
-    <div className='bento-container-wrapper'>
-      <div className={ getClassName('bento-container', 'bento-container')}>
-        <div className={getClassName('card-container flex-col h-column-left-1', 'h-column-left-1')}>
-          <div className={getClassName('card-container flex-row h-top-row-2', 'h-top-row-2')}>
-            <div className={getClassName('card-container h-music-column-3', 'h-music-column-3')}>
+    <div id="bento-container-wrapper" className='bento-container-wrapper'>
+      <div id="bento-container" className={ getClassName('bento-container', 'bento-container')}>
+        <div id="h-column-left-1" className={getClassName('card-container flex-col h-column-left-1', 'h-column-left-1')}>
+          <div id="h-top-row-2" className={getClassName('card-container flex-row h-top-row-2', 'h-top-row-2')}>
+            <div id="h-music-column-3" className={getClassName('card-container h-music-column-3', 'h-music-column-3')}>
               <Music 
                 height={100} 
                 width={100} 
                 project={projects[currentProjectName]}
               />
             </div>
-            <div className={getClassName('card-container flex-col h-container-of-video-and-award-3', 'h-container-of-video-and-award-3')}>
-              <div className={getClassName('card-container h-video-4', 'h-video-4')}>
+            <div id="h-container-of-video-and-award-3" className={getClassName('card-container flex-col h-container-of-video-and-award-3', 'h-container-of-video-and-award-3')}>
+              <div id="h-video-4" className={getClassName('card-container h-video-4', 'h-video-4')}>
                 <PictureCard 
                   height={100} 
                   width={100} 
@@ -299,7 +307,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
                   zoom={projects[currentProjectName].images["image2"][1]}
                 />
               </div>
-              <div className={getClassName('card-container h-award-4', 'h-award-4')}>
+              <div id="h-award-4" className={getClassName('card-container h-award-4', 'h-award-4')}>
                 <AwardCard 
                   height={100} 
                   width={100} 
@@ -309,15 +317,15 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
             </div>
           </div>
 
-          <div className={getClassName('card-container flex-row h-bottom-row-2', 'h-bottom-row-2')}>
-            <div className={getClassName('card-container h-language-column-3', 'h-language-column-3')}>
+          <div id="h-bottom-row-2" className={getClassName('card-container flex-row h-bottom-row-2', 'h-bottom-row-2')}>
+            <div id="h-language-column-3" className={getClassName('card-container h-language-column-3', 'h-language-column-3')}>
               <LanguageCard 
                 height={100} 
                 width={100} 
                 project={projects[currentProjectName]}
               />
             </div>
-            <div className={getClassName('card-container h-description-column-3', 'h-description-column-3')}>
+            <div id="h-description-column-3" className={getClassName('card-container h-description-column-3', 'h-description-column-3')}>
               <DescriptionCard 
                 height={100} 
                 width={100} 
@@ -327,8 +335,8 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
           </div>
         </div>
 
-        <div className={getClassName('card-container-n flex-col h-column-right-1', 'h-column-right-1')}>
-          <div className={getClassName('card-container flex-row h-picture-row-2', 'h-picture-row-2')}>
+        <div id="h-column-right-1" className={getClassName('card-container-n flex-col h-column-right-1', 'h-column-right-1')}>
+          <div id="h-picture-row-2" className={getClassName('card-container flex-row h-picture-row-2', 'h-picture-row-2')}>
             <PictureCard 
               height={100} 
               width={100} 
@@ -336,14 +344,14 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
               zoom={projects[currentProjectName].images["image1"][1]}
             />
           </div>
-          <div className={getClassName('card-container h-terminal-row-2', 'h-terminal-row-2')}>
+          <div id="h-terminal-row-2" className={getClassName('card-container h-terminal-row-2', 'h-terminal-row-2')}>
             <Terminal height={100} width={100} />
           </div>
         </div>
 
-        <div className={getClassName('card-container filler-right-col', 'h-filler-right-col')} />
+        <div id="h-filler-right-col" className={getClassName('card-container filler-right-col', 'h-filler-right-col')} />
       </div>
-      <div className={getClassName('card-container filler-bottom-row', 'h-filler-bottom-row')} />
+      <div id="h-filler-bottom-row" className={getClassName('card-container filler-bottom-row', 'h-filler-bottom-row')} />
     </div>
   );
 };
