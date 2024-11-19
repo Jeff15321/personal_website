@@ -7,7 +7,6 @@ import AwardCard from '../components/bento_components/award';
 import LanguageCard from '../components/bento_components/language';
 import Music from '../components/Music';
 import { useAnimation } from '../contexts/AnimateContext';
-import { preserveStyles } from '../utils/terminal_utils';
 
 
 // Type definitions
@@ -37,6 +36,28 @@ type AnimationStates = {
 // Animation configurations for different states
 const ANIMATION_STATES: AnimationStates = {
   'TimeTable Sweetie': {
+    "bento-container": "change-max-height",
+    //left column
+    "h-column-left-1": "expand-left-col",
+        //top row on left column
+        "h-top-row-2": "overflow-visible",
+            "h-music-column-3": "animation show-card-fourth-right",
+            "h-container-of-video-and-award-3": "overflow-visible",
+                "h-award-4": "show-card-first",
+                "h-video-4": "animation show-card-third-bottom",
+    //bottom row on left column
+        "h-bottom-row-2": "overflow-visible",
+            "h-language-column-3": "animation show-card-second-right",
+            "h-description-column-3": "animation show-card-third-top",
+    //right column
+    "h-column-right-1": "default",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2",
+        "h-terminal-row-2": "default",
+    //filler
+    "h-filler-right-col": "collapse-right-col",
+    "h-filler-bottom-row": "collapse-bottom-row"
+  },
+  'revert': {
     "bento-container": "change-max-height",
     //left column
     "h-column-left-1": "expand-left-col",
@@ -103,6 +124,28 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-bottom-row": "collapse-bottom-row"
   },
   'experience': {
+    "bento-container": "change-max-height change-max-height-experience",
+    //left column
+    "h-column-left-1": "expand-left-col shrink-left-col-experience",
+        //top row on left column
+        "h-top-row-2": "overflow-visible",
+            "h-music-column-3": "animation show-card-fourth-right",
+            "h-container-of-video-and-award-3": "overflow-visible",
+                "h-award-4": "show-card-first",
+                "h-video-4": "animation show-card-third-bottom",
+    //bottom row on left column
+        "h-bottom-row-2": "overflow-visible",
+            "h-language-column-3": "animation show-card-second-right",
+            "h-description-column-3": "animation show-card-third-top",
+    //right column
+    "h-column-right-1": "default",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2 shrink-top-row-experience",
+        "h-terminal-row-2": "default",
+    //filler
+    "h-filler-right-col": "collapse-right-col shrink-right-col-experience",
+    "h-filler-bottom-row": "collapse-bottom-row"
+  },
+  'true-experience': {
     "bento-container": "change-max-height-experience",
     "h-column-left-1": "shrink-left-col-experience",
     "h-column-right-1": 'default',
@@ -119,7 +162,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-right-col": "shrink-right-col-experience",
     "h-filler-bottom-row": "default"
   },
-  'revert': {
+  'true-revert': {
     "bento-container": "revert-max-height",
     "h-column-left-1": 'revert-left-col',
     "h-column-right-1": 'default',
@@ -229,6 +272,15 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
     }, 500);
   };
 
+
+  const appendAnimation = (element_id: keyof AnimationState, animation: string) => {
+    const animation_name = ANIMATION_STATES[animation][element_id];
+    const element = document.getElementById(element_id);
+    if (element) {
+      element.classList.add(animation_name);
+    }
+  }
+
   useEffect(() => {
     const border_styles = ['purple-border', 'green-border', 'orange-border'];
     const border_elements = document.querySelectorAll('.card-container');
@@ -276,14 +328,8 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
             });
         }
       }, 2000);
-    }
-    setTimeout(() => {
-      for (const key in currentState) {
-        preserveStyles(key);
-      } 
-    },5000);
-
-
+      
+    } 
   }, [animation]);
 
   return (

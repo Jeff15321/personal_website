@@ -12,17 +12,6 @@ export const fillInput = (input: string): React.ReactNode => {
   return <span>{input}</span>;
 };
 
-export const preserveStyles = (element_id: string): void => {
-  const element = document.getElementById(element_id);
-  if (element) {
-    const computedStyles = window.getComputedStyle(element);
-
-    Array.from(computedStyles).forEach((style) => {
-      (element as HTMLElement).style.setProperty(style, computedStyles.getPropertyValue(style));
-    });
-  }
-};
-
 export const tab = (input: string, tabCounter: number, incrementTabCounter: () => void, resetTabCounter: () => void): string => {
   const parts = input.split(" ");
   const lastWord = parts[parts.length - 1];
