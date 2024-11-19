@@ -105,7 +105,35 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         {window.location.href = "/error"}
       </div>
     );
-    } 
+    } else if (input === "experience") {
+      const output: [string, string][] = [
+        ["For sure! Here's my experience~", ""]
+      ];
+      setAnimation(["experience", 0]);
+      return (
+        <div>
+          {output.map((line, index) => (
+            <div key={index}>
+              {formatOutput(line[0], line[1], setInput)}
+            </div>
+          ))}
+        </div>
+      );
+    } else if (input === "home") {
+      const output: [string, string][] = [
+        ["Miss me already~?", "Miss"]
+      ];
+      setAnimation(["revert", 0]);
+      return (
+        <div>
+          {output.map((line, index) => (
+            <div key={index}>
+              {formatOutput(line[0], line[1], setInput)}
+            </div>
+          ))}
+        </div>
+      );
+    }
 
     return <span>{input + ": command not found"}</span>;
   };

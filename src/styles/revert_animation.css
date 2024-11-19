@@ -1,0 +1,41 @@
+
+/* collapse animation */
+.revert-max-height {
+    animation: revert-max-height 0.75s ease forwards;
+}
+.revert-left-col {
+    animation: revert-width 0.75s ease forwards;
+}
+.revert-top-row {
+    animation: revert-top-row-height 0.75s ease forwards;
+}
+.revert-bottom-row {
+    animation: revert-bottom-row-height 0.75s ease forwards;
+}
+.revert-right-col {
+    animation: revert-right-col-width 0.75s ease forwards;
+}
+
+@keyframes revert-max-height {
+    to {
+        max-height: 75vh;
+    }
+}
+
+@keyframes revert-width {
+    to {
+        flex: 0.2;
+    }
+}
+@keyframes revert-bottom-row-height {
+    to {
+        flex: 0.25;
+    }
+}
+  
+@keyframes revert-top-row-height {
+    to {
+        flex: 0.5;
+    }
+}
+
