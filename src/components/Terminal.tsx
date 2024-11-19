@@ -77,7 +77,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         </div>
       );
     }
-    if (input === "s") {
+    if (input === "project") {
       const output: [string, string][] = [
         ["For sure! Here's TimeTable Sweetie~", "TimeTable Sweetie"]
       ];
@@ -91,7 +91,21 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
           ))}
         </div>
       );
-    }
+    } else if (input === "about-me") {
+    const output: [string, string][] = [
+      ["An error occurred. Redirecting to error page...", "error"]
+    ];
+    return (
+      <div>
+        {output.map((line, index) => (
+          <div key={index}>
+            {formatOutput(line[0], line[1], setInput)}
+          </div>
+        ))}
+        {window.location.href = "/error"}
+      </div>
+    );
+    } 
 
     return <span>{input + ": command not found"}</span>;
   };
