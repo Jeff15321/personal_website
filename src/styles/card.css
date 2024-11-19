@@ -64,37 +64,31 @@
     overflow: hidden; /* Hides any overflowing text */
     text-overflow: ellipsis; /* Adds ellipsis if the text overflows */
 }
-.language-container { 
+
+.language-container {
     display: flex;
     flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    background-color: #A9A9A9; /* Light background for visibility */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    width: 100%; /* Make the container the same width as the parent */
+    align-items: center;
+    position: absolute; /* Allows movement within parent */
+    top: 0; /* Start at the top of the parent */
+    width: 100%; /* Match the width of the parent */
+    animation: infiniteScroll 10s linear infinite; /* Infinite scrolling */
 }
 
-.animate-scroll {
-    animation: scrollUpDown 15s ease-in-out infinite; /* Infinite scrolling animation */
-}
-
-@keyframes scrollUpDown {
-  0% {
-    transform: translateY(0); /* Start at the top */
-  }
-  50% {
-    transform: translateY(-50%); /* Move halfway up */
-  }
-  100% {
-    transform: translateY(0); /* Go back to the start */
-  }
-}
-
-.language-container img {
-    width: 60%; /* Make the logo size a percentage of the parent container */
+.language-logo {
+    width: 60%; /* Size of the logos */
     height: auto; /* Maintain aspect ratio */
-    margin: 0.5em 0; /* Space between logos */
+    margin: 0.5em 0; /* Space between items */
+}
+
+/* Infinite scrolling keyframes */
+@keyframes infiniteScroll {
+    0% {
+        transform: translateY(0); /* Start at the top */
+    }
+    100% {
+        transform: translateY(-50%); /* Move up by half the container's height */
+    }
 }
 
 /* New styles for the description component */

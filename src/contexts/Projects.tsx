@@ -46,7 +46,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "Time_Table_Sweetie",
       theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
       description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
-      languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
+      languages: ["react", "javaScript","python", "node", "express","html","css", "sql"],
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
@@ -61,7 +61,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "Anti_Tetris",
       theme: ["purple-dark", "purple-border","invert(13%) sepia(85%) saturate(7466%) hue-rotate(276deg) brightness(82%) contrast(122%)"],
       description: `A web-based Tetris game built entirely in React and Javascript. \nPlayers increment their ability bar by clearing rows and unlocking 6 unique cyber attacks to mess up the opponenet through Web Sockets.\nAbilities include two custome malicious blocks, freezing oponent's screen until they type a sequence of symbols, force opponent to identify malicious links, and a storm that sccrews up oppoent's structure entirely.\nLastly, we've created an informative popup that educates players about the game and real-world cyber attacks as the game progresses.`,
-      languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
+      languages: ["react", "javaScript", "node", "express","html","css"],
       award: ["logo/firstplace.png", "First Place", "award-gold"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
@@ -76,7 +76,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "PUT",
       theme: ["green-grey", "green-border", "invert(28%) sepia(78%) saturate(2476%) hue-rotate(95deg) brightness(92%) contrast(101%)"],
       description: "PUT is an easy to use file storage system attached with an intuitive chrome sidebar that allows users to save, sort, and upload files in under two clicks.\nDeveloped a user-friendly CLI and streamlined file management that further emphasizes the ease of use for different demands.\nEnhanced file upload efficiency using TUS protocol for secure uploads, Cloudflare Workers for AI analysis, minIO for modular data storage, and a React/Next.js dashboard and Chrome extension. ",
-      languages: ["react", "javaScript", "node", "python", "express","html","css", "sql", "minio","next","typescript"],
+      languages: ["typescript", "python", "minio", "html","css"],
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/jeffrey-z-jiang/portfolio",

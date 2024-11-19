@@ -280,7 +280,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
               <LanguageCard 
                 height={100} 
                 width={100} 
-                language={projects[currentProjectName].languages}
+                project={projects[currentProjectName]}
               />
             </div>
             <div className={getClassName('card-container h-description-column-3', 'h-description-column-3')}>

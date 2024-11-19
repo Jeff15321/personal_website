@@ -35,7 +35,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  border-radius: 2em;
+  border-radius: 1em;
   max-height: 100%; /* Restrict height to parent's height */
   overflow-y: auto; /* Adds a scrollbar when content overflows vertically */
   flex-wrap: wrap;

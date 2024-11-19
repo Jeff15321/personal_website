@@ -30,7 +30,7 @@ const BentoPag: React.FC = () => {
 
             <div className="flex-row row2">
                 <div className="row-col small-tall">
-                  <LanguageCard height={100} width={100} language={projects["Time_Table_Sweetie"].languages}/>
+                  <LanguageCard height={100} width={100} project={projects["Time_Table_Sweetie"]}/>
                 </div>
                 <div className="row-col next-to-small-tall">
                   <DescriptionCard height={100} width={100} project={projects["Time_Table_Sweetie"]}/>
