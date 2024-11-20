@@ -46,7 +46,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "Time_Table_Sweetie",
       theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
       description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
-      languages: ["react", "javaScript","python", "node", "express","html","css", "sql"],
+      languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
@@ -61,7 +61,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "Anti_Tetris",
       theme: ["purple-dark", "purple-border","invert(13%) sepia(85%) saturate(7466%) hue-rotate(276deg) brightness(82%) contrast(122%)"],
       description: `A web-based Tetris game built entirely in React and Javascript. \nPlayers increment their ability bar by clearing rows and unlocking 6 unique cyber attacks to mess up the opponenet through Web Sockets.\nAbilities include two custome malicious blocks, freezing oponent's screen until they type a sequence of symbols, force opponent to identify malicious links, and a storm that sccrews up oppoent's structure entirely.\nLastly, we've created an informative popup that educates players about the game and real-world cyber attacks as the game progresses.`,
-      languages: ["react", "javaScript", "node", "express","html","css"],
+      languages: ["react", "javascript", "node", "express","html","css"],
       award: ["logo/firstplace.png", "First Place", "award-gold"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",

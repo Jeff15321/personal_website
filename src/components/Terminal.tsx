@@ -120,7 +120,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       );
     } else if (input === "project") {
       const output: [string, string][] = [
-        ["For sure! Here's TimeTable Sweetie~", "TimeTable Sweetie"]
+        ["Type next or prev to see the other projects!", "next prev"]
       ];
       setAnimation(["TimeTable Sweetie", 0]);
       return (

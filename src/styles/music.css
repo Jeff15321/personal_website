@@ -16,9 +16,16 @@
 }
 
 .music-image img {
-    height: 100%; /* This makes the image fill the height of its container */
-    width: 100%; /* This makes the image fill the width of its container */
-    object-fit: contain; /* This maintains the image's aspect ratio */
+    height: 100%; 
+    width: 100%; 
+    object-fit: contain; 
+}
+
+.music-image-image {
+    height: 100%; 
+    width: 100%; 
+    padding: 0;
+    object-fit: contain; 
 }
 
 .music-button-container {
@@ -42,3 +49,28 @@
     filter: invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%);
 }
 
+.glow-pulse {
+    animation: glow-pulse 5s infinite;
+}
+
+.next-music-button {
+    padding: 4px;
+}
+
+@keyframes glow-pulse {
+    0% { 
+        transform: scale(1.2);
+        opacity: 0.8;
+        filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(360deg) brightness(105%) contrast(110%);
+    }
+    50% { 
+        transform: scale(1.0);
+        filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(0deg) brightness(105%) contrast(110%);
+
+    }
+    100% { 
+        transform: scale(1.2);
+        opacity: 0.8;
+        filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(360deg) brightness(105%) contrast(110%);
+    }
+}

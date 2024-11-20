@@ -33,8 +33,12 @@ export const tab = (input: string, tabCounter: number, incrementTabCounter: () =
 }
 
 export const formatOutput = (output: string, keyword: string, setInput: any) => {
-  const parts = output.split(keyword);
-  
+  const keyword_list = keyword.split(" ");
+
+  const regex = new RegExp(keyword_list.join("|"), "g");
+
+  const parts = output.split(regex);
+    
   return (
     <div>
       {parts.map((part, index) => (
@@ -45,7 +49,7 @@ export const formatOutput = (output: string, keyword: string, setInput: any) => 
               style={{ color: "red", cursor: "pointer" }}
               onClick={() => setInput(keyword)}
             >
-              {keyword}
+              {keyword_list[index]}
             </span>
           )}
         </span>

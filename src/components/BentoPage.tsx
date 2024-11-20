@@ -5,7 +5,7 @@ import PictureCard from '../components/bento_components/picture_card';
 import { useProjects } from '../contexts/Projects';
 import AwardCard from '../components/bento_components/award';
 import LanguageCard from '../components/bento_components/language';
-import Music from '../components/Music';
+import Music from './bento_components/Music';
 import { useAnimation } from '../contexts/AnimateContext';
 
 
