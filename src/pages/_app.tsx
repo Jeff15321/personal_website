@@ -8,6 +8,7 @@ import "../styles/song_animation.css";
 import "../styles/theme.css";
 import "../styles/revert_animation.css";
 import "../styles/experience_animation.css";
+import "../styles/exit_project_animation.css";
 
 
 import type { AppProps } from "next/app";
@@ -16,6 +17,7 @@ import { TabInputProvider } from "../contexts/TabInputContext";
 import { ProjectsProvider } from "../contexts/Projects";
 import { AnimationProvider } from "../contexts/AnimateContext";
 import { RapidCheckerProvider } from "../contexts/RapidChecker";
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <TabCounterProvider>

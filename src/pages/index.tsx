@@ -1,6 +1,4 @@
-import Terminal from "../components/Terminal"; // Adjusted import path to match the correct casing
 import BentoPage from "../components/BentoPage";
-import Error from "../components/Error";
 
 export default function Home() {
   return (

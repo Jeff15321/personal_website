@@ -1,0 +1,67 @@
+
+@keyframes fade-shift-right {
+    from {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 0;
+        transform: translateX(40vw); /* Moves to its original position */
+    }
+}
+
+@keyframes fade-shift-left {
+    from {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-40vw); /* Moves to its original position */
+    }
+}
+
+@keyframes fade-shift-bottom {
+    from {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 0;
+        transform: translateY(40vw); /* Moves to its original position */
+    }
+}
+@keyframes fade-shift-top {
+    from {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0vw); /* Starts off-screen to the right */
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-40vw); /* Moves to its original position */
+    }
+}   
+
+.exit-project-animation-fade-shift-left {
+    animation: fade-shift-left 0.5s ease-out forwards;
+}
+
+.exit-project-animation-fade-shift-right {
+    animation: fade-shift-right 0.5s ease-out forwards;
+}
+
+.exit-project-animation-fade-shift-bottom {
+    animation: fade-shift-bottom 0.5s ease-out forwards;
+}
+
+.exit-project-animation-fade-shift-top {
+    animation: fade-shift-top 0.5s ease-out forwards;
+}
+
+.visible {
+    visibility: visible;
+}
