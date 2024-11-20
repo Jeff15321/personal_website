@@ -100,12 +100,14 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
 
     if (input === "help") {
       const output: [string, string][] = [
-        ["Type the red type in the terminal or mannually click it to launch the commands!", "red"], 
+      ["Type the red text in the terminal or mannually click on the text to launch the commands!\n(You can press Tab to autocomplete and Up Arrow to see previous commands👍)", "red"], 
         ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
         ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
         ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
-        ["\u00A0\u00A0\u00A0\u00A0hobby: I have some sick hobbies!", "hobby"],
-        ["\u00A0\u00A0\u00A0\u00A0home: go back to terminal page!!", "home"]
+        ["\u00A0\u00A0\u00A0\u00A0home: go back to terminal page!!", "home"],
+        ["\u00A0\u00A0\u00A0\u00A0github: look at my projects in detail!", "github"],
+        ["\u00A0\u00A0\u00A0\u00A0linkedin: look at my experiences in detail!", "linkedin"],
+        ["\u00A0\u00A0\u00A0\u00A0resume: more about me!", "resume"]
       ];
       return (
         <div>
@@ -134,6 +136,8 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     const output: [string, string][] = [
       ["An error occurred. Redirecting to error page...", "error"]
     ];
+    {window.open("/error", "_blank");}
+
     return (
       <div>
         {output.map((line, index) => (
@@ -141,7 +145,6 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
             {formatOutput(line[0], line[1], setInput)}
           </div>
         ))}
-        {window.location.href = "/error"}
       </div>
     );
     } else if (input === "experience") {      
@@ -177,7 +180,16 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         setAnimation(["TimeTable Sweetie", 0]);
         return <span>{"Really? Previous Page? Girlll you're not even in the project page! Let me bring you there~"}</span>;
       }
-    } 
+    } else if (input === "github") {
+      window.open("https://github.com/Jeff15321", "_blank");
+      return <span>{"Leaving already? I'll miss youuu~"}</span>;
+    } else if (input === "linkedin") {
+      window.open("https://www.linkedin.com/in/jeff-lu-8b3121281/", "_blank");
+      return <span>{"You didn't even say goodbye😭"}</span>;
+    } else if (input === 'resume') {
+      window.open("https://www.canva.com/design/DAGRikqvQqA/QQ_-nwEnHwYnqMCMtDH33w/edit?utm_content=DAGRikqvQqA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton", "_blank");
+      return <span>{"Yes... I wrote my resume in Canva... stop judging..."}</span>;
+    }
     return <span>{input + ": command not found"}</span>;
   };
 
@@ -313,7 +325,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     <div ref={terminalRef} className="parent-container" style={{height: `${height}%`, width: `${width}%`}}>
       <div className="text-wrap terminal">
         <div className="hide-scrollbar">
-          <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do!", "help", setInput)}</div>
+          <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do! (remember to press enter to submit)", "help", setInput)}</div>
           {history.map((cmd, index) => (
             <div key={index} className="py-1">
               {cmd[1] ? null : <span className="text-green-400">JeffLu@portfolio: </span>}

@@ -1,6 +1,6 @@
 import React, { useRef,useEffect, useState } from "react";
 
-export const commands: string[] = ["help", "about-me", "experience", "project", "hobby", "hobbb","hobbee"];
+export const commands: string[] = ["help", "about-me", "experience", "project", "next", "prev", "github", "linkedin", "resume"];
 
 export const scrollToBottom = (terminalRef: React.RefObject<HTMLDivElement>): void => {
     if (terminalRef.current) {
