@@ -17,6 +17,7 @@ import { TabInputProvider } from "../contexts/TabInputContext";
 import { ProjectsProvider } from "../contexts/Projects";
 import { AnimationProvider } from "../contexts/AnimateContext";
 import { RapidCheckerProvider } from "../contexts/RapidChecker";
+import { ExperienceProvider } from "../contexts/ExperienceContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -24,8 +25,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <TabInputProvider>
         <ProjectsProvider>
           <AnimationProvider>
-            <RapidCheckerProvider>
-              <Component {...pageProps} /> 
+            <RapidCheckerProvider>  
+              <ExperienceProvider>
+                <Component {...pageProps} /> 
+              </ExperienceProvider>
             </RapidCheckerProvider>
           </AnimationProvider>
         </ProjectsProvider>

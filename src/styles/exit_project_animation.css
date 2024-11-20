@@ -1,7 +1,6 @@
 
 @keyframes fade-shift-right {
     from {
-        visibility: visible;
         opacity: 1;
         transform: translateX(0vw); /* Starts off-screen to the right */
     }
@@ -13,7 +12,6 @@
 
 @keyframes fade-shift-left {
     from {
-        visibility: visible;
         opacity: 1;
         transform: translateX(0vw); /* Starts off-screen to the right */
     }
@@ -25,7 +23,6 @@
 
 @keyframes fade-shift-bottom {
     from {
-        visibility: visible;
         opacity: 1;
         transform: translateY(0vw); /* Starts off-screen to the right */
     }
@@ -36,7 +33,6 @@
 }
 @keyframes fade-shift-top {
     from {
-        visibility: visible;
         opacity: 1;
         transform: translateY(0vw); /* Starts off-screen to the right */
     }

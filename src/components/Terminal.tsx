@@ -145,7 +145,12 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     );
     } else if (input === "experience") {
       const output: [string, string][] = [
-        ["For sure! Here's my experience~", ""]
+        ["Type the red type in the terminal or mannually click it to launch the commands!", "red"], 
+        ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
+        ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
+        ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
+        ["\u00A0\u00A0\u00A0\u00A0hobby: I have some sick hobbies!", "hobby"],
+        ["\u00A0\u00A0\u00A0\u00A0home: go back to terminal page!!", "home"]
       ];
       setAnimation(["experience", 0]);
       return (

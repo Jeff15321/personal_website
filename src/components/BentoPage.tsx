@@ -112,7 +112,24 @@ const ANIMATION_STATES: AnimationStates = {
     "h-award-4": 'exit-project-animation-fade-shift-top',
     "h-video-4": 'exit-project-animation-fade-shift-top',
     "h-language-column-3": 'exit-project-animation-fade-shift-left',
-    "h-description-column-3": 'exit-project-animation-fade-shift-bottom',
+    "h-description-column-3": 'vexit-project-animation-fade-shift-bottom',
+    "h-picture-row-2": "shrink-top-row-experience",
+    "h-terminal-row-2": 'default',
+    "h-filler-right-col": "shrink-right-col-experience",
+    "h-filler-bottom-row": "default"
+  },
+  'project-to-experience': {
+    "bento-container": "change-max-height-experience",
+    "h-column-left-1": "shrink-left-col-experience",
+    "h-column-right-1": 'default',
+    "h-top-row-2": 'overflow-visible',
+    "h-bottom-row-2": 'overflow-visible',
+    "h-music-column-3": 'visible exit-project-animation-fade-shift-left',
+    "h-container-of-video-and-award-3": 'overflow-visible',
+    "h-award-4": 'visible exit-project-animation-fade-shift-top',
+    "h-video-4": 'visible exit-project-animation-fade-shift-top',
+    "h-language-column-3": 'visible exit-project-animation-fade-shift-left',
+    "h-description-column-3": 'visible exit-project-animation-fade-shift-bottom',
     "h-picture-row-2": "shrink-top-row-experience",
     "h-terminal-row-2": 'default',
     "h-filler-right-col": "shrink-right-col-experience",
@@ -270,6 +287,13 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   }, [currentProjectName]);
 
   useEffect(() => {
+    //check if animation is going from project to experience
+    if (animation[0] === 'experience') {
+      const bottom_row_spacer = document.getElementById('h-filler-bottom-row');
+      if (bottom_row_spacer && bottom_row_spacer.style.flex === '0 1 0%') {
+        setAnimation(['project-to-experience', 0]);
+      }
+    }
     // Update current state based on animation
     setCurrentState(ANIMATION_STATES[animation[0]] || ANIMATION_STATES.default);
     //make sure scroll bar is hidden
@@ -299,7 +323,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
         }
       }, 2000);
     } 
-
+    
     //fix flex properties for next animations to build off of
     setTimeout(captureAndApplyFinalState, animation_time[animation[0] as keyof typeof animation_time]);
   }, [animation]);
