@@ -186,6 +186,18 @@ interface BentoPageProps {
   projectName: string;
 }
 
+//check if user opened project page
+export const Is_in_project = () => {
+  
+  const top_row_spacer = document.getElementById('h-picture-row-2');
+    if (top_row_spacer) {
+      console.log(top_row_spacer.style.flex)
+
+      return top_row_spacer.style.flex === '2 1 0%';
+  }
+  return false;
+}
+
 const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   const { projects } = useProjects();
   const { animation, setAnimation } = useAnimation();
@@ -289,8 +301,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   useEffect(() => {
     //check if animation is going from project to experience
     if (animation[0] === 'experience') {
-      const bottom_row_spacer = document.getElementById('h-filler-bottom-row');
-      if (bottom_row_spacer && bottom_row_spacer.style.flex === '0 1 0%') {
+      if (Is_in_project()) {
         setAnimation(['project-to-experience', 0]);
       }
     }

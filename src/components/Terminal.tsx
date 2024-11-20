@@ -5,7 +5,8 @@ import { useTabInput } from "../contexts/TabInputContext";
 import { commands } from "../utils/terminal_utils";
 import { useAnimation } from "../contexts/AnimateContext";
 import { useRapidChecker } from "../contexts/RapidChecker";
-import { animation_time } from "./BentoPage";
+import { animation_time, Is_in_project } from "./BentoPage";
+import Experience from "./Experience";
 interface TerminalProps {
   height: number;
   width: number;
@@ -143,25 +144,11 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         {window.location.href = "/error"}
       </div>
     );
-    } else if (input === "experience") {
-      const output: [string, string][] = [
-        ["Type the red type in the terminal or mannually click it to launch the commands!", "red"], 
-        ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
-        ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
-        ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
-        ["\u00A0\u00A0\u00A0\u00A0hobby: I have some sick hobbies!", "hobby"],
-        ["\u00A0\u00A0\u00A0\u00A0home: go back to terminal page!!", "home"]
-      ];
+    } else if (input === "experience") {      
       setAnimation(["experience", 0]);
-      return (
-        <div>
-          {output.map((line, index) => (
-            <div key={index}>
-              {formatOutput(line[0], line[1], setInput)}
-            </div>
-          ))}
-        </div>
-      );
+      
+      return <Experience />
+    
     } else if (input === "home") {
       const output: [string, string][] = [
         ["Miss me already~?", "Miss"]
@@ -176,8 +163,21 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
           ))}
         </div>
       );
-    }
-
+    } else if (input === "next") {
+      if (Is_in_project()) {
+        setAnimation(["Next_Song", 0]);
+      } else {
+        setAnimation(["TimeTable Sweetie", 0]);
+        return <span>{"Really? Next Page? Girlll you're not even in the project page! Let me bring you there~"}</span>;
+      }
+    } else if (input === "prev") {
+      if (Is_in_project()) {  
+        setAnimation(["Previous_Song", 0]);
+      } else {
+        setAnimation(["TimeTable Sweetie", 0]);
+        return <span>{"Really? Previous Page? Girlll you're not even in the project page! Let me bring you there~"}</span>;
+      }
+    } 
     return <span>{input + ": command not found"}</span>;
   };
 

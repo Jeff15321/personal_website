@@ -1,0 +1,69 @@
+.experienceTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    table-layout: fixed; /* Ensures that the columns obey the widths you set */
+}
+
+.experienceTableHeader,
+.experienceTableCell {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.experienceTableHeader {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #ddd;
+}
+
+.experienceTableCellPre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Courier New", Courier, monospace;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.dateColumn,
+.descriptionColumn {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.dateColumn {
+    min-width: 0; /* Allow shrinking below content's natural width */
+}
+
+.descriptionColumn {
+    min-width: 0; /* Allow shrinking below content's natural width */
+    width: 75%;
+}
+
+.organizationPositionColumn {
+    width: 15%;
+}
+
+.organizationPositionWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.organizationColumn,
+.positionColumn {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1rem;
+}
+
+.organizationColumn {
+    font-weight: bold;
+}
+
+.positionColumn {
+    color: lightgray;
+    min-width: 0; /* Allow shrinking below content's natural width */
+}
