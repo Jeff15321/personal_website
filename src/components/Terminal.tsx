@@ -169,6 +169,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     } else if (input === "next") {
       if (Is_in_project()) {
         setAnimation(["Next_Song", 0]);
+        return <span>{"Next Project!"}</span>;
       } else {
         setAnimation(["TimeTable Sweetie", 0]);
         return <span>{"Really? Next Page? Girlll you're not even in the project page! Let me bring you there~"}</span>;
@@ -176,6 +177,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     } else if (input === "prev") {
       if (Is_in_project()) {  
         setAnimation(["Previous_Song", 0]);
+        return <span>{"Previous Project!"}</span>;
       } else {
         setAnimation(["TimeTable Sweetie", 0]);
         return <span>{"Really? Previous Page? Girlll you're not even in the project page! Let me bring you there~"}</span>;

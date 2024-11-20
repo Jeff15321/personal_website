@@ -23,7 +23,7 @@ const Music: React.FC<MusicCardProps> = ({height, width, project}) => {
     };
       
     const playMusic = () => {
-      alert("play music");
+      alert("Jeff didn't figure out what to do to this so consider this a easter egg! 😊");
 
       return true;
     };
