@@ -2,7 +2,8 @@ import React, { createContext, useContext, useState } from "react";
 
 // Define the shape of the context
 interface RapidCheckerContextType {
-  rapidInputCounter: [number, NodeJS.Timeout | null];
+  //0: count, 1: current time
+  rapidInputCounter: [number, number];
   setRapidInputCounter: (rapidInputCounter: any) => void;
 }
 
@@ -11,7 +12,7 @@ const RapidCheckerContext = createContext<RapidCheckerContextType | undefined>(u
 
 // Create a provider component
 export const RapidCheckerProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [rapidInputCounter, setRapidInputCounter] = useState<[number, NodeJS.Timeout | null]>([0, null]);
+  const [rapidInputCounter, setRapidInputCounter] = useState<[number, number]>([0, 0]);
 
   return (
     <RapidCheckerContext.Provider value={{ rapidInputCounter, setRapidInputCounter }}>

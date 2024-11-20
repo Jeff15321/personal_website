@@ -261,7 +261,6 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
         element.classList.add(projects[currentProjectName].theme[1]);
       });
     }
-    console.log(currentProjectName);
     const music_buttons = document.querySelectorAll('.music-button-container img');
     const filterMap = projects[currentProjectName].theme[2];
 

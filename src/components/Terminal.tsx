@@ -32,21 +32,34 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   }
 
 
-  const checkRapidInput = () => {
-    setRapidInputCounter((prev: [number, NodeJS.Timeout | null]) => [prev[0] + 1, prev[1]]); 
+  // const checkRapidInput = () => {
+  //   setRapidInputCounter((prev: [number, number]) => [prev[0] + 1, performance.now()]); 
 
-    if (rapidInputCounter[0] === 1) {
-      return true;
-    }
+  //   if (rapidInputCounter[0] >= 1) {
+  //     return true;
+  //   }
 
-    if (rapidInputCounter[1]) {
-      clearTimeout(rapidInputCounter[1]);
-    }
-    rapidInputCounter[1] = setTimeout(() => {
-      setRapidInputCounter([0, null]);
-    }, animation_time[animation[0] as keyof typeof animation_time]);
-    return false;
-  }
+  //   if (rapidInputCounter[1]) {
+  //     clearTimeout(rapidInputCounter[1]);
+  //   }
+  //   setTimeout(() => {
+  //     setRapidInputCounter([0, 0]);
+  //   }, animation_time[animation[0] as keyof typeof animation_time]);
+  //   return false;
+  // }
+  
+  // const HandleRapidTimerFinish = (timer_time: number) => {
+  //   const currentTime = performance.now();
+  //   setTimeout(() => {
+  //     const output = <span>Thanks for the wait! Go ahead and type in the terminal!</span>;
+
+  //     setRapidInputCounter([0, 0]);
+
+  //     setHistory((prev) => [...prev, [output, true]]);
+  //     inputRef.current?.focus();
+  //     scrollToBottom(terminalRef);
+  //   }, timer_time - (currentTime - rapidInputCounter[1]));
+  // }
 
   const handleSubmit = () => {
     const inputElement = document.getElementById("terminal-input");
@@ -79,9 +92,10 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         return <span></span>;
     }
 
-    if (checkRapidInput()) {
-      return <span>Rapid input detected!</span>;
-    }
+    // if (checkRapidInput()) {
+    //   HandleRapidTimerFinish(animation_time[animation[0] as keyof typeof animation_time]);
+    //   return <span>Woah! I understand the excitement but the page isn't loaded yet!!</span>;
+    // }
 
     if (input === "help") {
       const output: [string, string][] = [
