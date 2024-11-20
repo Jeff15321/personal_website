@@ -1,17 +1,17 @@
 .change-max-height-experience {
-    animation: expandBentoContainer-experience 2.75s ease forwards;
+    animation: expandBentoContainer-experience 1s ease forwards;
 }
 .shrink-left-col-experience {
-    animation: shrinkWidth-left-col-experience 2.75s ease forwards;
+    animation: shrinkWidth-left-col-experience 1s ease forwards;
 }
 .shrink-top-row-experience {
-    animation: shrinkHeight-top-row-experience 2.75s ease forwards;
+    animation: shrinkHeight-top-row-experience 1s ease forwards;
 }
 .shrink-bottom-row-experience {
-    animation: shrinkHeight-bottom-row-experience 2.75s ease forwards;
+    animation: shrinkHeight-bottom-row-experience 1s ease forwards;
 }
 .shrink-right-col-experience {
-    animation: shrinkWidth-right-col-experience 2.75s ease forwards;
+    animation: shrinkWidth-right-col-experience 1s ease forwards;
 }
 
 @keyframes expandBentoContainer-experience {
@@ -24,35 +24,35 @@
 }
 
 @keyframes shrinkHeight-top-row-experience {
-    from {
+    /* from {
         flex: 2;
-    }
+    } */
     to {
         flex: 0.05;
     }
 }
 @keyframes shrinkWidth-left-col-experience {
-    from {
+    /* from {
         flex: 2;
-    }
+    } */
     to {
         flex: 0.1; /* Final flex value when expanded */
     }
 }
 
 @keyframes shrinkWidth-right-col-experience {
-    from {
+    /* from {
         flex: 0;
-    }
+    } */
     to {
         flex: 0.1; /* Final flex value when expanded */
     }
 }
   
 @keyframes shrinkHeight-bottom-row-experience {
-    from {
+    /* from {
         flex: 0;
-    }
+    } */
     to {
         flex: 0.1;
     }

@@ -1,0 +1,23 @@
+.test-page {
+    position: absolute;
+}
+
+.Y {
+    animation: ya 1s ease-in-out forwards;
+}
+
+.X {
+    animation: xa 1s ease-in-out forwards;
+}
+
+@keyframes ya {
+    to {
+        transform: translateY(500px);
+    }
+}
+
+@keyframes xa {
+    to { 
+        transform: translateX(500px);
+    }
+}

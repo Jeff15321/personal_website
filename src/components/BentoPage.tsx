@@ -51,29 +51,7 @@ const ANIMATION_STATES: AnimationStates = {
             "h-description-column-3": "animation show-card-third-top",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2",
-        "h-terminal-row-2": "default",
-    //filler
-    "h-filler-right-col": "collapse-right-col",
-    "h-filler-bottom-row": "collapse-bottom-row"
-  },
-  'revert': {
-    "bento-container": "change-max-height",
-    //left column
-    "h-column-left-1": "expand-left-col",
-        //top row on left column
-        "h-top-row-2": "overflow-visible",
-            "h-music-column-3": "animation show-card-fourth-right",
-            "h-container-of-video-and-award-3": "overflow-visible",
-                "h-award-4": "show-card-first",
-                "h-video-4": "animation show-card-third-bottom",
-    //bottom row on left column
-        "h-bottom-row-2": "overflow-visible",
-            "h-language-column-3": "animation show-card-second-right",
-            "h-description-column-3": "animation show-card-third-top",
-    //right column
-    "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2",
+        "h-picture-row-2": "animation show-card-second-left-and-expand-height",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -95,7 +73,7 @@ const ANIMATION_STATES: AnimationStates = {
             "h-description-column-3": "animation show-card-third-top song-shift-right",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2 song-shift-right",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left-and-expand-height fix-right-picture-card-flex-2 song-shift-right",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -117,35 +95,13 @@ const ANIMATION_STATES: AnimationStates = {
             "h-description-column-3": "animation show-card-third-top song-shift-left",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2 song-shift-left",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left-and-expand-height fix-right-picture-card-flex-2 song-shift-left",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
     "h-filler-bottom-row": "collapse-bottom-row"
   },
   'experience': {
-    "bento-container": "change-max-height change-max-height-experience",
-    //left column
-    "h-column-left-1": "expand-left-col shrink-left-col-experience",
-        //top row on left column
-        "h-top-row-2": "overflow-visible",
-            "h-music-column-3": "animation show-card-fourth-right",
-            "h-container-of-video-and-award-3": "overflow-visible",
-                "h-award-4": "show-card-first",
-                "h-video-4": "animation show-card-third-bottom",
-    //bottom row on left column
-        "h-bottom-row-2": "overflow-visible",
-            "h-language-column-3": "animation show-card-second-right",
-            "h-description-column-3": "animation show-card-third-top",
-    //right column
-    "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left fix-right-picture-card-flex-2 shrink-top-row-experience",
-        "h-terminal-row-2": "default",
-    //filler
-    "h-filler-right-col": "collapse-right-col shrink-right-col-experience",
-    "h-filler-bottom-row": "collapse-bottom-row"
-  },
-  'true-experience': {
     "bento-container": "change-max-height-experience",
     "h-column-left-1": "shrink-left-col-experience",
     "h-column-right-1": 'default',
@@ -162,7 +118,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-right-col": "shrink-right-col-experience",
     "h-filler-bottom-row": "default"
   },
-  'true-revert': {
+  'revert': {
     "bento-container": "revert-max-height",
     "h-column-left-1": 'revert-left-col',
     "h-column-right-1": 'default',
@@ -174,7 +130,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-video-4": 'default',
     "h-language-column-3": 'default',
     "h-description-column-3": 'default',
-    "h-picture-row-2": 'default',
+    "h-picture-row-2": 'revert-top-row',
     "h-terminal-row-2": 'default',
     "h-filler-right-col": 'revert-right-col',
     "h-filler-bottom-row": 'revert-bottom-row'
@@ -198,6 +154,17 @@ const ANIMATION_STATES: AnimationStates = {
   }
 };
 
+export const animation_time = {
+  'TimeTable Sweetie': 3750,
+  'Previous_Song': 1000,
+  'Next_Song': 1000,
+  'experience': 1000,
+  'revert': 1000,
+  default: 1000
+}
+
+const border_styles = ['purple-border', 'green-border', 'orange-border'];
+
 interface BentoPageProps {
   projectName: string;
 }
@@ -213,6 +180,18 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   const getClassName = (baseClass: string, element: keyof AnimationState): string => {
     const state = currentState[element];
     return `${baseClass} ${state !== 'default' ? `${state}` : ''}`.trim();
+  };
+
+  const captureAndApplyFinalState = () => {
+    const keys = Object.keys(currentState);
+
+    keys.forEach(key => {
+      const element = document.getElementById(key);
+      if (element) {
+        const computedStyle = window.getComputedStyle(element);
+        element.style.flex = computedStyle.flex;
+      }
+    })    
   };
 
   const Previous_Song_Animation = () => {
@@ -272,17 +251,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
     }, 500);
   };
 
-
-  const appendAnimation = (element_id: keyof AnimationState, animation: string) => {
-    const animation_name = ANIMATION_STATES[animation][element_id];
-    const element = document.getElementById(element_id);
-    if (element) {
-      element.classList.add(animation_name);
-    }
-  }
-
   useEffect(() => {
-    const border_styles = ['purple-border', 'green-border', 'orange-border'];
     const border_elements = document.querySelectorAll('.card-container');
     if (border_elements) {
     border_elements.forEach((element) => {
@@ -313,7 +282,9 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
       Previous_Song_Animation();
     }
         
-    if (animation[0] === 'TimeTable Sweetie') {   
+    if (animation[0] === 'TimeTable Sweetie') {
+      setAnimationCounter(0);
+      setCurrentProjectName(Object.keys(projects)[0]);
       setTimeout(() => {
         const cardContainer = document.querySelector('.card-container');
         if (cardContainer) {
@@ -328,8 +299,10 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
             });
         }
       }, 2000);
-      
     } 
+
+    //fix flex properties for next animations to build off of
+    setTimeout(captureAndApplyFinalState, animation_time[animation[0] as keyof typeof animation_time]);
   }, [animation]);
 
   return (
@@ -381,7 +354,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
           </div>
         </div>
 
-        <div id="h-column-right-1" className={getClassName('card-container-n flex-col h-column-right-1', 'h-column-right-1')}>
+        <div id="h-column-right-1" className={getClassName('card-container-no-change-during-animation visible-overflow flex-col h-column-right-1', 'h-column-right-1')}>
           <div id="h-picture-row-2" className={getClassName('card-container flex-row h-picture-row-2', 'h-picture-row-2')}>
             <PictureCard 
               height={100} 

@@ -66,6 +66,7 @@ body.no-scroll {
     to {
         opacity: 1;
         transform: translateX(0); /* Moves to its original position */
+        flex: 2;
     }
 }
 
@@ -104,9 +105,8 @@ body.no-scroll {
     flex: 2;
 }
 
-.show-card-second-left {
-    animation: shift-left 0.75s ease-out forwards;
-    animation-delay: 2.0s;
+.show-card-second-left-and-expand-height {
+    animation: expandHeight 0.75s ease-out forwards, shift-left 0.75s ease-out 2s forwards;
 }
 
 .show-card-second-right {

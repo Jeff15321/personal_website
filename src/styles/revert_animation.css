@@ -13,7 +13,7 @@
     animation: revert-bottom-row-height 0.75s ease forwards;
 }
 .revert-right-col {
-    animation: revert-right-col-width 0.75s ease forwards;
+    animation: revert-width 0.75s ease forwards;
 }
 
 @keyframes revert-max-height {

@@ -4,7 +4,8 @@ import { useTabCounter } from "../contexts/TabCounterContext";
 import { useTabInput } from "../contexts/TabInputContext";
 import { commands } from "../utils/terminal_utils";
 import { useAnimation } from "../contexts/AnimateContext";
-
+import { useRapidChecker } from "../contexts/RapidChecker";
+import { animation_time } from "./BentoPage";
 interface TerminalProps {
   height: number;
   width: number;
@@ -23,10 +24,28 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   const [historyInput, setHistoryInput] = useState<string[]>([]);
   const [historyInputCounter, setHistoryInputCounter] = useState(0);
   const [first_tab_checker, setFirstTabChecker] = useState(true);
-  
+  const { rapidInputCounter, setRapidInputCounter } = useRapidChecker();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLDivElement>) => {
     //update input value
     setInput(e.target.innerText);
+  }
+
+
+  const checkRapidInput = () => {
+    setRapidInputCounter((prev: [number, NodeJS.Timeout | null]) => [prev[0] + 1, prev[1]]); 
+
+    if (rapidInputCounter[0] === 1) {
+      return true;
+    }
+
+    if (rapidInputCounter[1]) {
+      clearTimeout(rapidInputCounter[1]);
+    }
+    rapidInputCounter[1] = setTimeout(() => {
+      setRapidInputCounter([0, null]);
+    }, animation_time[animation[0] as keyof typeof animation_time]);
+    return false;
   }
 
   const handleSubmit = () => {
@@ -59,13 +78,19 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     if (input === "") {
         return <span></span>;
     }
+
+    if (checkRapidInput()) {
+      return <span>Rapid input detected!</span>;
+    }
+
     if (input === "help") {
       const output: [string, string][] = [
         ["Type the red type in the terminal or mannually click it to launch the commands!", "red"], 
         ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
         ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
         ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
-        ["\u00A0\u00A0\u00A0\u00A0hobby: I have some sick hobbies!", "hobby"]
+        ["\u00A0\u00A0\u00A0\u00A0hobby: I have some sick hobbies!", "hobby"],
+        ["\u00A0\u00A0\u00A0\u00A0home: go back to terminal page!!", "home"]
       ];
       return (
         <div>
@@ -76,8 +101,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
           ))}
         </div>
       );
-    }
-    if (input === "project") {
+    } else if (input === "project") {
       const output: [string, string][] = [
         ["For sure! Here's TimeTable Sweetie~", "TimeTable Sweetie"]
       ];

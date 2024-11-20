@@ -15,14 +15,16 @@ import { TabCounterProvider } from "../contexts/TabCounterContext"; // Adjust th
 import { TabInputProvider } from "../contexts/TabInputContext";
 import { ProjectsProvider } from "../contexts/Projects";
 import { AnimationProvider } from "../contexts/AnimateContext";
-
+import { RapidCheckerProvider } from "../contexts/RapidChecker";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <TabCounterProvider>
       <TabInputProvider>
         <ProjectsProvider>
           <AnimationProvider>
-            <Component {...pageProps} /> 
+            <RapidCheckerProvider>
+              <Component {...pageProps} /> 
+            </RapidCheckerProvider>
           </AnimationProvider>
         </ProjectsProvider>
       </TabInputProvider>
