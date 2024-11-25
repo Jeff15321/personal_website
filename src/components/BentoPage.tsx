@@ -57,6 +57,28 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-right-col": "collapse-right-col",
     "h-filler-bottom-row": "collapse-bottom-row"
   },
+  'project-layout': {
+    "bento-container": "change-max-height",
+    //left column
+    "h-column-left-1": "expand-left-col",
+        //top row on left column
+        "h-top-row-2": "overflow-visible",
+            "h-music-column-3": "animation card-visible",
+            "h-container-of-video-and-award-3": "overflow-visible",
+                "h-award-4": "show-card-first card-visible",
+                "h-video-4": "animation card-visible",
+    //bottom row on left column
+        "h-bottom-row-2": "overflow-visible",
+            "h-language-column-3": "animation card-visible",
+            "h-description-column-3": "animation card-visible",
+    //right column
+    "h-column-right-1": "default",
+        "h-picture-row-2": "animation show-card-second-left-and-expand-height card-visible",
+        "h-terminal-row-2": "default",
+    //filler
+    "h-filler-right-col": "collapse-right-col",
+    "h-filler-bottom-row": "collapse-bottom-row"
+  },
   'Previous_Song': {
     "bento-container": "change-max-height",
     //left column
@@ -73,7 +95,7 @@ const ANIMATION_STATES: AnimationStates = {
             "h-description-column-3": "animation show-card-third-top song-shift-right",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left-and-expand-height fix-right-picture-card-flex-2 song-shift-right",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left-and-expand-height song-shift-right",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -95,7 +117,7 @@ const ANIMATION_STATES: AnimationStates = {
             "h-description-column-3": "animation show-card-third-top song-shift-left",
     //right column
     "h-column-right-1": "default",
-        "h-picture-row-2": "expand-top-row animation show-card-second-left-and-expand-height fix-right-picture-card-flex-2 song-shift-left",
+        "h-picture-row-2": "expand-top-row animation show-card-second-left-and-expand-height song-shift-left",
         "h-terminal-row-2": "default",
     //filler
     "h-filler-right-col": "collapse-right-col",
@@ -297,6 +319,24 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
         (button as HTMLImageElement).style.filter = filterMap;
     });
   }, [currentProjectName]);
+
+
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const descriptionBox = document.querySelectorAll('.h-description-column-3, .h-video-4, .h-award-4, .h-language-column-3, .h-picture-row-2');
+  //     descriptionBox.forEach((box) => {
+  //       box.addEventListener('mouseover', () => {
+  //         box.classList.add('card-visible');
+  //         box.classList.add('hover-card');
+  //       });
+  //       box.addEventListener('mouseout', () => {
+  //         box.classList.add('return-from-hover-description');
+  //       });
+  //     });
+  //   }, 4000);
+  // }, []);
+
 
   useEffect(() => {
     //check if animation is going from project to experience

@@ -9,18 +9,47 @@ interface MusicCardProps {
 }
 
 const Music: React.FC<MusicCardProps> = ({height, width, project}) => {
+    const removeCardClasses = () => {
+        const next_song_button = document.querySelector(".next-music-button");
+        next_song_button?.classList.remove("glow-pulse");
+        next_song_button?.classList.remove("next-music-button");
+        const descriptionBox = document.querySelectorAll('.h-music-column-3, .h-description-column-3, .h-video-4, .h-award-4, .h-language-column-3, .h-picture-row-2');
+        descriptionBox.forEach((box) => {
+            box.classList.remove('return-from-hover-description');
+            box.classList.remove('hover-card');
+            setTimeout(() => {
+                (box as HTMLElement).style.animation = "";
+            }, 500);
+        });
+    }
+
+    const disableListener = () => {
+        const descriptionBoxes = document.querySelectorAll<HTMLElement>(
+            ".h-description-column-3, .h-video-4, .h-award-4, .h-language-column-3, .h-music-column-3, .h-picture-row-2"
+          );
+    
+          descriptionBoxes.forEach((box) => {
+            const handleMouseOver = (box as any)._handleMouseOver;
+            const handleMouseOut = (box as any)._handleMouseOut;
+    
+            if (handleMouseOver && handleMouseOut) {
+              box.removeEventListener("mouseover", handleMouseOver);
+              box.removeEventListener("mouseout", handleMouseOut);
+            }
+        });
+    };
+
     const { animation, setAnimation } = useAnimation();
 
     const previousMusic = () => {
+      removeCardClasses();
       setAnimation(["Previous_Song", animation[1] - 1]);
       return true;
     };
       
     const nextMusic = () => {
-      const next_song_button = document.querySelector(".next-music-button");
-      next_song_button?.classList.remove("glow-pulse");
-      next_song_button?.classList.remove("next-music-button");
-
+      disableListener();
+      removeCardClasses();
       setAnimation(["Next_Song", animation[1] + 1]);
       console.log("music", animation[1])
       return true;
