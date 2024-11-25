@@ -15,6 +15,9 @@
 .revert-right-col {
     animation: revert-width 0.75s ease forwards;
 }
+.change-max-height-home {
+    animation: change-max-height-home 0.75s ease forwards;
+}
 
 @keyframes revert-max-height {
     to {
@@ -39,3 +42,14 @@
     }
 }
 
+@keyframes change-max-height-home {
+    0% {
+        max-height: 98vh;
+    }
+    20% {
+        max-height: 98vh;
+    }
+    100% {
+        max-height: 75vh;
+    }
+}

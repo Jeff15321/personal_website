@@ -157,11 +157,28 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-right-col": "shrink-right-col-experience",
     "h-filler-bottom-row": "default"
   },
+  'project-to-home': {
+    "bento-container": "change-max-height-home",
+    "h-column-left-1": "revert-left-col",
+    "h-column-right-1": 'default',
+    "h-top-row-2": 'default',
+    "h-bottom-row-2": 'overflow-visible',
+    "h-music-column-3": 'visible exit-project-animation-fade-shift-left',
+    "h-container-of-video-and-award-3": 'overflow-visible',
+    "h-award-4": 'visible exit-project-animation-fade-shift-top',
+    "h-video-4": 'visible exit-project-animation-fade-shift-top',
+    "h-language-column-3": 'visible exit-project-animation-fade-shift-left',
+    "h-description-column-3": 'visible exit-project-animation-fade-shift-bottom',
+    "h-picture-row-2": "revert-top-row",
+    "h-terminal-row-2": 'default',
+    "h-filler-right-col": "revert-right-col",
+    "h-filler-bottom-row": "revert-bottom-row"
+  },
   'revert': {
     "bento-container": "revert-max-height",
     "h-column-left-1": 'revert-left-col',
     "h-column-right-1": 'default',
-    "h-top-row-2": 'revert-top-row',
+    "h-top-row-2": 'default',
     "h-bottom-row-2": 'default',
     "h-music-column-3": 'default',
     "h-container-of-video-and-award-3": 'default',
@@ -343,6 +360,10 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
     if (animation[0] === 'experience') {
       if (Is_in_project()) {
         setAnimation(['project-to-experience', 0]);
+      }
+    } else if (animation[0] === 'revert') {
+      if (Is_in_project()) {
+        setAnimation(['project-to-home', 0]);
       }
     }
     // Update current state based on animation
