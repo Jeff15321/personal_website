@@ -1,5 +1,5 @@
 import React, { useRef,useEffect, useState } from "react";
-import { scrollToBottom, formatOutput, tab } from "../utils/terminal_utils";
+import { formatOutput, tab } from "../utils/terminal_utils";
 import { useTabCounter } from "../contexts/TabCounterContext";
 import { useTabInput } from "../contexts/TabInputContext";
 import { commands } from "../utils/terminal_utils";
@@ -82,11 +82,18 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
 
     //focus on input again and scroll to bottom
     inputRef.current?.focus();
-    scrollToBottom(terminalRef);
+    scrollToBottom(terminalRef, 0);
 
     setInput(""); // Clear input after submission
   };
 
+  const scrollToBottom = (terminalRef: React.RefObject<HTMLDivElement>, timeout: number): void => {
+    setTimeout(() => {
+      if (terminalRef.current) {
+        terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+      }
+    }, timeout);
+  };
   const validateInput = (input: string, setInput: any): React.ReactNode => {
     input = input.trim();
     if (input === "") {
@@ -123,6 +130,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         ["Type next or prev to see the other projects!", "next prev"]
       ];
       setAnimation(["TimeTable Sweetie", 0]);
+      scrollToBottom(terminalRef, 750);
       return (
         <div>
           {output.map((line, index) => (
@@ -133,28 +141,32 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         </div>
       );
     } else if (input === "about-me") {
-    const output: [string, string][] = [
-      ["An error occurred. Redirecting to error page...", "error"]
-    ];
-    {window.open("/error", "_blank");}
 
-    return (
-      <div>
-        {output.map((line, index) => (
-          <div key={index}>
-            {formatOutput(line[0], line[1], setInput)}
-          </div>
-        ))}
-      </div>
-    );
-    } else if (input === "experience") {      
+      scrollToBottom(terminalRef, 750);
+      const output: [string, string][] = [
+        ["An error occurred. Redirecting to error page...", "error"]
+      ];
+      {window.open("/error", "_blank");}
+
+      return (
+        <div>
+          {output.map((line, index) => (
+            <div key={index}>
+              {formatOutput(line[0], line[1], setInput)}
+            </div>
+          ))}
+        </div>
+      );
+    } else if (input === "experience") {     
+       
       setAnimation(["experience", 0]);
       
       return <Experience />
     
     } else if (input === "home") {
+      scrollToBottom(terminalRef, 750);
       const output: [string, string][] = [
-        ["Miss me already~?", "Miss"]
+        ["Welcome back~", ""]
       ];
       setAnimation(["revert", 0]);
       return (
@@ -235,6 +247,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       }, 0);
     }
   }, [input]);
+  
 
   //listen for when key is pressed
   useEffect(() => {
@@ -247,7 +260,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     //updates listener and recalls handleKeyDown whenever input changes
     window.addEventListener("keydown", handleKeyDown);
 
-    scrollToBottom(terminalRef);
+    scrollToBottom(terminalRef, 0);
     return () => window.removeEventListener("keydown", handleKeyDown);
     
   }, [history, input]);
@@ -278,6 +291,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key !== "Tab") {
       setFirstTabChecker(true);
+      resetTabCounter();
     }
 
     if (e.key === "ArrowUp") {
@@ -324,9 +338,9 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   };
 
   return (
-    <div ref={terminalRef} className="parent-container" style={{height: `${height}%`, width: `${width}%`}}>
+    <div className="parent-container" style={{height: `${height}%`, width: `${width}%`}}>
       <div className="text-wrap terminal">
-        <div className="hide-scrollbar">
+        <div ref={terminalRef} className="hide-scrollbar">
           <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do! (remember to press enter to submit)", "help", setInput)}</div>
           {history.map((cmd, index) => (
             <div key={index} className="py-1">
