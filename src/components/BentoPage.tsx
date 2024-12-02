@@ -230,8 +230,6 @@ export const Is_in_project = () => {
   
   const top_row_spacer = document.getElementById('h-picture-row-2');
     if (top_row_spacer) {
-      console.log(top_row_spacer.style.flex)
-
       return top_row_spacer.style.flex === '2 1 0%';
   }
   return false;

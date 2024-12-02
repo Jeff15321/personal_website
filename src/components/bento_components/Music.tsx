@@ -51,7 +51,6 @@ const Music: React.FC<MusicCardProps> = ({height, width, project}) => {
       disableListener();
       removeCardClasses();
       setAnimation(["Next_Song", animation[1] + 1]);
-      console.log("music", animation[1])
       return true;
     };
       

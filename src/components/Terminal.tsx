@@ -264,29 +264,31 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
     
   }, [history, input]);
+          
 
   //TODO: move cursor doesn't work, also, if user presses tab then presses right arrow key, undefine is returned, fix it
   const moveCursorToEnd = () => {
     const inputElement = document.getElementById("terminal-input");
     if (inputElement) {
-      // Set the content only if it hasn't been updated already
+      // Ensure the input text is up to date
       inputElement.innerText = input;
   
-      // Use setTimeout to give the browser a moment to update the content
+      // Use setTimeout to allow React updates to complete before moving the cursor
       setTimeout(() => {
         const selection = window.getSelection();
         const range = document.createRange();
   
-        // Select the entire content of the input element
+        // Collapse the range to the end of the element's text
         range.selectNodeContents(inputElement);
-        range.collapse(false);  // Collapse the range to the end (i.e., cursor at the end)
+        range.collapse(false);
   
-        // Remove any previous selection and add the new range
+        // Clear any existing selections and apply the new range
         selection?.removeAllRanges();
         selection?.addRange(range);
       }, 0);
     }
   };
+  
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key !== "Tab") {

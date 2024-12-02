@@ -13,11 +13,8 @@ export const tab = (input: string, tabCounter: number, incrementTabCounter: () =
   //tab_counter is responsible for cycling through the potential commands
   incrementTabCounter();
   if (current_tab_counter >= potential.length - 1) {
-    console.log("wrong1", current_tab_counter, potential)
-
     resetTabCounter();
   }
-  console.log("counter", current_tab_counter)
   if (potential.length > 0) {
     return (
       parts.slice(0, parts.length - 1).join(" ") + 
