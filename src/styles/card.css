@@ -96,7 +96,6 @@
     background-color: transparent;
     border-radius: 12px; /* Rounded corners */
     padding: 20px; /* Padding for spacing */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     transition: transform 0.2s; /* Smooth transition for hover effect */
 }
 
