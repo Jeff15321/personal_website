@@ -1,66 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Window from "../components/about_me_components/window";
+import "../styles/bento_animation.css";
 import "../styles/bento.css";
-import "../styles/globals.css";
-import "../styles/test.css";
-import { useState } from "react";
+
 export default function Test() {
-    const [x, setX] = useState(0);
+   
+    const [animationTimer, setAnimationTimer] = useState(
+        [0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, //Heyy~~~
+        0.4, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, //I'm
+        ]
+    );
 
-    useEffect(() => {
-        setTimeout(captureAndApplyFinalState, 1000);
-    }, [x]);
-
-    const captureAndApplyFinalState = () => {
-        const testPage = document.querySelector(".test-page");
-        if (!testPage) return;
-
-        // Get the computed style at the end of the animation
-        const computedStyle = window.getComputedStyle(testPage);
-        
-        // Extract transform, and apply it directly
-        (testPage as HTMLElement).style.transform = computedStyle.transform;
-
-        // Optional: Remove animation classes
-        testPage.classList.remove('Y', 'X');
-        
-    };
+    let accumulatedTime = 0;
+    for (let i = 0; i < animationTimer.length; i++) {
+        accumulatedTime += animationTimer[i];
+        setTimeout(() => {
+            const popup = document.querySelector(`.background-color-${i + 1}`) as HTMLElement;
+            if (popup) {
+                popup.style.visibility = 'visible';
+            }
+        }, accumulatedTime * 1000);
+    }
 
     return (
-        <div>
-            <button 
-                style={{backgroundColor: "#ffff00", color: "#000000"}} 
-                onClick={() => {
-                    const testPage = document.querySelector(".test-page");
-                    if (testPage) {
-                        testPage.classList.add("Y");
-                        setX(prev => prev + 1);
-                    }
-                    // Use setTimeout to capture state after animation
-                }}
-            >
-                TRANSLATE Y
-            </button>
-            <button 
-                style={{backgroundColor: "#ff0000", color: "#000000"}} 
-                onClick={() => {
-                    const testPage = document.querySelector(".test-page");
-                    testPage?.classList.add("X");
-                    setX(prev => prev + 1);
-                    // Use setTimeout to capture state after animation
-                }}
-            >
-                TRANSLATE X
-            </button>
-            <div 
-                className="test-page"
-                style={{
-                    backgroundColor: "#000000",
-                    color: "#ffffff",
-                }}
-            >
-                <h1>Test Page</h1>
-            </div>
-        </div>
-    );
-}
+        <>
+        <Window letter="H" x={-40} y={-34} id="1" size={0.8} height={0} backgroundColor="red" buttonColor="white" />
+        <Window letter="E" x={-27} y={-34} id="2" size={0.8} height={0} backgroundColor="blue" buttonColor="white" />
+        <Window letter="Y" x={-14} y={-34} id="3" size={0.8} height={0} backgroundColor="green" buttonColor="white" />
+        <Window letter="Y" x={-1} y={-34} id="4" size={0.8} height={0} backgroundColor="yellow" buttonColor="white" />
+        <Window letter="~" x={12} y={-34} id="5" size={0.8} height={0} backgroundColor="purple" buttonColor="white" />
+        <Window letter="~" x={25} y={-34} id="6" size={0.8} height={0} backgroundColor="purple" buttonColor="white" />
+        <Window letter="~" x={38} y={-34} id="7" size={0.8} height={0} backgroundColor="purple" buttonColor="white" />
+
+        <Window letter="I" x={-40} y={0} id="8" size={0.8} height={0} backgroundColor="red" buttonColor="white" />
+        <Window letter="'" x={-27} y={0} id="9" size={0.8} height={0} backgroundColor="blue" buttonColor="white" />
+        <Window letter="M" x={-14} y={0} id="10" size={0.8} height={0} backgroundColor="green" buttonColor="white" />
+        <Window letter="Y" x={8} y={0} id="11" size={0.8} height={0} backgroundColor="yellow" buttonColor="white" />
+       
+        </> 
+    )};

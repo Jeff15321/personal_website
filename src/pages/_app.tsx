@@ -11,6 +11,8 @@ import "../styles/experience_animation.css";
 import "../styles/exit_project_animation.css";
 import "../styles/experience.css";
 import "../styles/hover_animation.css";
+import "../styles/about_me.css";
+
 
 import type { AppProps } from "next/app";
 import { TabCounterProvider } from "../contexts/TabCounterContext"; // Adjust the import path if necessary

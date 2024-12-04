@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 
 interface WindowProps {
+    id: string;
+    letter: string;
     size: number;
     height: number;
     x: number;
@@ -9,7 +11,7 @@ interface WindowProps {
     buttonColor: string;
 }
 
-export default function Window({x, y, size, height, backgroundColor, buttonColor}: WindowProps) {
+export default function Window({id, letter, size, height, x, y, backgroundColor, buttonColor}: WindowProps) {
     const [isVisible, setIsVisible] = React.useState(true);
     const [windowSize, setWindowSize] = React.useState(size);
     const [windowHeight, setWindowHeight] = React.useState(0);
@@ -33,6 +35,26 @@ export default function Window({x, y, size, height, backgroundColor, buttonColor
         }
     }
 
+    useEffect(() => {
+        const popupLetter = document.querySelector(`.window-${id}`) as HTMLElement | null;
+        const interval = setInterval(() => {
+            if (popupLetter) {
+                const fancyFonts = ['Impact', 'Comic Sans MS', 'Copperplate', 'Papyrus', 'Brush Script MT', 'Lucida Calligraphy', 'Cursive', 'Arial Unicode MS', 'Courier New', 'Georgia', 'Palatino', 'Garamond', 'Bookman', 'Avant Garde', 'Tahoma', 'Helvetica', 'Geneva', 'Trebuchet MS', 'Rockwell', 'Playfair Display', 'Great Vibes', 'Alex Brush', 'Dancing Script', 'Pacifico', 'Lato', 'Montserrat', 'Merriweather', 'Didot', 'Bodoni MT', 'Futura', 'Century Gothic'];
+                const randomIndex = Math.floor(Math.random() * fancyFonts.length);
+                popupLetter.style.fontFamily = fancyFonts[randomIndex];
+                const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                const randomColor2 = Math.floor(Math.random() * 16777215).toString(16);
+                const backgroundElement = document.querySelector(`.background-color-${id}`) as HTMLElement | null;
+                if (backgroundElement) {
+                    backgroundElement.style.backgroundColor = `#${randomColor}`;
+                    backgroundElement.style.transition = 'background-color 0.5s ease';
+                    backgroundElement.style.border = `2px solid #${randomColor2}`;
+                }
+            }
+        }, 750);
+        return () => clearInterval(interval);
+    }, []);
+
     const handleMouseDown = (e: React.MouseEvent) => {
         const startX = e.clientX;
         const startY = e.clientY;
@@ -40,8 +62,8 @@ export default function Window({x, y, size, height, backgroundColor, buttonColor
         const initialY = position.y;
 
         const handleMouseMove = (e: MouseEvent) => {
-            const newX = initialX + (e.clientX - startX);
-            const newY = initialY + (e.clientY - startY);
+            const newX = initialX + (e.clientX - startX) / windowWidth * 100;
+            const newY = initialY + (e.clientY - startY) / windowHeight * 100;
             setPosition({ x: newX, y: newY });
         };
 
@@ -59,13 +81,15 @@ export default function Window({x, y, size, height, backgroundColor, buttonColor
     }, [x, y]);
 
     return (
-        <div className="window-container" style={{
+        <div className={`window-container background-color-${id}`} style={{
             visibility: isVisible ? 'visible' : 'hidden',
             height: `${windowSize * 17}vw`,
             width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
-            top: `${50 + position.y / windowHeight * 100}vh`,
-            left: `${50 + position.x / windowWidth * 100}vw`,
-            backgroundColor: backgroundColor}}>
+            top: `${(50 + position.y)}vh`,
+            left: `${(50 + position.x)}vw`,
+            backgroundColor: backgroundColor,
+            visibility: 'hidden'
+        }}>
             <div className="title-button-container" onMouseDown={handleMouseDown}>
                 <button className="title-button" onClick={handleClose} style={{
                     fontSize: `${windowSize * 0.9}em`,
@@ -75,7 +99,7 @@ export default function Window({x, y, size, height, backgroundColor, buttonColor
                 <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor   }}>x</button>
             </div>
             <div className="index-image-container">
-
+                <div className={`popup-letter window-${id}`}>{letter}</div>
             </div>
 
         </div>
