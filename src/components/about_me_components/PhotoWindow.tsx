@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 
-interface WindowProps {
+interface PhotoWindowProps {
     id: string;
-    letter: string;
     size: number;
     height: number;
     x: number;
     y: number;
+    z: number;
     backgroundColor: string;
     buttonColor: string;
 }
 
-export default function Window({id, letter, size, height, x, y, backgroundColor, buttonColor}: WindowProps) {
-    const [isVisible, setIsVisible] = React.useState(true);
+export default function PhotoWindow({id, size, height, x, y, z, backgroundColor, buttonColor}: PhotoWindowProps) {
     const [windowSize, setWindowSize] = React.useState(size);
     const [windowHeight, setWindowHeight] = React.useState(0);
     const [windowWidth, setWindowWidth] = React.useState(0);
@@ -24,7 +23,10 @@ export default function Window({id, letter, size, height, x, y, backgroundColor,
     }, []);
 
     const handleClose = () => {
-        setIsVisible(false);
+        const windowElement = document.querySelector(`.window-container.background-color-${id}`) as HTMLElement | null;
+        if (windowElement) {
+            windowElement.style.visibility = 'hidden';
+        }
     };
 
     const handleIncreaseSize = () => {
@@ -82,13 +84,13 @@ export default function Window({id, letter, size, height, x, y, backgroundColor,
 
     return (
         <div className={`window-container background-color-${id}`} style={{
-            visibility: isVisible ? 'visible' : 'hidden',
             height: `${windowSize * 17}vw`,
             width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
             top: `${(50 + position.y)}vh`,
             left: `${(50 + position.x)}vw`,
             backgroundColor: backgroundColor,
-            visibility: 'hidden'
+            visibility: 'hidden',
+            zIndex: z
         }}>
             <div className="title-button-container" onMouseDown={handleMouseDown}>
                 <button className="title-button" onClick={handleClose} style={{
@@ -99,7 +101,7 @@ export default function Window({id, letter, size, height, x, y, backgroundColor,
                 <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor   }}>x</button>
             </div>
             <div className="index-image-container">
-                <div className={`popup-letter window-${id}`}>{letter}</div>
+                <div className={`popup-letter window-${id}`}>{}</div>
             </div>
 
         </div>
