@@ -12,6 +12,7 @@ import "../styles/exit_project_animation.css";
 import "../styles/experience.css";
 import "../styles/hover_animation.css";
 import "../styles/about_me.css";
+import "../styles/about-me-animation.css";
 
 
 import type { AppProps } from "next/app";

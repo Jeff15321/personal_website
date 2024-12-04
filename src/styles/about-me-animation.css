@@ -1,0 +1,60 @@
+@keyframes window-appear {
+    0% {  opacity: 0; }
+    80% {  opacity: 0; }
+    100% {  opacity: 1; }
+}
+
+.outer-window-container-1 {
+    animation: window-appear 7.5s ease;
+}
+
+.rotate-1 {
+    animation: rotate 2s linear infinite;
+}
+
+
+@keyframes rotate {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+
+
+.window-style-13 {
+    animation: roll-in 1s 3.3s forwards;
+  }
+  @keyframes roll-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-300%) rotate(-120deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px) rotate(0deg);
+    }
+  }
+  @keyframes dropAndBounce {
+    /* Simulating gravity and realistic bounces */
+    0% {
+      transform: translateY(-200vh);
+    }
+    70% {
+      transform: translateY(0);
+      scale: 1;
+    }
+    85% {
+      scale: 1.2;
+    }
+    100% {
+      transform: translateY(0);
+      scale: 1;
+    }
+  }
+  
+  /* Example Ball Style */
+  .window-style-18 {
+    transform: translateX(-50%);
+    animation: dropAndBounce 2s ease-out 4.5s forwards;
+  }
+  

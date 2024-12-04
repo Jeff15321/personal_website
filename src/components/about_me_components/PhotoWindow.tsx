@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 interface PhotoWindowProps {
     id: string;
+    photoPath: string;
     size: number;
     height: number;
     x: number;
@@ -11,7 +12,7 @@ interface PhotoWindowProps {
     buttonColor: string;
 }
 
-export default function PhotoWindow({id, size, height, x, y, z, backgroundColor, buttonColor}: PhotoWindowProps) {
+export default function PhotoWindow({id, photoPath,size, height, x, y, z, backgroundColor, buttonColor}: PhotoWindowProps) {
     const [windowSize, setWindowSize] = React.useState(size);
     const [windowHeight, setWindowHeight] = React.useState(0);
     const [windowWidth, setWindowWidth] = React.useState(0);
@@ -23,7 +24,7 @@ export default function PhotoWindow({id, size, height, x, y, z, backgroundColor,
     }, []);
 
     const handleClose = () => {
-        const windowElement = document.querySelector(`.window-container.background-color-${id}`) as HTMLElement | null;
+        const windowElement = document.querySelector(`.window-container.window-style-${id}`) as HTMLElement | null;
         if (windowElement) {
             windowElement.style.visibility = 'hidden';
         }
@@ -38,15 +39,13 @@ export default function PhotoWindow({id, size, height, x, y, z, backgroundColor,
     }
 
     useEffect(() => {
-        const popupLetter = document.querySelector(`.window-${id}`) as HTMLElement | null;
+        const popupLetter = document.querySelector(`.window-container.window-style-${id}`) as HTMLElement | null;
+        console.log(popupLetter);
         const interval = setInterval(() => {
             if (popupLetter) {
-                const fancyFonts = ['Impact', 'Comic Sans MS', 'Copperplate', 'Papyrus', 'Brush Script MT', 'Lucida Calligraphy', 'Cursive', 'Arial Unicode MS', 'Courier New', 'Georgia', 'Palatino', 'Garamond', 'Bookman', 'Avant Garde', 'Tahoma', 'Helvetica', 'Geneva', 'Trebuchet MS', 'Rockwell', 'Playfair Display', 'Great Vibes', 'Alex Brush', 'Dancing Script', 'Pacifico', 'Lato', 'Montserrat', 'Merriweather', 'Didot', 'Bodoni MT', 'Futura', 'Century Gothic'];
-                const randomIndex = Math.floor(Math.random() * fancyFonts.length);
-                popupLetter.style.fontFamily = fancyFonts[randomIndex];
                 const randomColor = Math.floor(Math.random() * 16777215).toString(16);
                 const randomColor2 = Math.floor(Math.random() * 16777215).toString(16);
-                const backgroundElement = document.querySelector(`.background-color-${id}`) as HTMLElement | null;
+                const backgroundElement = document.querySelector(`.window-style-${id}`) as HTMLElement | null;
                 if (backgroundElement) {
                     backgroundElement.style.backgroundColor = `#${randomColor}`;
                     backgroundElement.style.transition = 'background-color 0.5s ease';
@@ -83,15 +82,16 @@ export default function PhotoWindow({id, size, height, x, y, z, backgroundColor,
     }, [x, y]);
 
     return (
-        <div className={`window-container background-color-${id}`} style={{
-            height: `${windowSize * 17}vw`,
-            width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
-            top: `${(50 + position.y)}vh`,
-            left: `${(50 + position.x)}vw`,
-            backgroundColor: backgroundColor,
-            visibility: 'hidden',
-            zIndex: z
-        }}>
+        <div className={`outer-window-container-${id}`}>
+            <div className={`window-container window-style-${id} rotate-${id}`} style={{
+                height: `${windowSize * 17}vw`,
+                width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
+                top: `${(50 + position.y)}vh`,
+                left: `${(50 + position.x)}vw`,
+                backgroundColor: backgroundColor,
+                visibility: 'hidden',
+                zIndex: z
+            }}>
             <div className="title-button-container" onMouseDown={handleMouseDown}>
                 <button className="title-button" onClick={handleClose} style={{
                     fontSize: `${windowSize * 0.9}em`,
@@ -101,9 +101,15 @@ export default function PhotoWindow({id, size, height, x, y, z, backgroundColor,
                 <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor   }}>x</button>
             </div>
             <div className="index-image-container">
-                <div className={`popup-letter window-${id}`}>{}</div>
+                <img src={photoPath} style={{
+                    width: `100%`,
+                    height: `100%`,
+                    display: 'block',
+                    margin: '0 auto',
+                    objectFit: 'contain'
+                    }} />
             </div>
-
         </div>
+      </div>
     )
 }

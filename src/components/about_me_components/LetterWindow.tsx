@@ -24,7 +24,7 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
     }, []);
 
     const handleClose = () => {
-        const windowElement = document.querySelector(`.window-container.background-color-${id}`) as HTMLElement | null;
+        const windowElement = document.querySelector(`.window-container.window-letter-${id}`) as HTMLElement | null;
         if (windowElement) {
             windowElement.style.visibility = 'hidden';
         }
@@ -39,7 +39,7 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
     }
 
     useEffect(() => {
-        const popupLetter = document.querySelector(`.window-${id}`) as HTMLElement | null;
+        const popupLetter = document.querySelector(`.window-letter-${id}`) as HTMLElement | null;
         const interval = setInterval(() => {
             if (popupLetter) {
                 const fancyFonts = ['Impact', 'Comic Sans MS', 'Copperplate', 'Papyrus', 'Brush Script MT', 'Lucida Calligraphy', 'Cursive', 'Arial Unicode MS', 'Courier New', 'Georgia', 'Palatino', 'Garamond', 'Bookman', 'Avant Garde', 'Tahoma', 'Helvetica', 'Geneva', 'Trebuchet MS', 'Rockwell', 'Playfair Display', 'Great Vibes', 'Alex Brush', 'Dancing Script', 'Pacifico', 'Lato', 'Montserrat', 'Merriweather', 'Didot', 'Bodoni MT', 'Futura', 'Century Gothic'];
@@ -47,7 +47,7 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
                 popupLetter.style.fontFamily = fancyFonts[randomIndex];
                 const randomColor = Math.floor(Math.random() * 16777215).toString(16);
                 const randomColor2 = Math.floor(Math.random() * 16777215).toString(16);
-                const backgroundElement = document.querySelector(`.background-color-${id}`) as HTMLElement | null;
+                const backgroundElement = document.querySelector(`.window-style-${id}`) as HTMLElement | null;
                 if (backgroundElement) {
                     backgroundElement.style.backgroundColor = `#${randomColor}`;
                     backgroundElement.style.transition = 'background-color 0.5s ease';
@@ -84,7 +84,7 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
     }, [x, y]);
 
     return (
-        <div className={`window-container background-color-${id}`} style={{
+        <div className={`window-container window-style-${id}`} style={{
             height: `${windowSize * 17}vw`,
             width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
             top: `${(50 + position.y)}vh`,
@@ -102,7 +102,7 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
                 <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor   }}>x</button>
             </div>
             <div className="index-image-container">
-                <div className={`popup-letter window-${id}`}
+                <div className={`popup-letter window-letter-${id}`}
                 style={{
                     fontSize: `${size * 16 - 1}vw`,
                 }}
