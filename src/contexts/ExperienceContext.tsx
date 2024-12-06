@@ -18,7 +18,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Perception Build Team", 
         `
 • Transforming perception software from \\Python\\ into \\C++\\ and \\vectorized\\ serialized calculations to minimize computation time
-• Writing customer drivers using \\Python\\ into \\C++\\ to integrate new hardware
+• Writing customer drivers using \\Python, C++, and Ros2\\ to integrate new hardware
 • Skilled in sensor integration, data analysis, and real-time systems.`
     ],
     [
