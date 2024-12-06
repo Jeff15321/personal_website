@@ -111,6 +111,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
         ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
         ["\u00A0\u00A0\u00A0\u00A0home: go back to terminal page!!", "home"],
+        ["\u00A0\u00A0\u00A0\u00A0devpost: look at my hackathon winners!", "devpost"],
         ["\u00A0\u00A0\u00A0\u00A0github: look at my projects in detail!", "github"],
         ["\u00A0\u00A0\u00A0\u00A0linkedin: look at my experiences in detail!", "linkedin"],
         ["\u00A0\u00A0\u00A0\u00A0resume: more about me!", "resume"],
@@ -181,28 +182,31 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     } else if (input === "next") {
       if (Is_in_project()) {
         setAnimation(["Next_Song", 0]);
-        return <span>{"Next Project!"}</span>;
+        return <span>{"Next Project!🚀"}</span>;
       } else {
         setAnimation(["TimeTable Sweetie", 0]);
-        return <span>{"Really? Next Page? Girlll you're not even in the project page! Let me bring you there~"}</span>;
+        return <span>{"Really? Next Page? Buddy you're not even in the project page! Let me bring you there~"}</span>;
       }
     } else if (input === "prev") {
       if (Is_in_project()) {  
         setAnimation(["Previous_Song", 0]);
-        return <span>{"Previous Project!"}</span>;
+        return <span>{"Previous Project!🚀"}</span>;
       } else {
         setAnimation(["TimeTable Sweetie", 0]);
-        return <span>{"Really? Previous Page? Girlll you're not even in the project page! Let me bring you there~"}</span>;
+        return <span>{"Really? Previous Page? Buddy you're not even in the project page! Let me bring you there~"}</span>;
       }
     } else if (input === "github") {
       window.open("https://github.com/Jeff15321", "_blank");
-      return <span>{"Leaving already? I'll miss youuu~"}</span>;
+      return <span>{"Pretty amazing huh? I'm glad you're interested in my projects!👨‍💻✨"}</span>;
     } else if (input === "linkedin") {
       window.open("https://www.linkedin.com/in/jeff-lu-8b3121281/", "_blank");
-      return <span>{"You didn't even say goodbye😭"}</span>;
+      return <span>{"Hey did you remember to connect with me on linkedin? If not do it now! 😠"}</span>;
     } else if (input === 'resume') {
       window.open("https://www.canva.com/design/DAGRikqvQqA/QQ_-nwEnHwYnqMCMtDH33w/edit?utm_content=DAGRikqvQqA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton", "_blank");
-      return <span>{"Yes... I wrote my resume in Canva... stop judging..."}</span>;
+      return <span>{"Yes... I wrote my resume in Canva... stop judging... 🙄"}</span>;
+    } else if (input === "devpost") {
+      window.open("https://devpost.com/jeff-lu234?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav", "_blank");
+      return <span>{"Be sure to try out my projects on devpost! 😊"}</span>;
     }
     return <span>{input + ": command not found"}</span>;
   };

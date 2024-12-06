@@ -1,6 +1,6 @@
 import React, { useRef,useEffect, useState } from "react";
 
-export const commands: string[] = ["help", "home", "about-me", "experience", "project", "next", "prev", "github", "linkedin", "resume"];
+export const commands: string[] = ["help", "home", "about-me", "experience", "project", "next", "prev", "github", "linkedin", "resume", "devpost"];
 
 export const fillInput = (input: string): React.ReactNode => {
   return <span>{input}</span>;
