@@ -1,6 +1,12 @@
 .change-max-height-experience {
     animation: expandBentoContainer-experience 1s ease forwards;
 }
+.change-max-height-home-to-experience {
+    animation: expandBentoContainer-home-to-experience 1s ease forwards;
+}
+.change-max-height-project-to-experience {
+    animation: expandBentoContainer-project-to-experience 1s ease forwards;
+}
 .shrink-left-col-experience {
     animation: shrinkWidth-left-col-experience 1s ease forwards;
 }
@@ -14,10 +20,24 @@
     animation: shrinkWidth-right-col-experience 1s ease forwards;
 }
 
-@keyframes expandBentoContainer-experience {
+@keyframes expandBentoContainer-home-to-experience {
+    from {
+        max-height: 75vh;
+    }
+    to {
+        max-height: 90vh;
+    }
+}
+@keyframes expandBentoContainer-project-to-experience {
     from {
         max-height: 98vh;
     }
+    to {
+        max-height: 90vh;
+    }
+}
+
+@keyframes expandBentoContainer-experience {
     to {
         max-height: 90vh;
     }

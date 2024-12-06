@@ -124,7 +124,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-bottom-row": "collapse-bottom-row"
   },
   'experience': {
-    "bento-container": "change-max-height-experience",
+    "bento-container": "change-max-height-home-to-experience",
     "h-column-left-1": "shrink-left-col-experience",
     "h-column-right-1": 'default',
     "h-top-row-2": 'overflow-visible',
@@ -141,7 +141,7 @@ const ANIMATION_STATES: AnimationStates = {
     "h-filler-bottom-row": "default"
   },
   'project-to-experience': {
-    "bento-container": "change-max-height-experience",
+    "bento-container": "change-max-height-project-to-experience",
     "h-column-left-1": "shrink-left-col-experience",
     "h-column-right-1": 'default',
     "h-top-row-2": 'overflow-visible',
