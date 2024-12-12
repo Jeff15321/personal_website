@@ -9,7 +9,7 @@ import Music from './bento_components/Music';
 import { useAnimation } from '../contexts/AnimateContext';
 
 
-// Type definitions
+// Type definition
 type AnimationState = {
     "bento-container" : string,
     "h-column-left-1": string,
