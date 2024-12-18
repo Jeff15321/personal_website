@@ -4,7 +4,7 @@
     position: absolute;
     top: 50%;
     width: calc(56vmin * 6 + 4vmin * 5);
-    transform: translate(38vw, -50%);
+    transform: translate(calc(50vw - 20vmin), -50%);
     will-change: transform;
     width: auto; /* Allow horizontal scrolling */
 }

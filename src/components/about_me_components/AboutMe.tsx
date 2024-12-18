@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 const AboutMe: React.FC = () => {
     useEffect(() => {
         const track = document.getElementById("image-track");
+        let isDragging = false; // Track whether a drag occurred
+        const dragThreshold = 5; // Minimum movement in pixels to consider a drag
 
         const handleWheel = (e: WheelEvent) => {
             if (!track) return;
@@ -17,7 +19,7 @@ const AboutMe: React.FC = () => {
 
             track.animate(
                 {
-                    transform: `translate(calc(${nextPercentage * 0.85}% + 38vw), -50%)`,
+                    transform: `translate(calc(${nextPercentage * 5/6}% + 50vw - 20vmin), -50%)`,
                 },
                 { duration: 1200, fill: "forwards" }
             );
@@ -35,10 +37,21 @@ const AboutMe: React.FC = () => {
         const handleMouseDown = (e: MouseEvent) => {
             if (!track) return;
             track.dataset.mouseDownAt = e.clientX.toString();
+            isDragging = false; // Reset dragging state
         };
 
-        const handleMouseUp = () => {
+        const handleMouseUp = (e: MouseEvent) => {
             if (!track) return;
+
+            // Calculate the total movement during the drag
+            const startMouseX = parseFloat(track.dataset.mouseDownAt || "0");
+            const distanceDragged = Math.abs(startMouseX - e.clientX);
+
+            // If movement exceeds the drag threshold, consider it a drag
+            if (distanceDragged > dragThreshold) {
+                isDragging = true;
+            }
+
             track.dataset.mouseDownAt = "0";
             track.dataset.prevPercentage = track.dataset.percentage;
         };
@@ -59,7 +72,7 @@ const AboutMe: React.FC = () => {
 
             track.animate(
                 {
-                    transform: `translate(calc(${nextPercentage * 0.85}% + 38vw), -50%)`,
+                    transform: `translate(calc(${nextPercentage * 5/6}% + 50vw - 20vmin), -50%)`,
                 },
                 { duration: 1200, fill: "forwards" }
             );
@@ -75,33 +88,55 @@ const AboutMe: React.FC = () => {
         };
 
         const handleClick = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            if (target?.classList.contains("about-me-image")) {
-                const imageWrapper = target.parentElement;
-                if (imageWrapper) {
-                    window.removeEventListener("wheel", handleWheel);
-                    window.removeEventListener("mousedown", handleMouseDown);
-                    window.removeEventListener("mouseup", handleMouseUp);
-                    window.removeEventListener("mousemove", handleMouseMove);
-                    window.removeEventListener("click", handleClick);
-                    imageWrapper.classList.add("about-me-image-wrapper-expanded");
+            if (isDragging) {
+                // If a drag occurred, do not trigger the click logic
+                return;
+            }
 
+            const target = e.target as HTMLElement;
+            if (!track) return;
+
+            if (target?.classList.contains("about-me-image")) {
+                const imageId = parseInt(target.id.split("-")[3]);
+                const imageWrapper = target.parentElement;
+
+                if (imageWrapper) {
+                    const percentage = (imageId - 1) * (-44 / 260) * 100 * 6/5;
+
+                    track.animate(
+                        {
+                            transform: `translate(calc(${percentage * 5/6}% + 50vw - 20vmin), -50%)`,
+                        },
+                        { duration: 500, fill: "forwards" }
+                    );
+
+                    for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
+                        (image as HTMLElement).animate(
+                            {
+                                objectPosition: `${percentage + 100}% center`,
+                            },
+                            { duration: 500, fill: "forwards" }
+                        );
+                    }
+
+                    track.dataset.percentage = percentage.toString();
+                    track.dataset.prevPercentage = percentage.toString();
                 }
-                
             }
         };
 
-        window.addEventListener("wheel", handleWheel);
         window.addEventListener("mousedown", handleMouseDown);
         window.addEventListener("mouseup", handleMouseUp);
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("click", handleClick);
+        window.addEventListener("wheel", handleWheel);
 
         return () => {
-            window.removeEventListener("wheel", handleWheel);
             window.removeEventListener("mousedown", handleMouseDown);
             window.removeEventListener("mouseup", handleMouseUp);
             window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("click", handleClick);
+            window.removeEventListener("wheel", handleWheel);
         };
     }, []);
 
@@ -112,28 +147,28 @@ const AboutMe: React.FC = () => {
             data-prev-percentage="0"
         >
             <div id="about-me-image-wrapper-1" className="about-me-image-wrapper">
-                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
-                <div className="about-me-image-text">Competitions</div>
+                <img id="about-me-image-1" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>Competitions</div>
             </div>
             <div id="about-me-image-wrapper-2" className="about-me-image-wrapper">
-                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
-                <div className="about-me-image-text">teams</div>
+                <img id="about-me-image-2" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>teams</div>
             </div>
             <div id="about-me-image-wrapper-3" className="about-me-image-wrapper">
-                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
-                <div className="about-me-image-text">sports</div>
+                <img id="about-me-image-3" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>sports</div>
             </div>
             <div id="about-me-image-wrapper-4" className="about-me-image-wrapper">
-                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
-                <div className="about-me-image-text">music</div>
+                <img id="about-me-image-4" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>music</div>
             </div>
             <div id="about-me-image-wrapper-5" className="about-me-image-wrapper">
-                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
-                <div className="about-me-image-text">my dream</div>
+                <img id="about-me-image-5" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>my dream</div>
             </div>
             <div id="about-me-image-wrapper-6" className="about-me-image-wrapper">
-                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
-                <div className="about-me-image-text">favorites</div>
+                <img id="about-me-image-6" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>favorites</div>
             </div>
         </div>
     );
