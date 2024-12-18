@@ -9,7 +9,7 @@ const AboutMe: React.FC = () => {
 
             const delta = e.deltaY;
             const maxDelta = window.innerWidth / 2;
-            const percentage = (delta / maxDelta) * -100;
+            const percentage = (delta / maxDelta) * -30;
             const nextPercentage = Math.max(Math.min(parseFloat(track.dataset.percentage || "0") + percentage, 0), -100);
 
             track.dataset.percentage = nextPercentage.toString();
@@ -22,7 +22,7 @@ const AboutMe: React.FC = () => {
                 { duration: 1200, fill: "forwards" }
             );
 
-            for (const image of Array.from(track.getElementsByClassName("image"))) {
+            for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
                 (image as HTMLElement).animate(
                     {
                         objectPosition: `${nextPercentage + 100}% center`,
@@ -64,7 +64,7 @@ const AboutMe: React.FC = () => {
                 { duration: 1200, fill: "forwards" }
             );
 
-            for (const image of Array.from(track.getElementsByClassName("image"))) {
+            for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
                 (image as HTMLElement).animate(
                     {
                         objectPosition: `${nextPercentage + 100}% center`,
@@ -94,22 +94,28 @@ const AboutMe: React.FC = () => {
             data-prev-percentage="0"
         >
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
+                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
+                <div className="about-me-image-text">Competitions</div>
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
+                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
+                <div className="about-me-image-text">teams</div>
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
+                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
+                <div className="about-me-image-text">sports</div>
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
+                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
+                <div className="about-me-image-text">music</div>
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
+                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
+                <div className="about-me-image-text">my dream</div>
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
+                <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
+                <div className="about-me-image-text">favorites</div>
             </div>
         </div>
     );
