@@ -105,7 +105,7 @@ const AboutMe: React.FC = () => {
         };
     }, []);
 
-    return (
+    return (        
         <div
             id="image-track"
             data-mouse-down-at="0"
