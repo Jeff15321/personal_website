@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
-const AboutMe: React.FC = () => {
+const HorizontalTrack: React.FC = () => {
     useEffect(() => {
-        const track = document.getElementById("image-track");
+        const track = document.getElementById("horizontal-image-track");
         let isDragging = false; // Track whether a drag occurred
         const dragThreshold = 5; // Minimum movement in pixels to consider a drag
 
@@ -142,7 +142,7 @@ const AboutMe: React.FC = () => {
 
     return (        
         <div
-            id="image-track"
+            id="horizontal-image-track"
             data-mouse-down-at="0"
             data-prev-percentage="0"
         >
@@ -174,4 +174,4 @@ const AboutMe: React.FC = () => {
     );
 };
 
-export default AboutMe;
+export default HorizontalTrack;
