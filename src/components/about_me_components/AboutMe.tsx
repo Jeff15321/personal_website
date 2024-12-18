@@ -74,10 +74,28 @@ const AboutMe: React.FC = () => {
             }
         };
 
+        const handleClick = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target?.classList.contains("about-me-image")) {
+                const imageWrapper = target.parentElement;
+                if (imageWrapper) {
+                    window.removeEventListener("wheel", handleWheel);
+                    window.removeEventListener("mousedown", handleMouseDown);
+                    window.removeEventListener("mouseup", handleMouseUp);
+                    window.removeEventListener("mousemove", handleMouseMove);
+                    window.removeEventListener("click", handleClick);
+                    imageWrapper.classList.add("about-me-image-wrapper-expanded");
+
+                }
+                
+            }
+        };
+
         window.addEventListener("wheel", handleWheel);
         window.addEventListener("mousedown", handleMouseDown);
         window.addEventListener("mouseup", handleMouseUp);
         window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("click", handleClick);
 
         return () => {
             window.removeEventListener("wheel", handleWheel);
@@ -93,27 +111,27 @@ const AboutMe: React.FC = () => {
             data-mouse-down-at="0"
             data-prev-percentage="0"
         >
-            <div className="image-wrapper">
+            <div id="about-me-image-wrapper-1" className="about-me-image-wrapper">
                 <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
                 <div className="about-me-image-text">Competitions</div>
             </div>
-            <div className="image-wrapper">
+            <div id="about-me-image-wrapper-2" className="about-me-image-wrapper">
                 <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
                 <div className="about-me-image-text">teams</div>
             </div>
-            <div className="image-wrapper">
+            <div id="about-me-image-wrapper-3" className="about-me-image-wrapper">
                 <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
                 <div className="about-me-image-text">sports</div>
             </div>
-            <div className="image-wrapper">
+            <div id="about-me-image-wrapper-4" className="about-me-image-wrapper">
                 <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
                 <div className="about-me-image-text">music</div>
             </div>
-            <div className="image-wrapper">
+            <div id="about-me-image-wrapper-5" className="about-me-image-wrapper">
                 <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
                 <div className="about-me-image-text">my dream</div>
             </div>
-            <div className="image-wrapper">
+            <div id="about-me-image-wrapper-6" className="about-me-image-wrapper">
                 <img className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
                 <div className="about-me-image-text">favorites</div>
             </div>

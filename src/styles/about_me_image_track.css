@@ -9,7 +9,7 @@
     width: auto; /* Allow horizontal scrolling */
 }
 
-.image-wrapper {
+.about-me-image-wrapper {
     width: 40vmin;
     height: 56vmin;
     position: relative;
@@ -37,4 +37,14 @@
     text-align: center;
     text-transform: uppercase;
     transition: all 0.3s ease;
+}
+
+.about-me-image-wrapper-expanded {
+    position: fixed; /* Position the element relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(calc(-50% + 4vmin), -50%); /* Offset by 50% of the element's width and height */
+    width: 100vw; /* Make the element span the full width of the viewport */
+    height: 100vh; /* Make the element span the full height of the viewport */
+    z-index: 1000; /* Ensure it stays on top of other elements */
 }
