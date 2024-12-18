@@ -17,7 +17,7 @@ const AboutMe: React.FC = () => {
 
             track.animate(
                 {
-                    transform: `translate(${nextPercentage}%, -50%)`,
+                    transform: `translate(calc(${nextPercentage * 0.85}% + 38vw), -50%)`,
                 },
                 { duration: 1200, fill: "forwards" }
             );
@@ -94,22 +94,22 @@ const AboutMe: React.FC = () => {
             data-prev-percentage="0"
         >
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" alt="Image 1" />
+                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" alt="Image 2" />
+                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" alt="Image 3" />
+                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" alt="Image 4" />
+                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" alt="Image 5" />
+                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
             </div>
             <div className="image-wrapper">
-                <img className="image" src="project1/cat1.jpg" draggable="false" alt="Image 6" />
+                <img className="image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
             </div>
         </div>
     );
