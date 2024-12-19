@@ -130,22 +130,38 @@ const HorizontalTrack: React.FC = () => {
                 track.dataset.percentage = percentage.toString();
                 track.dataset.prevPercentage = percentage.toString();
                 
+                const verticleTrack = document.getElementById("verticle-image-track");
+                const horizontalTrack = document.getElementById("horizontal-image-track");
+                const horizontalToVerticleAnimation = document.getElementById("horizontal-to-verticle-image-track-animation");
+                
+                if (!verticleTrack || !horizontalTrack || !horizontalToVerticleAnimation) {
+                    return;
+                }
+
                 setTimeout(() => {
-                    const verticleTrack = document.getElementById("verticle-image-track");
-                    if (verticleTrack) {
-                        // verticleTrack.style.display = "none";
-                    }
+                    horizontalToVerticleAnimation.style.opacity = "1";
+                    horizontalTrack.style.visibility = "hidden";
 
-                    const horizontalTrack = document.getElementById("horizontal-image-track");
-                    if (horizontalTrack) {
-                        // horizontalTrack.style.display = "none";
+                    let _track = document.getElementById("horizontal-to-verticle-image-track-animation");
+                    let _track_content_wrapper = document.getElementById("horizontal-to-verticle-image-content-wrapper");
+                    let _track_image_wrapper = document.getElementById("horizontal-to-verticle-image-wrapper");
+                    let _track_image = document.getElementById("horizontal-to-verticle-image");
+                    if (_track && _track_content_wrapper && _track_image_wrapper && _track_image) {
+                        _track.classList.add("horizontal-to-verticle-image-track-animation");
+                        _track_content_wrapper.classList.add("horizontal-to-verticle-image-content-wrapper");
+                        _track_image_wrapper.classList.add("horizontal-to-verticle-image-wrapper");
+                        _track_image.classList.add("horizontal-to-verticle-image");
+                        console.log("horizontal-to-verticle-image-track-animation");
                     }
+                }, 600)
 
-                    const horizontalToVerticleAnimation = document.getElementById("horizontal-to-verticle-image-track-animation");
-                    if (horizontalToVerticleAnimation) {
-                        // horizontalToVerticleAnimation.style.display = "none";
-                    }
-                }, 1000)
+                setTimeout(() => {
+                    verticleTrack.style.opacity = "1";  
+                    horizontalToVerticleAnimation.style.opacity = "0";
+                }, 1750)
+                setTimeout(() => {
+                }, 3000)
+
                 
             }
         };

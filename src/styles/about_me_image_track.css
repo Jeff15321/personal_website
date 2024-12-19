@@ -92,10 +92,10 @@
 }
 
 .horizontal-to-verticle-image-wrapper {
-    animation: horizontal-verticle-image-track 1000ms forwards;
+    animation: horizontal-verticle-image-wrapper 1000ms forwards;
 }
 
-@keyframes horizontal-verticle-image-track {
+@keyframes horizontal-verticle-image-wrapper {
     0% {
         width: 40vmin;
         height: 56vmin;
@@ -146,25 +146,31 @@
 }
 
 @keyframes horizontal-to-verticle-image-content-wrapper {
-    to {
+    100% {
         transform: translateX(0);
         visibility: visible;
     }
 }
 
-
 #horizontal-to-verticle-image-track-animation {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.horizontal-to-verticle-image-track-animation {
     transform: translateX(10%);
     animation: horizontal-to-verticle-image-track-animation 1200ms forwards;
 }
 
 @keyframes horizontal-to-verticle-image-track-animation {
     0% {
+        opacity: 1;
         position: fixed;
         top: calc(50% - 28vmin);
         left: calc(50% - 20vmin);
     }
     74% {
+        opacity: 1;
         top: 10%;
         left: 5%;
         gap: 4vmin;
@@ -173,7 +179,18 @@
         height: calc(60vmin);
         transform: translateX(10%);
     }
+    99% {
+        opacity: 1;
+        top: 10%;
+        left: 5%;
+        gap: 4vmin;
+        position: absolute;
+        width: 70vw;
+        height: calc(60vmin);
+        transform: translateX(0%);
+    }
     100% {
+        opacity: 0;
         top: 10%;
         left: 5%;
         gap: 4vmin;

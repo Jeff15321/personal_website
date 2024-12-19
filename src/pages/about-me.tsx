@@ -7,7 +7,7 @@ export default function Home() {
   useEffect(() => {
     const verticleTrack = document.getElementById("verticle-image-track");
     if (verticleTrack) {
-        verticleTrack.style.display = "none";
+        verticleTrack.style.opacity = "0";
     }
 
     const horizontalTrack = document.getElementById("horizontal-image-track");
@@ -15,10 +15,10 @@ export default function Home() {
         // horizontalTrack.style.display = "none";
     }
 
-    const horizontalToVerticleAnimation = document.getElementById("horizontal-to-verticle-image-track-animation");
-    if (horizontalToVerticleAnimation) {
-        horizontalToVerticleAnimation.style.display = "none";
-    }
+    // const horizontalToVerticleAnimation = document.getElementById("horizontal-to-verticle-image-track-animation");
+    // if (horizontalToVerticleAnimation) {
+    //     horizontalToVerticleAnimation.style.opacity = "0";
+    // }
   }, []);
   
   return (
