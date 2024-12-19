@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
+import { useAboutMe } from "../../contexts/AboutMeContext";
 
 interface VerticleTrackProps {
-    numberOfImages: number;
+    imageIndex: number;
 }
 
-const VerticleTrack: React.FC<VerticleTrackProps> = ({ numberOfImages }) => {
+const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
+    const { aboutMe } = useAboutMe();
+    let numberOfImages = aboutMe[imageIndex] ? Object.keys(aboutMe[imageIndex]).length : 0;
+    
     useEffect(() => {
+        console.log(numberOfImages)
         const track = document.getElementById("verticle-image-track");
         let isWheelAnimating = false;
 
@@ -102,7 +107,7 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ numberOfImages }) => {
             window.removeEventListener("mouseup", handleMouseUp);
             window.removeEventListener("mousemove", handleMouseMove);
         };
-    }, []);
+    }, [imageIndex]);
 
     return (
         <div
@@ -110,60 +115,23 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ numberOfImages }) => {
             data-mouse-down-at="0"
             data-prev-percentage="0"
         >
-            <div id="about-me-verticle-image-wrapper-1" className="about-me-verticle-image-wrapper">
-                <img className="about-me-verticle-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
-                <div className="about-me-content-wrapper">
-                    <h2 className="about-me-title">TEXT</h2>
-                    <p className="about-me-description">
-                        Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
-                    </p>
+            {[...Array(numberOfImages)].map((_, i) => (
+                <div id={`about-me-verticle-image-wrapper-${i + 1}`} key={i} className="about-me-verticle-image-wrapper">
+                    <img 
+                        className="about-me-verticle-image" 
+                        src={aboutMe[imageIndex][i + 1].link} 
+                        draggable="false" 
+                        style={{userSelect: 'none'}} 
+                        alt={`Image ${i + 1}`} 
+                    />
+                    <div className="about-me-content-wrapper">
+                        <h2 className="about-me-title">{aboutMe[1][i + 1].title}</h2>
+                        <p className="about-me-description">
+                            {aboutMe[imageIndex][i + 1].description}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div id="about-me-verticle-image-wrapper-2" className="about-me-verticle-image-wrapper">
-                <img className="about-me-verticle-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
-                <div className="about-me-content-wrapper" >
-                    <h2 className="about-me-title">TEXT</h2>
-                    <p className="about-me-description">
-                        Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
-                    </p>
-                </div>
-            </div>
-            <div id="about-me-verticle-image-wrapper-3" className="about-me-verticle-image-wrapper">
-                <img className="about-me-verticle-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
-                <div className="about-me-content-wrapper" >
-                    <h2 className="about-me-title">TEXT</h2>
-                    <p className="about-me-description">
-                        Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
-                    </p>
-                </div>
-            </div>
-            <div id="about-me-verticle-image-wrapper-4" className="about-me-verticle-image-wrapper">
-                <img className="about-me-verticle-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
-                <div className="about-me-content-wrapper" >
-                    <h2 className="about-me-title">TEXT</h2>
-                    <p className="about-me-description">
-                        Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
-                    </p>
-                </div>
-            </div>
-            <div id="about-me-verticle-image-wrapper-5" className="about-me-verticle-image-wrapper">
-                <img className="about-me-verticle-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
-                <div className="about-me-content-wrapper" >
-                    <h2 className="about-me-title">TEXT</h2>
-                    <p className="about-me-description">
-                        Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
-                    </p>
-                </div>
-            </div>
-            <div id="about-me-verticle-image-wrapper-6" className="about-me-verticle-image-wrapper">
-                <img className="about-me-verticle-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
-                <div className="about-me-content-wrapper" >
-                    <h2 className="about-me-title">TEXT</h2>
-                    <p className="about-me-description">
-                        Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
-                    </p>
-                </div>
-            </div>
+            ))}
         </div>
     );
 };

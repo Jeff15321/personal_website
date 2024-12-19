@@ -23,6 +23,7 @@ import { ProjectsProvider } from "../contexts/Projects";
 import { AnimationProvider } from "../contexts/AnimateContext";
 import { RapidCheckerProvider } from "../contexts/RapidChecker";
 import { ExperienceProvider } from "../contexts/ExperienceContext";
+import { AboutMeProvider } from "../contexts/AboutMeContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -32,7 +33,9 @@ export default function App({ Component, pageProps }: AppProps) {
           <AnimationProvider>
             <RapidCheckerProvider>  
               <ExperienceProvider>
-                <Component {...pageProps} /> 
+                <AboutMeProvider>
+                  <Component {...pageProps} /> 
+                </AboutMeProvider>
               </ExperienceProvider>
             </RapidCheckerProvider>
           </AnimationProvider>

@@ -1,9 +1,10 @@
 import HorizontalTrack from "../components/about_me_components/HorizontalTrack";
 import VerticleTrack from "../components/about_me_components/VerticleTrack";
 import HorizontalToVerticleAnimation from "../components/about_me_components/HorizontalToVerticleAnimation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [ImageIndex, setImageIndex] = useState(1)
   useEffect(() => {
     const verticleTrack = document.getElementById("verticle-image-track");
     if (verticleTrack) {
@@ -23,8 +24,8 @@ export default function Home() {
   
   return (
     <div>
-      <VerticleTrack numberOfImages={6}/>
-      <HorizontalTrack />
+      <VerticleTrack imageIndex={ImageIndex}/>
+      <HorizontalTrack setImageIndex={setImageIndex}/>
       <HorizontalToVerticleAnimation />
     </div>
   );

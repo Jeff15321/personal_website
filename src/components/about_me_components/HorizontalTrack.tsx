@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 
-const HorizontalTrack: React.FC = () => {
+interface HorizontalTrackProps {
+    setImageIndex: (index: number) => void;
+}
+
+const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
     useEffect(() => {
         const track = document.getElementById("horizontal-image-track");
         let isDragging = false; // Track whether a drag occurred
@@ -174,6 +178,7 @@ const HorizontalTrack: React.FC = () => {
                 }, 600)
 
                 setTimeout(() => {
+                    setImageIndex(imageId);
                     //verticle track fade in
                     verticleTrack.animate(
                         {
