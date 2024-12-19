@@ -107,7 +107,11 @@ const HorizontalTrack: React.FC = () => {
                     {
                         transform: `translate(calc(${percentage * 5/6}% + 50vw - 20vmin), -50%)`,
                     },
-                    { duration: 500, fill: "forwards" }
+                    { 
+                        duration: 800,
+                        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                        fill: "forwards" 
+                    }
                 );
 
                 for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
@@ -115,7 +119,11 @@ const HorizontalTrack: React.FC = () => {
                         {
                             objectPosition: `${percentage + 100}% center`,
                         },
-                        { duration: 500, fill: "forwards" }
+                        { 
+                            duration: 800,
+                            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                            fill: "forwards" 
+                        }
                     );
                 }
 
