@@ -163,17 +163,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                         _track_content_wrapper.classList.add("horizontal-to-verticle-image-content-wrapper");
                         _track_image_wrapper.classList.add("horizontal-to-verticle-image-wrapper");
                         _track_image.classList.add("horizontal-to-verticle-image");
-                        
-                        _track_image.animate(
-                            {
-                                objectPosition: `${percentage + 100}% center`,
-                            },
-                            { 
-                                duration: 800,
-                                easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-                                fill: "forwards" 
-                            }
-                        );
+                        _track_image.style.objectPosition = `${percentage + 100}% center`;
                     }
                 }, 600)
 
