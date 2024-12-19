@@ -11,6 +11,7 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ numberOfImages }) => {
 
         const handleWheel = (e: WheelEvent) => {
             if (!track || isWheelAnimating) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
 
             isWheelAnimating = true;
             
@@ -58,6 +59,7 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ numberOfImages }) => {
         let isMouseMoving = false;
         const handleMouseMove = (e: MouseEvent) => {
             if (!track) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
             if (track.dataset.mouseDownAt === "0") return;
             if (isMouseMoving) return;
             isMouseMoving = true;
@@ -87,9 +89,8 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ numberOfImages }) => {
             setTimeout(() => {
                 isMouseMoving = false;
             }, 500);
-        };
+        };        
 
-        
         window.addEventListener("wheel", handleWheel);
         window.addEventListener("mousedown", handleMouseDown);
         window.addEventListener("mouseup", handleMouseUp);

@@ -185,10 +185,8 @@ const HorizontalTrack: React.FC = () => {
                             fill: "forwards"
                         }
                     )  
-                }, 1750)
-
-
-                
+                    
+                }, 1750)                
             }
         };
 
