@@ -142,7 +142,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    animation: horizontal-to-verticle-image-content-wrapper 400ms forwards 0.7s;
+    animation: horizontal-to-verticle-image-content-wrapper 380ms forwards 0.7s;
 }
 
 @keyframes horizontal-to-verticle-image-content-wrapper {
@@ -159,7 +159,7 @@
 
 .horizontal-to-verticle-image-track-animation {
     transform: translateX(10%);
-    animation: horizontal-to-verticle-image-track-animation 1200ms forwards;
+    animation: horizontal-to-verticle-image-track-animation 2400ms forwards;
 }
 
 @keyframes horizontal-to-verticle-image-track-animation {
@@ -169,7 +169,7 @@
         top: calc(50% - 28vmin);
         left: calc(50% - 20vmin);
     }
-    74% {
+    36% {
         opacity: 1;
         top: 10%;
         left: 5%;
@@ -178,6 +178,16 @@
         width: 70vw;
         height: calc(60vmin);
         transform: translateX(10%);
+    }
+    49.5% {
+        opacity: 1;
+        top: 10%;
+        left: 5%;
+        gap: 4vmin;
+        position: absolute;
+        width: 70vw;
+        height: calc(60vmin);
+        transform: translateX(0%);
     }
     99% {
         opacity: 1;

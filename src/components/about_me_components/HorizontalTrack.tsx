@@ -139,9 +139,17 @@ const HorizontalTrack: React.FC = () => {
                 }
 
                 setTimeout(() => {
+                    //animation between horizontal and verticle track
                     horizontalToVerticleAnimation.style.opacity = "1";
-                    horizontalTrack.style.visibility = "hidden";
-
+                    horizontalTrack.animate({
+                        opacity: "0",
+                    }, 
+                    {
+                        duration: 1000,
+                        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                        fill: "forwards"
+                    })
+                    
                     let _track = document.getElementById("horizontal-to-verticle-image-track-animation");
                     let _track_content_wrapper = document.getElementById("horizontal-to-verticle-image-content-wrapper");
                     let _track_image_wrapper = document.getElementById("horizontal-to-verticle-image-wrapper");
@@ -152,7 +160,6 @@ const HorizontalTrack: React.FC = () => {
                         _track_image_wrapper.classList.add("horizontal-to-verticle-image-wrapper");
                         _track_image.classList.add("horizontal-to-verticle-image");
                         
-                        // Add animation for object position
                         _track_image.animate(
                             {
                                 objectPosition: `${percentage + 100}% center`,
@@ -167,11 +174,19 @@ const HorizontalTrack: React.FC = () => {
                 }, 600)
 
                 setTimeout(() => {
-                    verticleTrack.style.opacity = "1";  
-                    horizontalToVerticleAnimation.style.opacity = "0";
+                    //verticle track fade in
+                    verticleTrack.animate(
+                        {
+                            opacity: "1",
+                        },
+                        {
+                            duration: 1000,
+                            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                            fill: "forwards"
+                        }
+                    )  
                 }, 1750)
-                setTimeout(() => {
-                }, 3000)
+
 
                 
             }
