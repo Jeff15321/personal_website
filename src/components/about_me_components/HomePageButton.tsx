@@ -9,9 +9,12 @@ const HomePageButton = () => {
 
     useEffect(() => {
         const button = document.querySelector(".home-page-button");
+
         if (isHomePage) {
-            button?.classList.remove("home-page-buttom-appear-animation");
-            button?.classList.add("home-page-buttom-disappear-animation");
+            if (button?.classList.contains("home-page-buttom-appear-animation")) {
+                button?.classList.remove("home-page-buttom-appear-animation");
+                button?.classList.add("home-page-buttom-disappear-animation");
+            }
         } else {
             button?.classList.remove("home-page-buttom-disappear-animation");
             button?.classList.add("home-page-buttom-appear-animation");
@@ -20,7 +23,7 @@ const HomePageButton = () => {
 
     return (
         <div>
-            <button className="home-page-button home-page-buttom-appear-animation" onClick={() => activateHomePage()} style={{ userSelect: 'none' }}>Back</button>
+            <button className="home-page-button" onClick={() => activateHomePage()} style={{ userSelect: 'none' }}>Back</button>
         </div>
     )
 }
