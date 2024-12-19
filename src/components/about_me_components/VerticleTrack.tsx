@@ -10,7 +10,6 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
     let numberOfImages = aboutMe[imageIndex] ? Object.keys(aboutMe[imageIndex]).length : 0;
     
     useEffect(() => {
-        console.log(numberOfImages)
         const track = document.getElementById("verticle-image-track");
         let isWheelAnimating = false;
 
@@ -130,8 +129,8 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
                         alt={`Image ${i + 1}`} 
                     />
                     <div className="about-me-content-wrapper">
-                        <h2 className="about-me-title">{aboutMe[1][i + 1].title}</h2>
-                        <p className="about-me-description">
+                        <h2 className="about-me-title" style={{userSelect: 'none'}}>{aboutMe[1][i + 1].title}</h2>
+                        <p className="about-me-description" style={{userSelect: 'none'}}>
                             {aboutMe[imageIndex][i + 1].description}
                         </p>
                     </div>

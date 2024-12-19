@@ -6,12 +6,12 @@ interface AboutMeHomePageState {
 }
 
 const AboutMeHomePageState = createContext<AboutMeHomePageState>({
-    isHomePage: false,
+    isHomePage: true,
     setIsHomePage: () => {}
 })
 
 export const AboutMeHomePageStateProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
-    const [isHomePage, setIsHomePage] = useState(false);
+    const [isHomePage, setIsHomePage] = useState(true);
     return (
         <AboutMeHomePageState.Provider value={{isHomePage, setIsHomePage}}>
             {children}

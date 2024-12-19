@@ -1,3 +1,4 @@
+import { useAboutMeHomePageState } from "@/src/contexts/AboutMeHomePageState";
 import React, { useEffect } from "react";
 
 interface HorizontalTrackProps {
@@ -5,6 +6,8 @@ interface HorizontalTrackProps {
 }
 
 const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
+    const { isHomePage, setIsHomePage } = useAboutMeHomePageState();
+
     useEffect(() => {
         const track = document.getElementById("horizontal-image-track");
         let isDragging = false; // Track whether a drag occurred
@@ -12,6 +15,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
         const handleWheel = (e: WheelEvent) => {
             if (!track) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
 
             const delta = e.deltaY;
             const maxDelta = window.innerWidth / 2;
@@ -40,12 +44,15 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
         const handleMouseDown = (e: MouseEvent) => {
             if (!track) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
+
             track.dataset.mouseDownAt = e.clientX.toString();
             isDragging = false; // Reset dragging state
         };
 
         const handleMouseUp = (e: MouseEvent) => {
             if (!track) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
 
             // Calculate the total movement during the drag
             const startMouseX = parseFloat(track.dataset.mouseDownAt || "0");
@@ -63,6 +70,8 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
         const handleMouseMove = (e: MouseEvent) => {
             if (!track) return;
             if (track.dataset.mouseDownAt === "0") return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
+
 
             const mouseDelta = parseFloat(track.dataset.mouseDownAt || "0") - e.clientX;
             const maxDelta = window.innerWidth / 2;
@@ -100,6 +109,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
             if (!track) return;
             if (!target?.classList.contains("about-me-image")) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
 
             const imageId = parseInt(target.id.split("-")[3]);
             const imageWrapper = target.parentElement;
@@ -159,15 +169,22 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                     let _track_image_wrapper = document.getElementById("horizontal-to-verticle-image-wrapper");
                     let _track_image = document.getElementById("horizontal-to-verticle-image");
                     if (_track && _track_content_wrapper && _track_image_wrapper && _track_image) {
+                        _track.classList.remove("horizontal-to-verticle-image-track-animation");
+                        _track_content_wrapper.classList.remove("horizontal-to-verticle-image-content-wrapper");
+                        _track_image_wrapper.classList.remove("horizontal-to-verticle-image-wrapper");
+                        _track_image.classList.remove("horizontal-to-verticle-image");
+
                         _track.classList.add("horizontal-to-verticle-image-track-animation");
                         _track_content_wrapper.classList.add("horizontal-to-verticle-image-content-wrapper");
                         _track_image_wrapper.classList.add("horizontal-to-verticle-image-wrapper");
                         _track_image.classList.add("horizontal-to-verticle-image");
                         _track_image.style.objectPosition = `${percentage + 100}% center`;
+                        
                     }
                 }, 600)
 
                 setTimeout(() => {
+                    setIsHomePage(false);
                     setImageIndex(imageId);
                     //verticle track fade in
                     verticleTrack.animate(
@@ -184,9 +201,8 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                 }, 1750)                
             }
         };
-
         
-
+        
         window.addEventListener("mousedown", handleMouseDown);
         window.addEventListener("mouseup", handleMouseUp);
         window.addEventListener("mousemove", handleMouseMove);
@@ -201,6 +217,72 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
             window.removeEventListener("wheel", handleWheel);
         };
     }, []);
+
+    useEffect(() => {
+        if (isHomePage) {
+            //make horizontal track appear
+            const horizontalTrack = document.getElementById("horizontal-image-track");
+            if (horizontalTrack) {
+                horizontalTrack.animate(
+                {
+                    opacity: "1"
+                },
+                {
+                    duration: 1000,
+                    easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                    fill: "forwards"
+                }
+            );
+          }
+            //make verticle track disappear
+            const verticleTrack = document.getElementById("verticle-image-track");
+            const verticleContentWrapper = document.getElementsByClassName("about-me-content-wrapper");
+            if (verticleTrack) {
+                //reset verticle track data
+                verticleTrack.dataset.percentage = "0";
+                verticleTrack.dataset.prevPercentage = "0";
+                verticleTrack.dataset.mouseDownAt = "0";
+                
+                verticleTrack.animate(
+                    {
+                        opacity: "0",
+                        transform: `${getComputedStyle(verticleTrack).transform} translateX(-100vw)`
+                    },
+                    {
+                        duration: 1000,
+                        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                        fill: "forwards"
+                    }
+                );
+                setTimeout(() => {
+                    verticleTrack.animate(
+                        {
+                            transform: "translateX(0)"
+                        },
+                        {
+                            duration: 0,
+                            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                            fill: "forwards"
+                        }
+                    );
+                }, 1000)
+
+                // Animate all verticle images
+                Array.from(verticleContentWrapper).forEach(image => {
+                    (image as HTMLElement).animate(
+                        {
+                        },
+                        {
+                            duration: 2000,
+                            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                            fill: "forwards"
+                        }
+                    );
+           
+                });
+            }
+        }
+    }, [isHomePage]);
 
     return (        
         <div

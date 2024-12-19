@@ -40,7 +40,6 @@ export default function PhotoWindow({id, photoPath,size, height, x, y, z, backgr
 
     useEffect(() => {
         const popupLetter = document.querySelector(`.window-container.window-style-${id}`) as HTMLElement | null;
-        console.log(popupLetter);
         const interval = setInterval(() => {
             if (popupLetter) {
                 const randomColor = Math.floor(Math.random() * 16777215).toString(16);
