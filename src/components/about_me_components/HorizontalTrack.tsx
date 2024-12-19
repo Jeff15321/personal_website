@@ -173,7 +173,9 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                         _track_content_wrapper.classList.remove("horizontal-to-verticle-image-content-wrapper");
                         _track_image_wrapper.classList.remove("horizontal-to-verticle-image-wrapper");
                         _track_image.classList.remove("horizontal-to-verticle-image");
-
+                        
+                        void _track.offsetHeight;
+                        
                         _track.classList.add("horizontal-to-verticle-image-track-animation");
                         _track_content_wrapper.classList.add("horizontal-to-verticle-image-content-wrapper");
                         _track_image_wrapper.classList.add("horizontal-to-verticle-image-wrapper");
@@ -230,7 +232,8 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                 {
                     duration: 1000,
                     easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-                    fill: "forwards"
+                    fill: "forwards",
+                    delay: 400
                 }
             );
           }
@@ -242,7 +245,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                 verticleTrack.dataset.percentage = "0";
                 verticleTrack.dataset.prevPercentage = "0";
                 verticleTrack.dataset.mouseDownAt = "0";
-                
+
                 verticleTrack.animate(
                     {
                         opacity: "0",

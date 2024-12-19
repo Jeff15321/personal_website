@@ -6,22 +6,6 @@ import HomePageButton from "../components/about_me_components/HomePageButton";
 
 export default function Home() {
   const [ImageIndex, setImageIndex] = useState(1)
-  useEffect(() => {
-    const verticleTrack = document.getElementById("verticle-image-track");
-    if (verticleTrack) {
-        verticleTrack.style.opacity = "0";
-    }
-
-    const horizontalTrack = document.getElementById("horizontal-image-track");
-    if (horizontalTrack) {
-        // horizontalTrack.style.display = "none";
-    }
-
-    // const horizontalToVerticleAnimation = document.getElementById("horizontal-to-verticle-image-track-animation");
-    // if (horizontalToVerticleAnimation) {
-    //     horizontalToVerticleAnimation.style.opacity = "0";
-    // }
-  }, []);
   
   return (
     <div>
