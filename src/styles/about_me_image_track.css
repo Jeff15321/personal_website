@@ -62,7 +62,7 @@
 
 .about-me-verticle-image {
     margin-left: 0;
-    width: 70vw;
+    width: 60vw;
     height: 100%;
     object-fit: cover;
     object-position: 100% 50%;
@@ -92,7 +92,7 @@
 }
 
 .horizontal-to-verticle-image-wrapper {
-    animation: horizontal-verticle-image-track 1200ms forwards;
+    animation: horizontal-verticle-image-track 1000ms forwards;
 }
 
 @keyframes horizontal-verticle-image-track {
@@ -103,14 +103,14 @@
     }
     100% {
         display: flex;
-        width: 80vw;
+        width: 90vw;
         height: 80vh;
         position: relative;
     }
 }
 
 .horizontal-to-verticle-image {
-    animation: horizontal-to-verticle-image 1200ms forwards;
+    animation: horizontal-to-verticle-image 1000ms forwards;
 }
 
 @keyframes horizontal-to-verticle-image {
@@ -121,9 +121,65 @@
     }
     100% {
         margin-left: 0;
-        width: 70vw;
+        width: 60vw;
         height: 100%;
         object-fit: cover;
         object-position: 100% 50%;
+    }
+}
+
+
+
+
+.horizontal-to-verticle-image-content-wrapper {
+    transform: translateX(200%);
+    visibility: hidden;
+    top: 50%;
+    left: 50%;
+    width: 20vw;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: horizontal-to-verticle-image-content-wrapper 400ms forwards 0.7s;
+}
+
+@keyframes horizontal-to-verticle-image-content-wrapper {
+    to {
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+
+#horizontal-to-verticle-image-track-animation {
+    transform: translateX(10%);
+    animation: horizontal-to-verticle-image-track-animation 1200ms forwards;
+}
+
+@keyframes horizontal-to-verticle-image-track-animation {
+    0% {
+        position: fixed;
+        top: calc(50% - 28vmin);
+        left: calc(50% - 20vmin);
+    }
+    74% {
+        top: 10%;
+        left: 5%;
+        gap: 4vmin;
+        position: absolute;
+        width: 70vw;
+        height: calc(60vmin);
+        transform: translateX(10%);
+    }
+    100% {
+        top: 10%;
+        left: 5%;
+        gap: 4vmin;
+        position: absolute;
+        width: 70vw;
+        height: calc(60vmin);
+        transform: translateX(0%);
     }
 }

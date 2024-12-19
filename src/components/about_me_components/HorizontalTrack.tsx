@@ -89,41 +89,60 @@ const HorizontalTrack: React.FC = () => {
 
         const handleClick = (e: MouseEvent) => {
             if (isDragging) {
-                // If a drag occurred, do not trigger the click logic
                 return;
             }
 
             const target = e.target as HTMLElement;
+
             if (!track) return;
+            if (!target?.classList.contains("about-me-image")) return;
 
-            if (target?.classList.contains("about-me-image")) {
-                const imageId = parseInt(target.id.split("-")[3]);
-                const imageWrapper = target.parentElement;
+            const imageId = parseInt(target.id.split("-")[3]);
+            const imageWrapper = target.parentElement;
 
-                if (imageWrapper) {
-                    const percentage = (imageId - 1) * (-44 / 260) * 100 * 6/5;
+            if (imageWrapper) {
+                const percentage = (imageId - 1) * (-44 / 260) * 100 * 6/5;
 
-                    track.animate(
+                track.animate(
+                    {
+                        transform: `translate(calc(${percentage * 5/6}% + 50vw - 20vmin), -50%)`,
+                    },
+                    { duration: 500, fill: "forwards" }
+                );
+
+                for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
+                    (image as HTMLElement).animate(
                         {
-                            transform: `translate(calc(${percentage * 5/6}% + 50vw - 20vmin), -50%)`,
+                            objectPosition: `${percentage + 100}% center`,
                         },
                         { duration: 500, fill: "forwards" }
                     );
+                }
 
-                    for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
-                        (image as HTMLElement).animate(
-                            {
-                                objectPosition: `${percentage + 100}% center`,
-                            },
-                            { duration: 500, fill: "forwards" }
-                        );
+                track.dataset.percentage = percentage.toString();
+                track.dataset.prevPercentage = percentage.toString();
+                
+                setTimeout(() => {
+                    const verticleTrack = document.getElementById("verticle-image-track");
+                    if (verticleTrack) {
+                        // verticleTrack.style.display = "none";
                     }
 
-                    track.dataset.percentage = percentage.toString();
-                    track.dataset.prevPercentage = percentage.toString();
-                }
+                    const horizontalTrack = document.getElementById("horizontal-image-track");
+                    if (horizontalTrack) {
+                        // horizontalTrack.style.display = "none";
+                    }
+
+                    const horizontalToVerticleAnimation = document.getElementById("horizontal-to-verticle-image-track-animation");
+                    if (horizontalToVerticleAnimation) {
+                        // horizontalToVerticleAnimation.style.display = "none";
+                    }
+                }, 1000)
+                
             }
         };
+
+        
 
         window.addEventListener("mousedown", handleMouseDown);
         window.addEventListener("mouseup", handleMouseUp);

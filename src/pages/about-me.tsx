@@ -10,7 +10,7 @@ export default function Home() {
         verticleTrack.style.display = "none";
     }
 
-    const horizontalTrack = document.getElementById("horizontal-track");
+    const horizontalTrack = document.getElementById("horizontal-image-track");
     if (horizontalTrack) {
         // horizontalTrack.style.display = "none";
     }
