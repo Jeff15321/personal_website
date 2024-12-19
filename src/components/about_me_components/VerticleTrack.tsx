@@ -114,6 +114,7 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
             id="verticle-image-track"
             data-mouse-down-at="0"
             data-prev-percentage="0"
+            data-percentage="0"
         >
             {[...Array(numberOfImages)].map((_, i) => (
                 <div id={`about-me-verticle-image-wrapper-${i + 1}`} key={i} className="about-me-verticle-image-wrapper">

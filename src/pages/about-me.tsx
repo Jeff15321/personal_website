@@ -30,5 +30,4 @@ export default function Home() {
     </div>
   );
 }
-//      <VerticleTrack numberOfImages={6}/>
 
