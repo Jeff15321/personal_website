@@ -124,7 +124,7 @@
         width: 60vw;
         height: 100%;
         object-fit: cover;
-        object-position: 100% 50%;
+        /* object-position: 100% 50%; */
     }
 }
 
