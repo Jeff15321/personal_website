@@ -53,11 +53,15 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
 
         const handleMouseDown = (e: MouseEvent) => {
             if (!track) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
+
             track.dataset.mouseDownAt = e.clientY.toString();
         };
 
         const handleMouseUp = () => {
             if (!track) return;
+            if (window.getComputedStyle(track).opacity !== "1") return;
+
             track.dataset.mouseDownAt = "0";
             track.dataset.prevPercentage = track.dataset.percentage;
         };

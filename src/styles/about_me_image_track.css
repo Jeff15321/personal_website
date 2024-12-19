@@ -159,7 +159,7 @@
 
 .horizontal-to-verticle-image-track-animation {
     transform: translateX(10%);
-    animation: horizontal-to-verticle-image-track-animation 2400ms forwards;
+    animation: horizontal-to-verticle-image-track-animation 2200ms forwards;
 }
 
 @keyframes horizontal-to-verticle-image-track-animation {
@@ -169,7 +169,7 @@
         top: calc(50% - 28vmin);
         left: calc(50% - 20vmin);
     }
-    36% {
+    39.3% {
         opacity: 1;
         top: 10%;
         left: 5%;
@@ -179,7 +179,7 @@
         height: calc(60vmin);
         transform: translateX(10%);
     }
-    49.5% {
+    54% {
         opacity: 1;
         top: 10%;
         left: 5%;
