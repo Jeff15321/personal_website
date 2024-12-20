@@ -329,6 +329,25 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                 <img id="about-me-image-6" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
                 <div className="about-me-image-text" style={{userSelect: 'none'}}>favorites</div>
             </div>
+            <button 
+                className="horizontal-track-back-button" 
+                onClick={() => window.history.back()}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+                    e.currentTarget.style.transform = 'scale(1.03) translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.2)';
+                    e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 1)';
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+                    e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                    e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.9)';
+                }}
+            >
+                <span style={{fontSize: '1.4em', marginBottom: '2px', userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none'}} draggable="false">←</span>
+                <span style={{userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none'}} draggable="false">Back</span>
+            </button>
         </div>
     );
 };

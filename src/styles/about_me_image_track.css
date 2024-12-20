@@ -322,3 +322,29 @@
         pointer-events: none;
     }
 }
+
+.horizontal-track-back-button {
+    position: relative;
+    left: 8vmin;
+    width: 18vmin;
+    align-self: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    user-select: none;
+    height: 12vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+}
