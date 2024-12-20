@@ -10,7 +10,7 @@
 }
 
 .bento-container {
-    background-color: #000;
+    /* background-color: #000; */
     display: flex;
     max-height: 75vh;
     max-width: 98vw;
