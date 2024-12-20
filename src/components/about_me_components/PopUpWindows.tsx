@@ -6,24 +6,24 @@ import { useAboutMeHomePageState } from "../../contexts/AboutMeHomePageState";
 export default function Test() {
     const { isHomePage, setIsHomePage } = useAboutMeHomePageState();
     const [animationTimer, setAnimationTimer] = useState(
-        [
-        1, 0.15, 0.15, 0.15, 0.12, 0.12, 0.12, 0.12, //Heyy~~~~
-        0.65, 0.2, 0.2, //I'm
-        0.4, //picture of me
-        0.3, //turtle
-        1, 0.2, 0.2, 0.2, //Jeff
-        0.2,  //frog
-        1.3 //arrow
-        ]
         // [
-        //     0, 0, 0, 0, 0, 0, 0, 0, //Heyy~~~~
-        //     0, 0, 0, //I'm
-        //     0, //picture of me
-        //     0, //turtle
-        //     0, 0, 0, 0, //Jeff
-        //     0,  //frog
-        //     0 //arrow
+        // 1, 0.15, 0.15, 0.15, 0.12, 0.12, 0.12, 0.12, //Heyy~~~~
+        // 0.65, 0.2, 0.2, //I'm
+        // 0.4, //picture of me
+        // 0.3, //turtle
+        // 1, 0.2, 0.2, 0.2, //Jeff
+        // 0.2,  //frog
+        // 1.3 //arrow
         // ]
+        [
+            0, 0, 0, 0, 0, 0, 0, 0, //Heyy~~~~
+            0, 0, 0, //I'm
+            0, //picture of me
+            0, //turtle
+            0, 0, 0, 0, //Jeff
+            0,  //frog
+            0 //arrow
+        ]
     );
     useEffect(() => {
         let accumulatedTime = 0;
@@ -51,9 +51,7 @@ export default function Test() {
         }
 
         window.addEventListener('click', (e) => {
-            console.log(e.target);
             const frog = document.querySelector('.window-letter-18') as HTMLElement;
-            console.log(e.target);
             if (frog && e.target === frog) {
                 //hide all elements other than the first five letters
                 const elementsToFade = document.querySelectorAll('[class*="window-style-"]');

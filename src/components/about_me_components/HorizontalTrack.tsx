@@ -43,16 +43,16 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
         };
 
         const handleMouseDown = (e: MouseEvent) => {
-            if (!track) return;
-            if (window.getComputedStyle(track).opacity !== "1") return;
+            if (!track || isHomePage == false) return;
+            // if (parseInt(window.getComputedStyle(track).opacity) <= 0.5) return;
 
             track.dataset.mouseDownAt = e.clientX.toString();
             isDragging = false; // Reset dragging state
         };
 
         const handleMouseUp = (e: MouseEvent) => {
-            if (!track) return;
-            if (window.getComputedStyle(track).opacity !== "1") return;
+            if (!track || isHomePage == false) return;
+            console.log(window.getComputedStyle(track).opacity);
 
             // Calculate the total movement during the drag
             const startMouseX = parseFloat(track.dataset.mouseDownAt || "0");
@@ -68,9 +68,8 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
         };
 
         const handleMouseMove = (e: MouseEvent) => {
-            if (!track || !isHomePage) return;
+            if (!track || isHomePage == false) return;
             if (track.dataset.mouseDownAt === "0") return;
-            if (window.getComputedStyle(track).opacity !== "1") return;
 
 
             const mouseDelta = parseFloat(track.dataset.mouseDownAt || "0") - e.clientX;
@@ -108,7 +107,6 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
             if (!track || !isHomePage) return;
             if (!target?.classList.contains("about-me-image")) return;
-            if (window.getComputedStyle(track).opacity !== "1") return;
 
             const imageId = parseInt(target.id.split("-")[3]);
             const imageWrapper = target.parentElement;
@@ -237,9 +235,12 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
                 // Now animate the opacity
                 horizontalTrack.animate(
+                    [{
+                        opacity: "0"
+                    },
                     {
                         opacity: "1"
-                    },
+                    }],
                     {
                         duration: 1000,
                         easing: "cubic-bezier(0.4, 0, 0.2, 1)",
