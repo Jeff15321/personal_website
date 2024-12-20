@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import LetterWindow from "./LetterWindow";
 import PhotoWindow from "./PhotoWindow";
+import { useAboutMeHomePageState } from "../../contexts/AboutMeHomePageState";
 
 export default function Test() {
+    const { isHomePage, setIsHomePage } = useAboutMeHomePageState();
     const [animationTimer, setAnimationTimer] = useState(
         [
         1, 0.15, 0.15, 0.15, 0.12, 0.12, 0.12, 0.12, //Heyy~~~~
@@ -179,6 +181,7 @@ export default function Test() {
                             );
                         });
                     }
+                    setIsHomePage(true);
                 }, 1000);
             }
         })

@@ -15,7 +15,7 @@ const HomePageButton = () => {
                 button?.classList.remove("home-page-buttom-appear-animation");
                 button?.classList.add("home-page-buttom-disappear-animation");
             }
-        } else {
+        } else if (isHomePage === false) {
             button?.classList.remove("home-page-buttom-disappear-animation");
             button?.classList.add("home-page-buttom-appear-animation");
         }
