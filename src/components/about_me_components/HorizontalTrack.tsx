@@ -80,7 +80,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                 Math.min(parseFloat(track.dataset.prevPercentage || "0") + percentage, 0),
                 -100
             );
-
+            console.log(track.dataset.percentage, "thishsouldn't be zero")
             track.dataset.percentage = nextPercentage.toString();
 
             track.animate(
@@ -222,21 +222,32 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
     useEffect(() => {
         if (isHomePage) {
-            //make horizontal track appear
             const horizontalTrack = document.getElementById("horizontal-image-track");
             if (horizontalTrack) {
-                horizontalTrack.animate(
-                {
-                    opacity: "1"
-                },
-                {
-                    duration: 1000,
-                    easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-                    fill: "forwards",
-                    delay: 400
+                // Get the current percentage from the dataset
+                const currentPercentage = parseFloat(horizontalTrack.dataset.percentage || "0");
+                
+                // Immediately set the initial position before the fade-in animation
+                horizontalTrack.style.transform = `translate(calc(${currentPercentage * 5/6}% + 50vw - 20vmin), -50%)`;
+                
+                // Update all images' positions
+                for (const image of Array.from(horizontalTrack.getElementsByClassName("about-me-image"))) {
+                    (image as HTMLElement).style.objectPosition = `${currentPercentage + 100}% center`;
                 }
-            );
-          }
+
+                // Now animate the opacity
+                horizontalTrack.animate(
+                    {
+                        opacity: "1"
+                    },
+                    {
+                        duration: 1000,
+                        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                        fill: "forwards",
+                        delay: 400
+                    }
+                );
+            }
             //make verticle track disappear
             const verticleTrack = document.getElementById("verticle-image-track");
             const verticleContentWrapper = document.getElementsByClassName("about-me-content-wrapper");
