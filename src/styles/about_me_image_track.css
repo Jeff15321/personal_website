@@ -1,4 +1,6 @@
 #horizontal-image-track {
+    pointer-events: none;
+    user-select: none;
     display: flex;
     gap: 4vmin;
     position: absolute;

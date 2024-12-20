@@ -146,8 +146,8 @@ export default function Test() {
 
                         horizontalTrack.animate(
                             [
-                                { opacity: 0, transform: 'translate(0%, -50%)' },
-                                { opacity: 1, transform: 'translate(calc(50vw - 20vmin), -50%)' }
+                                { opacity: 0, transform: 'translate(0%, -50%)', pointerEvents: 'none', userSelect: 'none' },
+                                { opacity: 1, transform: 'translate(calc(50vw - 20vmin), -50%)', pointerEvents: 'auto', userSelect: 'auto' }
                             ],
                             {
                                 duration: 1000,
