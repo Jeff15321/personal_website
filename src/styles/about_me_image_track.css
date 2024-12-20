@@ -10,6 +10,7 @@
 }
 
 .about-me-image-wrapper {
+    opacity: 0;
     width: 40vmin;
     height: 56vmin;
     position: relative;

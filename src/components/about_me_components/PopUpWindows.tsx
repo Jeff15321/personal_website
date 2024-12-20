@@ -40,6 +40,7 @@ export default function Test() {
         }
 
         window.addEventListener('click', (e) => {
+            console.log(e.target);
             const frog = document.querySelector('.window-letter-18') as HTMLElement;
             console.log(e.target);
             if (frog && e.target === frog) {
@@ -53,7 +54,7 @@ export default function Test() {
                         (element as HTMLElement).animate(
                             [
                                 { opacity: 1 },
-                                { opacity: 0 }
+                                { opacity: 0, visibility: 'hidden' }
                             ],
                             {
                                 duration: 800,
@@ -110,7 +111,8 @@ export default function Test() {
                         (window as HTMLElement).animate(
                             {
                                 opacity: 0,
-                                filter: 'blur(5px)'
+                                filter: 'blur(5px)',
+                                visibility: 'hidden'
                             },
                             {
                                 duration: 1200,
@@ -119,18 +121,27 @@ export default function Test() {
                             }
                         );
                     })
-                    const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
-                    if (horizontalTrack) {
-                        horizontalTrack.animate(
-                            {
-                                opacity: 0
-                            },
-                            {
-                                duration: 1000,
-                                fill: 'forwards',
-                                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-                            }
-                        );
+                    const horizontalTrackImages = document.querySelectorAll('.about-me-image-wrapper') as NodeListOf<Element>;
+                    if (horizontalTrackImages) {
+                        Array.from(horizontalTrackImages).forEach((imageWrapper, index) => {
+                            (imageWrapper as HTMLElement).animate(
+                                [
+                                    {
+                                        opacity: 0,
+                                        filter: 'blur(5px)'
+                                    },
+                                    {
+                                        opacity: 1,
+                                        filter: 'blur(0px)'
+                                    }
+                                ],
+                                {
+                                    duration: 1000,
+                                    fill: 'forwards',
+                                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                                }
+                            );
+                        })
                     }
                 }, 1000);
             }
@@ -139,7 +150,7 @@ export default function Test() {
 
 
     return (
-        <>
+        <div>
         <LetterWindow letter="H" x={-40} y={-30} z={0} id="1" size={1} height={0} backgroundColor="red" buttonColor="white" />
         <LetterWindow letter="E" x={-27} y={-36} z={0} id="2" size={0.6} height={0} backgroundColor="blue" buttonColor="white" />
         <LetterWindow letter="Y" x={-17} y={-25} z={0} id="3" size={0.6} height={0} backgroundColor="green" buttonColor="white" />
@@ -196,5 +207,5 @@ export default function Test() {
                 fontWeight: 'bold'
             }}>Click The Frog</span>
         </div>
-        </>
+        </div>
     )};
