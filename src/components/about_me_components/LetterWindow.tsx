@@ -24,7 +24,7 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
     }, []);
 
     const handleClose = () => {
-        const windowElement = document.querySelector(`.window-container.window-letter-${id}`) as HTMLElement | null;
+        const windowElement = document.querySelector(`.window-container.window-style-${id}`) as HTMLElement | null;
         if (windowElement) {
             windowElement.style.visibility = 'hidden';
         }
@@ -91,20 +91,23 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
             left: `${(50 + position.x)}vw`,
             backgroundColor: backgroundColor,
             visibility: 'hidden',
-            zIndex: z
+            zIndex: z,
+            userSelect: 'none'
         }}>
             <div className="title-button-container" onMouseDown={handleMouseDown}>
                 <button className="title-button" onClick={handleClose} style={{
                     fontSize: `${windowSize * 0.9}em`,
-                    color: buttonColor
+                    color: buttonColor,
+                    userSelect: 'none'
                     }}>-</button>
-                <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor}}>o</button>
-                <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor   }}>x</button>
+                <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>o</button>
+                <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>x</button>
             </div>
             <div className="index-image-container">
                 <div className={`popup-letter window-letter-${id}`}
                 style={{
                     fontSize: `${size * 16 - 1}vw`,
+                    userSelect: 'none'
                 }}
                 >{letter}</div>
             </div>

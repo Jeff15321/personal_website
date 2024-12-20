@@ -1,14 +1,6 @@
-@keyframes window-appear {
-    0% {  opacity: 0; }
-    80% {  opacity: 0; }
-    100% {  opacity: 1; }
-}
 
-.outer-window-container-1 {
-    animation: window-appear 7.8s ease;
-}
 
-.rotate-1 {
+.rotate-12 {
     animation: rotate 2s linear infinite;
 }
 
@@ -22,7 +14,7 @@
 
 
 .window-style-13 {
-    animation: roll-in 1s 3.3s forwards;
+    animation: roll-in 1s 4.5s forwards;
   }
   @keyframes roll-in {
     0% {
@@ -55,6 +47,6 @@
   /* Example Ball Style */
   .window-style-18 {
     transform: translateX(-50%);
-    animation: dropAndBounce 2s ease-out 4.5s forwards;
+    animation: dropAndBounce 2s ease-out 6.5s forwards;
   }
   

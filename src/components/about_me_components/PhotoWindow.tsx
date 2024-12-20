@@ -89,15 +89,17 @@ export default function PhotoWindow({id, photoPath,size, height, x, y, z, backgr
                 left: `${(50 + position.x)}vw`,
                 backgroundColor: backgroundColor,
                 visibility: 'hidden',
-                zIndex: z
+                zIndex: z,
+                userSelect: 'none'
             }}>
             <div className="title-button-container" onMouseDown={handleMouseDown}>
                 <button className="title-button" onClick={handleClose} style={{
                     fontSize: `${windowSize * 0.9}em`,
-                    color: buttonColor
+                    color: buttonColor,
+                    userSelect: 'none'
                     }}>-</button>
-                <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor}}>o</button>
-                <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor   }}>x</button>
+                <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>o</button>
+                <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>x</button>
             </div>
             <div className="index-image-container">
                 <img src={photoPath} style={{
@@ -105,8 +107,11 @@ export default function PhotoWindow({id, photoPath,size, height, x, y, z, backgr
                     height: `100%`,
                     display: 'block',
                     margin: '0 auto',
-                    objectFit: 'contain'
-                    }} />
+                    objectFit: 'contain',
+                    userSelect: 'none'
+                    }}      
+                    draggable="false" 
+                />
             </div>
         </div>
       </div>
