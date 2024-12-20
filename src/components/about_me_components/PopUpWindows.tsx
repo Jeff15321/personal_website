@@ -40,7 +40,6 @@ export default function PopUpWindows() {
                 if (popup) {
                     popup.style.visibility = 'visible';
                     popup.style.opacity = '0';
-                    console.log("sup");
                     popup.animate(
                         [
                             { opacity: 0, visibility: 'visible', filter: 'blur(0px)' },

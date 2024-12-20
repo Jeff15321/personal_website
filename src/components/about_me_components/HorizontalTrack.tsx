@@ -54,7 +54,6 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
         const handleMouseUp = (e: MouseEvent) => {
             if (!track || isHomePage == false) return;
-            console.log(window.getComputedStyle(track).opacity);
 
             // Calculate the total movement during the drag
             const startMouseX = parseFloat(track.dataset.mouseDownAt || "0");
