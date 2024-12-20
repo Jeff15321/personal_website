@@ -15,7 +15,7 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
 
         const handleWheel = (e: WheelEvent) => {
             if (!track || isWheelAnimating) return;
-            if (parseInt(window.getComputedStyle(track).opacity) <= 0.5) return;
+            if (parseFloat(window.getComputedStyle(track).opacity) !== 1) return;
 
             isWheelAnimating = true;
             
@@ -52,14 +52,14 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
 
         const handleMouseDown = (e: MouseEvent) => {
             if (!track) return;
-            if (parseInt(window.getComputedStyle(track).opacity) <= 0.5) return;
+            if (parseFloat(window.getComputedStyle(track).opacity) !== 1) return;
 
             track.dataset.mouseDownAt = e.clientY.toString();
         };
 
         const handleMouseUp = () => {
             if (!track) return;
-            if (parseInt(window.getComputedStyle(track).opacity) <= 0.5) return;
+            if (parseFloat(window.getComputedStyle(track).opacity) !== 1) return;
 
             track.dataset.mouseDownAt = "0";
             track.dataset.prevPercentage = track.dataset.percentage;
@@ -67,7 +67,7 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
         let isMouseMoving = false;
         const handleMouseMove = (e: MouseEvent) => {
             if (!track) return;
-            if (parseInt(window.getComputedStyle(track).opacity) <= 0.5) return;
+            if (parseFloat(window.getComputedStyle(track).opacity) !== 1) return;
             if (track.dataset.mouseDownAt === "0") return;
             if (isMouseMoving) return;
             isMouseMoving = true;
