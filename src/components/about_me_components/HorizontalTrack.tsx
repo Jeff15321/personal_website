@@ -299,6 +299,46 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
         }
     }, [isHomePage]);
 
+    const horizontalTrackBack = () => {
+        setIsHomePage(null);
+        const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
+        if (horizontalTrack) {
+            horizontalTrack.animate(
+                [
+                    { opacity: 1 },
+                    { opacity: 0, transform: 'translate(-100%, -50%)', pointerEvents: 'none', userSelect: 'none' }
+                ],
+                {
+                    duration: 1000,
+                    fill: 'forwards',
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                }
+            );
+        }
+        const horizontalTrackImages = document.querySelectorAll('.about-me-image-wrapper') as NodeListOf<Element>;
+        if (horizontalTrackImages) {
+            Array.from(horizontalTrackImages).forEach((imageWrapper, index) => {
+                (imageWrapper as HTMLElement).animate(
+                    [
+                        {
+                            opacity: 1,
+                            filter: 'blur(5px)'
+                        },
+                        {
+                            opacity: 0,
+                            filter: 'blur(0px)'
+                        }
+                    ],
+                    {
+                        duration: 1000,
+                        fill: 'forwards',
+                        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    }
+                );
+            });
+        }
+    }
+
     return (        
         <div
             id="horizontal-image-track"
@@ -331,7 +371,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
             </div>
             <button 
                 className="horizontal-track-back-button" 
-                onClick={() => window.history.back()}
+                onClick={() => horizontalTrackBack()}
                 onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
                     e.currentTarget.style.transform = 'scale(1.03) translateY(-2px)';
@@ -345,8 +385,8 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                     e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.9)';
                 }}
             >
-                <span style={{fontSize: '1.4em', marginBottom: '2px', userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none'}} draggable="false">←</span>
-                <span style={{userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none'}} draggable="false">Back</span>
+                <span style={{fontSize: '1.4em', marginBottom: '2px', userSelect: 'none'}} draggable="false">←</span>
+                <span style={{userSelect: 'none'}} draggable="false">Back</span>
             </button>
         </div>
     );
