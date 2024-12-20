@@ -139,7 +139,6 @@ export default function Test() {
                     })
                     const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
                     if (horizontalTrack) {
-                        const vminToVwRatio = Math.min(window.innerWidth, window.innerHeight) / window.innerWidth;
                         horizontalTrack.dataset.percentage = "0";
                         horizontalTrack.dataset.mouseDownAt = "0";
                         horizontalTrack.dataset.prevPercentage = "0";

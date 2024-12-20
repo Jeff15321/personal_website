@@ -5,6 +5,17 @@ const HomePageButton = () => {
 
     const activateHomePage = () => {
         setIsHomePage(true);
+
+        let _track = document.getElementById("horizontal-to-verticle-image-track-animation");
+        let _track_content_wrapper = document.getElementById("horizontal-to-verticle-image-content-wrapper");
+        let _track_image_wrapper = document.getElementById("horizontal-to-verticle-image-wrapper");
+        let _track_image = document.getElementById("horizontal-to-verticle-image");
+        if (_track && _track_content_wrapper && _track_image_wrapper && _track_image) {
+            _track.classList.remove("horizontal-to-verticle-image-track-animation");
+            _track_content_wrapper.classList.remove("horizontal-to-verticle-image-content-wrapper");
+            _track_image_wrapper.classList.remove("horizontal-to-verticle-image-wrapper");
+            _track_image.classList.remove("horizontal-to-verticle-image");
+        }
     }
 
     useEffect(() => {

@@ -4,10 +4,10 @@ export default function HorizontalToVerticleAnimation() {
     return (
         <div id="horizontal-to-verticle-image-track-animation" className="">
             <div id="horizontal-to-verticle-image-wrapper" className="about-me-image-wrapper ">    
-                <img id="horizontal-to-verticle-image" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image" />
+                <img id="horizontal-to-verticle-image" className="zero-opacity about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image" />
                 <div id="horizontal-to-verticle-image-content-wrapper" className="">
-                    <h2 className="about-me-title ">TEXT</h2>
-                    <p className="about-me-description">
+                    <h2 className="about-me-title zero-opacity">TEXT</h2>
+                    <p className="about-me-description zero-opacity">
                         Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
                     </p>
                 </div>

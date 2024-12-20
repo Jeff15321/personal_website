@@ -128,17 +128,23 @@
     }
 }
 
+.zero-opacity {
+    opacity: 0;
+}
+
 .horizontal-to-verticle-image {
     animation: horizontal-to-verticle-image 1000ms forwards;
 }
 
 @keyframes horizontal-to-verticle-image {
     0% {
+        opacity: 1;
         width: 40vmin;
         height: 56vmin;
         position: relative;
     }
     100% {
+        opacity: 1;
         margin-left: 0;
         width: 60vw;
         height: 100%;
@@ -165,9 +171,27 @@
 }
 
 @keyframes horizontal-to-verticle-image-content-wrapper {
+    0% {
+        transform: translateX(200%);
+        visibility: hidden;
+    }
     100% {
         transform: translateX(0);
         visibility: visible;
+    }
+}
+
+.horizontal-to-verticle-image-content-wrapper h2,
+.horizontal-to-verticle-image-content-wrapper p {
+    animation: content-opacity 380ms forwards 0.7s;
+}
+
+@keyframes content-opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
