@@ -303,6 +303,20 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
     const horizontalTrackBack = () => {
         setIsHomePage(null);
         setIsAboutMe(false);
+
+        //reset image shift
+        const track = document.getElementById("horizontal-image-track");
+        if (track) {
+            for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
+                (image as HTMLElement).animate(
+                    {
+                        objectPosition: `${100}% 50%`,
+                    },
+                    { duration: 1000, fill: "forwards" }
+                );
+            }
+        }
+        
         const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
         if (horizontalTrack) {
             horizontalTrack.animate(

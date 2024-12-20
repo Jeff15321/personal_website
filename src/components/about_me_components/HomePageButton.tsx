@@ -4,23 +4,7 @@ const HomePageButton = () => {
     const { isHomePage, setIsHomePage} = useAboutMeHomePageState();
 
     const activateHomePage = () => {
-        console.log("activateHomePage called");
         setIsHomePage(true);
-
-        //reset image shift
-        const track = document.getElementById("horizontal-image-track");
-        console.log(track, 's');
-        if (track) {
-            console.log("reset image shift");
-            for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
-                (image as HTMLElement).animate(
-                    {
-                        objectPosition: `${100}% 50%`,
-                    },
-                    { duration: 0, fill: "forwards" }
-                );
-            }
-        }
         
         let _track = document.getElementById("horizontal-to-verticle-image-track-animation");
         let _track_content_wrapper = document.getElementById("horizontal-to-verticle-image-content-wrapper");
