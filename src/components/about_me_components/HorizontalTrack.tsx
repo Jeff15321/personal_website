@@ -1,5 +1,6 @@
 import { useAboutMeHomePageState } from "@/src/contexts/AboutMeHomePageState";
 import React, { useEffect } from "react";
+import { useIsAboutMe } from "@/src/contexts/IsAboutMeContext";
 
 interface HorizontalTrackProps {
     setImageIndex: (index: number) => void;
@@ -7,6 +8,7 @@ interface HorizontalTrackProps {
 
 const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
     const { isHomePage, setIsHomePage } = useAboutMeHomePageState();
+    const { isAboutMe, setIsAboutMe } = useIsAboutMe();
 
     useEffect(() => {
         const track = document.getElementById("horizontal-image-track");
@@ -301,6 +303,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
     const horizontalTrackBack = () => {
         setIsHomePage(null);
+        setIsAboutMe(false);
         const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
         if (horizontalTrack) {
             horizontalTrack.animate(
@@ -335,6 +338,20 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                         easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
                     }
                 );
+            });
+        }
+        const bentoContainerWrapper = document.getElementById("bento-container-wrapper");
+        if (bentoContainerWrapper) {
+            bentoContainerWrapper.animate([{
+                opacity: 0.5,
+                transform: "translate(100%, -50%)"
+            }, {
+                opacity: 1,
+                transform: "translate(-50%, -50%)"
+            }], {
+                duration: 1000, 
+                fill: "forwards",
+                easing: "cubic-bezier(0.4, 0, 0.2, 1)"
             });
         }
     }

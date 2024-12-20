@@ -7,6 +7,8 @@ import { useAnimation } from "../contexts/AnimateContext";
 import { useRapidChecker } from "../contexts/RapidChecker";
 import { animation_time, Is_in_project } from "./BentoPage";
 import Experience from "./Experience";
+import { useIsAboutMe } from "../contexts/IsAboutMeContext";
+
 interface TerminalProps {
   height: number;
   width: number;
@@ -26,6 +28,8 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   const [historyInputCounter, setHistoryInputCounter] = useState(0);
   const [first_tab_checker, setFirstTabChecker] = useState(true);
   const { rapidInputCounter, setRapidInputCounter } = useRapidChecker();
+
+  const { isAboutMe, setIsAboutMe } = useIsAboutMe();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLDivElement>) => {
     //update input value
@@ -145,9 +149,18 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
 
       scrollToBottom(terminalRef, 750);
       const output: [string, string][] = [
-        ["An error occurred. Redirecting to error page...", "error"]
+        ["Redirectly to About Me Page...", ""]
       ];
-      {window.open("/error", "_blank");}
+
+      const bentoContainerWrapper = document.getElementById("bento-container-wrapper");
+      if (bentoContainerWrapper) {
+        bentoContainerWrapper.animate([
+          {opacity: 1},
+          {opacity: 0.5, transform: "translate(-180%, -120%)"}
+        ], {duration: 1000, fill: "forwards", easing: "cubic-bezier(0.4, 0, 0.2, 1)"});
+      }
+
+      setIsAboutMe(true);
 
       return (
         <div>

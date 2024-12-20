@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import LetterWindow from "./LetterWindow";
 import PhotoWindow from "./PhotoWindow";
 import { useAboutMeHomePageState } from "../../contexts/AboutMeHomePageState";
+import { useIsAboutMe } from "@/src/contexts/IsAboutMeContext";
 
-export default function Test() {
+export default function PopUpWindows() {
     const { isHomePage, setIsHomePage } = useAboutMeHomePageState();
+    const { isAboutMe, setIsAboutMe } = useIsAboutMe();
     const [animationTimer, setAnimationTimer] = useState(
         // [
         // 1, 0.15, 0.15, 0.15, 0.12, 0.12, 0.12, 0.12, //Heyy~~~~
@@ -26,6 +28,10 @@ export default function Test() {
         ]
     );
     useEffect(() => {
+        if (!isAboutMe) {
+            return;
+        }
+
         let accumulatedTime = 0;
         for (let i = 0; i < animationTimer.length; i++) {
             accumulatedTime += animationTimer[i];
@@ -34,10 +40,11 @@ export default function Test() {
                 if (popup) {
                     popup.style.visibility = 'visible';
                     popup.style.opacity = '0';
+                    console.log("sup");
                     popup.animate(
                         [
-                            { opacity: 0 },
-                            { opacity: 1 }
+                            { opacity: 0, visibility: 'visible', filter: 'blur(0px)' },
+                            { opacity: 1, visibility: 'visible', filter: 'blur(0px)' }
                         ],
                         {
                             duration: 800,
@@ -62,7 +69,7 @@ export default function Test() {
                     if (id >= 6) {
                         (element as HTMLElement).animate(
                             [
-                                { opacity: 1 },
+                                { opacity: 1,},
                                 { opacity: 0, visibility: 'hidden' }
                             ],
                             {
@@ -88,29 +95,37 @@ export default function Test() {
                                     top: 'calc(50% - 28vmin)',
                                     left: `calc(${index * 44}vmin)`,
                                     transform: 'translateX(0%)',
-                                    opacity: 1,
                                     width: '40vmin',
                                     height: '56vmin',
                                 }
                             ],
                             {
-                                duration: 800,
-                                fill: 'forwards',
+                                duration: 1000,
                                 easing: 'ease-in-out'
                             }
                         );
+                      
                     }
                 });
 
                 const firstFiveLetters = document.querySelectorAll('.window-letter-1, .window-letter-2, .window-letter-3, .window-letter-4, .window-letter-5');
                 firstFiveLetters.forEach((letter, index) => {
                     (letter as HTMLElement).animate(
+                        [{
+                            
+                        },
                         {
                             fontSize: 'calc(15vw)'
                         },
                         {
-                            duration: 800,
-                            fill: 'forwards',
+                            fontSize: 'calc(15vw)'
+                        },
+                        {
+                            fontSize: 'calc(15vw)'
+                        }
+                    ],
+                        {
+                            duration: 2000,
                             easing: 'ease-in-out'
                         }
                     );
@@ -121,18 +136,37 @@ export default function Test() {
                             [{
                                 opacity: 1,
                                 filter: 'blur(0px)',
-                                transform: 'translate(0%, 0%)'
                             },
                             {
                                 opacity: 0,
                                 filter: 'blur(5px)',
                                 visibility: 'hidden',
-                                transform: 'translate(calc(50vw - 20vmin), 0%)'
                             }
                         ],
                             {
                                 duration: 1000,
                                 fill: 'forwards',
+                                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                            }
+                        );
+                        (window as HTMLElement).animate(
+                            [{
+                                transform: 'translate(0%, 0%)',
+                                top: 'calc(50% - 28vmin)',
+                                left: `calc(${index * 44}vmin)`,
+                                width: '40vmin',
+                                height: '56vmin',
+                            },
+                            {
+                                transform: 'translate(calc(50vw - 20vmin), 0%)',
+                                top: 'calc(50% - 28vmin)',
+                                left: `calc(${index * 44}vmin)`,
+                                width: '40vmin',
+                                height: '56vmin',
+                            }
+                        ],
+                            {
+                                duration: 1000,
                                 easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
                             }
                         );
@@ -161,7 +195,7 @@ export default function Test() {
                             (imageWrapper as HTMLElement).animate(
                                 [
                                     {
-                                        opacity: 0.5,
+                                        opacity: 0,
                                         filter: 'blur(5px)'
                                     },
                                     {
@@ -182,7 +216,7 @@ export default function Test() {
                 }, 1000);
             }
         })
-    }, []);
+    }, [isAboutMe]);
 
 
     return (

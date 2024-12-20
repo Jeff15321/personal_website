@@ -25,6 +25,7 @@ import { RapidCheckerProvider } from "../contexts/RapidChecker";
 import { ExperienceProvider } from "../contexts/ExperienceContext";
 import { AboutMeProvider } from "../contexts/AboutMeContext";
 import { AboutMeHomePageStateProvider } from "../contexts/AboutMeHomePageState";
+import { IsAboutMeContextProvider } from "../contexts/IsAboutMeContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -36,7 +37,9 @@ export default function App({ Component, pageProps }: AppProps) {
               <ExperienceProvider>
                 <AboutMeProvider> 
                   <AboutMeHomePageStateProvider>
-                    <Component {...pageProps} /> 
+                    <IsAboutMeContextProvider>
+                      <Component {...pageProps} /> 
+                    </IsAboutMeContextProvider>
                   </AboutMeHomePageStateProvider>
                 </AboutMeProvider>
               </ExperienceProvider>
