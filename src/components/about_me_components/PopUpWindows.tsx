@@ -13,6 +13,15 @@ export default function Test() {
         0.2,  //frog
         1.3 //arrow
         ]
+        // [
+        //     0, 0, 0, 0, 0, 0, 0, 0, //Heyy~~~~
+        //     0, 0, 0, //I'm
+        //     0, //picture of me
+        //     0, //turtle
+        //     0, 0, 0, 0, //Jeff
+        //     0,  //frog
+        //     0 //arrow
+        // ]
     );
     useEffect(() => {
         let accumulatedTime = 0;
@@ -109,13 +118,20 @@ export default function Test() {
                 setTimeout(() => {
                     firstFiveWindows.forEach((window, index) => {
                         (window as HTMLElement).animate(
+                            [{
+                                opacity: 1,
+                                filter: 'blur(0px)',
+                                transform: 'translate(0%, 0%)'
+                            },
                             {
                                 opacity: 0,
                                 filter: 'blur(5px)',
-                                visibility: 'hidden'
-                            },
+                                visibility: 'hidden',
+                                transform: 'translate(calc(50vw - 20vmin), 0%)'
+                            }
+                        ],
                             {
-                                duration: 1200,
+                                duration: 1000,
                                 fill: 'forwards',
                                 easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
                             }
@@ -123,14 +139,15 @@ export default function Test() {
                     })
                     const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
                     if (horizontalTrack) {
+                        const vminToVwRatio = Math.min(window.innerWidth, window.innerHeight) / window.innerWidth;
                         horizontalTrack.dataset.percentage = "0";
                         horizontalTrack.dataset.mouseDownAt = "0";
                         horizontalTrack.dataset.prevPercentage = "0";
 
                         horizontalTrack.animate(
                             [
-                                { opacity: 0 },
-                                { opacity: 1 }
+                                { opacity: 0, transform: 'translate(0%, -50%)' },
+                                { opacity: 1, transform: 'translate(calc(50vw - 20vmin), -50%)' }
                             ],
                             {
                                 duration: 1000,
@@ -145,7 +162,7 @@ export default function Test() {
                             (imageWrapper as HTMLElement).animate(
                                 [
                                     {
-                                        opacity: 0,
+                                        opacity: 0.5,
                                         filter: 'blur(5px)'
                                     },
                                     {
@@ -159,11 +176,7 @@ export default function Test() {
                                     easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
                                     delay: index * 100 // Add staggered delay for each image
                                 }
-                            ).onfinish = () => {
-                                // Ensure the final state is maintained
-                                (imageWrapper as HTMLElement).style.opacity = '1';
-                                (imageWrapper as HTMLElement).style.filter = 'blur(0px)';
-                            };
+                            );
                         });
                     }
                 }, 1000);
