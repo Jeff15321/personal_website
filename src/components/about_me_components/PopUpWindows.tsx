@@ -7,11 +7,11 @@ export default function Test() {
         [
         1, 0.15, 0.15, 0.15, 0.12, 0.12, 0.12, 0.12, //Heyy~~~~
         0.65, 0.2, 0.2, //I'm
-        0.6, //picture of me
-        1, //turtle
+        0.4, //picture of me
+        0.3, //turtle
         1, 0.2, 0.2, 0.2, //Jeff
-        1,  //frog
-        1.7 //arrow
+        0.2,  //frog
+        1.3 //arrow
         ]
     );
     useEffect(() => {
@@ -34,9 +34,107 @@ export default function Test() {
                             easing: 'ease-in-out'
                         }
                     );
+                    
                 }
             }, accumulatedTime * 1000);
         }
+
+        window.addEventListener('click', (e) => {
+            const frog = document.querySelector('.window-letter-18') as HTMLElement;
+            console.log(e.target);
+            if (frog && e.target === frog) {
+                //hide all elements other than the first five letters
+                const elementsToFade = document.querySelectorAll('[class*="window-style-"]');
+                elementsToFade.forEach(element => {
+                    const match = element.className.match(/\d+/);
+                    if (!match) return;
+                    const id = parseInt(match[0]);
+                    if (id >= 6) {
+                        (element as HTMLElement).animate(
+                            [
+                                { opacity: 1 },
+                                { opacity: 0 }
+                            ],
+                            {
+                                duration: 800,
+                                fill: 'forwards',
+                                easing: 'ease-in-out'
+                            }
+                        );
+                    }
+                });
+
+                //make the five id have same position and spacing as the display page
+                // Get the first 5 window elements
+                const firstFiveWindows = document.querySelectorAll('[class*="window-style-"]');
+                firstFiveWindows.forEach((element, index) => {
+                    const match = element.className.match(/\d+/);
+                    if (!match) return;
+                    const id = parseInt(match[0]);
+                    if (id <= 5) {
+                        (element as HTMLElement).animate(
+                            [
+                                { 
+                                    top: 'calc(50% - 28vmin)',
+                                    left: `calc(${index * 44}vmin)`,
+                                    transform: 'translateX(0%)',
+                                    opacity: 1,
+                                    width: '40vmin',
+                                    height: '56vmin',
+                                }
+                            ],
+                            {
+                                duration: 800,
+                                fill: 'forwards',
+                                easing: 'ease-in-out'
+                            }
+                        );
+                    }
+                });
+
+                const firstFiveLetters = document.querySelectorAll('.window-letter-1, .window-letter-2, .window-letter-3, .window-letter-4, .window-letter-5');
+                firstFiveLetters.forEach((letter, index) => {
+                    (letter as HTMLElement).animate(
+                        {
+                            fontSize: 'calc(15vw)'
+                        },
+                        {
+                            duration: 800,
+                            fill: 'forwards',
+                            easing: 'ease-in-out'
+                        }
+                    );
+                })
+                setTimeout(() => {
+                    firstFiveWindows.forEach((window, index) => {
+                        (window as HTMLElement).animate(
+                            {
+                                opacity: 0,
+                                filter: 'blur(5px)'
+                            },
+                            {
+                                duration: 1200,
+                                fill: 'forwards',
+                                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                            }
+                        );
+                    })
+                    const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
+                    if (horizontalTrack) {
+                        horizontalTrack.animate(
+                            {
+                                opacity: 0
+                            },
+                            {
+                                duration: 1000,
+                                fill: 'forwards',
+                                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                            }
+                        );
+                    }
+                }, 1000);
+            }
+        })
     }, []);
 
 
