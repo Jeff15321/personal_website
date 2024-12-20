@@ -14,8 +14,8 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
         const dragThreshold = 5; // Minimum movement in pixels to consider a drag
 
         const handleWheel = (e: WheelEvent) => {
-            if (!track) return;
-            if (window.getComputedStyle(track).opacity !== "1") return;
+            if (!track || !isHomePage) return;
+
 
             const delta = e.deltaY;
             const maxDelta = window.innerWidth / 2;
@@ -68,7 +68,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
         };
 
         const handleMouseMove = (e: MouseEvent) => {
-            if (!track) return;
+            if (!track || !isHomePage) return;
             if (track.dataset.mouseDownAt === "0") return;
             if (window.getComputedStyle(track).opacity !== "1") return;
 
@@ -80,7 +80,6 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                 Math.min(parseFloat(track.dataset.prevPercentage || "0") + percentage, 0),
                 -100
             );
-            console.log(track.dataset.percentage, "thishsouldn't be zero")
             track.dataset.percentage = nextPercentage.toString();
 
             track.animate(
@@ -107,7 +106,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
             const target = e.target as HTMLElement;
 
-            if (!track) return;
+            if (!track || !isHomePage) return;
             if (!target?.classList.contains("about-me-image")) return;
             if (window.getComputedStyle(track).opacity !== "1") return;
 
@@ -192,6 +191,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                     verticleTrack.animate(
                         {
                             opacity: "1",
+                            visibility: "visible"
                         },
                         {
                             duration: 1000,
@@ -218,7 +218,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
             window.removeEventListener("click", handleClick);
             window.removeEventListener("wheel", handleWheel);
         };
-    }, []);
+    }, [isHomePage]);
 
     useEffect(() => {
         if (isHomePage) {

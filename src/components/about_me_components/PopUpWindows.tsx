@@ -121,6 +121,24 @@ export default function Test() {
                             }
                         );
                     })
+                    const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
+                    if (horizontalTrack) {
+                        horizontalTrack.dataset.percentage = "0";
+                        horizontalTrack.dataset.mouseDownAt = "0";
+                        horizontalTrack.dataset.prevPercentage = "0";
+
+                        horizontalTrack.animate(
+                            [
+                                { opacity: 0 },
+                                { opacity: 1 }
+                            ],
+                            {
+                                duration: 1000,
+                                fill: 'forwards',
+                                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                            }
+                        );
+                    }
                     const horizontalTrackImages = document.querySelectorAll('.about-me-image-wrapper') as NodeListOf<Element>;
                     if (horizontalTrackImages) {
                         Array.from(horizontalTrackImages).forEach((imageWrapper, index) => {
@@ -138,10 +156,15 @@ export default function Test() {
                                 {
                                     duration: 1000,
                                     fill: 'forwards',
-                                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                                    delay: index * 100 // Add staggered delay for each image
                                 }
-                            );
-                        })
+                            ).onfinish = () => {
+                                // Ensure the final state is maintained
+                                (imageWrapper as HTMLElement).style.opacity = '1';
+                                (imageWrapper as HTMLElement).style.filter = 'blur(0px)';
+                            };
+                        });
                     }
                 }, 1000);
             }
