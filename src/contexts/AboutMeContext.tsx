@@ -87,12 +87,12 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             1: {
                 title: "ROCKY",
                 description: "I love my cat",
-                link: "about-me/rocky/rocky1.JPG"  
+                link: "about-me/rocky/rocky5.JPG"  
             },
             2: {
                 title: "ROCKY",
                 description: "I love my cat",
-                link: "about-me/rocky/rocky3.JPG"   
+                link: "about-me/rocky/rocky1.JPG"   
             },
             3: {
                 title: "ROCKY",
@@ -102,7 +102,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             4: {
                 title: "ROCKY",
                 description: "I love my cat",
-                link: "about-me/rocky/rocky5.JPG"  
+                link: "about-me/rocky/rocky3.JPG"  
             },
             5: {
                 title: "CODY",

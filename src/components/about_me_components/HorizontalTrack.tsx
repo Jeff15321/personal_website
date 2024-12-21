@@ -112,6 +112,8 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
             const imageId = parseInt(target.id.split("-")[3]);
             const imageWrapper = target.parentElement;
 
+            setImageIndex(imageId);
+
             if (imageWrapper) {
                 const percentage = (imageId - 1) * (-44 / 260) * 100 * 6/5;
 
@@ -185,7 +187,6 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
                 setTimeout(() => {
                     setIsHomePage(false);
-                    setImageIndex(imageId);
                     //verticle track fade in
                     verticleTrack.animate(
                         {
@@ -386,20 +387,20 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
             data-prev-percentage="0"
         >
             <div id="about-me-image-wrapper-1" className="about-me-image-wrapper">
-                <img id="about-me-image-1" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
+                <img id="about-me-image-1" className="about-me-image" src="about-me/competitions/hth.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
                 <div className="about-me-image-text" style={{userSelect: 'none'}}>Competitions</div>
             </div>
             <div id="about-me-image-wrapper-2" className="about-me-image-wrapper">
-                <img id="about-me-image-2" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>teams</div>
-            </div>
-            <div id="about-me-image-wrapper-3" className="about-me-image-wrapper">
-                <img id="about-me-image-3" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
+                <img id="about-me-image-2" className="about-me-image" src="about-me/sports/tuba3.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
                 <div className="about-me-image-text" style={{userSelect: 'none'}}>sports</div>
             </div>
-            <div id="about-me-image-wrapper-4" className="about-me-image-wrapper">
-                <img id="about-me-image-4" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
+            <div id="about-me-image-wrapper-3" className="about-me-image-wrapper">
+                <img id="about-me-image-3" className="about-me-image" src="about-me/sports/tuba1.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
                 <div className="about-me-image-text" style={{userSelect: 'none'}}>music</div>
+            </div>
+            <div id="about-me-image-wrapper-4" className="about-me-image-wrapper">
+                <img id="about-me-image-4" className="about-me-image" src="about-me/rocky/rocky5.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>rocky</div>
             </div>
             <div id="about-me-image-wrapper-5" className="about-me-image-wrapper">
                 <img id="about-me-image-5" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />

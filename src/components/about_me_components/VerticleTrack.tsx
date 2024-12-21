@@ -130,7 +130,7 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
                         alt={`Image ${i + 1}`} 
                     />
                     <div className="about-me-content-wrapper">
-                        <h2 className="about-me-title" style={{userSelect: 'none'}}>{aboutMe[1][i + 1].title}</h2>
+                        <h2 className="about-me-title" style={{userSelect: 'none'}}>{aboutMe[imageIndex][i + 1].title}</h2>
                         <p className="about-me-description" style={{userSelect: 'none'}}>
                             {aboutMe[imageIndex][i + 1].description}
                         </p>
