@@ -315,6 +315,16 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                     { duration: 1000, fill: "forwards" }
                 );
             }
+            setTimeout(() => {
+                for (const image of Array.from(track.getElementsByClassName("about-me-image"))) {
+                    (image as HTMLElement).animate(
+                        {
+                            objectPosition: `${100}% 50%`,
+                        },
+                        { duration: 1000, fill: "forwards" }
+                    );
+                }
+            }, 1000);
         }
         
         const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;

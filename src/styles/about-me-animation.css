@@ -13,13 +13,17 @@
 
 
 
-.window-style-13 {
-    animation: roll-in 1s 3.9s forwards;
+.window-style-13-animation {
+    animation: roll-in 1.2s 0s forwards;
   }
   @keyframes roll-in {
     0% {
       opacity: 0;
-      transform: translateX(-300%) rotate(-120deg);
+      transform: translateX(-100%) rotate(-90deg);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(-100%) rotate(-90deg);
     }
     100% {
       opacity: 1;
@@ -45,8 +49,8 @@
   }
   
   /* Example Ball Style */
-  .window-style-18 {
+  .window-style-18-animation {
     transform: translateX(-50%);
-    animation: dropAndBounce 2s ease-out 5.1s forwards;
+    animation: dropAndBounce 2s ease-out forwards;
   }
   

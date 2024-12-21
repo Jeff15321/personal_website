@@ -108,47 +108,36 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     //   HandleRapidTimerFinish(animation_time[animation[0] as keyof typeof animation_time]);
     //   return <span>Woah! I understand the excitement but the page isn't loaded yet!!</span>;
     // }
+    let output: [string, string][] = [[]];
 
     if (input === "help") {
-      const output: [string, string][] = [
+      output = [
       ["Type the red text in the terminal or mannually click on the text to launch the commands!\n(You can press Tab to autocomplete and Up Arrow to see previous commands👍)", "red"], 
+        ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
         ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
         ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
         ["\u00A0\u00A0\u00A0\u00A0home: go back to terminal page!!", "home"],
         ["\u00A0\u00A0\u00A0\u00A0devpost: look at my hackathon winners!", "devpost"],
         ["\u00A0\u00A0\u00A0\u00A0github: look at my projects in detail!", "github"],
         ["\u00A0\u00A0\u00A0\u00A0linkedin: look at my experiences in detail!", "linkedin"],
-        ["\u00A0\u00A0\u00A0\u00A0resume: more about me!", "resume"],
-        ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"]
+        ["\u00A0\u00A0\u00A0\u00A0resume: more about me!", "resume"]
       ];
-      return (
-        <div>
-          {output.map((line, index) => (
-            <div key={index}>
-              {formatOutput(line[0], line[1], setInput)}
-            </div>
-          ))}
-        </div>
-      );
-    } else if (input === "project") {
-      const output: [string, string][] = [
+
+    } else if (input === "ls") {
+      output = [
+      ["about-me\u00A0\u00A0\u00A0\u00A0\u00A0experience\u00A0\u00A0\u00A0\u00A0\u00A0project\u00A0\u00A0\u00A0\u00A0\u00A0home\u00A0\u00A0\u00A0\u00A0\u00A0devpost\u00A0\u00A0\u00A0\u00A0\u00A0github\u00A0\u00A0\u00A0\u00A0\u00A0linkedin\u00A0\u00A0\u00A0\u00A0\u00A0resume", "red"],
+      ];
+
+    } else if (input === "project" || input === "cd project") {
+      output = [
         ["Type next or prev to see the other projects!", "next prev"]
       ];
       setAnimation(["TimeTable Sweetie", 0]);
       scrollToBottom(terminalRef, 750);
-      return (
-        <div>
-          {output.map((line, index) => (
-            <div key={index}>
-              {formatOutput(line[0], line[1], setInput)}
-            </div>
-          ))}
-        </div>
-      );
-    } else if (input === "about-me") {
-
+      
+    } else if (input === "about-me" || input === "cd about-me") {
       scrollToBottom(terminalRef, 750);
-      const output: [string, string][] = [
+      output = [
         ["Redirectly to About Me Page...", ""]
       ];
 
@@ -159,69 +148,79 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
           {opacity: 0.5, transform: "translate(-180%, -120%)"}
         ], {duration: 1000, fill: "forwards", easing: "cubic-bezier(0.4, 0, 0.2, 1)"});
       }
-
       setIsAboutMe(true);
 
-      return (
-        <div>
-          {output.map((line, index) => (
-            <div key={index}>
-              {formatOutput(line[0], line[1], setInput)}
-            </div>
-          ))}
-        </div>
-      );
-    } else if (input === "experience") {     
-       
+    } else if (input === "experience" || input === "cd experience") {     
       setAnimation(["experience", 0]);
       
       return <Experience />
     
-    } else if (input === "home") {
+    } else if (input === "home" || input === "cd home") {
       scrollToBottom(terminalRef, 750);
-      const output: [string, string][] = [
+      output = [
         ["Welcome back~", ""]
       ];
       setAnimation(["revert", 0]);
-      return (
-        <div>
-          {output.map((line, index) => (
-            <div key={index}>
-              {formatOutput(line[0], line[1], setInput)}
-            </div>
-          ))}
-        </div>
-      );
+     
     } else if (input === "next") {
       if (Is_in_project()) {
         setAnimation(["Next_Song", 0]);
-        return <span>{"Next Project!🚀"}</span>;
+        output = [
+          ["Next Project!🚀",""],
+        ];
       } else {
         setAnimation(["TimeTable Sweetie", 0]);
-        return <span>{"Really? Next Page? Buddy you're not even in the project page! Let me bring you there~"}</span>;
+        output = [
+          ["Really? Next Page? Buddy you're not even in the project page! Let me bring you there~",""],
+        ];
       }
     } else if (input === "prev") {
       if (Is_in_project()) {  
         setAnimation(["Previous_Song", 0]);
-        return <span>{"Previous Project!🚀"}</span>;
+        output = [
+          ["Previous Project!🚀",""],
+        ];
       } else {
         setAnimation(["TimeTable Sweetie", 0]);
-        return <span>{"Really? Previous Page? Buddy you're not even in the project page! Let me bring you there~"}</span>;
+        output = [
+          ["Really? Previous Page? Buddy you're not even in the project page! Let me bring you there~",""],
+        ];
       }
     } else if (input === "github") {
       window.open("https://github.com/Jeff15321", "_blank");
-      return <span>{"Pretty amazing huh? I'm glad you're interested in my projects!👨‍💻✨"}</span>;
+      output = [
+        ["Pretty amazing huh? I'm glad you're interested in my projects!👨‍💻✨",""],
+      ];
     } else if (input === "linkedin") {
       window.open("https://www.linkedin.com/in/jeff-lu-8b3121281/", "_blank");
-      return <span>{"Hey did you remember to connect with me on linkedin? If not do it now! 😠"}</span>;
+      output = [
+        ["Hey did you remember to connect with me on linkedin? If not do it now! 😠",""],
+      ];
     } else if (input === 'resume') {
       window.open("https://www.canva.com/design/DAGRikqvQqA/QQ_-nwEnHwYnqMCMtDH33w/edit?utm_content=DAGRikqvQqA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton", "_blank");
-      return <span>{"Yes... I wrote my resume in Canva... stop judging... 🙄"}</span>;
+      output = [
+        ["Yes... I wrote my resume in Canva... stop judging... 🙄",""],
+      ];
     } else if (input === "devpost") {
       window.open("https://devpost.com/jeff-lu234?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav", "_blank");
-      return <span>{"Be sure to try out my projects on devpost! 😊"}</span>;
+      output = [
+        ["Be sure to try out my projects on devpost! 😊",""],
+      ];
+    } else {
+      output = [
+        [`${input}: command not found`,""],
+      ];
     }
-    return <span>{input + ": command not found"}</span>;
+
+    return (
+      <div>
+        {output.map((line, index) => (
+          <div key={index}>
+            {formatOutput(line[0], line[1], setInput)}
+          </div>
+        ))}
+      </div>
+    );
   };
 
   useEffect(() => {

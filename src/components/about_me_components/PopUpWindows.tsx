@@ -8,24 +8,24 @@ export default function PopUpWindows() {
     const { isHomePage, setIsHomePage } = useAboutMeHomePageState();
     const { isAboutMe, setIsAboutMe } = useIsAboutMe();
     const [animationTimer, setAnimationTimer] = useState(
-        // [
-        // 1, 0.15, 0.15, 0.15, 0.12, 0.12, 0.12, 0.12, //Heyy~~~~
-        // 0.65, 0.2, 0.2, //I'm
-        // 0.4, //picture of me
-        // 0.3, //turtle
-        // 1, 0.2, 0.2, 0.2, //Jeff
-        // 0.2,  //frog
-        // 1.3 //arrow
-        // ]
         [
-            0, 0, 0, 0, 0, 0, 0, 0, //Heyy~~~~
-            0, 0, 0, //I'm
-            0, //picture of me
-            0, //turtle
-            0, 0, 0, 0, //Jeff
-            0,  //frog
-            0 //arrow
+        1, 0.15, 0.15, 0.15, 0.12, 0.12, 0.12, 0.12, //Heyy~~~~
+        0.65, 0.2, 0.2, //I'm
+        0.2, //picture of me
+        0.7, //turtle
+        1, 0.2, 0.2, 0.2, //Jeff
+        0.2,  //frog
+        1.3 //arrow
         ]
+        // [
+        //     0, 0, 0, 0, 0, 0, 0, 0, //Heyy~~~~
+        //     0, 0, 0, //I'm
+        //     0, //picture of me
+        //     0, //turtle
+        //     0, 0, 0, 0, //Jeff
+        //     0,  //frog
+        //     0 //arrow
+        // ]
     );
     useEffect(() => {
         if (!isAboutMe) {
@@ -52,6 +52,24 @@ export default function PopUpWindows() {
                         }
                     );
                     
+                }
+
+                //frog and turtle animation
+                if (i === 13 - 1) {
+                    const turtle = document.querySelector('.window-style-13') as HTMLElement;
+                    if (turtle) {
+                        turtle.classList.remove('window-style-13-animation');
+                        void turtle.offsetWidth; 
+                        turtle.classList.add('window-style-13-animation');
+                    }
+                }
+                if (i === 18 - 1) {
+                    const frog = document.querySelector('.window-style-18') as HTMLElement;
+                    if (frog) {
+                        frog.classList.remove('window-style-18-animation');
+                        void frog.offsetWidth; 
+                        frog.classList.add('window-style-18-animation');
+                    }
                 }
             }, accumulatedTime * 1000);
         }
@@ -241,7 +259,7 @@ export default function PopUpWindows() {
         <LetterWindow letter="E" x={-28} y={22} z={0} id="15" size={0.8} height={0} backgroundColor="purple" buttonColor="white" />
         <LetterWindow letter="F" x={-14} y={30} z={0} id="16" size={0.8} height={0} backgroundColor="purple" buttonColor="white" />
         <LetterWindow letter="F" x={0} y={34} z={0} id="17" size={0.8} height={0} backgroundColor="purple" buttonColor="white" />
-        <LetterWindow letter="🐸" x={-30} y={-16} z={0} id="18" size={0.3} height={1} backgroundColor="purple" buttonColor="white" />
+        <LetterWindow letter="🐸" x={-29.5} y={-14} z={0} id="18" size={0.3} height={1} backgroundColor="purple" buttonColor="white" />
         <div id="19" className="window-style-19" style={{
             position: 'absolute',
             left: '33vw', // Positioned to point at frog at (-30, -16)
