@@ -68,6 +68,8 @@
     position: absolute;
     width: 90vw;
     height: calc(56vmin * 6 + 4vmin * 5);
+    pointer-events: none;
+    user-select: none;
 }
 
 
@@ -172,7 +174,7 @@
 
 @keyframes horizontal-to-verticle-image-content-wrapper {
     0% {
-        transform: translateX(200%);
+        transform: translateX(150%);
         visibility: hidden;
     }
     100% {
@@ -212,7 +214,7 @@
         top: calc(50% - 28vmin);
         left: calc(50% - 20vmin);
     }
-    39.3% {
+    36% {
         opacity: 1;
         top: 10%;
         left: 5%;
@@ -222,7 +224,7 @@
         height: calc(60vmin);
         transform: translateX(10%);
     }
-    54% {
+    52% {
         opacity: 1;
         top: 10%;
         left: 5%;
