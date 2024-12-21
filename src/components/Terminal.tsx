@@ -108,7 +108,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     //   HandleRapidTimerFinish(animation_time[animation[0] as keyof typeof animation_time]);
     //   return <span>Woah! I understand the excitement but the page isn't loaded yet!!</span>;
     // }
-    let output: [string, string][] = [[]];
+    let output: [string, string][] = [["", ""]];
 
     if (input === "help") {
       output = [
@@ -128,14 +128,14 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       ["about-me\u00A0\u00A0\u00A0\u00A0\u00A0experience\u00A0\u00A0\u00A0\u00A0\u00A0project\u00A0\u00A0\u00A0\u00A0\u00A0home\u00A0\u00A0\u00A0\u00A0\u00A0devpost\u00A0\u00A0\u00A0\u00A0\u00A0github\u00A0\u00A0\u00A0\u00A0\u00A0linkedin\u00A0\u00A0\u00A0\u00A0\u00A0resume", "red"],
       ];
 
-    } else if (input === "project" || input === "cd project") {
+    } else if (input === "project") {
       output = [
         ["Type next or prev to see the other projects!", "next prev"]
       ];
       setAnimation(["TimeTable Sweetie", 0]);
       scrollToBottom(terminalRef, 750);
       
-    } else if (input === "about-me" || input === "cd about-me") {
+    } else if (input === "about-me") {
       scrollToBottom(terminalRef, 750);
       output = [
         ["Redirectly to About Me Page...", ""]
@@ -150,12 +150,12 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       }
       setIsAboutMe(true);
 
-    } else if (input === "experience" || input === "cd experience") {     
+    } else if (input === "experience") {     
       setAnimation(["experience", 0]);
       
       return <Experience />
     
-    } else if (input === "home" || input === "cd home") {
+    } else if (input === "home") {
       scrollToBottom(terminalRef, 750);
       output = [
         ["Welcome back~", ""]
@@ -205,6 +205,85 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       window.open("https://devpost.com/jeff-lu234?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav", "_blank");
       output = [
         ["Be sure to try out my projects on devpost! 😊",""],
+      ];
+    } else if (input === "clear") {
+      setHistory([]);
+
+      output = [
+        ["Terminal cleared! ✨",""],
+      ];
+
+    } else if (input.startsWith("cd")) {
+      output = [
+        ["Change directory? Everything you need is right here! 🏠",""],
+      ];
+    } else if (input === "pwd") {
+      output = [
+        ["You are here: C:/Users/jeff/is/smart/handsome/creative/outgoing/kind/and/great_to_hire_as_intern 🗺️",""],
+      ];
+    } else if (input === "mkdir") {
+      output = [
+        ["Creating directories? NOT ON MY WATCH! 🏗️",""],
+      ];
+    } else if (input.startsWith("rm")) {
+      output = [
+        ["Hey! Don't try to delete my stuff! 🚫",""],
+      ];
+    } else if (input.startsWith("cp")) {
+      output = [
+        ["Copy what? My amazing personality? 😎",""],
+      ];
+    } else if (input.startsWith("mv")) {
+      output = [
+        ["Nothing to move here - everything's perfectly placed! ✨",""],
+      ];
+    } else if (input.startsWith("cat")) {
+      output = [
+        ["🐱 Meow!",""],
+      ];
+    } else if (input.startsWith("grep")) {
+      output = [
+        ["Stop trying to be so extra! 🔍",""],
+      ];
+    } else if (input.startsWith("chmod")) {
+      output = [
+        ["Nice try, but these permissions are staying as they are! 🔒",""],
+      ];
+    } else if (input.startsWith("sudo")) {
+      output = [
+        ["Even with sudo, you can't tell me what to do! 😤",""],
+      ];
+    } else if (input.startsWith("ping")) {
+      output = [
+        ["Pong! 🏓 (But seriously, I'm right here!)",""],
+      ];
+    } else if (input.startsWith("man")) {
+      output = [
+        ["Need help? Try typing 'help' instead! 📚","help"],
+      ];
+    } else if (input.startsWith("touch")) {
+      output = [
+        ["No touching! This is a look-only portfolio! 🚫👆",""],
+      ];
+    } else if (input.startsWith("wget")) {
+      output = [
+        ["Want to download something? Check out my GitHub! 💾",""],
+      ];
+    } else if (input.startsWith("ssh")) {
+      output = [
+        ["Sorry, no SSH access here - but feel free to browse around! 🔐",""],
+      ];
+    } else if (input.startsWith("top")) {
+      output = [
+        ["I'm already at the top of my game! 📊",""],
+      ];
+    } else if (input.startsWith("kill")) {
+      output = [
+        ["No need to get so violent! 🚫",""],
+      ];
+    } else if (input === "history") {
+      output = [
+        ["Bro why would you even type that... 📜",""],
       ];
     } else {
       output = [
