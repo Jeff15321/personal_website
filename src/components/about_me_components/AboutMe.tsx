@@ -16,7 +16,7 @@ const AboutMe: React.FC<AboutMeProps> = () => {
       <HomePageButton />
       <VerticleTrack imageIndex={ImageIndex}/>
       <HorizontalTrack setImageIndex={setImageIndex}/>
-      <HorizontalToVerticleAnimation />
+      <HorizontalToVerticleAnimation imageIndex={ImageIndex}/>
     </div>
   );
 }

@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAboutMe } from "../../contexts/AboutMeContext";
+import { useAboutMeHomePageState } from "../../contexts/AboutMeHomePageState";
 
 interface VerticleTrackProps {
     imageIndex: number;
@@ -7,8 +8,31 @@ interface VerticleTrackProps {
 
 const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
     const { aboutMe } = useAboutMe();
+    const { isHomePage } = useAboutMeHomePageState();
     let numberOfImages = aboutMe[imageIndex] ? Object.keys(aboutMe[imageIndex]).length : 0;
     
+    const [currentPercentage, setCurrentPercentage] = useState("0");
+
+    useEffect(() => {
+        const track = document.getElementById("verticle-image-track");
+        if (track) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === "attributes" && mutation.attributeName === "data-percentage") {
+                        setCurrentPercentage(track.dataset.percentage || "0");
+                    }
+                });
+            });
+
+            observer.observe(track, {
+                attributes: true,
+                attributeFilter: ["data-percentage"]
+            });
+
+            return () => observer.disconnect();
+        }
+    }, []);
+
     useEffect(() => {
         const track = document.getElementById("verticle-image-track");
         let isWheelAnimating = false;
@@ -112,6 +136,34 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
         };
     }, [imageIndex]);
 
+    useEffect(() => {
+        const track = document.getElementById("verticle-image-track");
+        const video = document.querySelector(`#about-me-verticle-video-${parseInt(currentPercentage) + 1}`);
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            if (video.id !== `about-me-verticle-video-${parseInt(currentPercentage) + 1}`) {
+                (video as HTMLVideoElement).pause();
+            }
+        });
+
+        if (video) {
+            if (isHomePage == true) {
+                (video as HTMLVideoElement).pause();
+            } else if (isHomePage == false) {
+                (video as HTMLVideoElement).currentTime = 0;
+                setTimeout(() => {
+                    videos.forEach(video => {
+                        if (video.id !== `about-me-verticle-video-${parseInt(currentPercentage) + 1}`) {
+                            (video as HTMLVideoElement).pause();
+                        }
+                    });
+                    
+                    (video as HTMLVideoElement).play();
+                }, 1000);
+            }
+        }
+    }, [isHomePage, currentPercentage]);
+
     return (
         <div
             id="verticle-image-track"
@@ -122,17 +174,34 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
         >
             {[...Array(numberOfImages)].map((_, i) => (
                 <div id={`about-me-verticle-image-wrapper-${i + 1}`} key={i} className="about-me-verticle-image-wrapper">
-                    <img 
-                        className="about-me-verticle-image" 
-                        src={aboutMe[imageIndex][i + 1].link} 
-                        draggable="false" 
-                        style={{userSelect: 'none'}} 
-                        alt={`Image ${i + 1}`} 
-                    />
+                    {aboutMe[imageIndex][i + 1].link.match(/\.(mp4|webm|ogg)$/i) ? (
+                        <video id={`about-me-verticle-video-${i + 1}`}
+                            className="about-me-verticle-image"
+                            src={aboutMe[imageIndex][i + 1].link}
+                            draggable="false"
+                            style={{userSelect: 'none'}}
+                            controls
+                            autoPlay={false}
+                            loop
+                        />
+                    ) : (
+                        <img 
+                            className="about-me-verticle-image" 
+                            src={aboutMe[imageIndex][i + 1].link} 
+                            draggable="false" 
+                            style={{userSelect: 'none'}} 
+                            alt={`Image ${i + 1}`} 
+                        />
+                    )}
                     <div className="about-me-content-wrapper">
-                        <h2 className="about-me-title" style={{userSelect: 'none'}}>{aboutMe[1][i + 1].title}</h2>
+                        <h2 className="about-me-title" style={{userSelect: 'none'}}>{aboutMe[imageIndex][i + 1].title}</h2>
                         <p className="about-me-description" style={{userSelect: 'none'}}>
-                            {aboutMe[imageIndex][i + 1].description}
+                            {aboutMe[imageIndex][i + 1].description.split('\n').map((line, index) => (
+                                <span key={index}>
+                                    {line}
+                                    <br></br>
+                                </span>
+                            ))}
                         </p>
                     </div>
                 </div>

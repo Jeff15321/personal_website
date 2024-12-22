@@ -1,14 +1,28 @@
-import { useEffect } from "react";
+import { useAboutMe } from "@/src/contexts/AboutMeContext";
+import { useEffect, useState } from "react";
 
-export default function HorizontalToVerticleAnimation() {
+interface HorizontalToVerticleAnimationProps {
+    imageIndex: number;
+}
+
+export default function HorizontalToVerticleAnimation({imageIndex}: HorizontalToVerticleAnimationProps) {
+    const { aboutMe } = useAboutMe();
+
+    const getLink = (imageIndex: number) => {
+        if (aboutMe[imageIndex][1].link.match(/\.(mp4|webm|ogg)$/i)) {
+            return "about-me/music/guitar1ss.png"
+        }
+        return aboutMe[imageIndex][1].link;
+    }
+
     return (
         <div id="horizontal-to-verticle-image-track-animation" className="">
             <div id="horizontal-to-verticle-image-wrapper" className="about-me-image-wrapper ">    
-                <img id="horizontal-to-verticle-image" className="zero-opacity about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image" />
+                <img id="horizontal-to-verticle-image" className="zero-opacity about-me-image" src={getLink(imageIndex)} draggable="false" style={{userSelect: 'none'}} alt="Image" />
                 <div id="horizontal-to-verticle-image-content-wrapper" className="">
-                    <h2 className="about-me-title zero-opacity">TEXT</h2>
+                    <h2 className="about-me-title zero-opacity"> {aboutMe[imageIndex][1].title} </h2>
                     <p className="about-me-description zero-opacity">
-                        Throughout my academic journey, I've participated in numerous programming competitions and hackathons, 
+                        {aboutMe[imageIndex][1].description}
                     </p>
                 </div>
             </div>
