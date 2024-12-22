@@ -13,9 +13,9 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
     const [aboutMe] = useState<Record<number, Record<number, Record<string, string>>>>({
         1: {
             1: {
-                title: "Video Title",
-                description: "Video Description",
-                link: "https://your-blob-storage-url.com/video.mp4"
+                title: "University of Toronto",
+                description: "Computer Science\nCurrent CGPA: 4.0\nLast Updated: 2024/12/21",
+                link: "about-me/jeff/uoft.jpg",
             },
             2: {
                 title: "Full Stack Developer",
@@ -75,7 +75,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             4: {
                 title: "2024-10",
                 description: "TUBA when jersies finally arrived",
-                link: "about-me/sports/tuba2.jpg"  
+                link: "about-me/sports/tuba2.png"  
             },
             5: {
                 title: "2023-09",
