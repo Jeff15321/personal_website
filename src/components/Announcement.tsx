@@ -11,12 +11,20 @@ const Announcement = () => {
         if (container) {
             container.animate(
                 [
-                    { opacity: 1 },
-                    { opacity: 0 }
+                    { 
+                        opacity: 1,
+                        transform: 'translate(-50%, -50%) scale(1)',
+                        filter: 'blur(0px)'
+                    },
+                    { 
+                        opacity: 0,
+                        transform: 'translate(-50%, -80%) scale(0.8)',
+                        filter: 'blur(12px)'
+                    }
                 ],
                 {
-                    duration: 800,
-                    easing: 'ease-out',
+                    duration: 1200,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
                     fill: 'forwards'
                 }
             );
@@ -24,7 +32,7 @@ const Announcement = () => {
         // Remove component after animation
         setTimeout(() => {
             setIsVisible(false);
-        }, 800);
+        }, 1200);
     };
 
     if (!isVisible) return null;

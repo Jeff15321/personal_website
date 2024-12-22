@@ -26,6 +26,17 @@ const HomePageButton = () => {
         const button = document.querySelector(".home-page-button");
 
         if (isHomePage) {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                (video as HTMLVideoElement).pause();
+            });
+            
+            setTimeout(() => {
+                videos.forEach(video => {
+                    (video as HTMLVideoElement).pause();
+                });
+            },1000)
+    
             if (button?.classList.contains("home-page-buttom-appear-animation")) {
                 button?.classList.remove("home-page-buttom-appear-animation");
                 button?.classList.add("home-page-buttom-disappear-animation");
