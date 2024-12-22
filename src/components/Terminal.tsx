@@ -112,7 +112,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
 
     if (input === "help") {
       output = [
-      ["Type the red text in the terminal or mannually click on the text to launch the commands!\n(You can press Tab to autocomplete and Up Arrow to see previous commands👍)", "red"], 
+      ["Type the red text in the terminal or manually click on the text to launch the commands!\n(You can press Tab to autocomplete and Up Arrow to see previous commands👍)", "red"], 
         ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
         ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
         ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
