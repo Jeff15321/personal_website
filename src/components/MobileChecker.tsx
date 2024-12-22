@@ -10,10 +10,11 @@ const MobileChecker = () => {
                 'ontouchstart' in window || 
                 // @ts-ignore
                 (window.DocumentTouch && document instanceof DocumentTouch);
+            
+            const isPortrait = window.innerHeight >= window.innerWidth;
                 
-            // Assuming devices without keyboards are touch devices
-            // This is a simplified check - you may want to add more specific checks
-            if (hasTouchScreen) {
+            // Check both touch screen and portrait orientation
+            if (hasTouchScreen && isPortrait) {
                 setIsVisible(true);
                 // Prevent scrolling on the body
                 document.body.style.overflow = 'hidden';
