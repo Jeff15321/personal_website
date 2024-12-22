@@ -313,7 +313,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                     {
                         objectPosition: `${100}% 50%`,
                     },
-                    { duration: 1000, fill: "forwards" }
+                    { duration: 500, fill: "forwards" }
                 );
             }
             setTimeout(() => {
@@ -325,7 +325,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
                         { duration: 1000, fill: "forwards" }
                     );
                 }
-            }, 1000);
+            }, 2000);
         }
         
         const horizontalTrack = document.querySelector('#horizontal-image-track') as HTMLElement;
@@ -385,31 +385,32 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
             id="horizontal-image-track"
             data-mouse-down-at="0"
             data-prev-percentage="0"
-        >
+        >   
             <div id="about-me-image-wrapper-1" className="about-me-image-wrapper">
-                <img id="about-me-image-1" className="about-me-image" src="about-me/competitions/hth.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>Competitions</div>
+                <img id="about-me-image-1" className="about-me-image" src="about-me/jeff/uoft.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>Jeff</div>
             </div>
             <div id="about-me-image-wrapper-2" className="about-me-image-wrapper">
-                <img id="about-me-image-2" className="about-me-image" src="about-me/sports/tuba3.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>sports</div>
+                <img id="about-me-image-2" className="about-me-image" src="about-me/competitions/hth.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 1" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>Competitions</div>
             </div>
             <div id="about-me-image-wrapper-3" className="about-me-image-wrapper">
-                <img id="about-me-image-3" className="about-me-image" src="about-me/sports/tuba1.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>music</div>
+                <img id="about-me-image-3" className="about-me-image" src="about-me/sports/tuba3.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 2" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>sports</div>
             </div>
             <div id="about-me-image-wrapper-4" className="about-me-image-wrapper">
-                <img id="about-me-image-4" className="about-me-image" src="about-me/rocky/rocky5.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>rocky</div>
+                <img id="about-me-image-4" className="about-me-image" src="about-me/music/guitar1ss.png" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>music</div>
             </div>
             <div id="about-me-image-wrapper-5" className="about-me-image-wrapper">
-                <img id="about-me-image-5" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>my dream</div>
+                <img id="about-me-image-5" className="about-me-image" src="about-me/rocky/rocky5.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>rocky</div>
             </div>
             <div id="about-me-image-wrapper-6" className="about-me-image-wrapper">
-                <img id="about-me-image-6" className="about-me-image" src="project1/cat1.jpg" draggable="false" style={{userSelect: 'none'}} alt="Image 6" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>favorites</div>
+                <img id="about-me-image-6" className="about-me-image" src="about-me/rocky/cody1.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 5" />
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>cody</div>
             </div>
+
             <button 
                 className="horizontal-track-back-button" 
                 onClick={() => horizontalTrackBack()}

@@ -105,6 +105,7 @@
 
 .description-title {
     font-size: 2em; /* Even larger font size for the title */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern sans-serif font stack */
     color: #E0E0E0; /* Lighter color for the title for better contrast */
     margin-bottom: 0.1em; /* More space below the title for better spacing */
     text-shadow: 3px 3px 5px #000000; /* More pronounced shadow for a cooler effect */
@@ -117,6 +118,7 @@
 
 .description-content {
     font-size: 1rem; /* Standard font size for content */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern sans-serif font stack */
     color: #D3D3D3; /* Slightly lighter color for content */
     line-height: 1.5; /* Improved line height for readability */
 }

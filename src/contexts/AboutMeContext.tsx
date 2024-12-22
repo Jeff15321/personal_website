@@ -13,6 +13,18 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
     const [aboutMe] = useState<Record<number, Record<number, Record<string, string>>>>({
         1: {
             1: {
+                title: "Video Title",
+                description: "Video Description",
+                link: "https://your-blob-storage-url.com/video.mp4"
+            },
+            2: {
+                title: "Full Stack Developer",
+                description: "Most comfortable using MERN stack (MongoDB, Express, React, Node.js\\Next.js)",
+                link: "about-me/rocky/rocky1.JPG",
+            },
+        },
+        2: {
+            1: {
                 title: "2024-09",
                 description: "3rd Place General Award at Hack the Hill II",
                 link: "about-me/competitions/hth.JPG"  
@@ -44,7 +56,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             },
     
         },
-        2: {
+        3: {
             1: {
                 title: "2024-10",
                 description: "TUBA(University of Toronto Open Ultimate Frisbee) at 2024 CUUC Nationals",
@@ -76,54 +88,64 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
                 link: "about-me/sports/chess3.jpeg"
             },
         },
-        3: {
-            1: {
-                title: "TEXT",
-                description: "Throughout my academic journey, I've participated in numerous programming competitions and hackathons",
-                link: "project1/cat1.jpg"  
-            },
-        },
         4: {
             1: {
-                title: "ROCKY",
-                description: "I love my cat",
-                link: "about-me/rocky/rocky5.JPG"  
-            },
-            2: {
-                title: "ROCKY",
-                description: "I love my cat",
-                link: "about-me/rocky/rocky1.JPG"   
+                title: "2022-12",
+                description: "Asturias by Issac Albeniz",
+                link: "about-me/music/guitar1.mp4"  
             },
             3: {
-                title: "ROCKY",
-                description: "I love my cat",
-                link: "about-me/rocky/rocky4.JPG"  
+                title: "2023-12",
+                description: "From the Start By Laufey",
+                link: "about-me/music/guitar2.mp4"  
             },
-            4: {
-                title: "ROCKY",
-                description: "I love my cat",
-                link: "about-me/rocky/rocky3.JPG"  
-            },
-            5: {
-                title: "CODY",
-                description: "I love my dog (occasionally)",
-                link: "about-me/rocky/cody1.JPG"  
+            2: {
+                title: "2024-05",
+                description: "Old with You by Grentperez",
+                link: "about-me/music/guitar3.mp4"  
             },
         },
         5: {
             1: {
-                title: "TEXT",
-                description: "Throughout my academic journey, I've participated in numerous programming competitions and hackathons",
-                link: "project1/cat1.jpg"  
+                title: "ROCKY",
+                description: "I love Rocky",
+                link: "about-me/rocky/rocky5.JPG"  
             },
+            2: {
+                title: "ROCKY",
+                description: "Coding with Rocky",
+                link: "about-me/rocky/rocky1.JPG"   
+            },
+            3: {
+                title: "ROCKY",
+                description: "Napping with Rocky",
+                link: "about-me/rocky/rocky4.JPG"  
+            },
+            4: {
+                title: "ROCKY",
+                description: "Touching grass with Rocky",
+                link: "about-me/rocky/rocky3.JPG"  
+            },
+
         },
         6: {
             1: {
-                title: "TEXT",
-                description: "Throughout my academic journey, I've participated in numerous programming competitions and hackathons",
-                link: "project1/cat1.jpg"  
+                title: "CODY",
+                description: "I love Cody (occasionally)",
+                link: "about-me/rocky/cody1.JPG"  
             },
-        }
+            2: {
+                title: "CODY",
+                description: "Cody outdoors",
+                link: "about-me/rocky/cody2.JPG"  
+            },
+            3: {
+                title: "CODY",
+                description: "Cody's last smile before the vet",
+                link: "about-me/rocky/cody3.JPG"  
+            }
+        },
+        
     });
 
   return (
