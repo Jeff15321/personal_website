@@ -101,13 +101,13 @@
 }
 
 .about-me-title {
-    font-size: 5em;
+    font-size: clamp(2rem, 3vw, 5rem);
     font-weight: bold;
     color: #fff;
 }
 
 .about-me-description {
-    font-size: 1.5em;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
     line-height: 1.6;
     color: #fff;
 }
