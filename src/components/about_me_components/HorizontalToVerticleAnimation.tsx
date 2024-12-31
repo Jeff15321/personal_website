@@ -21,9 +21,14 @@ export default function HorizontalToVerticleAnimation({imageIndex}: HorizontalTo
                 <img id="horizontal-to-verticle-image" className="zero-opacity about-me-image" src={getLink(imageIndex)} draggable="false" style={{userSelect: 'none'}} alt="Image" />
                 <div id="horizontal-to-verticle-image-content-wrapper" className="">
                     <h2 className="about-me-title zero-opacity"> {aboutMe[imageIndex][1].title} </h2>
-                    <p className="about-me-description zero-opacity">
-                        {aboutMe[imageIndex][1].description}
-                    </p>
+                    <p className="about-me-description zero-opacity" style={{userSelect: 'none'}}>
+                            {aboutMe[imageIndex][1].description.split('\n').map((line, index) => (
+                                <span key={index}>
+                                    {line}
+                                    <br></br>
+                                </span>
+                            ))}
+                        </p>
                 </div>
             </div>
         </div>

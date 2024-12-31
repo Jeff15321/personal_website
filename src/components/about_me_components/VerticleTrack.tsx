@@ -41,11 +41,14 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
             if (!track || isWheelAnimating) return;
             if (parseFloat(window.getComputedStyle(track).opacity) !== 1) return;
 
+            console.log(track.dataset.percentage, track.dataset.nextPercentage);
+            console.log(getComputedStyle(track).transform);
             isWheelAnimating = true;
             
             const delta = e.deltaY;
             
             let nextPercentage = parseFloat(track.dataset.percentage || "0");
+            const currentPercentage = parseFloat(track.dataset.percentage || "0");
 
             if (delta > 0) {
                 nextPercentage += 1
@@ -59,10 +62,13 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
             track.dataset.prevPercentage = nextPercentage.toString();
 
             track.animate(
-                {
+                [{
+                    transform: `translate(0%, calc(${currentPercentage} * -84vh)`,
+                }, {
                     transform: `translate(0%, calc(${nextPercentage} * -84vh)`,
-                },
-                { 
+
+                }],  
+                {
                     duration: 800, 
                     fill: "forwards",
                     easing: "cubic-bezier(0.4, 0.0, 0.2, 1)" 
@@ -105,17 +111,20 @@ const VerticleTrack: React.FC<VerticleTrackProps> = ({ imageIndex }) => {
             }
 
             nextPercentage = Math.max(Math.min(nextPercentage, numberOfImages - 1), 0);
-
+            const currentPercentage = parseFloat(track.dataset.percentage || "0");
             track.dataset.percentage = nextPercentage.toString();
 
             track.animate(
-                {
+                [{
+                    transform: `translate(0%, calc(${currentPercentage} * -84vh)`,
+                }, {
                     transform: `translate(0%, calc(${nextPercentage} * -84vh)`,
-                },
-                { 
-                    duration: 500,
+
+                }],  
+                {
+                    duration: 800, 
                     fill: "forwards",
-                    easing: "cubic-bezier(0.4, 0.0, 0.2, 1)"
+                    easing: "cubic-bezier(0.4, 0.0, 0.2, 1)" 
                 }
             );
             setTimeout(() => {
