@@ -17,8 +17,8 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "UofT Formula Racing Team", 
         "Perception Build Team", 
         `
-• Transforming perception software from \\Python\\ into \\C++\\ and vectorized serialized calculations to minimize computation time
-• Writing customer drivers using \\Python, C++, and Ros2\\ to integrate new hardware
+• Using \\Open-CV\\ and \\ROS2\\ for real-time autonomous vehicle software
+• Transferred perception software from \\Python\\ into \\C++\\ and vectorized serialized calculations to minimize computation time
 • Skilled in sensor integration, data analysis, and real-time systems.`
     ],
     [
@@ -26,7 +26,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Sonata Music", 
         "Guitar Teacher", 
         `
-• Worked \\15 hours\\ weekly and taught classical guitar from \\levels 1 to 8\\.
+• Worked \\20 hours\\ weekly and taught classical guitar from \\levels 1 to 10\\.
 • Wrote over \\30\\ guitar covers and tutorialsof popular music from student's requests`
     ],
     [   
@@ -35,7 +35,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Workshop Team Lead", 
         `
 • Led a group of \\5 student researchers\\ and conducted comprehensive research on prevalent health issues in Nigeria relating to Marasmus
-• Implemented \\3 workshops\\ about Marasmus health education that benefited over \\140 locals\\
+• Implemented \\3 workshops\\ in Nigeriaabout Marasmus health education that benefited over \\140 locals\\
 • Conducted weekly meetings with local health instructors to organize events and learn about pressing local health concerns`
     ],
     [
@@ -43,8 +43,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Agincourt C.I.", 
         "DECA Chapter Founding President", 
         `
-• Led \\11\\ executives in planning and executing \\9\\ school-wide workshops and events with an average of \\42\\ student attendance
-• Monitored project planning, tracked expenses, prepared financial reports
+• Led \\11\\ executives in planning and executing \\10\\ school-wide workshops and events with an average of \\42\\ student attendance
 • Fundraised over \\$3000\\ in club fund and charity donations`
     ]
 ]);
