@@ -18,8 +18,8 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Perception Build Team", 
         `
 • Improved perception processing time by \\91%\\ by refracting \\2000+\\ lines of \\Python\\ code into \\C++\\ and vectorized serialized calculations using \\Numpy\\, \\Eigen\\, and \\OpenCV\\. Translated to a \\4.6 km/h\\ increase during the test run.
-• Improved cone detection accuracy by \\23%\\ by tuning the \\Ultralytics' YOLOv8\\ and the Hungarian Algorithm's cost functions based on camera and LIDAR detections.
-• Implemented custom drivers, rectifying functions, and corrected camera publisher nodes in \\ROS\\ to implement fish eye lens integration that allowed 180-degree FOV coverage.`
+• Improved cone detection accuracy by \\23%\\ by tuning the Hungarian Algorithm's cost functions by optimizing weight parameters for spatial proximity and detection confidence based on camera and LIDAR detections from \\80+ ROS bags\\.
+• Implemented custom drivers, rectifying functions, and corrected camera publisher nodes in \\ROS\\ to implement fish eye lens integration that allowed \\160-degree FOV\\ coverage.`
     ],
     [
         "09/2022 - 06/2024",
