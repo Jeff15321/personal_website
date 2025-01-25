@@ -17,9 +17,9 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "UofT Formula Racing Team", 
         "Perception Build Team", 
         `
-• Using \\Open-CV\\ and \\ROS2\\ for real-time autonomous vehicle software
-• Transferred perception software from \\Python\\ into \\C++\\ and vectorized serialized calculations to minimize computation time
-• Skilled in sensor integration, data analysis, and real-time systems.`
+• Improved perception processing time by \\91%\\ by refracting \\2000+\\ lines of \\Python\\ code into \\C++\\ and vectorized serialized calculations using \\Numpy\\, \\Eigen\\, and \\OpenCV\\. Translated to a \\4.6 km/h\\ increase during the test run.
+• Improved cone detection accuracy by \\23%\\ by tuning the \\Ultralytics' YOLOv8\\ and the Hungarian Algorithm's cost functions based on camera and LIDAR detections.
+• Implemented custom drivers, rectifying functions, and corrected camera publisher nodes in \\ROS\\ to implement fish eye lens integration that allowed 180-degree FOV coverage.`
     ],
     [
         "09/2022 - 06/2024",
@@ -43,8 +43,8 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Agincourt C.I.", 
         "DECA Chapter Founding President", 
         `
-• Led \\11\\ executives in planning and executing \\10\\ school-wide workshops and events with an average of \\42\\ student attendance
-• Fundraised over \\$3000\\ in club fund and charity donations`
+• Led a group of \\11 executives\\ in planning \\10+\\ DECA competition workshops and business strategy lectures. Each event had an average turnout of \\42 people\\ with \\$100+\\ in sales from food and merchandise sold at the events.
+• Gained over \\80+ active members\\ and collected \\$3000+\\ in club funds within the first 2 months through social media promotion, hosting popular events, and fostering meaningful connections with members.`
     ]
 ]);
 
