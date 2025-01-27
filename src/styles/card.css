@@ -17,20 +17,6 @@
     object-fit: cover;
 }
 
-.award-gold {
-    background: linear-gradient(135deg, #FFD700, #FFAA00); /* Gold gradient */
-    padding: 20px; /* Padding for the container */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    text-align: center; /* Center text */
-}
-.award-bronze {
-    background: linear-gradient(135deg, #CD7F32, #8B4513); /* Bronze gradient */
-    padding: 20px; /* Padding for the container */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth with increased opacity for more shine */
-    text-align: center; /* Center text */
-    border-radius: 8px; /* Rounded corners for a more modern look */
-}
-
 .award-logo {
     height: 3em; /* Set twice the size of the text */
     width: auto; /* Maintain aspect ratio */

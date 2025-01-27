@@ -400,7 +400,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
             </div>
             <div id="about-me-image-wrapper-4" className="about-me-image-wrapper">
                 <img id="about-me-image-4" className="about-me-image" src="about-me/music/guitar1ss.png" draggable="false" style={{userSelect: 'none'}} alt="Image 3" />
-                <div className="about-me-image-text" style={{userSelect: 'none'}}>music</div>
+                <div className="about-me-image-text" style={{userSelect: 'none'}}>guitar</div>
             </div>
             <div id="about-me-image-wrapper-5" className="about-me-image-wrapper">
                 <img id="about-me-image-5" className="about-me-image" src="about-me/rocky/rocky5.JPG" draggable="false" style={{userSelect: 'none'}} alt="Image 4" />

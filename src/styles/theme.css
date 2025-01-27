@@ -22,3 +22,45 @@
     border: 3px solid rgb(196, 77, 37);
 }
 
+.blue-steel {
+    background-color: #1e2329;
+}
+
+.navy-border {
+    border: 3px solid #3d5a80;
+}
+
+.lavender-mint {
+    background-color: #f5f3ff;
+}
+.purple-border {
+    border: 3px solid #8b5cf6;
+}
+
+.award-gold {
+    background: linear-gradient(135deg, #FFD700, #FFAA00); /* Gold gradient */
+    padding: 20px; /* Padding for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    text-align: center; /* Center text */
+}
+.award-bronze {
+    background: linear-gradient(135deg, #CD7F32, #8B4513); /* Bronze gradient */
+    padding: 20px; /* Padding for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth with increased opacity for more shine */
+    text-align: center; /* Center text */
+    border-radius: 8px; /* Rounded corners for a more modern look */
+}
+.award-silver {
+    background: linear-gradient(135deg, #C0C0C0, #808080); /* Silver gradient */
+    padding: 20px; /* Padding for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth with increased opacity for more shine */
+    text-align: center; /* Center text */
+    border-radius: 8px; /* Rounded corners for a more modern look */
+}
+.award-environment {
+    background: linear-gradient(135deg, #C6F4D6, #8BC34A); /* Light green gradient similar to award silver */
+    padding: 20px; /* Padding for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth with increased opacity for more shine */
+    text-align: center; /* Center text */
+    border-radius: 8px; /* Rounded corners for a more modern look */
+}
