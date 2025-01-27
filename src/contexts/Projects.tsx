@@ -87,7 +87,37 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image1: ["project2/sidebar.png", 40],
         image2: ["project2/table.jpg", 5]
       }
-    }
+    },
+    // TWIRL: {
+    //   name: "TWIRL",
+    //   theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
+    //   description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
+    //   languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
+    //   award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
+    //   links: {
+    //     Github: "https://github.com/enxilium/cyberattacker_tetris",
+    //   },
+    //   images: {
+    //     thumbnail: ["project1/hackthehill.png", 0],
+    //     image1: ["project1/timetablesweetie_popup.jpg", 20],
+    //     image2: ["project1/timetablesweetie_video.mp4", 25]
+    //   }
+    // }, 
+    // Watts_Up: {
+    //   name: "Watts_Up",
+    //   theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
+    //   description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
+    //   languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
+    //   award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
+    //   links: {
+    //     Github: "https://github.com/enxilium/cyberattacker_tetris",
+    //   },
+    //   images: {
+    //     thumbnail: ["project1/hackthehill.png", 0],
+    //     image1: ["project1/timetablesweetie_popup.jpg", 20],
+    //     image2: ["project1/timetablesweetie_video.mp4", 25]
+    //   }
+    // }, 
   });
 
   return (
