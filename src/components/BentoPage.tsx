@@ -35,7 +35,7 @@ type AnimationStates = {
 
 // Animation configurations for different states
 const ANIMATION_STATES: AnimationStates = {
-  'TimeTable Sweetie': {
+  'Starting_Animation': {
     "bento-container": "change-max-height",
     //left column
     "h-column-left-1": "expand-left-col",
@@ -211,7 +211,7 @@ const ANIMATION_STATES: AnimationStates = {
 };
 
 export const animation_time = {
-  'TimeTable Sweetie': 3750,
+  'Starting_Animation': 3750,
   'Previous_Song': 1000,
   'Next_Song': 1000,
   'experience': 1000,
@@ -375,7 +375,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
       Previous_Song_Animation();
     }
         
-    if (animation[0] === 'TimeTable Sweetie') {
+    if (animation[0] === 'Starting_Animation') {
       setAnimationCounter(0);
       setCurrentProjectName(Object.keys(projects)[0]);
       setTimeout(() => {

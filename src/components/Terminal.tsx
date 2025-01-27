@@ -132,7 +132,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
       output = [
         ["Type next or prev to see the other projects!", "next prev"]
       ];
-      setAnimation(["TimeTable Sweetie", 0]);
+      setAnimation(["Starting_Animation", 0]);
       scrollToBottom(terminalRef, 750);
       
     } else if (input === "about-me") {
@@ -169,7 +169,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
           ["Next Project!🚀",""],
         ];
       } else {
-        setAnimation(["TimeTable Sweetie", 0]);
+        setAnimation(["Starting_Animation", 0]);
         output = [
           ["Really? Next Page? Buddy you're not even in the project page! Let me bring you there~",""],
         ];
@@ -181,7 +181,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
           ["Previous Project!🚀",""],
         ];
       } else {
-        setAnimation(["TimeTable Sweetie", 0]);
+        setAnimation(["Starting_Animation", 0]);
         output = [
           ["Really? Previous Page? Buddy you're not even in the project page! Let me bring you there~",""],
         ];

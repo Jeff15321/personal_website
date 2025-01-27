@@ -59,6 +59,21 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project1/timetablesweetie_video.mp4", 25]
       }
     }, 
+    TWIRL: {
+      name: "TWIRL",
+      theme: ["blue-steel", "navy-border", "invert(45%) sepia(12%) saturate(2458%) hue-rotate(187deg) brightness(94%) contrast(84%)"],
+      description: `Developed an AI CAD-generating editor that allows users with no technical background to generate, edit, and 3D print models through text prompts or by providing reference images. \nDesigned the editing tools using React and TypeScript, handled API requests through FastAPI, parsed prompts through LangChain, and stored data through Supabase. \nDeveloped an AI agent with a processing speed of under 20 seconds which is 15% faster than industry benchmarks, leveraging an end-to-end pipeline with Bing’s image search for visual analysis and enabling precise customization by breaking down models into editable components.`,
+      languages: ["react","python", "node", "sql", "langchain", "fastapi"],
+      award: ["logo/secondplace.png", "Second Place", "award-silver"],
+      links: {
+        Github: "https://github.com/enxilium/cyberattacker_tetris",
+      },
+      images: {
+        thumbnail: ["project4/uofthackslogo.png", 0],
+        image1: ["project4/train.png", -10],
+        image2: ["project4/demo.mp4", -10]
+      }
+    }, 
     Anti_Tetris: {
       name: "Anti_Tetris",
       theme: ["purple-dark", "purple-border","invert(13%) sepia(85%) saturate(7466%) hue-rotate(276deg) brightness(82%) contrast(122%)"],
@@ -90,21 +105,6 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project2/table.jpg", 5]
       }
     },
-    TWIRL: {
-      name: "TWIRL",
-      theme: ["blue-steel", "navy-border", "invert(45%) sepia(12%) saturate(2458%) hue-rotate(187deg) brightness(94%) contrast(84%)"],
-      description: `Developed an AI CAD-generating editor that allows users with no technical background to generate, edit, and 3D print models through text prompts or by providing reference images. \nDesigned the editing tools using React and TypeScript, handled API requests through FastAPI, parsed prompts through LangChain, and stored data through Supabase. \nDeveloped an AI agent with a processing speed of under 20 seconds which is 15% faster than industry benchmarks, leveraging an end-to-end pipeline with Bing’s image search for visual analysis and enabling precise customization by breaking down models into editable components.`,
-      languages: ["react","python", "node", "sql", "langchain", "fastapi"],
-      award: ["logo/secondplace.png", "Second Place", "award-silver"],
-      links: {
-        Github: "https://github.com/enxilium/cyberattacker_tetris",
-      },
-      images: {
-        thumbnail: ["project4/uofthackslogo.png", 0],
-        image1: ["project4/train.png", -10],
-        image2: ["project4/demo.mp4", -10]
-      }
-    }, 
     Watts_Up: {
       name: "Watts_Up",
       theme: ["lavender-mint", "purple-border", "invert(85%) sepia(18%) saturate(1042%) hue-rotate(202deg) brightness(97%) contrast(96%)"],
