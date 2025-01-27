@@ -30,26 +30,36 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
                 link: "about-me/competitions/hth.JPG"  
             },
             2: {
+                title: "2025-01", 
+                description: "2nd Place General Award at UofT Hacks 12",
+                link: "about-me/competitions/uofthacks.JPG"
+            },
+            3: {
+                title: "2025-01", 
+                description: "Best Environment Award at DeltaHacks 10",
+                link: "about-me/competitions/deltahacks.PNG"
+            },
+            4: {
                 title: "2024-09", 
                 description: "3rd Place General Award at Hack the Valley 9",
                 link: "about-me/competitions/htv.PNG"
             },
-            3: {
+            5: {
                 title: "2024-10",
                 description: "1st Place General Award at New Hacks", 
                 link: "about-me/competitions/newhacks.jpg"
             },
-            4: {
+            6: {
                 title: "2024-04",
                 description: "Led our DECA chapter to its first competition as the founding president",
                 link: "about-me/competitions/deca.JPG"
             },
-            5: {
+            7: {
                 title: "2023-06",
                 description: "2nd Place Nationally in HOSA and competed internationally in Texas HOSA finals",
                 link: "about-me/competitions/hosa.JPG"
             },
-            6: {
+            8: {
                 title: "2023-02",
                 description: "Represented empathy(murdered) and apathy(reincarnated as) in the UTMUN Inside Out Conference",
                 link: "about-me/competitions/utmun.JPG"

@@ -5,11 +5,9 @@
 }
 
 .terminal {
-  background-color: #1a1a1a; /* Dark background */
+  background-color: transparent; /* Changed to transparent */
   color: #ffffff; /* White text */
   padding: 20px;
-  border-radius: 1rem;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   height: 100%;
   width: 100%; /* Full width within parent */
   overflow-y: auto;
@@ -17,12 +15,14 @@
   flex-direction: column;
   font-family: 'Source Code Pro', 'Fira Code', monospace; /* Modern monospace font */
   line-height: 1.5;
+  border: none; /* Explicitly remove border */
 }
 
 /* Adjust inner text container */
 .terminal > div {
   flex: 1; /* Takes up remaining space */
   overflow-y: auto;
+  border: none; /* Explicitly remove border */
   /* margin-bottom: 16px; */
 }
 
@@ -30,6 +30,7 @@
 .terminal form {
   display: flex;
   align-items: center;
+  border: none; /* Explicitly remove border */
 }
 
 .terminal span {

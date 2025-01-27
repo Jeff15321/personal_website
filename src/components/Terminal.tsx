@@ -440,13 +440,33 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         width: `${width}%`,
         background: 'linear-gradient(145deg, #0A192F 0%, #112240 100%)',
         borderRadius: '1rem',
-        border: '1px solid rgba(136, 146, 176, 0.2)',
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
         overflow: 'hidden'
     }}>
+        <div style={{
+            padding: '0.2rem 1.2rem',
+            display: 'flex',
+            alignItems: 'center'
+        }}>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center'
+            }}>
+                <span style={{
+                    color: '#CCD6F6',
+                    fontSize: '0.8rem',
+                    letterSpacing: '0.05em',
+                    fontFamily: '"JetBrains Mono", monospace',
+                    fontWeight: '500'
+                }}>
+                    jefflu@portfolio
+                </span>
+            </div>
+        </div>
+
         <div className="text-wrap terminal" style={{
-            height: '100%',
-            padding: '1.5rem 2rem',
+            height: 'calc(100% - 35px)',
+            padding: '0rem 2rem 1.5rem 2rem',
             color: '#CCD6F6',
             fontFamily: '"JetBrains Mono", "Source Code Pro", monospace',
             fontSize: '1rem',

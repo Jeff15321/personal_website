@@ -101,7 +101,7 @@ const Announcement = () => {
                         For a simplified and automated experience, use the right button below.
                     </span>
                 </div>
-            </div>m
+            </div>
 
             <div style={{
                 display: 'flex',
