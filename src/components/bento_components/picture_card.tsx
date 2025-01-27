@@ -6,11 +6,12 @@ interface PictureCardProps {
     width: number;
     image: string;
     zoom: number;
+    project: any;
 }
 
-const PictureCard: React.FC<PictureCardProps> = ({height, width, image, zoom}) => {
+const PictureCard: React.FC<PictureCardProps> = ({height, width, image, zoom, project}) => {
     return (
-        <div className="parent-container hide-scrollbar" style={{height: `${height}%`, width: `${width}%`}}>
+        <div className={`parent-container hide-scrollbar ${project.theme[0]}`} style={{height: `${height}%`, width: `${width}%`}}>
             <div className="picture-card hide">
                 {image.includes(".mp4") ? 
                 <video 

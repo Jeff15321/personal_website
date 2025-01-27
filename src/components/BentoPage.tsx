@@ -415,6 +415,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
                 <PictureCard 
                   height={100} 
                   width={100} 
+                  project={projects[currentProjectName]}
                   image={projects[currentProjectName].images["image2"][0]} 
                   zoom={projects[currentProjectName].images["image2"][1]}
                 />
@@ -452,6 +453,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
             <PictureCard 
               height={100} 
               width={100} 
+              project={projects[currentProjectName]}
               image={projects[currentProjectName].images["image1"][0]} 
               zoom={projects[currentProjectName].images["image1"][1]}
             />
