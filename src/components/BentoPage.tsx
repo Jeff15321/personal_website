@@ -219,8 +219,6 @@ export const animation_time = {
   default: 1000
 }
 
-const border_styles = ['purple-border', 'green-border', 'orange-border'];
-
 interface BentoPageProps {
   projectName: string;
 }
@@ -241,6 +239,7 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
   const [animationCounter, setAnimationCounter] = useState<number>(0);
   const [currentProjectName, setCurrentProjectName] = useState<string>(projectName); 
   const [currentState, setCurrentState] = useState<AnimationState>(ANIMATION_STATES.default);
+  const border_styles = Object.values(projects).map(project => project.theme[1]);
 
   // Get className based on element and current animation state
   const getClassName = (baseClass: string, element: keyof AnimationState): string => {

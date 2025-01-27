@@ -89,22 +89,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project3/maingame.jpg", 0]
       }
     },
-    PUT: {
-      name: "PUT",
-      theme: ["charcoal-mint", "emerald-border", "invert(45%) sepia(82%) saturate(853%) hue-rotate(115deg) brightness(88%) contrast(84%)"],
-      description: "PUT is an easy to use file storage system attached with an intuitive chrome sidebar that allows users to save, sort, and upload files in under two clicks.\nDeveloped a user-friendly CLI and streamlined file management that further emphasizes the ease of use for different demands.\nEnhanced file upload efficiency using TUS protocol for secure uploads, Cloudflare Workers for AI analysis, minIO for modular data storage, and a React/Next.js dashboard and Chrome extension. ",
-      languages: ["typescript", "python", "html","css","next"],
-      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
-      links: {
-        Github: "https://github.com/jeffrey-z-jiang/portfolio",
-        LiveDemo: "https://portfolio.demo"
-      },
-      images: {
-        thumbnail: ["project2/hackthevalley.jpg", 0],
-        image1: ["project2/sidebar.png", 40],
-        image2: ["project2/table.jpg", 5]
-      }
-    },
+    
     Watts_Up: {
       name: "Watts_Up",
       theme: ["lavender-mint", "purple-border", "invert(85%) sepia(18%) saturate(1042%) hue-rotate(202deg) brightness(97%) contrast(96%)"],
@@ -120,6 +105,22 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project5/demo2.jpg", 0]
       }
     }, 
+    PUT: {
+      name: "PUT",
+      theme: ["charcoal-mint", "emerald-border", "invert(45%) sepia(82%) saturate(853%) hue-rotate(115deg) brightness(88%) contrast(84%)"],
+      description: "PUT is an easy to use file storage system attached with an intuitive chrome sidebar that allows users to save, sort, and upload files in under two clicks.\nDeveloped a user-friendly CLI and streamlined file management that further emphasizes the ease of use for different demands.\nEnhanced file upload efficiency using TUS protocol for secure uploads, Cloudflare Workers for AI analysis, minIO for modular data storage, and a React/Next.js dashboard and Chrome extension. ",
+      languages: ["typescript", "python", "html","css","next"],
+      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
+      links: {
+        Github: "https://github.com/jeffrey-z-jiang/portfolio",
+        LiveDemo: "https://portfolio.demo"
+      },
+      images: {
+        thumbnail: ["project2/hackthevalley.jpg", 0],
+        image1: ["project2/sidebar.png", 40],
+        image2: ["project2/table.jpg", 5]
+      }
+    }
   });
 
   return (
