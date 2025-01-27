@@ -26,7 +26,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Sonata Music", 
         "Guitar Teacher", 
         `
-• Worked \\20 hours\\ weekly and taught classical guitar from \\levels 1 to 10\\.
+• Dedicated \\20+ hours\\ per week to motivate level 1-10 students to prepare for the Royal Conservatory Classical Guitar Examination. Prepared \\15+\\ students for Royal Conservatory exams, achieving a pass rate of over \\95%\\.
 • Wrote over \\30\\ guitar covers and tutorialsof popular music from student's requests`
     ],
     [   
@@ -35,7 +35,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Workshop Team Lead", 
         `
 • Led a group of \\5 student researchers\\ and conducted comprehensive research on prevalent health issues in Nigeria relating to Marasmus
-• Implemented \\3 workshops\\ in Nigeriaabout Marasmus health education that benefited over \\140 locals\\
+• Implemented \\3 workshops\\ in Nigeria about Marasmus health education that benefited over \\140 locals\\
 • Conducted weekly meetings with local health instructors to organize events and learn about pressing local health concerns`
     ],
     [
@@ -43,8 +43,8 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "Agincourt C.I.", 
         "DECA Chapter Founding President", 
         `
-• Led a group of \\11 executives\\ in planning \\10+\\ DECA competition workshops and business strategy lectures. Each event had an average turnout of \\42 people\\ with \\$100+\\ in sales from food and merchandise sold at the events.
-• Gained over \\80+ active members\\ and collected \\$3000+\\ in club funds within the first 2 months through social media promotion, hosting popular events, and fostering meaningful connections with members.`
+• Led a group of \\11 executives\\ in planning \\10+\\ DECA competition workshops and business strategy lectures. Each event averaged \\42\\ attendees and generated \\$100+\\ in sales from food and merchandise sold at the events.
+• Gained \\80+ active members\\, collected \\$3000+\\ club funds in the first 2 months, and trained \\40+\\ members, leading to \\15+\\ regional awards in the club’s first year.`
     ]
 ]);
 
