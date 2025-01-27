@@ -12,23 +12,21 @@ const Announcement = () => {
                 [
                     { 
                         opacity: 1,
-                        transform: 'translate(-50%, -50%) scale(1)',
-                        filter: 'blur(0px)'
+                        transform: 'translate(-50%, -50%) scale(1)'
                     },
                     { 
                         opacity: 0,
-                        transform: 'translate(-50%, -80%) scale(0.8)',
-                        filter: 'blur(12px)'
+                        transform: 'translate(-50%, -60%) scale(0.95)'
                     }
                 ],
                 {
-                    duration: 1200,
+                    duration: 800,
                     easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
                     fill: 'forwards'
                 }
             );
         }
-        setTimeout(() => setIsVisible(false), 1200);
+        setTimeout(() => setIsVisible(false), 800);
     };
 
     if (!isVisible) return null;
@@ -40,72 +38,74 @@ const Announcement = () => {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                backgroundColor: '#0a0a16',
-                padding: '3vw',
-                borderRadius: '1rem',
-                border: '0.15vw solid #00ffbb',
-                boxShadow: '0 0 2vw rgba(0, 255, 187, 0.2), inset 0 0 2vw rgba(0, 255, 187, 0.1)',
-                width: '45vw',
+                backgroundColor: '#0A192F',
+                padding: '4vw',
+                borderRadius: '1.5rem',
+                border: '1px solid rgba(136, 146, 176, 0.2)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
+                width: '50vw',
                 height: 'auto',
                 transition: 'all 0.5s ease',
                 zIndex: 1000,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '2vw'
+                gap: '3vw',
+                backdropFilter: 'blur(10px)',
+                background: 'linear-gradient(145deg, #0A192F 0%, #112240 100%)'
             }}
         >
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '2vw',
-                position: 'relative',
+                gap: '2.5vw',
                 width: '100%'
             }}>
                 <h1 style={{
-                    color: '#00ffbb',
+                    color: '#CCD6F6',
                     fontFamily: '"Source Code Pro", monospace',
-                    fontSize: '2.5vw',
-                    fontWeight: 'bold',
-                    marginBottom: '1vw',
-                    textShadow: '0 0 10px rgba(0, 255, 187, 0.5)'
+                    fontSize: '2.8vw',
+                    fontWeight: '400',
+                    letterSpacing: '0.02em',
+                    marginBottom: '0.5vw',
+                    position: 'relative'
                 }}>
-                    $ ./welcome.sh
+                    <span style={{ color: '#64FFDA' }}>$</span> ./welcome.sh
                 </h1>
                 <div style={{
-                    color: '#ffffff',
+                    color: '#8892B0',
                     fontFamily: '"Source Code Pro", monospace',
-                    fontSize: '1.5vw',
+                    fontSize: '1.4vw',
                     lineHeight: '1.8',
                     textAlign: 'center',
-                    padding: '2vw',
-                    background: 'rgba(0, 255, 187, 0.05)',
-                    borderRadius: '0.8rem',
+                    padding: '3vw',
+                    background: 'rgba(204, 214, 246, 0.02)',
+                    borderRadius: '1rem',
                     width: '100%',
-                    border: '1px solid rgba(0, 255, 187, 0.2)'
+                    border: '1px solid rgba(100, 255, 218, 0.1)',
+                    position: 'relative'
                 }}>
                     Type <span style={{
-                        color: '#00ffbb',
-                        fontWeight: 'bold',
-                        textShadow: '0 0 5px rgba(0, 255, 187, 0.5)'
+                        color: '#64FFDA',
+                        fontWeight: '500'
                     }}>help</span> in the terminal below to begin your journey.
                     <br/>
                     <span style={{
-                        fontSize: '1.2vw',
-                        opacity: 0.8,
+                        fontSize: '1.1vw',
                         display: 'block',
-                        marginTop: '1vw',
-                        color: '#b3b3b3'
+                        marginTop: '1.5vw',
+                        color: '#8892B0',
+                        fontStyle: 'italic'
                     }}>
-                        If you prefer not to use the terminal, click the right button for a hands fre approach.
+                        For a simplified and automated experience, use the right button below.
                     </span>
                 </div>
-            </div>
+            </div>m
 
             <div style={{
                 display: 'flex',
-                gap: '1vw',
+                gap: '1.5vw',
                 width: '100%'
             }}>
                 <button
@@ -113,65 +113,52 @@ const Announcement = () => {
                     style={{
                         flex: 1,
                         backgroundColor: 'transparent',
-                        border: '2px solid #00ffbb',
-                        color: '#00ffbb',
-                        padding: '1vw 3vw',
-                        borderRadius: '0.5rem',
+                        border: '1px solid #64FFDA',
+                        color: '#64FFDA',
+                        padding: '1.2vw',
+                        borderRadius: '0.6rem',
                         cursor: 'pointer',
                         fontSize: '1.2vw',
                         fontFamily: '"Source Code Pro", monospace',
                         transition: 'all 0.3s ease',
-                        letterSpacing: '0.2vw',
-                        textShadow: '0 0 5px rgba(0, 255, 187, 0.5)',
-                        boxShadow: '0 0 15px rgba(0, 255, 187, 0.1)'
+                        letterSpacing: '0.1em',
+                        position: 'relative',
+                        overflow: 'hidden'
                     }}
                     onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#00ffbb';
-                        e.currentTarget.style.color = '#0a0a16';
-                        e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 255, 187, 0.3)';
+                        e.currentTarget.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
                     }}
                     onMouseLeave={(e) => {
                         e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = '#00ffbb';
-                        e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 255, 187, 0.1)';
                     }}
                 >
-                    $ ./start.sh
+                    $ ./Begin.sh
                 </button>
 
                 <button
-                    onClick={() => {
-                        // Add your simplified approach navigation here
-                        handleUnderstood();
-                        // Example: navigate to a specific section or trigger a specific action
-                    }}
+                    onClick={handleUnderstood}
                     style={{
                         flex: 1,
-                        backgroundColor: 'transparent',
-                        border: '2px solid #ff3e88',
-                        color: '#ff3e88',
-                        padding: '1vw 3vw',
-                        borderRadius: '0.5rem',
+                        backgroundColor: '#64FFDA',
+                        border: '1px solid #64FFDA',
+                        color: '#0A192F',
+                        padding: '1.2vw',
+                        borderRadius: '0.6rem',
                         cursor: 'pointer',
                         fontSize: '1.2vw',
                         fontFamily: '"Source Code Pro", monospace',
                         transition: 'all 0.3s ease',
-                        letterSpacing: '0.2vw',
-                        textShadow: '0 0 5px rgba(255, 62, 136, 0.5)',
-                        boxShadow: '0 0 15px rgba(255, 62, 136, 0.1)'
+                        letterSpacing: '0.1em',
+                        fontWeight: '500'
                     }}
                     onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#ff3e88';
-                        e.currentTarget.style.color = '#0a0a16';
-                        e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 62, 136, 0.3)';
+                        e.currentTarget.style.opacity = '0.9';
                     }}
                     onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = '#ff3e88';
-                        e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 62, 136, 0.1)';
+                        e.currentTarget.style.opacity = '1';
                     }}
                 >
-                    $ ./simplified.sh
+                    $ ./automated.sh
                 </button>
             </div>
         </div>

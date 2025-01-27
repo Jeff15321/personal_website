@@ -435,33 +435,65 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   };
 
   return (
-    <div className="parent-container" style={{height: `${height}%`, width: `${width}%`}}>
-      <div className="text-wrap terminal">
-        <div ref={terminalRef} className="hide-scrollbar">
-          <div> {formatOutput("Heyyyy, go ahead and type help in the terminal to see what you can do! (remember to press enter to submit)", "help", setInput)}</div>
-          {history.map((cmd, index) => (
-            <div key={index} className="py-1">
-              {cmd[1] ? null : <span className="text-green-400">JeffLu@portfolio: </span>}
-              {cmd[0]}
+    <div className="parent-container" style={{
+        height: `${height}%`,
+        width: `${width}%`,
+        background: 'linear-gradient(145deg, #0A192F 0%, #112240 100%)',
+        borderRadius: '1rem',
+        border: '1px solid rgba(136, 146, 176, 0.2)',
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
+        overflow: 'hidden'
+    }}>
+        <div className="text-wrap terminal" style={{
+            height: '100%',
+            padding: '1.5rem 2rem',
+            color: '#CCD6F6',
+            fontFamily: '"JetBrains Mono", "Source Code Pro", monospace',
+            fontSize: '1rem',
+            lineHeight: '1.6',
+            letterSpacing: '0.02em'
+        }}>
+            <div ref={terminalRef} className="hide-scrollbar">
+                <div style={{ color: '#8892B0' }}>
+                    {formatOutput("Type help to see available commands", "help", setInput)}
+                </div>
+                
+                {history.map((cmd, index) => (
+                    <div key={index} className="py-1">
+                        {cmd[1] ? null : (
+                            <span style={{ color: '#64FFDA' }}>
+                                jefflu@portfolio:&nbsp;
+                            </span>
+                        )}
+                        <span style={{
+                            color: cmd[1] ? '#8892B0' : '#CCD6F6'
+                        }}>
+                            {cmd[0]}
+                        </span>
+                    </div>
+                ))}
+
+                <div className="py-1">
+                    <span style={{ color: '#64FFDA' }}>
+                        jefflu@portfolio:&nbsp;
+                    </span>
+                    <span
+                        id="terminal-input"
+                        ref={inputRef}
+                        className="styled-textarea"
+                        contentEditable
+                        onInput={handleInputChange}
+                        suppressContentEditableWarning={true}
+                        style={{
+                            outline: 'none',
+                            minWidth: '1ch',
+                            color: '#CCD6F6',
+                            caretColor: '#64FFDA'
+                        }}
+                    />
+                </div>
             </div>
-          ))}
-          <div className="py-1">
-            <span 
-              className="text-green-400"
-            >
-                JeffLu@portfolio:&nbsp;
-            </span>
-            <span
-              id="terminal-input"
-              ref={inputRef}
-              className="styled-textarea"
-              contentEditable
-              onInput={handleInputChange}
-              suppressContentEditableWarning={true}
-            ></span>
-          </div>
         </div>
-      </div>
     </div>
   );
 };
