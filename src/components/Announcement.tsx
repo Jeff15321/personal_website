@@ -91,7 +91,7 @@ const Announcement = () => {
                         fontWeight: '500'
                     }}>help</span> in the terminal below to begin your journey.
                     <br/>
-                    <span style={{
+                    {/* <span style={{
                         fontSize: '1.1vw',
                         display: 'block',
                         marginTop: '1.5vw',
@@ -99,7 +99,7 @@ const Announcement = () => {
                         fontStyle: 'italic'
                     }}>
                         For a simplified and automated experience, use the right button below.
-                    </span>
+                    </span> */}
                 </div>
             </div>
 
@@ -135,7 +135,7 @@ const Announcement = () => {
                     $ ./Begin.sh
                 </button>
 
-                <button
+                {/* <button
                     onClick={handleUnderstood}
                     style={{
                         flex: 1,
@@ -159,7 +159,7 @@ const Announcement = () => {
                     }}
                 >
                     $ ./automated.sh
-                </button>
+                </button> */}
             </div>
         </div>
     );
