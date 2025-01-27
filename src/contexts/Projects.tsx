@@ -46,7 +46,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "Time_Table_Sweetie",
       theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
       description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
-      languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
+      languages: ["react", "python", "node","html","css", "sql"],
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
@@ -88,36 +88,36 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project2/table.jpg", 5]
       }
     },
-    // TWIRL: {
-    //   name: "TWIRL",
-    //   theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
-    //   description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
-    //   languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
-    //   award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
-    //   links: {
-    //     Github: "https://github.com/enxilium/cyberattacker_tetris",
-    //   },
-    //   images: {
-    //     thumbnail: ["project1/hackthehill.png", 0],
-    //     image1: ["project1/timetablesweetie_popup.jpg", 20],
-    //     image2: ["project1/timetablesweetie_video.mp4", 25]
-    //   }
-    // }, 
-    // Watts_Up: {
-    //   name: "Watts_Up",
-    //   theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
-    //   description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
-    //   languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
-    //   award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
-    //   links: {
-    //     Github: "https://github.com/enxilium/cyberattacker_tetris",
-    //   },
-    //   images: {
-    //     thumbnail: ["project1/hackthehill.png", 0],
-    //     image1: ["project1/timetablesweetie_popup.jpg", 20],
-    //     image2: ["project1/timetablesweetie_video.mp4", 25]
-    //   }
-    // }, 
+    TWIRL: {
+      name: "TWIRL",
+      theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
+      description: `Developed an AI CAD-generating editor that allows users with no technical background to generate, edit, and 3D print models through text prompts or by providing reference images. \nDesigned the editing tools using React and TypeScript, handled API requests through FastAPI, parsed prompts through LangChain, and stored data through Supabase. \nDeveloped an AI agent with a processing speed of under 20 seconds which is 15% faster than industry benchmarks, leveraging an end-to-end pipeline with Bing’s image search for visual analysis and enabling precise customization by breaking down models into editable components.`,
+      languages: ["react","python", "node", "sql"],
+      award: ["logo/secondplace.png", "Second Place", "award-bronze"],
+      links: {
+        Github: "https://github.com/enxilium/cyberattacker_tetris",
+      },
+      images: {
+        thumbnail: ["project1/hackthehill.png", 0],
+        image1: ["project1/timetablesweetie_popup.jpg", 20],
+        image2: ["project1/timetablesweetie_video.mp4", 25]
+      }
+    }, 
+    Watts_Up: {
+      name: "Watts_Up",
+      theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
+      description: `Integrated OpenAI's ChatGPT for voice recognition and interaction, allowing the AI to listen, respond, and guide users in real time with a flirtatious manner (yes... flirtatious). \nThe voice assistant is seamlessly connected to a visually appealing, intuitive calendar interface, where users can easily manage their tasks and events. \nThe AI optimizes these events by analyzing user behavior and preferences from previous conversations and actions, providing tailored recommendations for maximum productivity.`,
+      languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
+      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
+      links: {
+        Github: "https://github.com/enxilium/cyberattacker_tetris",
+      },
+      images: {
+        thumbnail: ["project1/hackthehill.png", 0],
+        image1: ["project1/timetablesweetie_popup.jpg", 20],
+        image2: ["project1/timetablesweetie_video.mp4", 25]
+      }
+    }, 
   });
 
   return (
