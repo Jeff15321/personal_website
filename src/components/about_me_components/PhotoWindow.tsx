@@ -14,6 +14,7 @@ interface PhotoWindowProps {
 
 export default function PhotoWindow({id, photoPath,size, height, x, y, z, backgroundColor, buttonColor}: PhotoWindowProps) {
     const [windowSize, setWindowSize] = React.useState(size);
+    const [originalSize, setOriginalSize] = React.useState(size);
     const [windowHeight, setWindowHeight] = React.useState(0);
     const [windowWidth, setWindowWidth] = React.useState(0);
     const [position, setPosition] = React.useState({ x, y });
@@ -24,17 +25,31 @@ export default function PhotoWindow({id, photoPath,size, height, x, y, z, backgr
     }, []);
 
     const handleClose = () => {
-        const windowElement = document.querySelector(`.window-container.window-style-${id}`) as HTMLElement | null;
+        const windowElement = document.querySelector(`.outer-window-container-${id}`) as HTMLElement | null;
         if (windowElement) {
-            windowElement.style.visibility = 'hidden';
+            const styleElement = windowElement.querySelector(`.window-style-${id}`) as HTMLElement | null;
+            if (styleElement) {
+                styleElement.style.visibility = 'hidden';
+                styleElement.animate(
+                    [
+                        { opacity: 1 },
+                        { opacity: 0, visibility: 'hidden' }
+                    ],
+                    {
+                        duration: 500,
+                        fill: 'forwards',
+                        easing: 'ease-in-out'
+                    }
+                );
+            }
         }
     };
 
     const handleIncreaseSize = () => {
-        if (windowSize == 1.4) {
-            setWindowSize(1);
+        if (windowSize == 1.4 * originalSize) {
+            setWindowSize(originalSize);
         } else {
-            setWindowSize(1.4);
+            setWindowSize(1.4 * originalSize);
         }
     }
 
@@ -101,14 +116,23 @@ export default function PhotoWindow({id, photoPath,size, height, x, y, z, backgr
                 <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>o</button>
                 <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>x</button>
             </div>
-            <div className="index-image-container">
+            <div className="index-image-container" style={{
+                position: 'absolute',
+                height: '90%',
+                top: 'auto', 
+                bottom: '0',
+                left: '0',
+                right: '0',
+                overflow: 'hidden',
+                pointerEvents: 'none'
+            }}>
                 <img src={photoPath} style={{
-                    width: `100%`,
-                    height: `100%`,
+                    width: '100%',
+                    height: '100%',
                     display: 'block',
-                    margin: '0 auto',
                     objectFit: 'contain',
-                    userSelect: 'none'
+                    userSelect: 'none',
+                    pointerEvents: 'none'
                     }}      
                     draggable="false" 
                 />

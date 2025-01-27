@@ -14,6 +14,7 @@ interface LetterWindowProps {
 
 export default function LetterWindow({id, letter, size, height, x, y, z, backgroundColor, buttonColor}: LetterWindowProps) {
     const [windowSize, setWindowSize] = React.useState(size);
+    const [originalSize, setOriginalSize] = React.useState(size);
     const [windowHeight, setWindowHeight] = React.useState(0);
     const [windowWidth, setWindowWidth] = React.useState(0);
     const [position, setPosition] = React.useState({ x, y });
@@ -24,17 +25,31 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
     }, []);
 
     const handleClose = () => {
-        const windowElement = document.querySelector(`.window-container.window-style-${id}`) as HTMLElement | null;
+        const windowElement = document.querySelector(`.outer-window-container-${id}`) as HTMLElement | null;
         if (windowElement) {
-            windowElement.style.visibility = 'hidden';
+            const styleElement = windowElement.querySelector(`.window-style-${id}`) as HTMLElement | null;
+            if (styleElement) {
+                styleElement.style.visibility = 'hidden';
+                styleElement.animate(
+                    [
+                        { opacity: 1 },
+                        { opacity: 0, visibility: 'hidden' }
+                    ],
+                    {
+                        duration: 500,
+                        fill: 'forwards',
+                        easing: 'ease-in-out'
+                    }
+                );
+            }
         }
     };
 
     const handleIncreaseSize = () => {
-        if (windowSize == 1.4) {
-            setWindowSize(1);
+        if (windowSize == 1.4 * originalSize) {
+            setWindowSize(originalSize);
         } else {
-            setWindowSize(1.4);
+            setWindowSize(1.4 * originalSize);
         }
     }
 
@@ -84,34 +99,35 @@ export default function LetterWindow({id, letter, size, height, x, y, z, backgro
     }, [x, y]);
 
     return (
-        <div className={`window-container window-style-${id}`} style={{
-            height: `${windowSize * 17}vw`,
-            width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
-            top: `${(50 + position.y)}vh`,
-            left: `${(50 + position.x)}vw`,
-            backgroundColor: backgroundColor,
-            visibility: 'hidden',
-            zIndex: z,
-            userSelect: 'none'
-        }}>
-            <div className="title-button-container" onMouseDown={handleMouseDown}>
-                <button className="title-button" onClick={handleClose} style={{
-                    fontSize: `${windowSize * 0.9}em`,
-                    color: buttonColor,
-                    userSelect: 'none'
-                    }}>-</button>
-                <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>o</button>
-                <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>x</button>
+        <div className={`outer-window-container-${id}`}>
+            <div className={`window-container window-style-${id}`} style={{
+                height: `${windowSize * 17}vw`,
+                width: `${height == 0 ? windowSize * 15 : windowSize * 17 * height}vw`,
+                top: `${(50 + position.y)}vh`,
+                left: `${(50 + position.x)}vw`,
+                backgroundColor: backgroundColor,
+                visibility: 'hidden',
+                zIndex: z,
+                userSelect: 'none'
+            }}>
+                <div className="title-button-container" onMouseDown={handleMouseDown}>
+                    <button className="title-button" onClick={handleClose} style={{
+                        fontSize: `${windowSize * 0.9}em`,
+                        color: buttonColor,
+                        userSelect: 'none'
+                        }}>-</button>
+                    <button className="title-button" onClick={handleIncreaseSize} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>o</button>
+                    <button className="title-button close-button" onClick={handleClose} style={{fontSize: `${windowSize * 0.9}em`, color: buttonColor, userSelect: 'none'}}>x</button>
+                </div>
+                <div className="index-image-container">
+                    <div className={`popup-letter window-letter-${id}`}
+                    style={{
+                        fontSize: `${size * 16 - 1}vw`,
+                        userSelect: 'none'
+                    }}
+                    >{letter}</div>
+                </div>
             </div>
-            <div className="index-image-container">
-                <div className={`popup-letter window-letter-${id}`}
-                style={{
-                    fontSize: `${size * 16 - 1}vw`,
-                    userSelect: 'none'
-                }}
-                >{letter}</div>
-            </div>
-
         </div>
     )
 }
