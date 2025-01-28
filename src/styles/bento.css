@@ -199,5 +199,79 @@
   }
 }
 
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    margin-left: auto;
+    margin-right: 1em;
+    border-radius: 0.4em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.info-icon img {
+    width: 1.5em;
+    height: 1.5em;
+    opacity: 0.8;
+    filter: invert(100%);
+    transition: all 0.3s ease;
+}
+
+.info-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.info-icon:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Update the award container to accommodate the info icon */
+.award-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.info-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.info-icon-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    border-radius: 0.6em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.info-icon-large img {
+    width: 4em;
+    height: 4em;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.info-icon-large:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.info-icon-large:hover img {
+    opacity: 1;
+}
+
 
 

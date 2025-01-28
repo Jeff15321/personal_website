@@ -100,6 +100,16 @@ body.no-scroll {
     will-change: transform, opacity, filter, box-shadow;
 }
 
+.show-card-last {
+    visibility: visible;
+    opacity: 0; 
+    animation: sparkleAndFadeIn 1.5s ease-out forwards;
+    transform-origin: center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity, filter, box-shadow;
+    animation-delay: 3s;
+}
 
 .fix-right-picture-card-flex-2 {
     flex: 2;

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useProjects } from "../../contexts/Projects";
 
 interface InfoCardProps {
@@ -8,10 +8,24 @@ interface InfoCardProps {
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({height, width, award}) => {
+    const { projects } = useProjects();
+    const currentProject = Object.values(projects).find(project => project.award[2] === award[2]);
+    const themeFilter = currentProject?.theme[2] || 'invert(100%)';
+    const themeBackground = currentProject?.theme[0] || '';
+
     return (
-        <div className={`parent-container hide-scrollbar ${award[2]}`} style={{height: `${height}%`, width: `${width}%`, justifyContent: "left"}}>
-            <div className="award-container">
-                <img height={10} width={10} className="award-logo" src={award[0]} />
+        <div className={`parent-container hide-scrollbar ${themeBackground}`} 
+            style={{
+                height: `${height}%`, 
+                width: `${width}%`, 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center"
+            }}>
+            <div className="info-icon-container">
+                <div className="info-icon-large">
+                    <img src="/info.svg" alt="info" style={{filter: themeFilter}} />
+                </div>
             </div>
         </div>
     )
