@@ -52,6 +52,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
+        devpost: "https://devpost.com/software/timetable-sweetie"
       },
       images: {
         thumbnail: ["project1/hackthehill.png", 0],
@@ -67,6 +68,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       award: ["logo/secondplace.png", "Second Place", "award-silver"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
+        devpost: "https://dorahacks.io/buidl/21695"
       },
       images: {
         thumbnail: ["project4/uofthackslogo.png", 0],
@@ -82,6 +84,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       award: ["logo/firstplace.png", "First Place", "award-gold"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
+        devpost: "https://devpost.com/software/hack-n-stack"
       },
       images: {
         thumbnail: ["logo/newhacks.png", 0],
@@ -98,6 +101,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       award: ["logo/environmentalaward.png", "Best Environmental", "award-environment"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
+        devpost: "https://devpost.com/software/watts-up"
       },
       images: {
         thumbnail: ["project5/deltahackslogo.jpg", 0],
@@ -113,7 +117,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/jeffrey-z-jiang/portfolio",
-        LiveDemo: "https://portfolio.demo"
+        devpost: "https://devpost.com/software/put-owb4qj"
       },
       images: {
         thumbnail: ["project2/hackthevalley.jpg", 0],

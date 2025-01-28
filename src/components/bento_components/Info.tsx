@@ -12,6 +12,11 @@ const InfoCard: React.FC<InfoCardProps> = ({height, width, award}) => {
     const currentProject = Object.values(projects).find(project => project.award[2] === award[2]);
     const themeFilter = currentProject?.theme[2] || 'invert(100%)';
     const themeBackground = currentProject?.theme[0] || '';
+    const devpostLink = currentProject?.links.devpost || '#';
+
+    const handleClick = () => {
+        window.open(devpostLink, '_blank');
+    };
 
     return (
         <div className={`parent-container hide-scrollbar ${themeBackground}`} 
@@ -22,7 +27,7 @@ const InfoCard: React.FC<InfoCardProps> = ({height, width, award}) => {
                 alignItems: "center", 
                 justifyContent: "center"
             }}>
-            <div className="info-icon-container">
+            <div className="info-icon-container" onClick={handleClick}>
                 <div className="info-icon-large">
                     <img src="/info.svg" alt="info" style={{filter: themeFilter}} />
                 </div>

@@ -233,9 +233,31 @@
 .award-container {
     display: flex;
     align-items: center;
-    margin-left: 1em;
     flex-wrap: nowrap;
     width: 100%;
+    height: 100%;
+}
+.award-logo {
+    position: relative;
+    height: 3em;
+    width: auto;
+    object-fit: contain;
+    margin-right: auto;
+    transform: translateX(-15px) !important;
+}
+
+.award-text {
+    position: relative;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333333;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform: translateX(-15px) !important;
 }
 
 .info-icon-container {
