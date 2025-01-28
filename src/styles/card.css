@@ -79,33 +79,53 @@
 
 /* New styles for the description component */
 .description-container {
-    background-color: transparent;
-    border-radius: 12px; /* Rounded corners */
-    padding: 20px; /* Padding for spacing */
-    transition: transform 0.2s; /* Smooth transition for hover effect */
-}
-
-.description-container:hover {
-    transform: scale(1.02); /* Slightly scale up on hover */
+    display: flex;
+    flex-direction: column;
+    padding: 1.2em 2em;
+    height: 100%;
+    gap: 0.5em;
 }
 
 .description-title {
-    font-size: 2em; /* Even larger font size for the title */
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern sans-serif font stack */
-    color: #E0E0E0; /* Lighter color for the title for better contrast */
-    margin-bottom: 0.1em; /* More space below the title for better spacing */
-    letter-spacing: 0.1em; /* More pronounced letter spacing for a fancier look */
-    font-weight: bold; /* Bold font for added emphasis */
-    text-transform: uppercase; /* Uppercase for a more dramatic look */
-    text-align: left; /* Center the text for better alignment */
-    padding: 2px 0; /* Add padding above and below the title for more space */
+    font-size: 1.5em;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #E0E0E0;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.3em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    line-height: 1;
 }
 
 .description-content {
-    font-size: 1rem; /* Standard font size for content */
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern sans-serif font stack */
-    color: #D3D3D3; /* Slightly lighter color for content */
-    line-height: 1.5; /* Improved line height for readability */
+    font-size: 1.1rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #D3D3D3;
+    line-height: 1.6;
+    opacity: 0.9;
+    white-space: pre-wrap;
+    overflow-y: auto;
+}
+
+/* Add custom scrollbar for description content */
+.description-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.description-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.description-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.description-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* appear animation */
