@@ -7,6 +7,7 @@ import AwardCard from '../components/bento_components/award';
 import LanguageCard from '../components/bento_components/language';
 import Music from './bento_components/Music';
 import { useAnimation } from '../contexts/AnimateContext';
+import InfoCard from './bento_components/Info';
 
 
 // Type definition
@@ -25,7 +26,9 @@ type AnimationState = {
     "h-picture-row-2": string,
     "h-terminal-row-2": string,
     "h-filler-right-col": string,
-    "h-filler-bottom-row": string
+    "h-filler-bottom-row": string,
+    "h-award-5": string,
+    "h-info-5": string
 };
 
 type AnimationStates = {
@@ -43,7 +46,9 @@ const ANIMATION_STATES: AnimationStates = {
         "h-top-row-2": "overflow-visible",
             "h-music-column-3": "animation show-card-fourth-right",
             "h-container-of-video-and-award-3": "overflow-visible",
-                "h-award-4": "show-card-first",
+                "h-award-4": "overflow-visible",
+                "h-award-5": "show-card-first",
+                "h-info-5": "show-card-first",
                 "h-video-4": "animation show-card-third-bottom",
     //bottom row on left column
         "h-bottom-row-2": "overflow-visible",
@@ -67,6 +72,8 @@ const ANIMATION_STATES: AnimationStates = {
             "h-container-of-video-and-award-3": "overflow-visible",
                 "h-award-4": "show-card-first card-visible",
                 "h-video-4": "animation card-visible",
+                "h-award-5": "default",
+                "h-info-5": "default",
     //bottom row on left column
         "h-bottom-row-2": "overflow-visible",
             "h-language-column-3": "animation card-visible",
@@ -88,6 +95,8 @@ const ANIMATION_STATES: AnimationStates = {
             "h-music-column-3": "animation show-card-fourth-right song-shift-right",
             "h-container-of-video-and-award-3": "overflow-visible",
                 "h-award-4": "animation show-card-first song-shift-right",
+                "h-award-5": "default",
+                "h-info-5": "default",
                 "h-video-4": "animation show-card-third-bottom song-shift-right",
     //bottom row on left column
         "h-bottom-row-2": "overflow-visible",
@@ -110,6 +119,8 @@ const ANIMATION_STATES: AnimationStates = {
             "h-music-column-3": "animation show-card-fourth-right song-shift-left",
             "h-container-of-video-and-award-3": "overflow-visible",
                 "h-award-4": "animation show-card-first song-shift-left",
+                "h-award-5": "default",
+                "h-info-5": "default",
                 "h-video-4": "animation show-card-third-bottom song-shift-left",
     //bottom row on left column
         "h-bottom-row-2": "overflow-visible",
@@ -132,6 +143,8 @@ const ANIMATION_STATES: AnimationStates = {
     "h-music-column-3": 'exit-project-animation-fade-shift-left',
     "h-container-of-video-and-award-3": 'overflow-visible',
     "h-award-4": 'exit-project-animation-fade-shift-top',
+    "h-award-5": "default",
+    "h-info-5": "default",
     "h-video-4": 'exit-project-animation-fade-shift-top',
     "h-language-column-3": 'exit-project-animation-fade-shift-left',
     "h-description-column-3": 'vexit-project-animation-fade-shift-bottom',
@@ -149,6 +162,8 @@ const ANIMATION_STATES: AnimationStates = {
     "h-music-column-3": 'visible exit-project-animation-fade-shift-left',
     "h-container-of-video-and-award-3": 'overflow-visible',
     "h-award-4": 'visible exit-project-animation-fade-shift-top',
+    "h-award-5": "default",
+    "h-info-5": "default",
     "h-video-4": 'visible exit-project-animation-fade-shift-top',
     "h-language-column-3": 'visible exit-project-animation-fade-shift-left',
     "h-description-column-3": 'visible exit-project-animation-fade-shift-bottom',
@@ -166,6 +181,8 @@ const ANIMATION_STATES: AnimationStates = {
     "h-music-column-3": 'visible exit-project-animation-fade-shift-left',
     "h-container-of-video-and-award-3": 'overflow-visible',
     "h-award-4": 'visible exit-project-animation-fade-shift-top',
+    "h-award-5": "default",
+    "h-info-5": "default",
     "h-video-4": 'visible exit-project-animation-fade-shift-top',
     "h-language-column-3": 'visible exit-project-animation-fade-shift-left',
     "h-description-column-3": 'visible exit-project-animation-fade-shift-bottom',
@@ -183,6 +200,8 @@ const ANIMATION_STATES: AnimationStates = {
     "h-music-column-3": 'default',
     "h-container-of-video-and-award-3": 'default',
     "h-award-4": 'default',
+    "h-award-5": "default",
+    "h-info-5": "default",
     "h-video-4": 'default',
     "h-language-column-3": 'default',
     "h-description-column-3": 'default',
@@ -200,6 +219,8 @@ const ANIMATION_STATES: AnimationStates = {
     "h-music-column-3": 'default',
     "h-container-of-video-and-award-3": 'default',
     "h-award-4": 'default',
+    "h-award-5": "default",
+    "h-info-5": "default",
     "h-video-4": 'default',
     "h-language-column-3": 'default',
     "h-description-column-3": 'default',
@@ -419,12 +440,21 @@ const BentoPage: React.FC<BentoPageProps> = ({ projectName }) => {
                   zoom={projects[currentProjectName].images["image2"][1]}
                 />
               </div>
-              <div id="h-award-4" className={getClassName('card-container h-award-4', 'h-award-4')}>
-                <AwardCard 
-                  height={100} 
-                  width={100} 
-                  award={[projects[currentProjectName].award[0], projects[currentProjectName].award[1], projects[currentProjectName].award[2]]}
-                />
+              <div id="h-award-4" className={getClassName('flex-row h-award-4', 'h-award-4')}>
+                <div id="h-award-5" className={getClassName('card-container h-award-5', 'h-award-5')}>
+                  <AwardCard 
+                    height={100} 
+                    width={100} 
+                      award={[projects[currentProjectName].award[0], projects[currentProjectName].award[1], projects[currentProjectName].award[2]]}
+                    />
+                </div>
+                <div id="h-info-5" className={getClassName('card-container h-info-5', 'h-info-5')}>
+                  <InfoCard 
+                    height={100} 
+                    width={100} 
+                    award={[projects[currentProjectName].award[0], projects[currentProjectName].award[1], projects[currentProjectName].award[2]]}
+                  />
+                </div>
               </div>
             </div>
           </div>

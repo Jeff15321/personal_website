@@ -1,5 +1,5 @@
 .bento-container-wrapper{
-    width: 70vw;
+    width: 75vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@
     flex-direction: column;
     gap: 1em;
     max-width: 100%;
-    max-height: 100%; /* Prevents the column from expanding */
+    height: 100%;
 }
 
 .flex-row{
@@ -53,7 +53,9 @@
     border-radius: 2em;
     gap: 1em;
     max-width: 100%;
-    max-height: 100%; /* Prevents the column from expanding */
+    max-height: 100%;
+    min-height: 40% ; /* IMPORTANT:change this to adjust the ratio of top and bottom row */
+    height: 100%;
 }
 
 /* bento hierarchy */
@@ -63,11 +65,11 @@
 }
 
 .h-column-right-1{
-    flex: 1;
+    flex: 0.9 !important;
 }
 
 .h-top-row-2{
-    flex: 1;
+    flex: 1.3;
 }
 
 .h-bottom-row-2{
@@ -76,19 +78,34 @@
 }
 
 .h-music-column-3{
-    flex: 1;
+    flex: 1 !important;
+    min-width: 0;
+    max-width: 45%;
 }
 
 .h-container-of-video-and-award-3{
-    flex: 1;
+    flex: 1 !important;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 0;
 }
 
 .h-award-4{
-    flex: 1;
+    flex: 0.15 !important;
+    min-height: 11vh !important;
+}
+
+.h-info-5{
+    flex: 1 !important;
+}
+
+.h-award-5{
+    flex: 4 !important;
 }
 
 .h-video-4{
-    flex: 3;
+    flex: 4 !important;
+    min-height: 0;
 }
 
 .h-language-column-3{
@@ -181,4 +198,6 @@
     flex: 2; /* Final flex value when expanded */
   }
 }
+
+
 
