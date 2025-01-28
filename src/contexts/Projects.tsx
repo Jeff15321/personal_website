@@ -70,7 +70,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       },
       images: {
         thumbnail: ["project4/uofthackslogo.png", 0],
-        image1: ["project4/train.png", -10],
+        image1: ["project4/train.png", 5],
         image2: ["project4/demo.mp4", -10]
       }
     }, 
@@ -101,8 +101,8 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       },
       images: {
         thumbnail: ["project5/deltahackslogo.jpg", 0],
-        image1: ["project5/demo.jpg", 0],
-        image2: ["project5/demo2.jpg", 0]
+        image1: ["project5/demo.png", 0],
+        image2: ["project5/demo2.png", 0]
       }
     }, 
     PUT: {
