@@ -29,7 +29,7 @@ const InfoCard: React.FC<InfoCardProps> = ({height, width, award}) => {
             }}>
             <div className="info-icon-container" onClick={handleClick}>
                 <div className="info-icon-large">
-                    <img src="/info.svg" alt="info" style={{filter: themeFilter}} />
+                    <img src="/logo/info.svg" alt="info" style={{filter: themeFilter}} />
                 </div>
             </div>
         </div>
