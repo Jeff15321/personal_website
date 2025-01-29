@@ -39,11 +39,11 @@ const Announcement = () => {
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 backgroundColor: '#0A192F',
-                padding: '4vw',
+                padding: '5vw',
                 borderRadius: '1.5rem',
                 border: '1px solid rgba(136, 146, 176, 0.2)',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
-                width: '50vw',
+                width: '60vw',
                 height: 'auto',
                 transition: 'all 0.5s ease',
                 zIndex: 1000,
@@ -59,13 +59,13 @@ const Announcement = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '2.5vw',
+                gap: '2.8vw',
                 width: '100%'
             }}>
                 <h1 style={{
                     color: '#CCD6F6',
                     fontFamily: '"Source Code Pro", monospace',
-                    fontSize: '2.8vw',
+                    fontSize: '3vw',
                     fontWeight: '400',
                     letterSpacing: '0.02em',
                     marginBottom: '0.5vw',
@@ -76,30 +76,26 @@ const Announcement = () => {
                 <div style={{
                     color: '#8892B0',
                     fontFamily: '"Source Code Pro", monospace',
-                    fontSize: '1.4vw',
+                    fontSize: '1.6vw',
                     lineHeight: '1.8',
                     textAlign: 'center',
-                    padding: '3vw',
+                    padding: '3.5vw',
                     background: 'rgba(204, 214, 246, 0.02)',
                     borderRadius: '1rem',
                     width: '100%',
                     border: '1px solid rgba(100, 255, 218, 0.1)',
                     position: 'relative'
                 }}>
-                    Type <span style={{
-                        color: '#64FFDA',
-                        fontWeight: '500'
-                    }}>help</span> in the terminal below to begin your journey.
+                    This portfolio mimics the behaviour of a terminal, it is very easy to use don't worry.
                     <br/>
-                    {/* <span style={{
-                        fontSize: '1.1vw',
-                        display: 'block',
-                        marginTop: '1.5vw',
+                    <span style={{
+                        fontSize: '1.2vw',
                         color: '#8892B0',
-                        fontStyle: 'italic'
+                        display: 'block',
+                        marginTop: '1vw'
                     }}>
-                        For a simplified and automated experience, use the right button below.
-                    </span> */}
+                        (The portfolio is not available for mobile devices)
+                    </span>
                 </div>
             </div>
 
@@ -115,10 +111,10 @@ const Announcement = () => {
                         backgroundColor: 'transparent',
                         border: '1px solid #64FFDA',
                         color: '#64FFDA',
-                        padding: '1.2vw',
+                        padding: '1.3vw',
                         borderRadius: '0.6rem',
                         cursor: 'pointer',
-                        fontSize: '1.2vw',
+                        fontSize: '1.3vw',
                         fontFamily: '"Source Code Pro", monospace',
                         transition: 'all 0.3s ease',
                         letterSpacing: '0.1em',
