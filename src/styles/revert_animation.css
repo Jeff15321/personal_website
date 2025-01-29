@@ -21,7 +21,7 @@
 
 @keyframes revert-max-height {
     to {
-        max-height: 75vh;
+        max-height: 85vh;
     }
 }
 
@@ -38,7 +38,7 @@
   
 @keyframes revert-top-row-height {
     to {
-        flex: 0.5;
+        flex: 0.25;
     }
 }
 
@@ -50,6 +50,6 @@
         max-height: 98vh;
     }
     100% {
-        max-height: 75vh;
+        max-height: 85vh;
     }
 }

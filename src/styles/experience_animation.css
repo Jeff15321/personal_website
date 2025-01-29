@@ -22,10 +22,10 @@
 
 @keyframes expandBentoContainer-home-to-experience {
     from {
-        max-height: 75vh;
+        max-height: 85vh;
     }
     to {
-        max-height: 90vh;
+        max-height: 95vh;
     }
 }
 @keyframes expandBentoContainer-project-to-experience {

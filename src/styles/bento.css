@@ -12,7 +12,7 @@
 .bento-container {
     /* background-color: #000; */
     display: flex;
-    max-height: 75vh;
+    max-height: 85vh;
     max-width: 98vw;
     gap: 1vw;
     flex: 1;
@@ -122,7 +122,7 @@
 
 .h-picture-row-2{
     /* flex: 2; */
-    flex: 0.5;
+    flex: 0.25;
 }
 
 .h-terminal-row-2{
@@ -165,7 +165,7 @@
 
 @keyframes expandBentoContainer {
     from {
-        max-height: 75vh;
+        max-height: 85vh;
     }
     to {
         max-height: 98vh;
