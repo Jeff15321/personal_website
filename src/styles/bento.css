@@ -82,7 +82,7 @@
 .h-music-column-3{
     flex: 1 /*!important*/;
     min-width: 0;
-    max-width: 45%;
+    max-width: 35%;
 }
 
 .h-container-of-video-and-award-3{
@@ -193,7 +193,7 @@
       flex: 0.2;
     }
     to {
-      flex: 2; /* Final flex value when expanded */
+      flex: 2.2; /* Final flex value when expanded */
     }
   }
   
