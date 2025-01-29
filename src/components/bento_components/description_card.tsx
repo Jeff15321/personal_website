@@ -8,12 +8,25 @@ interface DescriptionCardProps {
 }
 
 const DescriptionCard: React.FC<DescriptionCardProps> = ({height, width, project}) => { 
-    const formattedDescription = project.description.split("\n").map((line: string, index: number) => (
-        <React.Fragment key={index}>
-          {line}<br></br>
-          <div style={{height: "1em"}}></div>
-        </React.Fragment>
-      ));
+    const formatDescription = (text: string) => {
+        const lines = text.split("\n");
+        return lines.map((line: string, lineIndex: number) => {
+            // Split by \\ markers
+            const parts = line.split("\\");
+            return (
+                <React.Fragment key={lineIndex}>
+                    {parts.map((part, index) => (
+                        // Every odd-indexed part should be highlighted in red
+                        <span key={index} style={{ color: index % 2 === 1 ? 'red' : 'inherit' }}>
+                            {part}
+                        </span>
+                    ))}
+                    <br />
+                    <div style={{height: "1em"}}></div>
+                </React.Fragment>
+            );
+        });
+    };
 
     return (
         <div className={`parent-container hide-scrollbar ${project.theme[0]}`} style={{height: `${height}%`, width: `${width}%`}}>
@@ -22,7 +35,7 @@ const DescriptionCard: React.FC<DescriptionCardProps> = ({height, width, project
                     {project.name.split("_").join(" ")}
                 </div>
                 <div className="description-content">
-                    {formattedDescription}
+                    {formatDescription(project.description)}
                 </div>
             </div>
         </div>

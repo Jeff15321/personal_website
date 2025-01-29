@@ -17,7 +17,7 @@
 
 .award-text {
     position: relative;
-    font-size: clamp(0.8rem, 1.3vw, 2.5rem);  /* Responsive font size */
+    font-size: clamp(0.8rem, 1.8vw, 2.5rem);  /* Responsive font size */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
