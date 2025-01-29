@@ -22,14 +22,16 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
   const { tabInput, setTabInput } = useTabInput();
   const { animation, setAnimation } = useAnimation();
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("help");
   const [history, setHistory] = useState<[React.ReactNode, boolean][]>([]);
-  const [historyInput, setHistoryInput] = useState<string[]>([]);
+  const [historyInput, setHistoryInput] = useState<string[]>([""]);
   const [historyInputCounter, setHistoryInputCounter] = useState(0);
   const [first_tab_checker, setFirstTabChecker] = useState(true);
   const { rapidInputCounter, setRapidInputCounter } = useRapidChecker();
 
   const { isAboutMe, setIsAboutMe } = useIsAboutMe();
+
+  const initialSubmitDone = useRef(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLDivElement>) => {
     //update input value
@@ -112,7 +114,7 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
 
     if (input === "help") {
       output = [
-      ["Type the red text in the terminal or manually click on the text to launch the commands!\n(You can press Tab to autocomplete and Up Arrow to see previous commands👍)", "red"], 
+      ["Type the red text in the terminal or manually click on the text to launch the commands! (remember to press Enter to submit)", "red"], 
         ["\u00A0\u00A0\u00A0\u00A0about-me: learn about me!", "about-me"],
         ["\u00A0\u00A0\u00A0\u00A0experience: my software and leadership roles!", "experience"],
         ["\u00A0\u00A0\u00A0\u00A0project: mostly hackathon winners!", "project"],
@@ -302,12 +304,21 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
     );
   };
 
+  // Modify the submit useEffect
+  useEffect(() => {
+    if (!initialSubmitDone.current) {
+      handleSubmit();
+      initialSubmitDone.current = true;
+    }
+  }, []);
+
+  // Keep the existing useEffect for focus handling
   useEffect(() => {
     //always focus on terminal input
     inputRef.current?.focus();
     const interval = setInterval(() => {
         inputRef.current?.focus();
-    },100);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
