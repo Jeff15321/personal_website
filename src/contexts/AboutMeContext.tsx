@@ -14,12 +14,12 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
         1: {
             1: {
                 title: "University of Toronto",
-                description: "Computer Science\nCurrent CGPA: 4.0\nLast Updated: 2024/12/21",
+                description: "Computer Science\nCurrent CGPA: 4.0",
                 link: "about-me/jeff/uoft.jpg",
             },
             2: {
                 title: "Full Stack Developer",
-                description: "Most comfortable using MERN stack (MongoDB, Express, React, Node.js\\Next.js)",
+                description: "Most comfortable using MERN stack (MongoDB, Express, React, Node.js)",
                 link: "about-me/rocky/rocky1.JPG",
             },
         },
