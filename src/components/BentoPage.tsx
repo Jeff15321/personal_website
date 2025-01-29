@@ -95,8 +95,8 @@ const ANIMATION_STATES: AnimationStates = {
             "h-music-column-3": "animation show-card-fourth-right song-shift-right",
             "h-container-of-video-and-award-3": "overflow-visible",
                 "h-award-4": "animation show-card-first song-shift-right",
-                "h-award-5": "default",
-                "h-info-5": "default",
+                "h-award-5": "show-card-first",
+                "h-info-5": "show-card-last",
                 "h-video-4": "animation show-card-third-bottom song-shift-right",
     //bottom row on left column
         "h-bottom-row-2": "overflow-visible",
