@@ -64,7 +64,7 @@
 }
 
 .h-column-right-1{
-    flex: 0.9 !important;
+    flex: 0.9 /*!important*/;
     min-width: 0;
 }
 
@@ -80,33 +80,33 @@
 }
 
 .h-music-column-3{
-    flex: 1 !important;
+    flex: 1 /*!important*/;
     min-width: 0;
     max-width: 45%;
 }
 
 .h-container-of-video-and-award-3{
-    flex: 1 !important;
+    flex: 1 /*!important*/;
     min-width: 0;
     max-width: 100%;
     min-height: 0;
 }
 
 .h-award-4{
-    flex: 0.15 !important;
-    min-height: 11vh !important;
+    flex: 0.15 /*!important*/;
+    min-height: 11vh /*!important*/;
 }
 
 .h-info-5{
-    flex: 1 !important;
+    flex: 1 /*!important*/;
 }
 
 .h-award-5{
-    flex: 4 !important;
+    flex: 4 /*!important*/;
 }
 
 .h-video-4{
-    flex: 4 !important;
+    flex: 4 /*!important*/;
     min-height: 0;
 }
 
