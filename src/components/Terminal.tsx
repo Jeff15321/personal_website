@@ -199,9 +199,9 @@ const Terminal: React.FC<TerminalProps> = ({ height, width }) => {
         ["Hey did you remember to connect with me on linkedin? If not do it now! 😠",""],
       ];
     } else if (input === 'resume') {
-      window.open("https://www.canva.com/design/DAGRikqvQqA/QQ_-nwEnHwYnqMCMtDH33w/edit?utm_content=DAGRikqvQqA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton", "_blank");
+      window.open("https://www.overleaf.com/read/rdtfftsjwhsq#ddf4f5", "_blank");
       output = [
-        ["Yes... I wrote my resume in Canva... stop judging... 🙄",""],
+        ["Here you go~ 😊",""],
       ];
     } else if (input === "devpost") {
       window.open("https://devpost.com/jeff-lu234?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav", "_blank");
