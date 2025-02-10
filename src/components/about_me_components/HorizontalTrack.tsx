@@ -29,7 +29,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
             track.animate(
                 {
-                    transform: `translate(calc(${nextPercentage * 5/6}% + 50vw - 20vmin), -50%)`,
+                    transform: `translate(calc(${nextPercentage }% + 50vw - 20vmin), -50%)`,
                 },
                 { duration: 1200, fill: "forwards" }
             );
@@ -119,7 +119,7 @@ const HorizontalTrack: React.FC<HorizontalTrackProps> = ({ setImageIndex }) => {
 
                 track.animate(
                     {
-                        transform: `translate(calc(${percentage * 5/6}% + 50vw - 20vmin), -50%)`,
+                        transform: `translate(calc(${percentage * 5/6}% + 50vw - 20vmin + 4vmin * ${imageId - 1}), -50%)`,
                     },
                     { 
                         duration: 800,
