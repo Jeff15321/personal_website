@@ -22,6 +22,11 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
                 description: "Most comfortable using MERN stack (MongoDB, Express, React, Node.js)",
                 link: "about-me/rocky/rocky1.JPG",
             },
+           3: {
+                title: "2024-09",
+                description: "University of Toronto Formula Racing Team - Driverless Perception Developer",
+                link: "about-me/sports/utfr.jpg"  
+            }
         },
         2: {
             1: {
@@ -73,26 +78,21 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
                 link: "about-me/sports/tuba3.JPG"  
             },
             2: {
-                title: "2024-09",
-                description: "University of Toronto Formula Racing Team - Driverless Perception Team Member",
-                link: "about-me/sports/utfr.jpg"  
-            },
-            3: {
                 title: "2023-10",
                 description: "Board 3 on ACI chess team",
                 link: "about-me/sports/chess1.jpeg"  
             },
-            4: {
+            3: {
                 title: "2024-10",
                 description: "TUBA when jersies finally arrived",
                 link: "about-me/sports/tuba2.png"  
             },
-            5: {
+            4: {
                 title: "2023-09",
                 description: "2nd Place at 2023 Birchmount Chess Tournament",
                 link: "about-me/sports/chess2.jpeg"  
             },
-            6: {
+            5: {
                 title: "2024-02",
                 description: "3rd Place at 2024 Birchmount Chess Tournament",
                 link: "about-me/sports/chess3.jpeg"
