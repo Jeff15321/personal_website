@@ -6,7 +6,7 @@
     position: absolute;
     top: 50%;
     width: calc(56vmin * 6 + 4vmin * 5);
-    transform: translate(calc(50vw - 20vmin), -50%);
+    transform: translate(calc(50vw - (40vmin + 4vmin * 2)), -50%);
     will-change: transform;
     width: auto; /* Allow horizontal scrolling */
 }
@@ -113,7 +113,7 @@
 }
 
 .horizontal-to-verticle-image-wrapper {
-    animation: horizontal-verticle-image-wrapper 1000ms forwards;
+    animation: horizontal-verticle-image-wrapper 1000ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes horizontal-verticle-image-wrapper {
@@ -135,15 +135,16 @@
 }
 
 .horizontal-to-verticle-image {
-    animation: horizontal-to-verticle-image 1000ms forwards;
+    will-change: transform, width, height;
+    animation: horizontal-to-verticle-image 1000ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes horizontal-to-verticle-image {
     0% {
         opacity: 1;
+        margin-left: 0;
         width: 40vmin;
         height: 56vmin;
-        position: relative;
     }
     100% {
         opacity: 1;
@@ -151,7 +152,6 @@
         width: 60vw;
         height: 100%;
         object-fit: cover;
-        /* object-position: 100% 50%; */
     }
 }
 
@@ -169,7 +169,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    animation: horizontal-to-verticle-image-content-wrapper 380ms forwards 0.7s;
+    animation: horizontal-to-verticle-image-content-wrapper 400ms forwards 0.8s;
 }
 
 @keyframes horizontal-to-verticle-image-content-wrapper {
@@ -185,7 +185,7 @@
 
 .horizontal-to-verticle-image-content-wrapper h2,
 .horizontal-to-verticle-image-content-wrapper p {
-    animation: content-opacity 380ms forwards 0.7s;
+    animation: content-opacity 400ms forwards 0.8s;
 }
 
 @keyframes content-opacity {
@@ -203,8 +203,12 @@
 }
 
 .horizontal-to-verticle-image-track-animation {
+    will-change: transform, opacity, width, height;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    perspective: 1000px;
     transform: translateX(10%);
-    animation: horizontal-to-verticle-image-track-animation 2200ms forwards;
+    animation: horizontal-to-verticle-image-track-animation 2200ms cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
 
 @keyframes horizontal-to-verticle-image-track-animation {
@@ -213,46 +217,34 @@
         position: fixed;
         top: calc(50% - 28vmin);
         left: calc(50% - 20vmin);
-    }
-    36% {
-        opacity: 1;
-        top: 10%;
-        left: 5%;
-        gap: 4vmin;
-        position: absolute;
-        width: 70vw;
-        height: calc(60vmin);
-        transform: translateX(10%);
+        transform: translateX(0) translateZ(0);
     }
     52% {
         opacity: 1;
+        position: fixed;
         top: 10%;
         left: 5%;
-        gap: 4vmin;
-        position: absolute;
         width: 70vw;
         height: calc(60vmin);
-        transform: translateX(0%);
+        transform: translateX(0) translateZ(0);
     }
     99% {
         opacity: 1;
+        position: fixed;
         top: 10%;
         left: 5%;
-        gap: 4vmin;
-        position: absolute;
         width: 70vw;
         height: calc(60vmin);
-        transform: translateX(0%);
+        transform: translateX(0) translateZ(0);
     }
     100% {
         opacity: 0;
+        position: fixed;
         top: 10%;
         left: 5%;
-        gap: 4vmin;
-        position: absolute;
         width: 70vw;
         height: calc(60vmin);
-        transform: translateX(0%);
+        transform: translateX(0) translateZ(0);
     }
 }
 
@@ -349,4 +341,20 @@
     gap: 0.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-transform: uppercase;
+}
+
+.horizontal-to-verticle-image-track-animation {
+    will-change: transform, opacity, width, height;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateX(10%);
+    animation: horizontal-to-verticle-image-track-animation 2200ms cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+.horizontal-to-verticle-image {
+    will-change: transform;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
