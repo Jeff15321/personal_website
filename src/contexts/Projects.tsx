@@ -60,20 +60,21 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project4/demo.mp4", -2]
       }
     }, 
-    Time_Table_Sweetie: {
-      name: "Time_Table_Sweetie",
-      theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
-      description: `Built an AI schedule planning companion in \\React\\ and \\Flask\\ that creates the user’s schedule through casual dialogue. \nUsed \\LangChain\\ to parse dialogue history to learn user’s preferences and build a companion with memory.`,
-      languages: ["react", "python", "node","html","css", "sql"],
-      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
+    
+    Watts_Up: {
+      name: "Watts_Up",
+      theme: ["lavender-mint", "purple-border", "invert(85%) sepia(18%) saturate(1042%) hue-rotate(202deg) brightness(97%) contrast(96%)"],
+      description: `Developed a smart mobile booking assistant using \\React\\, \\Express\\, and \\Django\\ that allows users to search, compare, book, and navigate to charging stations via an intuitive UI panel or through voice interaction. \nConstructed an AI preference algorithm using \\Python\\ and \\TensorFlow\\ that learns from user’s previous decisions to display the most ideal options.`,
+      languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
+      award: ["logo/environmentalaward.png", "Best Environmental", "award-environment"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
-        devpost: "https://devpost.com/software/timetable-sweetie"
+        devpost: "https://devpost.com/software/watts-up"
       },
       images: {
-        thumbnail: ["project1/hackthehill.png", 0],
-        image1: ["project1/timetablesweetie_popup.jpg", 20],
-        image2: ["project1/timetablesweetie_video.mp4", 25]
+        thumbnail: ["project5/deltahackslogo.jpg", 0],
+        image1: ["project5/demo.png", 0],
+        image2: ["project5/demo2.png", 0]
       }
     }, 
     Anti_Tetris: {
@@ -92,21 +93,20 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project3/maingame.jpg", 0]
       }
     },
-    
-    Watts_Up: {
-      name: "Watts_Up",
-      theme: ["lavender-mint", "purple-border", "invert(85%) sepia(18%) saturate(1042%) hue-rotate(202deg) brightness(97%) contrast(96%)"],
-      description: `Developed a smart mobile booking assistant using \\React\\, \\Express\\, and \\Django\\ that allows users to search, compare, book, and navigate to charging stations via an intuitive UI panel or through voice interaction. \nConstructed an AI preference algorithm using \\Python\\ and \\TensorFlow\\ that learns from user’s previous decisions to display the most ideal options.`,
-      languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
-      award: ["logo/environmentalaward.png", "Best Environmental", "award-environment"],
+    Time_Table_Sweetie: {
+      name: "Time_Table_Sweetie",
+      theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
+      description: `Built an AI schedule planning companion in \\React\\ and \\Flask\\ that creates the user’s schedule through casual dialogue. \nUsed \\LangChain\\ to parse dialogue history to learn user’s preferences and build a companion with memory.`,
+      languages: ["react", "python", "node","html","css", "sql"],
+      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
-        devpost: "https://devpost.com/software/watts-up"
+        devpost: "https://devpost.com/software/timetable-sweetie"
       },
       images: {
-        thumbnail: ["project5/deltahackslogo.jpg", 0],
-        image1: ["project5/demo.png", 0],
-        image2: ["project5/demo2.png", 0]
+        thumbnail: ["project1/hackthehill.png", 0],
+        image1: ["project1/timetablesweetie_popup.jpg", 20],
+        image2: ["project1/timetablesweetie_video.mp4", 25]
       }
     }, 
     PUT: {
