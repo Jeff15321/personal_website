@@ -37,15 +37,6 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 • Dedicated \\20+ hours\\ per week to motivate level 1-10 students to prepare for the Royal Conservatory Classical Guitar Examination. Prepared \\15+\\ students for Royal Conservatory exams, achieving a pass rate of over \\95%\\.
 • Wrote over \\30\\ guitar covers and tutorialsof popular music from student's requests`
     ],
-    [   
-        "07/2023 - 04/2024",
-        "International Public Health Internship", 
-        "Workshop Team Lead", 
-        `
-• Led a group of \\5 student researchers\\ and conducted comprehensive research on prevalent health issues in Nigeria relating to Marasmus
-• Implemented \\3 workshops\\ in Nigeria about Marasmus health education that benefited over \\140 locals\\
-• Conducted weekly meetings with local health instructors to organize events and learn about pressing local health concerns`
-    ],
     [
         "09/2023 - 06/2024",
         "Agincourt C.I.", 
