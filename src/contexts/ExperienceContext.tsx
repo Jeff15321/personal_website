@@ -22,6 +22,14 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 • Implemented custom drivers, rectifying functions, and corrected camera publisher nodes in \\ROS\\ to implement fish eye lens integration that allowed \\160-degree FOV\\ coverage.`
     ],
     [
+        "01/2025 - Present",
+        "Lovelytics", 
+        "Full stack and LLM Developer", 
+        `
+• Developed an aesthetically pleasing homepage using \\React\\ and \\TypeScript\\.
+• Utilized \\LangChain\\ and \\DSPy\\ for LLM optimization and customization based on client requirements.`
+    ],
+    [
         "09/2022 - 06/2024",
         "Sonata Music", 
         "Guitar Teacher", 
