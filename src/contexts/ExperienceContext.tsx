@@ -17,33 +17,19 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         "UofT Formula Racing Team", 
         "Perception Build Team", 
         `
-• Improved perception processing time by \\91%\\ by refracting \\2000+\\ lines of \\Python\\ code into \\C++\\ and vectorized serialized calculations using \\Numpy\\, \\Eigen\\, and \\OpenCV\\. Translated to a \\4.6 km/h\\ increase during the test run.
-• Improved cone detection accuracy by \\23%\\ by tuning the Hungarian Algorithm's cost functions by optimizing weight parameters for spatial proximity and detection confidence based on camera and LIDAR detections from \\80+ ROS bags\\.
-• Implemented custom drivers, rectifying functions, and corrected camera publisher nodes in \\ROS\\ to implement fish eye lens integration that allowed \\160-degree FOV\\ coverage.`
+• Refactored \\2,000+\\ lines of \\Python\\ perception code to \\C++\\ and vectorized computations using \\NumPy\\, \\Eigen\\, and \\OpenCV\\, reducing processing time by \\91%\\ and increasing driverless speed by \\7.2 km/h\\.
+• Optimized the Hungarian Algorithm’s parameters using LIDAR and camera data from over \\80 ROS bags\\, achieving \\83%\\ accuracy in cone detections—\\23%\\ improvement compared to past test drives.
+• Developed custom ROS drivers and rectification functions for fisheye lens integration, achieving \\160-degree FOV\\, which significantly improved obstacle avoidance and vehicle navigation on narrow tracks.`
     ],
     [
         "01/2025 - Present",
         "Lovelytics", 
         "Full stack and LLM Developer", 
         `
-• Developed an aesthetically pleasing homepage using \\React\\ and \\TypeScript\\.
-• Utilized \\LangChain\\ and \\DSPy\\ for LLM optimization and customization based on client requirements.`
-    ],
-    [
-        "09/2022 - 06/2024",
-        "Sonata Music", 
-        "Guitar Teacher", 
-        `
-• Dedicated \\20+ hours\\ per week to motivate level 1-10 students to prepare for the Royal Conservatory Classical Guitar Examination. Prepared \\15+\\ students for Royal Conservatory exams, achieving a pass rate of over \\95%\\.
-• Wrote over \\30\\ guitar covers and tutorialsof popular music from student's requests`
-    ],
-    [
-        "09/2023 - 06/2024",
-        "Agincourt C.I.", 
-        "DECA Chapter Founding President", 
-        `
-• Led a group of \\11 executives\\ in planning \\10+\\ DECA competition workshops and business strategy lectures. Each event averaged \\42\\ attendees and generated \\$100+\\ in sales from food and merchandise sold at the events.
-• Gained \\80+ active members\\, collected \\$3000+\\ club funds in the first 2 months, and trained \\40+\\ members, leading to \\15+\\ regional awards in the club’s first year.`
+• Developed a multi-agent system with \\Python\\, \\Databricks\\, \\LangChain\\, and \\LangGraph\\ to automate the generation of business reports and documentation of \\5,000+\\ words.
+• Reduced LLM task completion time from \\50\\ to \\17\\ seconds through parallel subtask execution and model routing.
+• Designed a scalable web application using \\FastAPI\\ and \\React\\, implementing RESTful APIs to enable efficient communication between various ML models, databases, and the client interface.
+• Built a RAG content generation pipeline with contextual document retrieval, improving output accuracy by \\30%\\.`
     ]
 ]);
 

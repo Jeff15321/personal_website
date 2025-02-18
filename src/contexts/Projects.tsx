@@ -47,8 +47,8 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     TWIRL: {
       name: "TWIRL",
       theme: ["blue-steel", "navy-border", "invert(45%) sepia(12%) saturate(2458%) hue-rotate(187deg) brightness(94%) contrast(84%)"],
-      description: `Developed an AI \\CAD\\-generating editor that allows users with no technical background to generate, edit, and 3D print models through text prompts or by providing reference images. \nDesigned the editing tools using \\React\\ and \\TypeScript\\, handled API requests through \\FastAPI\\, parsed prompts through \\LangChain\\, and stored data through \\Supabase\\. \nDeveloped an AI agent with a processing speed of under \\20 seconds\\ which is \\15% faster\\ than industry benchmarks, leveraging an end-to-end pipeline with Bing’s image search for visual analysis and enabling precise customization by breaking down models into editable components.`,
-      languages: ["react","python", "node", "sql", "langchain", "fastapi"],
+      description: `Developed an AI \\CAD\\ modeling agent that generates and edits 3D print models through natural language or images. \nEnabled real-time model rendering and customization via interactive sliders and text input using \\React\\ and \\Typescript\\.\nBuilt and deployed an AI workflow using \\FastAPI\\, \\LangChain\\, and \\Supabase\\ with processing speed of \\<20 seconds\\.\nOptimized generation accuracy by leveraging an end-to-end pipeline with Bing’s image search API for visual analysis.`,
+      languages: ["react", "next", "python", "fastapi", "node", "sql", "langchain"],
       award: ["logo/secondplace.png", "Second Place", "award-silver"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
@@ -64,8 +64,8 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     Watts_Up: {
       name: "Watts_Up",
       theme: ["lavender-mint", "purple-border", "invert(85%) sepia(18%) saturate(1042%) hue-rotate(202deg) brightness(97%) contrast(96%)"],
-      description: `Developed a smart mobile booking assistant using \\React\\, \\Express\\, and \\Django\\ that allows users to search, compare, book, and navigate to charging stations via an intuitive UI panel or through voice interaction. \nConstructed an AI preference algorithm using \\Python\\ and \\TensorFlow\\ that learns from user’s previous decisions to display the most ideal options.`,
-      languages: ["react", "javascript","python", "node", "express","html","css", "sql"],
+      description: `Developed a smart mobile booking assistant using \\React\\ and \\Django\\, enabling users to search, compare, and book charging stations through an intuitive user interface.\nIntegrated voice command functionality, allowing users to navigate the application via natural language interactions.\nDeveloped an AI recommendation system with \\Python\\ and \\LangChain\\, learning user preferences to suggest optimal charging stations with \\95%\\ accuracy.`,      
+      languages: ["react", "javascript","python", "django","node", "express","tailwindcss"],
       award: ["logo/environmentalaward.png", "Best Environmental", "award-environment"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
@@ -80,7 +80,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     Anti_Tetris: {
       name: "Anti_Tetris",
       theme: ["purple-dark", "purple-border","invert(13%) sepia(85%) saturate(7466%) hue-rotate(276deg) brightness(82%) contrast(122%)"],
-      description: `Created a two-player Tetris game using \\React\\ and \\JavaScript\\ that allows players to send unique cyberattack abilities through \\Web-Socket\\ to punish their opponents, meanwhile educating players based on cyberattack prevention through unique interactions. \\100%\\ of users passed our AI generated cyberattack awareness quizzes after playtesting`,
+      description: `Developed a two-player Tetris game using \\React\\ and \\JavaScript\\ utilizing browser-based timers to update game states.\nDesigned unique cyberattack abilities through \\Web-Socket\\ that allowed users to punish their opponents while educating players on cybersecurity knowledge.`,
       languages: ["react", "javascript", "node", "express","html","css"],
       award: ["logo/firstplace.png", "First Place", "award-gold"],
       links: {
@@ -96,8 +96,8 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     Time_Table_Sweetie: {
       name: "Time_Table_Sweetie",
       theme: ["orange-pink", "orange-border", "invert(31%) sepia(94%) saturate(747%) hue-rotate(-10deg) brightness(85%) contrast(100%)"],
-      description: `Built an AI schedule planning companion in \\React\\ and \\Flask\\ that creates the user’s schedule through casual dialogue. \nUsed \\LangChain\\ to parse dialogue history to learn user’s preferences and build a companion with memory.`,
-      languages: ["react", "python", "node","html","css", "sql"],
+      description: `Built an AI schedule planning companion in \\React\\ and \\Flask\\ that creates the user’s schedule through natural language.\nUsed \\LangChain\\ and \\DSPy\\ to parse dialogue history and learn user preferences, creating personalized interactions.`,
+      languages: ["react", "python", "django", "node","html","css", "sql"],
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
@@ -112,7 +112,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     PUT: {
       name: "PUT",
       theme: ["charcoal-mint", "emerald-border", "invert(45%) sepia(82%) saturate(853%) hue-rotate(115deg) brightness(88%) contrast(84%)"],
-      description: "Allowed users to save files to the cloud in \\2 clicks\\ through a Chrome file management extension with an average upload speed of \\42 MB/s\\, which was \\20% faster\\ than Google Drive’s upload speed from conducting 20+ test runs. \nEnsured file upload efficiency and security using the \\TUS protocol\\, \\Cloudflare Workers\\ for smart sorting, \\minIO\\ for modular data storage, and a dashboard built using \\React\\ and \\TypeScript\\ dashboard.",
+      description: `Enabled users to save files to the cloud through an efficient \\2-click\\ process using a Chrome file management extension.\nOptimized file uploads with \\TUS protocol\\, \\Cloudflare Workers\\ (smart sorting), and \\minIO\\ (modular storage), achieving \\42 MB/s\\ average upload speed (\\20%\\ faster than Google Drive).`,
       languages: ["typescript", "python", "html","css","next"],
       award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
       links: {
