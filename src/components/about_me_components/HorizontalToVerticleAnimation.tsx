@@ -1,4 +1,4 @@
-import { useAboutMe } from "@/src/contexts/AboutMeContext";
+import { useAboutMe } from "@/src/contexts/contents/AboutMeContext";
 import { useEffect, useState } from "react";
 
 interface HorizontalToVerticleAnimationProps {

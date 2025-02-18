@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAboutMe } from "../../contexts/AboutMeContext";
+import { useAboutMe } from "../../contexts/contents/AboutMeContext";
 import { useAboutMeHomePageState } from "../../contexts/AboutMeHomePageState";
 
 interface VerticleTrackProps {

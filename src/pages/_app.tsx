@@ -20,11 +20,11 @@ import "../styles/award.css";
 import type { AppProps } from "next/app";
 import { TabCounterProvider } from "../contexts/TabCounterContext"; // Adjust the import path if necessary
 import { TabInputProvider } from "../contexts/TabInputContext";
-import { ProjectsProvider } from "../contexts/Projects";
+import { ProjectsProvider } from "../contexts/contents/Projects";
 import { AnimationProvider } from "../contexts/AnimateContext";
 import { RapidCheckerProvider } from "../contexts/RapidChecker";
-import { ExperienceProvider } from "../contexts/ExperienceContext";
-import { AboutMeProvider } from "../contexts/AboutMeContext";
+import { ExperienceProvider } from "../contexts/contents/ExperienceContext";
+import { AboutMeProvider } from "../contexts/contents/AboutMeContext";
 import { AboutMeHomePageStateProvider } from "../contexts/AboutMeHomePageState";
 import { IsAboutMeContextProvider } from "../contexts/IsAboutMeContext";
 

@@ -23,7 +23,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
                 link: "about-me/sports/utfr.jpg"  
             },
             3: {
-                title: "2025-01",
+                title: "2024-12",
                 description: "Lovelytics - Full Stack and LLM Developer",
                 link: "about-me/jeff/lovelytics.jpg"
             },

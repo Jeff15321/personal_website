@@ -1,5 +1,5 @@
 import React from "react";
-import { useExperience } from "../contexts/ExperienceContext";
+import { useExperience } from "../contexts/contents/ExperienceContext";
 
 export default function Experience() {
   const { experience } = useExperience();

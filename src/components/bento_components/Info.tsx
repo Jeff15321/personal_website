@@ -1,5 +1,5 @@
 import React from "react";
-import { useProjects } from "../../contexts/Projects";
+import { useProjects } from "../../contexts/contents/Projects";
 
 interface InfoCardProps {
     height: number;

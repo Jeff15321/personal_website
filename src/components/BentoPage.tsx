@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Terminal from '../components/Terminal';
 import DescriptionCard from '../components/bento_components/description_card';
 import PictureCard from '../components/bento_components/picture_card';
-import { useProjects } from '../contexts/Projects';
+import { useProjects } from '../contexts/contents/Projects';
 import AwardCard from '../components/bento_components/award';
 import LanguageCard from '../components/bento_components/language';
 import Music from './bento_components/Music';

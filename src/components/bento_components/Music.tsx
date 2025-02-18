@@ -1,6 +1,6 @@
 import React from "react";
 import { useAnimation } from "../../contexts/AnimateContext";
-import { useProjects } from "../../contexts/Projects";
+import { useProjects } from "../../contexts/contents/Projects";
 
 interface MusicCardProps {
     height: number;
