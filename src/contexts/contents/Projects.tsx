@@ -48,7 +48,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       name: "TWIRL",
       theme: ["blue-steel", "navy-border", "invert(45%) sepia(12%) saturate(2458%) hue-rotate(187deg) brightness(94%) contrast(84%)"],
       description: `Developed an AI \\CAD\\ modeling agent that generates and edits 3D print models through natural language or images. \nEnabled real-time model rendering and customization via interactive sliders and text input using \\React\\ and \\Typescript\\.\nBuilt and deployed an AI workflow using \\FastAPI\\, \\LangChain\\, and \\Supabase\\ with processing speed of \\<20 seconds\\.\nOptimized generation accuracy by leveraging an end-to-end pipeline with Bing’s image search API for visual analysis.`,
-      languages: ["react", "next", "python", "fastapi", "node", "sql", "langchain"],
+      languages: ["react", "next", "python", "fastapi", "node", "sql", "langchain", "tailwindcss"],
       award: ["logo/secondplace.png", "Second Place", "award-silver"],
       links: {
         Github: "https://github.com/enxilium/cyberattacker_tetris",
