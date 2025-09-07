@@ -17,17 +17,17 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
                 description: "Computer Science\nCurrent CGPA: 4.0",
                 link: "about-me/jeff/uoft.jpg",
             },
+            // 2: {
+            //     title: "2024-09",
+            //     description: "University of Toronto Formula Racing Team - Driverless Perception Developer",
+            //     link: "about-me/sports/utfr.jpg"  
+            // },
+            // 3: {
+            //     title: "2024-12",
+            //     description: "Lovelytics - Full Stack and LLM Developer",
+            //     link: "about-me/jeff/lovelytics.jpg"
+            // },
             2: {
-                title: "2024-09",
-                description: "University of Toronto Formula Racing Team - Driverless Perception Developer",
-                link: "about-me/sports/utfr.jpg"  
-            },
-            3: {
-                title: "2024-12",
-                description: "Lovelytics - Full Stack and LLM Developer",
-                link: "about-me/jeff/lovelytics.jpg"
-            },
-            4: {
                 title: "Full Stack Developer",
                 description: "Most comfortable using MERN stack (MongoDB, Express, React, Node.js)",
                 link: "about-me/rocky/rocky1.JPG",
