@@ -36,7 +36,7 @@
 }
 
 .award-gold {
-    background: linear-gradient(135deg, #FFD700, #FFAA00); /* Gold gradient */
+    background: linear-gradient(135deg, #C78500FF, #FFD700); /* Gold gradient */
     padding: 20px; /* Padding for the container */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     text-align: center; /* Center text */

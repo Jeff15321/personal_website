@@ -43,10 +43,26 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       images: { [key: string]: [string, number] };
     };
   }>({
+    Stu3dio: {
+      name: "Stu3dio",
+      theme: ["blue-steel", "navy-border", "invert(45%) sepia(12%) saturate(2458%) hue-rotate(187deg) brightness(94%) contrast(84%)"],
+      description: `Built a movie agent producing \\2-hour films in under 10 minutes\\ using parallelized generation between independent scenes.\nDesigned a \\tree-based context engine\\ with hierarchical dependencies and parent node data inheritance using \\PostgreSQL\\.\nImplemented a \\context injection system\\ with token preprocessing for consistent character and object generation.\nBuilt a \\distributed job queue\\ using \\BullMQ\\ and \\Redis\\, enabling \\20+ concurrent AI generation requests\\ in worker agents.`,
+      languages: ["react", "next", "python", "fastapi", "node", "sql", "langchain", "tailwindcss"],
+      award: ["logo/firstplace.png", "First Place", "award-gold"],
+      links: {
+        Github: "https://github.com/Jeff15321/Stu3dio-HackTheNorth2025",
+        devpost: "https://devpost.com/software/vibe-director"
+      },
+      images: {
+        thumbnail: ["project6/hackthenorthlogo.png", 0],
+        image1: ["project6/header.png", 0],
+        image2: ["project6/demo.mp4", -2]
+      }
+    }, 
     TWIRL: {
       name: "TWIRL",
       theme: ["blue-steel", "navy-border", "invert(45%) sepia(12%) saturate(2458%) hue-rotate(187deg) brightness(94%) contrast(84%)"],
-      description: `Developed \\one of the first\\ AI \\CAD\\ model generation and editing agents from natural language and images.\nEnabled real-time model rendering and customization via interactive UI and text input using \\React\\ and \\Next.js\\.\nBuilt an end-to-end pipeline using \\FastAPI\\, \\LangChain\\, and \\Supabase\\ with processing speed of \\<20 seconds\\.`,
+      description: `Developed the first AI \\CAD\\ model generation and editing agent from natural language and images.\nEnabled real-time model rendering and customization via interactive UI and text input using \\React\\ and \\Next.js\\.\nBuilt an end-to-end AI pipeline using \\FastAPI\\, \\LangChain\\, and \\Supabase\\ with processing speed of \\<20 seconds\\.`,
       languages: ["react", "next", "python", "fastapi", "node", "sql", "langchain", "tailwindcss"],
       award: ["logo/secondplace.png", "Second Place", "award-silver"],
       links: {
@@ -59,7 +75,23 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project4/demo.mp4", -2]
       }
     }, 
-    
+    PUT: {
+      name: "PUT",
+      theme: ["charcoal-mint", "emerald-border", "invert(45%) sepia(82%) saturate(853%) hue-rotate(115deg) brightness(88%) contrast(84%)"],
+      description: `Built a Chrome file management extension that saves files to the cloud through an efficient \\2-click\\ process.\nOptimized file uploads using \\TUS\\ protocol, \\Cloudflare Workers\\ for smart sorting, and \\minIO\\, achieving an average upload speed of \\43 MB/s\\ — \\23% faster than Google Drive\\.`,
+      languages: ["typescript", "python", "html","css","next"],
+      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
+      links: {
+        Github: "https://github.com/JasonLovesDoggo/htv_2024",
+        devpost: "https://devpost.com/software/put-owb4qj"
+      },
+      images: {
+        thumbnail: ["project2/hackthevalley.jpg", 0],
+        image1: ["project2/sidebar.png", 40],
+        image2: ["project2/table.jpg", 5]
+      }
+    },
+
     Watts_Up: {
       name: "Watts_Up",
       theme: ["lavender-mint", "purple-border", "invert(85%) sepia(18%) saturate(1042%) hue-rotate(202deg) brightness(97%) contrast(96%)"],
@@ -108,22 +140,6 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         image2: ["project1/timetablesweetie_video.mp4", 25]
       }
     }, 
-    PUT: {
-      name: "PUT",
-      theme: ["charcoal-mint", "emerald-border", "invert(45%) sepia(82%) saturate(853%) hue-rotate(115deg) brightness(88%) contrast(84%)"],
-      description: `Built a Chrome file management extension that can save files to the cloud through an efficient \\2-click\\ process.\nOptimized file uploads with \\TUS\\ protocol, \\Cloudflare Workers\\ (smart sorting), and \\minIO\\ (modular storage), achieving \\43 MB/s\\ average upload speed (\\23%\\ faster than Google Drive).`,
-      languages: ["typescript", "python", "html","css","next"],
-      award: ["logo/thirdplace.png", "Third Place", "award-bronze"],
-      links: {
-        Github: "https://github.com/JasonLovesDoggo/htv_2024",
-        devpost: "https://devpost.com/software/put-owb4qj"
-      },
-      images: {
-        thumbnail: ["project2/hackthevalley.jpg", 0],
-        image1: ["project2/sidebar.png", 40],
-        image2: ["project2/table.jpg", 5]
-      }
-    }
   });
 
   return (
