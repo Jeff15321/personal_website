@@ -15,7 +15,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             1: {
                 title: "University of Toronto",
                 description: "Computer Science\nCurrent CGPA: 4.0",
-                link: "about-me/jeff/uoft.jpg",
+                link: "about-me/jeff/uoft.JPG",
             },
             // 2: {
             //     title: "2024-09",
@@ -63,7 +63,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             6: {
                 title: "2024-10",
                 description: "1st Place General Award at New Hacks", 
-                link: "about-me/competitions/newhacks.jpg"
+                link: "about-me/competitions/newhacks.JPG"
             },
             7: {
                 title: "2024-04",
@@ -86,7 +86,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             1: {
                 title: "2025-10",
                 description: "TUBA(University of Toronto Open Ultimate Frisbee) at 2025 Nationals",
-                link: "about-me/sports/tuba5.JPG"  
+                link: "about-me/sports/tuba5.jpg"  
             },
             2: {
                 title: "2025-10",
