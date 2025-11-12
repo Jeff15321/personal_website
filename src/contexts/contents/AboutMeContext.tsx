@@ -63,7 +63,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             6: {
                 title: "2024-10",
                 description: "1st Place General Award at New Hacks", 
-                link: "about-me/competitions/newhacks.JPG"
+                link: "about-me/competitions/newhacks.jpg"
             },
             7: {
                 title: "2024-04",
