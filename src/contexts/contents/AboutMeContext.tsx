@@ -15,7 +15,7 @@ export const AboutMeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             1: {
                 title: "University of Toronto",
                 description: "Computer Science\nCurrent CGPA: 4.0",
-                link: "about-me/jeff/uoft.JPG",
+                link: "about-me/jeff/uoft.jpg",
             },
             // 2: {
             //     title: "2024-09",
